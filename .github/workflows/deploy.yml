@@ -20,6 +20,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: './mi-proyect'
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,33 +33,13 @@ jobs:
         with:
           node-version: 20
 
-      - name: Locate App, Install and Build
+      - name: Install dependencies
         run: |
-          # Buscar la carpeta exacta que contiene el package.json de tu app
-          PKG_PATH=$(find . -name "package.json" -not -path "*/node_modules/*" | head -n 1)
-          
-          if [ -z "$PKG_PATH" ]; then
-            echo "Error: No se encontro ningun package.json"
-            exit 1
-          fi
-
-          TARGET_DIR=$(dirname "$PKG_PATH")
-          echo "Proyecto encontrado en: $TARGET_DIR"
-          
-          cd "$TARGET_DIR"
-          
-          # Instalacion y compilacion
           npm install
           npm install vite --no-save
-          npm run build
-          
-          # Copiar el resultado de la compilacion a un directorio raiz temporal
-          mkdir -p $GITHUB_WORKSPACE/output_dist
-          if [ -d "dist" ]; then
-            cp -r dist/* $GITHUB_WORKSPACE/output_dist/
-          elif [ -d "build" ]; then
-            cp -r build/* $GITHUB_WORKSPACE/output_dist/
-          fi
+
+      - name: Build
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -63,7 +47,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './output_dist'
+          path: './mi-proyect/dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
