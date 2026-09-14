@@ -1,5 +1,5 @@
 name: Deploy React App to GitHub Pages
-#hola
+
 on:
   push:
     branches: [ main ]
@@ -20,10 +20,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: './mi-proyect'
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,13 +29,21 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
+      - name: Install and Build Dynamic Path
         run: |
+          # Localizar la subcarpeta que contiene el package.json
+          TARGET_DIR=$(dirname $(find . -name "package.json" -not -path "*/node_modules/*" | head -n 1))
+          echo "Entrando a la carpeta: $TARGET_DIR"
+          cd "$TARGET_DIR"
+          
+          # Instalacion y compilacion
           npm install
           npm install vite --no-save
-
-      - name: Build
-        run: npm run build
+          npm run build
+          
+          # Copiar dist a la raiz de la maquina virtual para el artefacto
+          mkdir -p $GITHUB_WORKSPACE/output_dist
+          cp -r dist/* $GITHUB_WORKSPACE/output_dist/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -47,7 +51,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './mi-proyect/dist'
+          path: './output_dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
