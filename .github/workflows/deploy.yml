@@ -29,19 +29,24 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install and Build Dynamic Path
+      - name: Install and Build
         run: |
-          # Localizar la subcarpeta que contiene el package.json
-          TARGET_DIR=$(dirname $(find . -name "package.json" -not -path "*/node_modules/*" | head -n 1))
-          echo "Entrando a la carpeta: $TARGET_DIR"
+          PKG_FILE=$(find . -name "package.json" -not -path "*/node_modules/*" | head -n 1)
+          
+          if [ -z "$PKG_FILE" ]; then
+            echo "CRITICAL ERROR: No se encontro el archivo package.json en ninguna subcarpeta del repositorio."
+            echo "Asegurate de haber ejecutado 'git add -f package.json' y hacer push."
+            exit 1
+          fi
+
+          TARGET_DIR=$(dirname "$PKG_FILE")
+          echo "Proyecto encontrado en: $TARGET_DIR"
           cd "$TARGET_DIR"
           
-          # Instalacion y compilacion
           npm install
           npm install vite --no-save
           npm run build
           
-          # Copiar dist a la raiz de la maquina virtual para el artefacto
           mkdir -p $GITHUB_WORKSPACE/output_dist
           cp -r dist/* $GITHUB_WORKSPACE/output_dist/
 
