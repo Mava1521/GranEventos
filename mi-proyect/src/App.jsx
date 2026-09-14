@@ -1,0 +1,25 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Historia from './pages/History';
+import Sostenibilidad from './pages/Sustainability';
+import NuevasTecnologias from './pages/Proyects';
+import Servicios from './pages/Services';
+import Contacto from './pages/Contact';
+
+export default function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/historia" element={<Historia />} />
+        <Route path="/sostenibilidad" element={<Sostenibilidad />} />
+        <Route path="/nuevas-tecnologias" element={<NuevasTecnologias />} />
+        <Route path= "/servicios" element= {< Servicios/>} />
+        <Route path="/contacto" element={<Contacto />} />
+      </Routes>
+    </Router>
+  );
+}

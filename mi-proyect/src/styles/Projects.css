@@ -1,0 +1,711 @@
+/* =========================================================
+   FUENTES
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+.projects-page {
+  --gold: #efbd00;
+  --black: #171717;
+  --gray: #6d6d6d;
+  --light-gray: #f5f5f5;
+
+  width: 100%;
+  overflow: hidden;
+
+  background: #ffffff;
+
+  color: var(--black);
+
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+/* =========================================================
+   GENERAL
+   ========================================================= */
+
+.projects-page *,
+.projects-page *::before,
+.projects-page *::after {
+  box-sizing: border-box;
+}
+
+.projects-page img {
+  display: block;
+  width: 100%;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  line-height: 1; /* Mantiene la misma altura de línea que el texto */
+}
+
+.gold-line {
+  display: inline-block;
+  width: 34px;
+  height: 2px;
+  background: var(--gold);
+  vertical-align: middle; /* Asegura centrado perfecto */
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.projects-hero {
+  position: relative;
+  min-height: 470px;
+  padding-top: 135px;
+  display: grid;
+  grid-template-columns: 47% 18% 35%;
+  background: #ffffff;
+  padding-bottom: 60px; /* Espacio extra para el texto inferior */
+}
+
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.projects-hero-content {
+  position: relative;
+  z-index: 3;
+
+  padding-left: 47px;
+}
+
+.projects-hero-content h1 {
+  margin: 0;
+
+  font-family: 'Oswald', sans-serif;
+
+  font-size: clamp(45px, 4.1vw, 70px);
+
+  line-height: 0.92;
+
+  font-weight: 500;
+
+  letter-spacing: -1px;
+}
+
+.projects-hero-content h1 span {
+  color: var(--gold);
+}
+
+.projects-hero-content p {
+  margin-top: 30px;
+
+  color: #666666;
+
+  font-size: 15px;
+  line-height: 1.65;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   KEYWORDS
+   ========================================================= */
+
+.hero-keywords {
+  position: relative;
+  z-index: 5;
+
+  padding-top: 54px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+
+  font-size: 10px;
+
+  letter-spacing: 2.5px;
+
+  color: #595959;
+}
+
+.hero-small-line {
+  width: 27px;
+  height: 2px;
+
+  margin-top: 6px;
+
+  background: var(--gold);
+}
+
+
+/* =========================================================
+   HERO IMAGE
+   ========================================================= */
+
+.projects-hero-image {
+  position: absolute;
+  top: 95px;
+  right: 0;
+  width: 45%;
+  height: 310px;
+  /* Mantenemos el overflow visible para elementos hijos desbordados */
+  overflow: visible; 
+}
+
+.projects-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  /* Aplicamos el recorte directamente a la etiqueta <img> para no cortar el texto */
+  clip-path: polygon(
+    13% 0,
+    100% 0,
+    100% 82%,
+    0 100%
+  );
+}
+
+.hero-image-overlay {
+  position: absolute;
+  right: 48px;
+  bottom: -35px; /* Lo desplaza hacia abajo fuera del borde de la imagen */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #777777; /* Cambiado de blanco a gris para ser visible sobre fondo blanco */
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-align: right;
+  z-index: 10;
+}
+
+
+/* =========================================================
+   CATEGORIES
+   ========================================================= */
+
+.projects-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: 15px;
+
+  padding: 0 46px;
+}
+
+.project-card {
+  position: relative;
+
+  padding: 0 25px 42px;
+
+  border-right: 1px solid #dddddd;
+}
+
+.project-card:last-child {
+  border-right: none;
+}
+
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.project-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+}
+
+.project-number {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.project-number .gold-line {
+  width: 35px;
+}
+
+.circle-arrow {
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #333333;
+  border-radius: 50%;
+
+  font-size: 19px;
+  font-weight: 300;
+}
+
+
+/* =========================================================
+   CARD TITLE
+   ========================================================= */
+
+.project-card h2 {
+  margin: 0 0 12px;
+
+  font-family: 'Oswald', sans-serif;
+
+  font-size: 33px;
+
+  line-height: 1;
+
+  font-weight: 600;
+
+  letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   CARD IMAGE
+   ========================================================= */
+
+.project-card-image {
+  width: 100%;
+  height: 370px;
+
+  overflow: hidden;
+
+  margin-bottom: 14px;
+}
+
+.project-card-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-card-image img {
+  transform: scale(1.04);
+}
+
+
+/* =========================================================
+   CARD TEXT
+   ========================================================= */
+
+.project-card h3 {
+  margin: 0 0 12px;
+
+  max-width: 300px;
+
+  line-height: 1.4;
+
+  font-weight: 700;
+}
+
+.project-card p {
+  min-height: 62px;
+
+  margin: 0;
+
+  color: #707070;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   CARD BOTTOM
+   ========================================================= */
+
+.card-bottom-line {
+  width: 25px;
+  height: 1px;
+
+  margin: 19px 0 12px;
+
+  background: #444444;
+}
+
+.view-project {
+  display: flex;
+  align-items: center;
+
+  gap: 16px;
+
+  color: #111111;
+
+  text-decoration: none;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+}
+
+.view-project span:last-child {
+  font-size: 20px;
+  font-weight: 400;
+
+  transition: transform 0.2s ease;
+}
+
+.view-project:hover span:last-child {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   TEAM
+   ========================================================= */
+
+.projects-team {
+  display: grid;
+  grid-template-columns: 57.5% 42.5%;
+
+  min-height: 285px;
+
+  margin-top: 5px;
+
+  background: #f5f5f5;
+}
+
+.team-image {
+  overflow: hidden;
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.team-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 40px 50px;
+}
+
+.team-content .section-label {
+  margin-bottom: 18px;
+}
+
+.team-content h2 {
+  margin: 0;
+
+  font-family: 'Oswald', sans-serif;
+
+  font-size: 38px;
+
+  line-height: 0.95;
+
+  font-weight: 600;
+}
+
+.team-content p {
+  max-width: 430px;
+
+  margin: 17px 0 20px;
+
+  color: #6a6a6a;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+
+.project-button {
+  width: 245px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 18px;
+
+  color: #ffffff;
+
+  background: #111111;
+
+  text-decoration: none;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.8px;
+
+  transition: background 0.2s ease;
+}
+
+.project-button:hover {
+  background: var(--gold);
+}
+
+.button-arrow {
+  font-size: 21px;
+  font-weight: 300;
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.projects-stats {
+  display: grid;
+
+  grid-template-columns: 1.2fr repeat(4, 1fr);
+
+  min-height: 125px;
+
+  padding: 30px 47px;
+
+  align-items: center;
+
+  background: #ffffff;
+}
+
+.stats-intro {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  color: #555555;
+}
+
+.stats-intro .gold-line {
+  margin-top: 11px;
+}
+
+.project-stat {
+  min-height: 62px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-left: 30px;
+
+  border-left: 1px solid #d8d8d8;
+}
+
+.project-stat strong {
+  font-family: 'Oswald', sans-serif;
+
+  font-size: 27px;
+
+  line-height: 1;
+
+  font-weight: 600;
+}
+
+.project-stat span {
+  margin-top: 7px;
+
+  color: #777777;
+
+  font-size: 8px;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .projects-hero {
+    grid-template-columns: 55% 20% 25%;
+  }
+
+  .projects-hero-content {
+    padding-left: 30px;
+  }
+
+  .projects-hero-content h1 {
+    font-size: 48px;
+  }
+
+  .projects-hero-content p {
+    font-size: 12px;
+  }
+
+  .projects-categories {
+    padding: 0 20px;
+  }
+
+  .project-card {
+    padding: 0 15px 35px;
+  }
+
+  .project-card-image {
+    height: 300px;
+  }
+
+  .project-card h2 {
+    font-size: 28px;
+  }
+
+  .projects-team {
+    grid-template-columns: 55% 45%;
+  }
+
+  .team-content {
+    padding: 30px;
+  }
+
+  .team-content h2 {
+    font-size: 30px;
+  }
+
+  .projects-stats {
+    padding: 25px;
+  }
+
+  .project-stat {
+    padding-left: 18px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .projects-hero {
+    display: flex;
+    flex-direction: column;
+
+    min-height: auto;
+
+    padding: 145px 25px 50px;
+  }
+
+  .projects-hero-content {
+    padding-left: 0;
+  }
+
+  .projects-hero-content h1 {
+    font-size: 48px;
+  }
+
+  .projects-hero-content p {
+    font-size: 13px;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .hero-keywords {
+    margin-top: 35px;
+    padding-top: 0;
+  }
+
+  .projects-hero-image {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    width: calc(100% + 50px);
+
+    height: 260px;
+
+    margin-top: 35px;
+    margin-left: -25px;
+
+    clip-path: none;
+  }
+
+  .projects-categories {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 25px;
+  }
+
+  .project-card {
+    padding: 40px 0;
+
+    border-right: none;
+    border-bottom: 1px solid #dddddd;
+  }
+
+  .project-card-image {
+    height: 400px;
+  }
+
+  .projects-team {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .team-image {
+    height: 280px;
+  }
+
+  .team-content {
+    padding: 40px 25px;
+  }
+
+  .projects-stats {
+    display: flex;
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 20px;
+
+    padding: 40px 25px;
+  }
+
+  .stats-intro {
+    margin-bottom: 10px;
+  }
+
+  .project-stat {
+    min-height: auto;
+
+    padding: 20px 0 0;
+
+    border-left: none;
+    border-top: 1px solid #dddddd;
+  }
+}

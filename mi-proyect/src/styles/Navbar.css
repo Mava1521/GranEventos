@@ -1,0 +1,293 @@
+/* =========================================================
+   NAVBAR BASE
+   ========================================================= */
+
+.navbar {
+  width: 100%;
+  z-index: 100;
+  padding: 32px 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* =========================================================
+   HOME
+   ========================================================= */
+
+.navbar-home {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: transparent;
+}
+
+.navbar-home .nav-item {
+  color: #ffffff;
+}
+
+.navbar-home .logo-placeholder {
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+}
+
+/* =========================================================
+   PAGINAS INTERNAS
+   ========================================================= */
+
+.navbar-inner {
+  position: relative;
+}
+
+.navbar-inner .nav-item {
+  color: #ffffff;
+}
+
+.navbar-inner .logo-placeholder {
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+/* =========================================================
+   PROYECTOS
+   SOLO AFECTA /nuevas-tecnologias
+   ========================================================= */
+
+.navbar-projects {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: #ffffff;
+
+  padding: 22px 46px 18px;
+
+  color: #111111;
+}
+
+.navbar-projects .nav-item {
+  color: #292929;
+}
+
+.navbar-projects .nav-item:hover {
+  color: #eab900;
+}
+
+.navbar-projects .logo-placeholder {
+  border: none;
+}
+
+.navbar-projects .active-indicator {
+  background-color: #efbd00;
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.brand-logos {
+  display: flex;
+  align-items: center;
+}
+
+.logo-placeholder {
+  display: flex;
+  align-items: center;
+
+  padding: 0;
+
+  text-decoration: none;
+}
+
+.logo-placeholder img {
+  display: block;
+  width: 175px;
+  height: auto;
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 36px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.nav-item-wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+
+  text-decoration: none;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 1.25px;
+
+  padding-bottom: 7px;
+
+  transition: color 0.2s ease;
+}
+
+.nav-item:hover {
+  color: var(--accent-gold, #efbd00);
+}
+
+/* =========================================================
+   ACTIVE
+   ========================================================= */
+
+.active-indicator {
+  position: absolute;
+
+  bottom: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background-color: var(--accent-gold, #efbd00);
+}
+
+/* =========================================================
+   IDIOMA
+   ========================================================= */
+
+.lang-selector {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.lang-selector .active {
+  color: #e8b700;
+}
+
+.lang-selector .separator {
+  color: #777777;
+}
+
+.navbar-history {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding:
+    25px
+    50px;
+
+  background: transparent;
+
+  z-index: 100;
+}
+
+
+.navbar-history .nav-item {
+  color: #222222;
+}
+
+
+.navbar-history .logo-placeholder {
+  border: none;
+}
+
+
+.navbar-history .active-indicator {
+  background: var(--accent-gold, #f4c400);
+}
+
+
+.navbar-history .lang-selector {
+  color: #222222;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .navbar {
+    padding: 22px 30px;
+  }
+
+  .navbar-projects {
+    padding: 20px 30px;
+  }
+
+  .nav-links {
+    gap: 22px;
+  }
+
+  .logo-placeholder img {
+    width: 150px;
+  }
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 18px;
+  }
+
+  .lang-selector {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 18px 20px;
+  }
+
+  .navbar-projects {
+    padding: 18px 20px;
+  }
+
+  .logo-placeholder img {
+    width: 135px;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-item {
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+}

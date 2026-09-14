@@ -1,0 +1,1043 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg-dark: #070707;
+  --bg-light-section: #eef0f2;
+  --text-dark-theme: #ffffff;
+  --text-light-theme: #111111;
+  --text-muted-dark: #a0a0a0;
+  --text-muted-light: #555555;
+  --accent-gold: #fdd000;
+  --accent-green: #9dc425;
+  --font-condensed: 'Oswald', sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-dark-theme);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* CONTENEDOR FLUIDO MULTIPLATAFORMA */
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* NAVBAR (Superpuesto encima del video) */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 32px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logos {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-placeholder {
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  padding: 6px 12px;
+  color: #ffffff;
+  letter-spacing: 0.8px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-item-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-item {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  transition: color 0.2s ease;
+  padding-bottom: 6px;
+}
+
+.nav-item:hover {
+  color: var(--accent-gold);
+}
+
+.active-indicator {
+  position: absolute;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-gold);
+}
+
+.lang-selector {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.lang-selector span.active {
+  color: var(--accent-gold);
+}
+
+/* HERO SECTION CENTRADO */
+.hero-section {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 2;
+}
+
+.hero-center-content {
+  position: relative;
+  z-index: 5; /* Nivel alto para asegurar visibilidad */
+  text-align: center;
+  max-width: 900px;
+  padding: 0 20px;
+  margin-top: 60px;
+}
+
+.hero-title-centered {
+  font-family: var(--font-body);
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.hero-subtext-centered {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.btn-outlined {
+  display: inline-block;
+  padding: 12px 32px;
+  border: 1.5px solid #ffffff;
+  border-radius: 4px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.btn-outlined:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* ==========================================
+   TIPOGRAFÍA Y ESTILO FIEL A LA IMAGEN
+   ========================================== */
+.hero-content-left {
+  position: relative;
+  z-index: 5;
+  text-align: left; /* Alineado a la izquierda como la foto */
+  max-width: 800px;
+  padding: 0 40px;
+  margin-top: 80px;
+}
+
+/* Título con fuente condensada Oswald */
+.hero-title-oswald {
+  font-family: var(--font-condensed); /* Oswald */
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 1.05;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Color dorado idéntico */
+.text-gold {
+  color: var(--accent-gold);
+}
+
+/* Línea separadora dorada */
+.gold-line {
+  width: 44px;
+  height: 4px;
+  background-color: var(--accent-gold);
+
+  border-radius: 1px;
+}
+
+/* Párrafo con fuente Inter */
+.hero-subtext-left {
+  font-family: var(--font-body); /* Inter */
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+/* Botón dorado con flecha */
+.btn-cta-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent-gold);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: transform 0.2s ease;
+}
+
+.btn-cta-gold:hover {
+  transform: translateX(6px);
+}
+
+/* Ajuste responsive para móviles */
+@media (max-width: 768px) {
+  .hero-title-oswald {
+    font-size: 2.6rem;
+  }
+  .hero-subtext-left {
+    font-size: 0.88rem;
+  }
+}
+
+
+/* PLACEHOLDERS DE IMÁGENES Y MEDIA */
+.image-placeholder {
+  width: 100%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* MIDDLE SECTION (FONDO CLARO) */
+.middle-section-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: var(--bg-light-section); /* Cubre todo de borde a borde */
+  color: var(--text-light-theme);
+  padding: 100px 0;
+}
+
+.middle-section {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+.middle-media {
+  height: 480px; /* Tamaño amplio proporcional a la foto 2 */
+  background-color: #101010;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.middle-content {
+  text-align: left;
+}
+
+.tag-clean {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #333333;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.tag-clean .accent-x {
+  color: var(--accent-green);
+  margin: 0 4px;
+}
+
+.green-point {
+  color: var(--accent-green);
+}
+
+.section-title-light {
+  font-family: var(--font-condensed);
+  font-size: 2.7rem;
+  text-transform: uppercase;
+  color: #111111;
+  margin-bottom: 16px;
+}
+
+.green-line {
+  width: 48px;
+  height: 4px;
+  background-color: var(--accent-green);
+  margin-bottom: 24px;
+  border-radius: 1px;
+}
+
+.description-light {
+  color: var(--text-muted-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 420px;
+  text-align: left;
+}
+
+.middle-media {
+  height: 380px;
+  background-color: #101010;
+  border-radius: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* CARDS GRID (DARK) */
+.cards-section-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: var(--bg-dark);
+  padding: 80px 0 120px 0;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+
+.card-item {
+  position: relative;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.hero-media {
+  background-color: #1a1a1a;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.2) 100%);
+  padding: 28px;
+  display: flex;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-title {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+/* ============================================================
+   NUESTRAS FORTALEZAS
+   Sección independiente para evitar conflictos con el resto
+   del Home.
+   ============================================================ */
+
+.strengths-section-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  background-color: #0b0b0b;
+}
+
+.strengths-section {
+  width: 100%;
+  padding: 92px 0 110px;
+  background-color: #0b0b0b;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.strengths-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.8fr);
+  align-items: end;
+  gap: 80px;
+  margin-bottom: 58px;
+}
+
+
+/* Etiqueta superior */
+
+.strengths-label {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-bottom: 18px;
+
+  color: #b9b9b9;
+
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.strengths-label-line {
+  width: 68px;
+  height: 5px;
+
+  display: block;
+
+  background-color: var(--accent-gold);
+  border-radius: 2px;
+}
+
+
+/* Título */
+
+.strengths-title {
+  margin: 0;
+
+  font-family: var(--font-condensed);
+
+  font-size: clamp(3.3rem, 5vw, 5.15rem);
+  font-weight: 700;
+
+  line-height: 0.98;
+  letter-spacing: 0.2px;
+
+  color: #ffffff;
+
+  text-transform: uppercase;
+}
+
+.strengths-title span {
+  color: var(--accent-gold);
+}
+
+
+/* Texto derecho */
+
+.strengths-header-description {
+  align-self: center;
+
+  max-width: 470px;
+  padding-top: 25px;
+}
+
+.strengths-header-description p {
+  margin: 0;
+
+  color: #d0d0d0;
+
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+
+  line-height: 1.65;
+}
+
+
+/* ============================================================
+   GRID DE CARDS
+   ============================================================ */
+
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+
+  width: 100%;
+}
+
+
+/* ============================================================
+   CARD
+   ============================================================ */
+
+.strength-card {
+  position: relative;
+
+  height: 540px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+
+  background-color: #17191c;
+
+  isolation: isolate;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.strength-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+
+/* ============================================================
+   ÁREA DE IMAGEN
+   ============================================================ */
+
+.strength-card-media {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -3;
+
+  background-color: #151719;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+/*
+   Cuando tengas las imágenes reales puedes reemplazar
+   estos backgrounds por tus archivos locales.
+*/
+
+.strength-card:nth-child(1) .strength-card-media {
+  background-image:
+    linear-gradient(
+      rgba(10, 10, 10, 0.1),
+      rgba(10, 10, 10, 0.1)
+    );
+}
+
+.strength-card:nth-child(2) .strength-card-media {
+  background-image:
+    linear-gradient(
+      rgba(10, 10, 10, 0.1),
+      rgba(10, 10, 10, 0.1)
+    );
+}
+
+.strength-card:nth-child(3) .strength-card-media {
+  background-image:
+    linear-gradient(
+      rgba(10, 10, 10, 0.1),
+      rgba(10, 10, 10, 0.1)
+    );
+}
+
+
+/* ============================================================
+   DEGRADADO
+   ============================================================ */
+
+.strength-card-gradient {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.10) 0%,
+      rgba(0, 0, 0, 0.16) 28%,
+      rgba(0, 0, 0, 0.38) 50%,
+      rgba(0, 0, 0, 0.96) 100%
+    );
+
+  transition: background 0.35s ease;
+}
+
+.strength-card:hover .strength-card-gradient {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.12) 0%,
+      rgba(0, 0, 0, 0.18) 28%,
+      rgba(0, 0, 0, 0.45) 52%,
+      rgba(0, 0, 0, 0.98) 100%
+    );
+}
+
+
+/* ============================================================
+   CONTENIDO INTERNO
+   ============================================================ */
+
+.strength-card-content {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 30px 32px 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/* ============================================================
+   PARTE SUPERIOR
+   ============================================================ */
+
+.strength-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  width: 100%;
+}
+
+
+/* Número */
+
+.strength-number {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: #ffffff;
+
+  font-family: var(--font-body);
+
+  font-size: 1.55rem;
+  font-weight: 600;
+
+  line-height: 1;
+}
+
+.strength-number-line {
+  width: 32px;
+  height: 3px;
+
+  display: block;
+
+  background-color: var(--accent-gold);
+
+  border-radius: 1px;
+}
+
+
+/* Verde para cards 2 y 3 */
+
+.strengths-card-green .strength-number-line {
+  background-color: var(--accent-green);
+}
+
+
+/* Texto superior derecho */
+
+.strength-card-tag {
+  text-align: right;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-family: var(--font-body);
+
+  font-size: 0.78rem;
+  font-weight: 500;
+
+  line-height: 1.35;
+
+  letter-spacing: 1.2px;
+
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   PARTE INFERIOR
+   ============================================================ */
+
+.strength-card-bottom {
+  width: 100%;
+}
+
+
+/* Título */
+
+.strength-card-bottom h3 {
+  margin: 0 0 8px;
+
+  font-family: var(--font-condensed);
+
+  color: #ffffff;
+
+  font-size: 2.55rem;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 0.5px;
+
+  text-transform: uppercase;
+}
+
+
+/* Descripción */
+
+.strength-card-bottom p {
+  max-width: 410px;
+
+  margin: 0 0 25px;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-family: var(--font-body);
+
+  font-size: 0.91rem;
+  font-weight: 400;
+
+  line-height: 1.55;
+}
+
+
+/* ============================================================
+   BOTÓN CONOCE MÁS
+   ============================================================ */
+
+.strength-card-link {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: var(--accent-gold);
+
+  font-family: var(--font-body);
+
+  font-size: 0.83rem;
+  font-weight: 600;
+
+  letter-spacing: 1.1px;
+
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: gap 0.25s ease;
+}
+
+.strengths-card-green .strength-card-link {
+  color: var(--accent-green);
+}
+
+.strength-card-link:hover {
+  gap: 16px;
+}
+
+
+/* Círculo de flecha */
+
+.strength-arrow {
+  width: 43px;
+  height: 43px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid currentColor;
+  border-radius: 50%;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.strength-card-link:hover .strength-arrow {
+  background-color: currentColor;
+  transform: translateX(2px);
+}
+
+.strength-card-link:hover .strength-arrow svg {
+  color: #0b0b0b;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1200px) {
+
+  .strengths-header {
+    gap: 45px;
+  }
+
+  .strengths-title {
+    font-size: 4rem;
+  }
+
+  .strength-card {
+    height: 510px;
+  }
+
+  .strength-card-content {
+    padding: 26px;
+  }
+
+  .strength-card-bottom h3 {
+    font-size: 2.25rem;
+  }
+
+}
+
+
+@media (max-width: 900px) {
+
+  .strengths-section {
+    padding: 75px 0 90px;
+  }
+
+  .strengths-header {
+    grid-template-columns: 1fr;
+    gap: 30px;
+
+    margin-bottom: 45px;
+  }
+
+  .strengths-header-description {
+    padding-top: 0;
+    max-width: 600px;
+  }
+
+  .strengths-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strength-card {
+    height: 500px;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .strengths-section {
+    padding: 60px 0 70px;
+  }
+
+  .strengths-header {
+    margin-bottom: 35px;
+  }
+
+  .strengths-label {
+    gap: 12px;
+    font-size: 0.7rem;
+  }
+
+  .strengths-label-line {
+    width: 45px;
+    height: 4px;
+  }
+
+  .strengths-title {
+    font-size: 3rem;
+    line-height: 0.98;
+  }
+
+  .strengths-header-description p {
+    font-size: 0.88rem;
+  }
+
+  .strengths-grid {
+    gap: 18px;
+  }
+
+  .strength-card {
+    height: 470px;
+  }
+
+  .strength-card-content {
+    padding: 23px;
+  }
+
+  .strength-number {
+    font-size: 1.3rem;
+  }
+
+  .strength-number-line {
+    width: 27px;
+  }
+
+  .strength-card-tag {
+    font-size: 0.66rem;
+  }
+
+  .strength-card-bottom h3 {
+    font-size: 2.15rem;
+  }
+
+  .strength-card-bottom p {
+    font-size: 0.84rem;
+    margin-bottom: 20px;
+  }
+
+}
+
+/* ADAPTABILIDAD RESPONSIVE */
+@media (max-width: 1200px) {
+  .section-title-light {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    position: absolute;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+  .container {
+    padding: 0 24px;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .hero-center-content {
+    margin-top: 100px;
+  }
+  .hero-title-centered {
+    font-size: 2rem;
+  }
+  .hero-subtext-centered {
+    font-size: 0.9rem;
+  }
+  .middle-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .middle-media {
+    height: 300px;
+  }
+}

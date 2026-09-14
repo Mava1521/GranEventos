@@ -1,0 +1,805 @@
+/* ==========================================================
+   HISTORIA
+   ========================================================== */
+
+.history-page {
+  --gold: #f4c400;
+  --black: #151515;
+  --gray: #686868;
+  --light: #f5f4ef;
+
+  min-height: 100vh;
+
+  background: #f8f7f3;
+
+  color: var(--black);
+
+  font-family: 'Montserrat', sans-serif;
+
+  overflow: hidden;
+}
+
+.history-page *,
+.history-page *::before,
+.history-page *::after {
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+.history-hero {
+  position: relative;
+
+  min-height: 330px;
+
+  padding: 125px 50px 30px;
+
+  overflow: hidden;
+
+  background: #f8f7f3;
+}
+
+
+.history-hero-content {
+  position: relative;
+
+  z-index: 5;
+
+  max-width: 380px;
+}
+
+
+.history-eyebrow {
+  display: block;
+
+  margin-bottom: 18px;
+
+  font-size: 14px;
+
+  letter-spacing: 7px;
+
+  font-weight: 500;
+}
+
+
+.history-hero h1 {
+  margin: 0;
+
+  font-family: 'Oswald', sans-serif;
+
+  font-size: clamp(38px, 3.2vw, 57px);
+
+  line-height: 0.95;
+
+  font-weight: 500;
+
+  letter-spacing: 5px;
+}
+
+
+.history-gold-line {
+  width: 40px;
+
+  height: 3px;
+
+  margin: 20px 0 17px;
+
+  background: var(--gold);
+}
+
+
+.history-hero p {
+  margin: 0;
+
+  color: #4f4f4f;
+
+  font-size: 12px;
+
+  line-height: 1.35;
+
+  letter-spacing: 0.4px;
+}
+
+
+/* ==========================================================
+   TEXTO SUPERIOR
+   ========================================================== */
+
+.history-top-message {
+  position: absolute;
+  top: 150px;
+  right: 52px;
+  gap: 17px;
+  color: #333;
+  font-size: 8px;
+  letter-spacing: 3px;
+}
+
+
+/* ==========================================================
+   LOGO CENTRAL
+   ========================================================== */
+
+.history-center-logo {
+  position: absolute;
+
+  top: 110px;
+  left: 48%;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 105px;
+
+  font-weight: 900;
+
+  letter-spacing: -20px;
+
+  color: var(--gold);
+
+  opacity: 0.95;
+}
+
+
+/* ==========================================================
+   COLLAGE
+   ========================================================== */
+
+.history-collage {
+  position: relative;
+
+  width: 100%;
+
+  height: 235px;
+
+  margin-top: -10px;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(244, 196, 0, 0.05) 100%
+    );
+}
+
+
+/*
+  Estos son placeholders temporales.
+
+  Cuando tengas las imágenes reales:
+
+  background-image:
+  url('../assets/nosotros/1987.jpg');
+
+  o directamente <img>.
+*/
+
+.collage-placeholder {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d1d1d1;
+
+  background:
+    linear-gradient(
+      135deg,
+      #e2e2e2,
+      #bcbcbc
+    );
+
+  color: #555;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  filter: grayscale(100%);
+}
+
+
+.collage-one {
+  left: 2%;
+  top: 55px;
+
+  width: 12%;
+  height: 115px;
+}
+
+
+.collage-two {
+  left: 14%;
+  top: 25px;
+
+  width: 17%;
+  height: 135px;
+}
+
+
+.collage-three {
+  left: 29%;
+  top: 5px;
+
+  width: 14%;
+  height: 160px;
+}
+
+
+.collage-four {
+  left: 43%;
+  top: 40px;
+
+  width: 19%;
+  height: 130px;
+}
+
+
+.collage-five {
+  left: 61%;
+  top: 10px;
+
+  width: 17%;
+  height: 155px;
+}
+
+
+.collage-six {
+  right: 2%;
+  top: 20px;
+
+  width: 16%;
+  height: 145px;
+}
+
+
+/* ==========================================================
+   TIMELINE
+   ========================================================== */
+
+.timeline-section {
+  position: relative;
+
+  width: 100%;
+
+  padding: 0 50px 35px;
+}
+
+
+/* Línea */
+
+.timeline-track {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(9, 1fr);
+
+  gap: 0;
+
+  width: 100%;
+}
+
+
+.timeline-line {
+  position: absolute;
+
+  top: 18px;
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background: #cfcfcf;
+
+  z-index: 0;
+}
+
+
+/* ==========================================================
+   ITEM
+   ========================================================== */
+
+.timeline-item {
+  position: relative;
+
+  z-index: 2;
+
+  min-width: 0;
+
+  padding-right: 18px;
+}
+
+
+.timeline-year-button {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  width: 100%;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--black);
+
+  cursor: pointer;
+
+  text-align: left;
+}
+
+
+.timeline-year-button:focus-visible {
+  outline: 2px solid var(--gold);
+
+  outline-offset: 5px;
+}
+
+
+/* ==========================================================
+   PUNTO
+   ========================================================== */
+
+.timeline-dot {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  margin-bottom: 4px;
+
+  background: #f8f7f3;
+}
+
+
+.timeline-dot::before {
+  content: '';
+
+  position: absolute;
+
+  left: 50%;
+  top: 0;
+
+  width: 1px;
+  height: 36px;
+
+  background: var(--gold);
+}
+
+
+.timeline-dot span {
+  position: relative;
+
+  z-index: 2;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--gold);
+
+  transition: transform 0.25s ease;
+}
+
+
+.timeline-item--active
+.timeline-dot span {
+  transform: scale(1.45);
+}
+
+
+/* ==========================================================
+   YEAR
+   ========================================================== */
+
+.timeline-year {
+  display: block;
+
+  margin-bottom: 13px;
+
+  font-family: 'Oswald', sans-serif;
+
+  font-size: 23px;
+
+  line-height: 1;
+
+  font-weight: 500;
+}
+
+
+/* ==========================================================
+   CARD
+   ========================================================== */
+
+.timeline-card {
+  padding-right: 15px;
+}
+
+
+.timeline-card h3 {
+  min-height: 30px;
+
+  margin: 0 0 10px;
+
+  font-family: 'Oswald', sans-serif;
+
+  font-size: 11px;
+
+  line-height: 1.15;
+
+  letter-spacing: 2px;
+
+  font-weight: 500;
+}
+
+
+.timeline-card p {
+  margin: 0;
+
+  color: #777;
+
+  font-size: 9px;
+
+  line-height: 1.45;
+}
+
+
+/* ==========================================================
+   DETALLE
+   ========================================================== */
+
+.timeline-detail {
+  display: none;
+}
+
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+.history-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px 50px 25px;
+
+  border-top: 1px solid #e1e0dc;
+}
+
+
+.history-footer-brand {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+}
+
+
+.footer-gold-line {
+  width: 34px;
+  height: 3px;
+
+  background: var(--gold);
+}
+
+
+.history-footer-locations {
+  display: flex;
+
+  gap: 14px;
+
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+  color: #555;
+}
+
+/* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 1100px) {
+
+  .history-hero {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  .history-top-message {
+    right: 35px;
+  }
+
+  .timeline-section {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .timeline-card p {
+    font-size: 8px;
+  }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+  .history-hero {
+    min-height: 500px;
+
+    padding:
+      130px
+      25px
+      30px;
+  }
+
+
+  .history-hero-content {
+    max-width: 100%;
+  }
+
+
+  .history-eyebrow {
+    font-size: 11px;
+
+    letter-spacing: 5px;
+  }
+
+
+  .history-hero h1 {
+    font-size: 45px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .history-hero p {
+    font-size: 12px;
+  }
+
+
+  .history-top-message {
+    top: 95px;
+
+    left: 25px;
+    right: auto;
+
+    flex-wrap: wrap;
+
+    max-width: 320px;
+
+    gap: 8px;
+
+    font-size: 7px;
+  }
+
+
+  .history-center-logo {
+    left: auto;
+    right: 20px;
+
+    top: 235px;
+
+    font-size: 90px;
+  }
+
+
+  /* ==============================================
+     COLLAGE MOBILE
+     ============================================== */
+
+  .history-collage {
+    height: 280px;
+
+    margin-top: 0;
+  }
+
+
+  .collage-one {
+    left: 5%;
+    top: 15px;
+
+    width: 35%;
+    height: 120px;
+  }
+
+
+  .collage-two {
+    left: 38%;
+    top: 0;
+
+    width: 40%;
+    height: 130px;
+  }
+
+
+  .collage-three {
+    left: 8%;
+    top: 105px;
+
+    width: 40%;
+    height: 135px;
+  }
+
+
+  .collage-four {
+    right: 5%;
+    left: auto;
+
+    top: 120px;
+
+    width: 43%;
+    height: 130px;
+  }
+
+
+  .collage-five,
+  .collage-six {
+    display: none;
+  }
+
+
+  /* ==============================================
+     TIMELINE VERTICAL
+     ============================================== */
+
+  .timeline-section {
+    padding:
+      20px
+      25px
+      40px;
+  }
+
+
+  .timeline-track {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+
+    padding-left: 20px;
+  }
+
+
+  .timeline-line {
+    top: 0;
+    bottom: 0;
+
+    left: 37px;
+    right: auto;
+
+    width: 1px;
+
+    height: auto;
+  }
+
+
+  .timeline-item {
+    padding:
+      0
+      0
+      28px
+      0;
+  }
+
+
+  .timeline-year-button {
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 15px;
+  }
+
+
+  .timeline-dot {
+    flex: 0 0 35px;
+
+    width: 35px;
+    height: 35px;
+
+    margin: 0;
+  }
+
+
+  .timeline-dot::before {
+    display: none;
+  }
+
+
+  .timeline-year {
+    margin: 0;
+
+    font-size: 27px;
+  }
+
+
+  .timeline-card {
+    margin-left: 50px;
+
+    margin-top: 8px;
+
+    padding-right: 10px;
+  }
+
+
+  .timeline-card h3 {
+    font-size: 12px;
+  }
+
+
+  .timeline-card p {
+    font-size: 10px;
+
+    line-height: 1.5;
+  }
+
+
+  /* ==============================================
+     EVENTO ACTIVO
+     ============================================== */
+
+  .timeline-item--active .timeline-card {
+    padding:
+      12px
+      14px;
+
+    border-left: 2px solid var(--gold);
+
+    background: rgba(244, 196, 0, 0.07);
+  }
+
+
+  /* ==============================================
+     FOOTER
+     ============================================== */
+
+  .history-footer {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding:
+      25px;
+  }
+
+
+  .history-footer-locations {
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    font-size: 7px;
+  }
+
+}

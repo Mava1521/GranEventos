@@ -1,0 +1,381 @@
+.sustainability-page {
+  background-color: #ffffff;
+  color: #111111;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.sust-section-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.text-green {
+  color: #9dc425;
+}
+
+.text-light-muted {
+  color: #aaaaaa !important;
+}
+
+/* 1. HERO SECTION */
+.sust-hero {
+  position: relative;
+  width: 100%;
+  height: 920px;
+  overflow: hidden;
+  background-color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.sust-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+.sust-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25); /* Overlay suave para mantener contraste sin distorsionar */
+  z-index: 2;
+}
+
+.sust-hero-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Logo SETIE a la izquierda */
+.hero-main-brand {
+  position: absolute;
+  top: 300px;
+  left: 60px;
+  width: 100%;
+  max-width: 440px;
+  text-align: left;
+}
+
+.setie-logo-img {
+  width: 130%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Texto Superior Derecho */
+.hero-top-right {
+  position: absolute;
+  top: 160px;
+  right: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  letter-spacing: 2.5px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Texto Inferior Izquierdo */
+.hero-bottom-left {
+  position: absolute;
+  bottom: 160px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  color: #ffffff;
+}
+
+.hero-bottom-left h2 {
+  font-family: inherit;
+  letter-spacing: 4px;
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+  color: #ffffff;
+}
+
+.hero-bottom-left p {
+  font-size: 1.5rem;
+  letter-spacing: 2.5px;
+  line-height: 1.35;
+  color: #ffffff;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Barras verdes de acento exactas al diseño original */
+.hero-accent-line {
+  width: 38px;
+  height: 3px;
+  background-color: #9dc425; /* Verde SETIE idéntico al logo */
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+/* Líneas verdes decorativas */
+.hero-green-line {
+  display: block;        /* Obligatorio para que un <span> respete width y height */
+  width: 50px;
+  height: 4px;
+  background-color: #9dc425; /* Verde SETIE */
+  margin-top: 8px;
+  margin-bottom: 30px;
+}
+
+/* 2. STATS BAR */
+.sust-stats-bar {
+  width: 100%;
+  background-color: #ffffff;
+  color: #111111;
+  padding: 40px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-right: 1px solid #e0e0e0;
+}
+
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-number {
+  font-family: var(--font-condensed, 'Oswald', sans-serif);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #555555;
+  max-width: 180px;
+  margin-top: 6px;
+}
+
+/* 3. PROPÓSITO REAL */
+.sust-purpose-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 100px 0;
+}
+
+.sust-purpose {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.section-subtitle {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #666666;
+  display: block;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.section-title {
+  font-family: var(--font-condensed, 'Oswald', sans-serif);
+  font-size: 3.2rem;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  color: #111111;
+  font-weight: 700;
+}
+
+.purpose-description {
+  color: #555555;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 480px;
+}
+
+.purpose-card {
+  height: 380px;
+  display: flex;
+  align-items: flex-end;
+  padding: 40px;
+  background-color: #111111;
+  border-radius: 16px;
+}
+
+.card-overlay-content h3 {
+  font-family: var(--font-condensed, 'Oswald', sans-serif);
+  font-size: 2.2rem;
+  line-height: 1.1;
+  color: #ffffff;
+}
+
+/* 4. PILARES */
+.sust-features-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 60px 0;
+  border-top: 1px solid #eaeaea;
+}
+
+.sust-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature-icon {
+  color: #111111;
+}
+
+.feature-item h4 {
+  font-size: 0.85rem;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.feature-item p {
+  font-size: 0.85rem;
+  color: #666666;
+  line-height: 1.5;
+}
+
+/* 5. CARDS CASOS DE USO */
+.sust-usecases-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 30px 0;
+}
+
+.sust-usecases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.usecase-card {
+  height: 320px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #111111;
+  border-radius: 16px;
+  color: #ffffff;
+}
+
+.tag-category {
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  color: #aaaaaa;
+  font-weight: 600;
+}
+
+.usecase-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* 6. BANNER COMPROMISO FOOTER */
+.sust-commitment {
+  width: 100%;
+  background-color: #070707;
+  color: #ffffff;
+  padding: 100px 0;
+}
+
+.commitment-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.commitment-left h2 {
+  font-family: var(--font-condensed, 'Oswald', sans-serif);
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-top: 12px;
+}
+
+.commitment-right p {
+  color: #cccccc;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.commitment-keywords {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: #888888;
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .sust-section-inner {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .section-title {
+    font-size: 2.5rem;
+  }
+  .hero-bottom-left h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid, .sust-purpose, .sust-features, .sust-usecases, .commitment-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+  }
+  .hero-main-brand {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 40px 0;
+  }
+}
