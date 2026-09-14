@@ -10,14 +10,14 @@ import Contacto from './pages/Contact';
 
 export default function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/historia" element={<Historia />} />
         <Route path="/sostenibilidad" element={<Sostenibilidad />} />
         <Route path="/nuevas-tecnologias" element={<NuevasTecnologias />} />
-        <Route path= "/servicios" element= {< Servicios/>} />
+        <Route path="/servicios" element={<Servicios />} />
         <Route path="/contacto" element={<Contacto />} />
       </Routes>
     </Router>
