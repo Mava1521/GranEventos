@@ -38,8 +38,8 @@ export default function Home() {
                 </span>
 
                 <h2 className="section-title-light">
-                DOS HISTORIAS. <br />
-                UNA MISMA ENERGÍA<span className="green-point">.</span>
+                DOS <span className="text-gold">HISTORIAS</span>. <br />
+                UNA MISMA <span className="green-point">ENERGÍA</span>.
                 </h2>
 
                 <div className="green-line"></div>
@@ -112,7 +112,7 @@ export default function Home() {
                       </div>
 
                       <span className="strength-card-tag">
-                        EVENTOS
+                        <span className="text-blue">EVENTOS</span>
                         <br />
                         QUE CONECTAN
                       </span>
@@ -120,7 +120,7 @@ export default function Home() {
 
                     <div className="strength-card-bottom">
 
-                      <h3>EXPERIENCIAS</h3>
+                      <h3><span className="text-blue">EXPERIENCIAS</span></h3>
 
                       <p>
                         Producción integral de eventos que inspiran
@@ -159,7 +159,7 @@ export default function Home() {
                       </div>
 
                       <span className="strength-card-tag">
-                        ENERGÍA
+                        <span className="text-gold">ENERGÍA</span>
                         <br />
                         SIN LÍMITES
                       </span>
@@ -167,7 +167,7 @@ export default function Home() {
 
                     <div className="strength-card-bottom">
 
-                      <h3>ENERGÍA</h3>
+                      <h3><span className="text-gold">ENERGÍA</span></h3>
 
                       <p>
                         Soluciones energéticas confiables y
@@ -206,7 +206,7 @@ export default function Home() {
                       </div>
 
                       <span className="strength-card-tag">
-                        TECNOLOGÍA
+                        <span className="green-point">TECNOLOGÍA</span>
                         <br />
                         QUE IMPULSA
                       </span>
@@ -214,7 +214,7 @@ export default function Home() {
 
                     <div className="strength-card-bottom">
 
-                      <h3>TECNOLOGÍA</h3>
+                      <h3><span className="green-point">TECNOLOGÍA</span></h3>
 
                       <p>
                         Innovación en soluciones temporales

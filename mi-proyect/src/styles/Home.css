@@ -229,6 +229,10 @@ body {
   color: var(--accent-gold);
 }
 
+.text-blue {
+  color: #2e3182;
+}
+
 /* Línea separadora dorada */
 .gold-line {
   width: 44px;
