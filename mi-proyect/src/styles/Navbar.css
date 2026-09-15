@@ -61,7 +61,7 @@
   top: 0;
   left: 0;
 
-  background: #ffffff;
+  background: #111;
 
   padding: 22px 46px 18px;
 
@@ -69,7 +69,7 @@
 }
 
 .navbar-projects .nav-item {
-  color: #292929;
+  color: #ffffff;
 }
 
 .navbar-projects .nav-item:hover {

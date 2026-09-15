@@ -20,7 +20,7 @@
 
   background: #ffffff;
 
-  color: var(--black);
+  color: var( --black);
 
   font-family: 'Montserrat', sans-serif;
 }
@@ -71,8 +71,9 @@
   padding-top: 135px;
   display: grid;
   grid-template-columns: 47% 18% 35%;
-  background: #ffffff;
+  background: #111111;
   padding-bottom: 60px; /* Espacio extra para el texto inferior */
+  color: #ffffff;
 }
 
 
@@ -108,7 +109,7 @@
 .projects-hero-content p {
   margin-top: 30px;
 
-  color: #666666;
+  color: #ffffff;
 
   font-size: 15px;
   line-height: 1.65;
@@ -136,7 +137,7 @@
 
   letter-spacing: 2.5px;
 
-  color: #595959;
+  color: #ffffff;
 }
 
 .hero-small-line {
@@ -184,7 +185,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  color: #777777; /* Cambiado de blanco a gris para ser visible sobre fondo blanco */
+  color: #ffffff; /* Cambiado de blanco a gris para ser visible sobre fondo blanco */
   font-size: 9px;
   font-weight: 500;
   letter-spacing: 2px;
