@@ -62,7 +62,7 @@
 /* Logo SETIE a la izquierda */
 .hero-main-brand {
   position: absolute;
-  top: 300px;
+  top: 250px;
   left: 60px;
   width: 100%;
   max-width: 440px;
@@ -79,7 +79,7 @@
 .hero-top-right {
   position: absolute;
   top: 160px;
-  right: 0px;
+  right: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -95,7 +95,7 @@
 .hero-bottom-left {
   position: absolute;
   bottom: 160px;
-  left: 0px;
+  left: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
