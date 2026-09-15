@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import '../styles/Home.css';
 import GranEventosVideo from '../assets/graneventos(2).mov';
+import ImgPanoramica from '../assets/FOTO1.jpg';
 
 export default function Home() {
   return (
@@ -52,7 +53,7 @@ export default function Home() {
             </div>
 
             <div className="image-placeholder middle-media">
-                <p style={{ marginTop: '12px' }}>[ Imagen Panorámica Evento / Multitud ]</p>
+                <img src={ImgPanoramica} alt=""  width={655} height={400}/>
             </div>
             </section>
         </div>
