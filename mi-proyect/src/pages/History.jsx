@@ -3,6 +3,7 @@ import '../styles/History.css';
 
 import Navbar from '../components/Navbar';
 import Timeline from '../components/line/Timeline';
+import LetrasGE from '../assets/LetrasGE.png';
 
 export default function History() {
   return (
@@ -25,11 +26,11 @@ export default function History() {
             </span>
 
             <h1>
-              UNA HISTORIA
+              UNA <span className="text-yellow">HISTORIA</span> 
               <br />
               QUE IMPULSA
               <br />
-              GRANDES MOMENTOS.
+              GRANDES <span className="text-green">MOMENTOS.</span>
             </h1>
 
             <div className="history-gold-line" />
@@ -61,7 +62,7 @@ export default function History() {
           {/* Logo central decorativo */}
 
           <div className="history-center-logo">
-            GE
+            <img src={LetrasGE} alt="" width={370} height={290} />
           </div>
 
         </section>

@@ -114,12 +114,12 @@ export default function Sustainability() {
 
             <h2 className="section-title">
               ENERGÍA QUE<br />
-              TRANSFORMA<br />
-              <span>EXPERIENCIAS.</span>
+              <span>TRANSFORMA</span><br />
+              EXPERIENCIAS.
             </h2>
 
             <p className="purpose-description">
-              En SETIE creemos que la energía puede ser más limpia,
+              En  <span>SETIE</span>  creemos que la energía puede ser más limpia,
               eficiente y responsable en cualquier escenario. Llevamos
               soluciones energéticas temporales a eventos, industrias,
               proyectos y comunidades, reduciendo emisiones y generando
@@ -169,7 +169,7 @@ export default function Sustainability() {
           </div>
 
           <div className="feature-item">
-            <Zap className="feature-icon" size={34} strokeWidth={1.5} />
+            <Zap className="feature-icon1" size={34} strokeWidth={1.5} />
 
             <div>
               <h4>MÁS EFICIENCIA</h4>
@@ -181,7 +181,7 @@ export default function Sustainability() {
           </div>
 
           <div className="feature-item">
-            <Users className="feature-icon" size={34} strokeWidth={1.5} />
+            <Users className="feature-icon1" size={34} strokeWidth={1.5} />
 
             <div>
               <h4>EVENTOS RESPONSABLES</h4>

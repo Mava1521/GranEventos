@@ -199,7 +199,7 @@
 .section-subtitle {
   font-size: 0.75rem;
   letter-spacing: 2px;
-  color: #666666;
+  color: #ffffff;
   display: block;
   margin-bottom: 16px;
   font-weight: 600;
@@ -214,11 +214,19 @@
   font-weight: 700;
 }
 
+.section-title span{
+  color: #9dc425;
+}
 .purpose-description {
   color: #555555;
   font-size: 0.95rem;
   line-height: 1.7;
   max-width: 480px;
+}
+
+.purpose-description span{
+  color: #9dc425;
+  font-weight: 900;
 }
 
 .purpose-card {
@@ -258,8 +266,14 @@
 }
 
 .feature-icon {
-  color: #111111;
+  color: #9dc425;
 }
+
+.feature-icon1 {
+  color: #fdd000;
+}
+
+
 
 .feature-item h4 {
   font-size: 0.85rem;
@@ -338,12 +352,13 @@
   font-size: 0.95rem;
   line-height: 1.7;
   margin-bottom: 24px;
+  font-weight: 900;
 }
 
 .commitment-keywords {
   font-size: 0.8rem;
   letter-spacing: 2px;
-  color: #888888;
+  color: #ffffff;
   font-weight: 600;
 }
 
