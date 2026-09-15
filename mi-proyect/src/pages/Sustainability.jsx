@@ -6,7 +6,7 @@ import SetieLogo from '../assets/LOGOSGTIE.png';
 import HeroBg from '../assets/FondoSETIE.jpeg';
 
 // Imágenes adicionales
-import PurposeBg from '../assets/FOTO4.jpg';
+import PurposeBg from '../assets/FOTO7.jpg';
 //import EventsBg from '../assets/events-setie.jpg';
 //import IndustryBg from '../assets/industry-setie.jpg';
 //import ScenarioBg from '../assets/scenario-setie.jpg';
@@ -130,7 +130,7 @@ export default function Sustainability() {
 
           <div
             className="purpose-card"
-           style={{ backgroundImage: `url(${PurposeBg})` , backgroundSize: Container }}
+           style={{ backgroundImage: `url(${PurposeBg})` , backgroundSize: 670 }}
           >
             <div className="image-overlay"></div>
 
