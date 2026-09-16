@@ -8,6 +8,7 @@ import location from '../assets/location.png';
 import youtube from '../assets/youtube.png';
 import clock from '../assets/clock.png';
 import FooterProyect from '../assets/FooterProyect.jpg';
+import Foto4 from '../assets/FOTO3.jpg'
 const initialForm = {
   name: '',
   email: '',
@@ -318,7 +319,9 @@ function Contact() {
               <h4>Nuestra ubicación</h4>
 
               <p>
-                Medellín, Colombia
+                Autopista Medellin Km 2.5 Via Parcelas Ciem oiks occidente 
+                <br />
+                bodega 169-170, Cota, Cundinamarca
                 <br />
                 (Operamos en todo el país)
               </p>
@@ -417,6 +420,10 @@ function Contact() {
           </h2>
 
         </div>
+        <div className="banner-content">
+          <img src={Foto4} alt="" width={600} height={400}/>
+
+        </div>
 
         <div className="banner-right">
           <span>ENERGÍA</span>
@@ -455,7 +462,7 @@ function Contact() {
 
         <div className="footer-social">
           <a href="https://www.instagram.com/graneventos_col/" aria-label="Instagram">
-            <img src={instagram} alt="" />
+            <img src={instagram} alt="" width={20} height={20}/>
           </a>
 
           <a href="/" aria-label="LinkedIn">

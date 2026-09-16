@@ -9,12 +9,9 @@
   --contact-dark: #080808;
   --contact-gray: #666666;
   --contact-light: #f5f5f3;
-
   width: 100%;
   overflow-x: hidden;
-  background: #ffffff;
   color: var(--contact-black);
-
   font-family: 'Montserrat', Arial, sans-serif;
 }
 
@@ -402,31 +399,24 @@
 
 .contact-info {
   padding: 42px 6% 40px;
-
   border-left: 1px solid #dddddd;
 }
 
 .contact-channel {
   display: flex;
   align-items: center;
-
   gap: 25px;
-
   margin: 17px 0;
 }
 
 .channel-icon {
   width: 66px;
   height: 66px;
-
   flex: 0 0 66px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
-
   background: #f1f2f3;
 }
 
@@ -437,7 +427,6 @@
 .channel-icon svg {
   width: 31px;
   height: 31px;
-
   fill: none;
   stroke: #111111;
   stroke-width: 1.6;
@@ -449,19 +438,14 @@
 
 .contact-channel h3 {
   margin: 0 0 3px;
-
   font-family: 'Oswald', Impact, sans-serif;
-
   font-size: 16px;
 }
 
 .contact-channel p {
   margin: 0;
-
   font-size: 11px;
-
   line-height: 1.45;
-
   color: #555;
 }
 
