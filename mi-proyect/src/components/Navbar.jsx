@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-// 1. Importa tus logos aquí
 import LogoGE from '../assets/LOGOGE.png';
 import LogoHistory from '../assets/GE.png';
+
 import '../styles/Navbar.css';
 
 export default function Navbar() {
@@ -12,51 +12,70 @@ export default function Navbar() {
   const isHome = location.pathname === '/';
   const isProjects = location.pathname === '/nuevas-tecnologias';
   const isHistory = location.pathname === '/historia';
+  const isContact = location.pathname === '/contacto';
 
-  // 2. Definir qué logo mostrar según la ruta
-  let currentLogo = LogoGE; // Logo por defecto (Home, Proyectos, Servicios, etc.)
+  /*
+   * Logo utilizado según la página.
+   * Cada página puede tener su propia identidad visual
+   * sin modificar las demás.
+   */
+  let currentLogo = LogoGE;
 
   if (isHistory) {
     currentLogo = LogoHistory;
   }
 
+  /*
+   * Clase visual específica para cada página.
+   */
+  let navbarVariant = 'navbar-inner';
+
+  if (isHome) {
+    navbarVariant = 'navbar-home';
+  } else if (isProjects) {
+    navbarVariant = 'navbar-projects';
+  } else if (isHistory) {
+    navbarVariant = 'navbar-history';
+  } else if (isContact) {
+    navbarVariant = 'navbar-contact';
+  }
+
   return (
-    <nav
-      className={`navbar ${
-        isHome
-          ? 'navbar-home'
-          : isProjects
-          ? 'navbar-projects'
-          : isHistory
-          ? 'navbar-history'
-          : 'navbar-inner'
-      }`}
-    >
+    <nav className={`navbar ${navbarVariant}`}>
+      
+      {/* LOGO */}
       <div className="brand-logos">
         <Link to="/" className="logo-placeholder">
-          {/* 3. Pasar la variable dinámica a la propiedad src */}
           <img
             src={currentLogo}
-            alt="Gran Eventos Logo"
+            alt="Gran Eventos"
             width="210"
             height="62"
           />
         </Link>
       </div>
 
+      {/* NAVEGACIÓN */}
       <ul className="nav-links">
+
         <li className="nav-item-wrapper">
           <Link to="/historia" className="nav-item">
             NOSOTROS
           </Link>
-          {isHistory && <div className="active-indicator" />}
+
+          {isHistory && (
+            <div className="active-indicator" />
+          )}
         </li>
 
         <li className="nav-item-wrapper">
           <Link to="/nuevas-tecnologias" className="nav-item">
             PROYECTOS
           </Link>
-          {isProjects && <div className="active-indicator" />}
+
+          {isProjects && (
+            <div className="active-indicator" />
+          )}
         </li>
 
         <li className="nav-item-wrapper">
@@ -75,14 +94,23 @@ export default function Navbar() {
           <Link to="/contacto" className="nav-item">
             CONTACTO
           </Link>
+
+          {isContact && (
+            <div className="active-indicator" />
+          )}
         </li>
+
       </ul>
 
+      {/* IDIOMAS */}
       <div className="lang-selector">
         <span className="active">ES</span>
+
         <span className="separator">|</span>
+
         <span>EN</span>
       </div>
+
     </nav>
   );
 }

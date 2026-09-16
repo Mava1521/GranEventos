@@ -227,6 +227,183 @@
 }
 
 /* =========================================================
+   CONTACTO
+   Solo afecta /contacto
+   ========================================================= */
+
+.navbar-contact {
+  position: relative;
+
+  width: 100%;
+
+  padding: 8px 48px;
+
+  background-color: #ffffff;
+
+  color: #111111;
+
+  z-index: 100;
+
+  box-sizing: border-box;
+}
+
+
+/* ---------------------------------------------------------
+   LOGO
+   --------------------------------------------------------- */
+
+.navbar-contact .logo-placeholder {
+  border: none;
+}
+
+.navbar-contact .logo-placeholder img {
+  width: 145px;
+  height: auto;
+  display: block;
+}
+
+
+/* ---------------------------------------------------------
+   LINKS
+   --------------------------------------------------------- */
+
+.navbar-contact .nav-item {
+  color: #111111;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: 1.1px;
+
+  text-decoration: none;
+
+  padding-bottom: 8px;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+
+/* Hover */
+
+.navbar-contact .nav-item:hover {
+  color: #eab900;
+}
+
+
+/* ---------------------------------------------------------
+   LINK ACTIVO
+   --------------------------------------------------------- */
+
+.navbar-contact .active-indicator {
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 2px;
+
+  background-color: #eab900;
+}
+
+
+/* ---------------------------------------------------------
+   IDIOMAS
+   --------------------------------------------------------- */
+
+.navbar-contact .lang-selector {
+  color: #222222;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 10px;
+
+  font-weight: 500;
+
+  letter-spacing: 1px;
+}
+
+
+.navbar-contact .lang-selector .active {
+  color: #eab900;
+}
+
+
+.navbar-contact .lang-selector .separator {
+  color: #777777;
+}
+
+
+/* =========================================================
+   RESPONSIVE CONTACTO
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .navbar-contact {
+    padding: 10px 30px;
+  }
+
+  .navbar-contact .logo-placeholder img {
+    width: 140px;
+  }
+
+}
+
+
+@media (max-width: 760px) {
+
+  .navbar-contact {
+    flex-wrap: wrap;
+
+    gap: 15px;
+  }
+
+  .navbar-contact .nav-links {
+    order: 3;
+
+    width: 100%;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .navbar-contact {
+    padding: 12px 20px;
+  }
+
+  .navbar-contact .logo-placeholder img {
+    width: 125px;
+  }
+
+  .navbar-contact .nav-links {
+    gap: 12px;
+  }
+
+  .navbar-contact .nav-item {
+    font-size: 8px;
+
+    letter-spacing: 0.7px;
+  }
+
+}
+
+/* =========================================================
    RESPONSIVE
    ========================================================= */
 

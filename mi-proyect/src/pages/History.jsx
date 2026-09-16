@@ -4,6 +4,12 @@ import '../styles/History.css';
 import Navbar from '../components/Navbar';
 import Timeline from '../components/line/Timeline';
 import LetrasGE from '../assets/LetrasGE.png';
+import History1 from '../assets/History1.jpg';
+import History2 from '../assets/History2.jpg';
+import History3 from '../assets/History3.jpg';
+import History7 from '../assets/History7.jpg';
+import History5 from '../assets/History5.jpg';
+import History6 from '../assets/History6.jpg';
 
 export default function History() {
   return (
@@ -74,27 +80,27 @@ export default function History() {
 
         <section className="history-collage">
 
-          <div className="collage-placeholder collage-one">
+          <div className="collage-placeholder collage-one" style={{ backgroundImage: `url(${History1})`, backgroundSize: 200}}>
             <span>IMAGEN</span>
           </div>
 
-          <div className="collage-placeholder collage-two">
+          <div className="collage-placeholder collage-two" style={{ backgroundImage: `url(${History2})`, backgroundSize: 290}}>
             <span>EVENTO</span>
           </div>
 
-          <div className="collage-placeholder collage-three">
+          <div className="collage-placeholder collage-three" style={{ backgroundImage: `url(${History3})`, backgroundSize: 200}}>
             <span>EQUIPO</span>
           </div>
 
-          <div className="collage-placeholder collage-four">
+          <div className="collage-placeholder collage-four" style={{ backgroundImage: `url(${History5})`, backgroundSize: 190}}>
             <span>ENERGÍA</span>
           </div>
 
-          <div className="collage-placeholder collage-five">
+          <div className="collage-placeholder collage-five" style={{ backgroundImage: `url(${History6})`, backgroundSize: 550}}>
             <span>EVENTO</span>
           </div>
 
-          <div className="collage-placeholder collage-six">
+          <div className="collage-placeholder collage-six" style={{ backgroundImage: `url(${History7})`, backgroundSize: 168}}>
             <span>FUTURO</span>
           </div>
 

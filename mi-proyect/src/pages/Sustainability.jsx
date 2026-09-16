@@ -8,7 +8,7 @@ import HeroBg from '../assets/FondoSETIE.jpeg';
 // Imágenes adicionales
 import PurposeBg from '../assets/FOTO7.jpg';
 //import EventsBg from '../assets/events-setie.jpg';
-//import IndustryBg from '../assets/industry-setie.jpg';
+import IndustryBg from '../assets/FOTO6.jpg';
 //import ScenarioBg from '../assets/scenario-setie.jpg';
 import CommitmentBg from '../assets/Lush.png';
 
@@ -230,6 +230,7 @@ export default function Sustainability() {
               <span className="tag-category">
                 / PARA EVENTOS
               </span>
+              <span className="hero-green-line"></span>
 
               <span className="yellow-line"></span>
 
@@ -243,7 +244,7 @@ export default function Sustainability() {
 
           <article
             className="usecase-card"
-            //style={{ backgroundImage: `url(${IndustryBg})` }}
+            style={{ backgroundImage: `url(${IndustryBg})`, backgroundSize: 650}}
           >
             <div className="usecase-overlay"></div>
 
@@ -251,6 +252,7 @@ export default function Sustainability() {
               <span className="tag-category">
                 / PARA LA INDUSTRIA
               </span>
+              <span className="hero-green-line"></span>
 
               <span className="yellow-line"></span>
 
@@ -273,6 +275,7 @@ export default function Sustainability() {
               <span className="tag-category">
                 / PARA CUALQUIER ESCENARIO
               </span>
+              <span className="hero-green-line"></span>
 
               <span className="yellow-line"></span>
 
@@ -304,6 +307,7 @@ export default function Sustainability() {
             <span className="section-subtitle">
               / NUESTRO COMPROMISO
             </span>
+            <span className="hero-green-line"></span>
 
             <h2>
               UN FUTURO MÁS VERDE<br />
