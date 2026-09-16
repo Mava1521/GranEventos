@@ -36,7 +36,9 @@ export default function History() {
               <br />
               QUE IMPULSA
               <br />
-              GRANDES <span className="text-green">MOMENTOS.</span>
+              <span className="text-green">GRANDES</span>
+              <br />
+              MOMENTOS.
             </h1>
 
             <div className="history-gold-line" />

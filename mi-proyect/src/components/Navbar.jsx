@@ -25,6 +25,8 @@ export default function Navbar() {
     currentLogo = LogoHistory;
   }
 
+
+
   /*
    * Clase visual específica para cada página.
    */
@@ -49,8 +51,8 @@ export default function Navbar() {
           <img
             src={currentLogo}
             alt="Gran Eventos"
-            width="210"
-            height="62"
+            width={900}
+            height={100}
           />
         </Link>
       </div>

@@ -6,7 +6,8 @@ import ImageHero from '../assets/HeroContact.jpg';
 import instagram from '../assets/instagram.png';
 import location from '../assets/location.png';
 import youtube from '../assets/youtube.png';
-
+import clock from '../assets/clock.png';
+import FooterProyect from '../assets/FooterProyect.jpg';
 const initialForm = {
   name: '',
   email: '',
@@ -311,7 +312,7 @@ function Contact() {
 
             <div>
               <strong>
-                <img src={location} alt="" width={29} height={29}/>
+                <img src={location} alt="" width={25} height={22}/>
               </strong>
 
               <h4>Nuestra ubicación</h4>
@@ -324,7 +325,9 @@ function Contact() {
             </div>
 
             <div>
-              <strong>◷</strong>
+              <strong>
+                <img src={clock} alt="" width={20} height={20}/>
+              </strong>
 
               <h4>Horario de atención</h4>
 
@@ -378,7 +381,7 @@ function Contact() {
 
         <div className="talent-image">
           <img
-            src="/src/assets/contacto-talento.jpg"
+            src={FooterProyect}
             alt="Equipo de Gran Eventos"
           />
         </div>
@@ -451,17 +454,14 @@ function Contact() {
         </nav>
 
         <div className="footer-social">
-          <a href="/" aria-label="Instagram">
-            ◎
+          <a href="https://www.instagram.com/graneventos_col/" aria-label="Instagram">
+            <img src={instagram} alt="" />
           </a>
 
           <a href="/" aria-label="LinkedIn">
             in
           </a>
 
-          <a href="/" aria-label="YouTube">
-            ▶
-          </a>
         </div>
 
         <div className="footer-bottom">

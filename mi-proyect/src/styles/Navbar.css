@@ -238,7 +238,7 @@
 
   padding: 8px 48px;
 
-  background-color: #ffffff;
+  background-color: #111111;
 
   color: #111111;
 
@@ -257,7 +257,7 @@
 }
 
 .navbar-contact .logo-placeholder img {
-  width: 145px;
+  width: 150px;
   height: auto;
   display: block;
 }
@@ -268,7 +268,7 @@
    --------------------------------------------------------- */
 
 .navbar-contact .nav-item {
-  color: #111111;
+  color: #ffffff;
 
   font-family: 'Montserrat', sans-serif;
 
@@ -319,14 +319,10 @@
    --------------------------------------------------------- */
 
 .navbar-contact .lang-selector {
-  color: #222222;
-
+  color: #ffffff;
   font-family: 'Montserrat', sans-serif;
-
   font-size: 10px;
-
   font-weight: 500;
-
   letter-spacing: 1px;
 }
 
