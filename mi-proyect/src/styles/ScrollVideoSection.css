@@ -1,121 +1,273 @@
-/* Container Principal Oscuro para contrastar el video y texto */
-.scroll-reveal-container {
-  background-color: #0d0d0d;
-  color: #ffffff;
-  padding: 100px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+html,
+body {
+  overflow-x: hidden;
+}
+
+
+/*
+ * Mientras la animación está activa,
+ * se deshabilita el scroll nativo.
+ */
+body.scroll-animation-lock {
   overflow: hidden;
 }
 
-/* --- REVELADO DE TEXTO --- */
-.scroll-text-wrapper {
-  max-width: 900px;
-  text-align: center;
-  margin-bottom: 120px;
-  padding: 40px 0;
+
+/* =========================================================
+   SCROLL REVEAL SECTION
+   ========================================================= */
+
+.scroll-reveal-section {
+  position: relative;
+  min-height: 200vh;
+  background: #0d0d0d;
+  color: #ffffff;
+  overflow: hidden;
 }
+
+
+/* =========================================================
+   ESCENA STICKY
+   ========================================================= */
+
+.scroll-reveal-scene {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 80px 24px;
+}
+
+
+/* =========================================================
+   TEXTO
+   ========================================================= */
+
+.scroll-text-content {
+  width: 100%;
+  max-width: 1000px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+
+  /*
+   * El texto ocupa el espacio principal
+   * mientras se ejecuta la primera fase.
+   */
+  transition:
+    transform 0.45s ease,
+    opacity 0.45s ease;
+}
+
 
 .scroll-eyebrow {
   display: block;
+  margin-bottom: 26px;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
+  font-weight: 600;
   letter-spacing: 5px;
-  color: #f4c400; /* var(--gold) */
-  margin-bottom: 24px;
+  color: #f4c400;
+  text-transform: uppercase;
 }
+
 
 .scroll-reveal-text {
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(32px, 4.5vw, 64px);
-  line-height: 1.25;
-  text-transform: uppercase;
-  letter-spacing: 2px;
   margin: 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(
+    36px,
+    5vw,
+    68px
+  );
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-/* Transición suave de transparente (gris oscuro) a blanco puro */
+
 .scroll-reveal-text .word {
-  color: rgba(255, 255, 255, 0.2);
-  transition: color 0.3s ease-out;
-}
-
-.scroll-reveal-text .word.active {
+  /*
+   * El valor real de opacity lo controla React.
+   */
   color: #ffffff;
+  display: inline;
+  will-change: opacity;
+  transition:
+    opacity 0.12s linear;
 }
 
-/* --- SECCIÓN DE VIDEO --- */
+
+/* =========================================================
+   VIDEO
+   ========================================================= */
+
 .scroll-video-wrapper {
-  width: 100%;
-  max-width: 1100px;
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  left: 50%;
+  bottom: 6vh;
+  width: min(
+    1100px,
+    calc(100% - 48px)
+  );
+  transform: translateX(-50%);
+  z-index: 3;
+  /*
+   * El video permanece oculto hasta que
+   * termina completamente el texto.
+   */
+  opacity: 0;
+  transition:
+    opacity 0.08s linear;
 }
+
 
 .video-card {
   position: relative;
   width: 100%;
-  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  
-  /* Animación CSS para revelar la tarjeta de video hacia arriba al entrar al viewport */
-  animation: revealUp linear both;
-  animation-timeline: view();
-  animation-range: entry 10% cover 40%;
+  border-radius: 18px;
+  border: 1px solid
+    rgba(255, 255, 255, 0.12);
+  background: #111111;
+  box-shadow:
+    0 30px 80px
+    rgba(0, 0, 0, 0.55);
+  will-change:
+    transform,
+    opacity;
+  transition:
+    transform 0.08s linear,
+    opacity 0.08s linear;
 }
 
+
 .video-card video {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
-/* Botón accesible de pausa/reproducción */
-.video-control-btn {
+
+/* =========================================================
+   OVERLAY DEL VIDEO
+   ========================================================= */
+
+.video-overlay {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 8px 16px;
-  border-radius: 20px;
+  inset: 0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.35),
+      transparent 45%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   LABEL DEL VIDEO
+   ========================================================= */
+
+.video-label {
+  position: absolute;
+  left: 24px;
+  bottom: 22px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
-  transition: background 0.2s ease;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+  z-index: 2;
 }
 
-.video-control-btn:hover {
-  background: var(--gold, #f4c400);
-  color: #000;
+
+/* =========================================================
+   ESTADO BLOQUEADO
+   ========================================================= */
+
+.scroll-reveal-section.is-locked {
+  /*
+   * Evita interacciones accidentales con elementos
+   * internos durante la animación.
+   */
+  overscroll-behavior: contain;
 }
 
-/* Keyframes de entrada para el video */
-@keyframes revealUp {
-  from {
-    opacity: 0;
-    transform: translateY(80px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
 
-/* ACCESIBILIDAD (ISO/WCAG): Desactiva animaciones si el usuario lo prefiere */
-@media (prefers-reduced-motion: reduce) {
-  .scroll-reveal-text .word {
-    color: #ffffff !important;
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .scroll-reveal-scene {
+    padding: 60px 20px;
   }
+
+  .scroll-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+  }
+
+  .scroll-reveal-text {
+    font-size: clamp(
+      30px,
+      9vw,
+      48px
+    );
+
+    line-height: 1.12;
+  }
+
+  .scroll-video-wrapper {
+    width: calc(100% - 32px);
+
+    bottom: 5vh;
+  }
+
   .video-card {
-    animation: none !important;
+    border-radius: 12px;
+  }
+
+  .video-label {
+    left: 16px;
+    bottom: 15px;
+    font-size: 9px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   WCAG / ACCESIBILIDAD
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .scroll-reveal-text .word {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .scroll-video-wrapper {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .video-card {
+    transform: none !important;
+    transition: none !important;
   }
 }
