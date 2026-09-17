@@ -3,6 +3,9 @@ import { ArrowRight } from 'lucide-react';
 import '../styles/Home.css';
 import GranEventosVideo from '../assets/graneventos(2).mov';
 import ImgPanoramica from '../assets/FOTO1.jpg';
+import Energia from '../assets/Nature.png'
+import Tecnologia from '../assets/Tecnology.png'
+import Experiencias from '../assets/Experience.png'
 
 export default function Home() {
   return (
@@ -99,7 +102,7 @@ export default function Home() {
                 <article className="strength-card strengths-card-gold">
 
                   <div className="strength-card-media">
-                    {/* Aquí posteriormente puedes colocar la imagen */}
+                    <img src={Experiencias} alt="" width={500} height={300}/>
                   </div>
 
                   <div className="strength-card-gradient"></div>
@@ -146,7 +149,7 @@ export default function Home() {
                 <article className="strength-card strengths-card-green">
 
                   <div className="strength-card-media">
-                    {/* Imagen de energía */}
+                    <img src={Energia} alt="" width={500} height={300}/>
                   </div>
 
                   <div className="strength-card-gradient"></div>
@@ -156,7 +159,7 @@ export default function Home() {
                     <div className="strength-card-top">
                       <div className="strength-number">
                         <span>02</span>
-                        <span className="strength-number-line"></span>
+                        <span className="strength-number-line2"></span>
                       </div>
 
                       <span className="strength-card-tag">
@@ -175,7 +178,7 @@ export default function Home() {
                         escalables para todo tipo de proyecto.
                       </p>
 
-                      <a href="#proyectos" className="strength-card-link">
+                      <a href="#proyectos" className="strength-card-link2">
                         <span>CONOCE MÁS</span>
 
                         <span className="strength-arrow">
@@ -193,7 +196,7 @@ export default function Home() {
                 <article className="strength-card strengths-card-green">
 
                   <div className="strength-card-media">
-                    {/* Imagen de tecnología */}
+                    <img src={Tecnologia} alt="" width={500} height={300}/>
                   </div>
 
                   <div className="strength-card-gradient"></div>

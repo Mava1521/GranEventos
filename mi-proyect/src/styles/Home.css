@@ -739,11 +739,49 @@ body {
 
   display: block;
 
-  background-color: var(--accent-gold);
+  background-color: #2e3182;
 
   border-radius: 1px;
 }
 
+.strength-number-line2{
+  width: 32px;
+  height: 3px;
+
+  display: block;
+
+  background-color: #fdd000;
+
+  border-radius: 1px;
+  
+}
+
+.strength-card-link2{
+  color: #fdd000;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 0.83rem;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: gap 0.25s ease;
+}
+
+.strength-card-link2:hover {
+  gap: 16px;
+}
+
+.strength-card-link2:hover .strength-arrow {
+  background-color: currentColor;
+  transform: translateX(2px);
+}
+
+.strength-card-link2:hover .strength-arrow svg {
+  color: #0b0b0b;
+}
 
 /* Verde para cards 2 y 3 */
 
@@ -829,7 +867,7 @@ body {
 
   gap: 12px;
 
-  color: var(--accent-gold);
+  color: #2e3182;
 
   font-family: var(--font-body);
 
