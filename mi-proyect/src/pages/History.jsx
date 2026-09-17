@@ -3,6 +3,7 @@ import '../styles/History.css';
 
 import Navbar from '../components/Navbar';
 import Timeline from '../components/line/Timeline';
+import ScrollVideoSection from '../components/ScrollVideoSection';
 import LetrasGE from '../assets/LetrasGE.png';
 import History1 from '../assets/History1.jpg';
 import History2 from '../assets/History2.jpg';
@@ -10,6 +11,7 @@ import History3 from '../assets/History3.jpg';
 import History7 from '../assets/History7.jpg';
 import History5 from '../assets/History5.jpg';
 import History6 from '../assets/History6.jpg';
+import SampleVideo from '../assets/graneventos(2).mov';
 
 export default function History() {
   return (
@@ -114,6 +116,12 @@ export default function History() {
         ========================================== */}
 
         <Timeline />
+
+
+        {/* =========================================
+            SESION 2
+        ========================================== */}
+        <ScrollVideoSection videoSrc={SampleVideo} />
 
 
         {/* =========================================

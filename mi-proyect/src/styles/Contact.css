@@ -377,7 +377,14 @@
   transform: translateY(-2px);
 }
 
-.contact-submit svg,
+.contact-submit svg {
+  width: 30px;
+  height: 16px;
+  fill: none;
+  stroke: #9dc425;
+  stroke-width: 1.5;
+}
+
 .outline-button svg {
   width: 30px;
   height: 16px;
@@ -549,7 +556,7 @@
 
 .talent-image {
   position: relative;
-
+  
   overflow: hidden;
 }
 
@@ -558,6 +565,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  background-image: rgba(0, 0, 0, 0.911);
 }
 
 .talent-image::before {
