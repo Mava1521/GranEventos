@@ -454,12 +454,9 @@
 
 .contact-location {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   margin-top: 30px;
   padding-top: 25px;
-
   border-top: 1px solid #d5d5d5;
 }
 
@@ -473,29 +470,21 @@
 
 .contact-location strong {
   display: block;
-
   margin-bottom: 8px;
-
   font-size: 22px;
-
   font-weight: 300;
 }
 
 .contact-location h4 {
   margin: 0 0 4px;
-
   font-family: 'Oswald', Impact, sans-serif;
-
   font-size: 13px;
 }
 
 .contact-location p {
   margin: 0;
-
   font-size: 10px;
-
   line-height: 1.45;
-
   color: #666;
 }
 
@@ -506,15 +495,10 @@
 
 .contact-talent {
   position: relative;
-
   display: grid;
-
   grid-template-columns: 48% 52%;
-
   min-height: 270px;
-
   overflow: hidden;
-
   background: #f4f4f2;
 }
 
@@ -524,55 +508,37 @@
 
 .talent-content h2 {
   margin: 0 0 14px;
-
   font-family: 'Oswald', Impact, sans-serif;
-
   font-size: 40px;
-
   line-height: 0.95;
-
-  font-weight: 300;
+  font-weight: 100;
 }
 
 .talent-content h2 strong {
   display: block;
-
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .talent-content p {
   max-width: 390px;
-
   margin: 0 0 22px;
-
   font-size: 13px;
-
   line-height: 1.45;
-
   color: #555;
 }
 
 .outline-button {
   min-height: 42px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 30px;
-
   padding: 0 18px;
-
   border: 1px solid #222;
-
   background: transparent;
-
   font-family: 'Oswald', Impact, sans-serif;
-
   font-size: 12px;
-
   cursor: pointer;
-
   transition: all 0.2s ease;
 }
 
@@ -590,27 +556,19 @@
 .talent-image img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
   display: block;
 }
 
 .talent-image::before {
   content: '';
-
   position: absolute;
-
   z-index: 2;
-
   left: -20px;
   top: -20px;
-
   width: 70px;
   height: 120%;
-
   background: var(--contact-yellow);
-
   transform: skewX(-20deg);
 }
 
@@ -630,9 +588,7 @@
 .talent-side div {
   width: 30px;
   height: 3px;
-
   margin-top: 12px;
-
   background: var(--contact-green);
 }
 
@@ -643,20 +599,14 @@
 
 .contact-banner {
   position: relative;
-
   min-height: 175px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0 6%;
-
   overflow: hidden;
-
   background-image:
     url('/src/assets/contacto-footer.jpg');
-
   background-position: center;
   background-size: cover;
 }
@@ -670,7 +620,6 @@
 .banner-content,
 .banner-right {
   position: relative;
-
   z-index: 2;
 }
 
@@ -680,30 +629,20 @@
 
 .banner-content h2 {
   margin: 0;
-
   color: #ffffff;
-
   font-family: 'Oswald', Impact, sans-serif;
-
   font-size: 28px;
-
   line-height: 1.02;
-
   font-weight: 300;
 }
 
 .banner-right {
   display: flex;
   flex-direction: column;
-
   padding-left: 35px;
-
   border-left: 1px solid #ffffff;
-
   color: #ffffff;
-
   font-size: 10px;
-
   line-height: 1.6;
 }
 
@@ -714,49 +653,34 @@
 
 .contact-footer {
   position: relative;
-
   display: grid;
-
   grid-template-columns: 180px 1fr auto;
-
   align-items: center;
-
   gap: 35px;
-
   padding: 20px 5%;
-
   background: #050505;
-
   color: #ffffff;
   grid-column: 1 / -1;
 }
 
 .footer-brand img {
   width: 145px;
-
   height: auto;
-
   filter: brightness(1.2);
 }
 
 .footer-navigation {
   display: flex;
   align-items: center;
-
   gap: 12px;
-
   flex-wrap: wrap;
-
   font-size: 9px;
-
   letter-spacing: 0.5px;
 }
 
 .footer-navigation a {
   color: #ffffff;
-
   text-decoration: none;
-
   transition: color 0.2s ease;
 }
 
@@ -766,33 +690,25 @@
 
 .footer-social {
   display: flex;
-
   gap: 18px;
 }
 
 .footer-social a {
   color: #ffffff;
-
   text-decoration: none;
-
   font-size: 16px;
-
   font-weight: 600;
 }
 
 .footer-bottom {
   grid-column: 1 / -1;
-
   display: flex;
   justify-content: space-between;
-
   padding-top: 18px;
-
   border-top: 1px solid #333;
-
   color: #888;
-
   font-size: 11px;
+  font-weight: 100;
 }
 
 
