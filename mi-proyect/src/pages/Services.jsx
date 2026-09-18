@@ -1,6 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Services.css';
+import HeroServices from '../assets/Services.jpg';
+import logistica from '../assets/Logistica.jpg';
+import produccion from '../assets/Produccion.png';
+import sostenibilidad from '../assets/Sostenibilidad.png';
+import talento from '../assets/Talento.png';
+import audio from '../assets/Audio.jpg';
+import escenografia from '../assets/Services1.jpg';
+import ServiceContact from '../assets/ServiceContact.jpg';
 
 const services = [
   {
@@ -14,7 +22,7 @@ const services = [
     ),
     description:
       'Gestionamos cada etapa del evento, desde la planificación hasta la ejecución, con un equipo experto y comprometido.',
-    image: '', // Agregar imagen posteriormente
+    image: produccion, // Agregar imagen posteriormente
   },
   {
     id: '02',
@@ -26,7 +34,7 @@ const services = [
     ),
     description:
       'Creamos ambientes inmersivos con tecnología de última generación, para que cada momento se viva al máximo.',
-    image: '',
+    image: audio,
   },
   {
     id: '03',
@@ -38,7 +46,7 @@ const services = [
     ),
     description:
       'Transformamos ideas en espacios únicos que conectan con el público y refuerzan la identidad de tu marca.',
-    image: '',
+    image: escenografia,
   },
   {
     id: '04',
@@ -50,7 +58,7 @@ const services = [
     ),
     description:
       'Contamos con una amplia red de artistas, conferencistas y talentos que hacen de cada evento una experiencia inolvidable.',
-    image: '',
+    image: talento,
   },
   {
     id: '05',
@@ -62,7 +70,7 @@ const services = [
     ),
     description:
       'Coordinamos todos los aspectos técnicos y operativos para garantizar el desarrollo fluido y seguro de tu evento.',
-    image: '',
+    image: logistica,
   },
   {
     id: '06',
@@ -74,7 +82,7 @@ const services = [
     ),
     description:
       'Implementamos prácticas responsables para generar un impacto positivo en el medio ambiente y la sociedad.',
-    image: '',
+    image: sostenibilidad,
   },
 ];
 
@@ -174,7 +182,9 @@ export default function Services() {
         <div className="services-hero-image">
 
           <div className="hero-image-placeholder">
-            <span>IMAGEN PRINCIPAL</span>
+            <span>
+              <img src={HeroServices} alt="" width={1500} height={900} />
+            </span>
           </div>
 
           <div className="hero-yellow-shape"></div>
@@ -247,7 +257,9 @@ export default function Services() {
 
         <div className="services-cta-background">
           <div className="cta-image-placeholder">
-            <span>IMAGEN CTA</span>
+            <span>
+              <img src={ServiceContact} alt="" />
+            </span>
           </div>
         </div>
 

@@ -12,8 +12,8 @@
   --services-gray: #a5a5a5;
   --services-border: rgba(255, 255, 255, 0.18);
 
-  --services-yellow: #f2c400;
-  --services-green: #76b82a;
+  --services-yellow: #FDD000;
+  --services-green: #9DC425;
 
   --services-container: 1180px;
 }
@@ -653,7 +653,7 @@
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: right;
 
   background:
     linear-gradient(
