@@ -115,7 +115,7 @@ export default function Proyects() {
 
         <div className="team-content">
 
-          <div className="section-label">
+          <div className="section-label1">
             <span>DETRÁS DE CADA EVENTO</span>
             <span className="gold-line"></span>
           </div>

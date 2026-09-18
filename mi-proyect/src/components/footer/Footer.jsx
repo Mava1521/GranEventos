@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 
 import LogoGE from '../../assets/LOGOGE.png';
 import LogoSETIE from '../../assets/LOGOSGTIE.png';
+import instagram from '../../assets/instagram.png'
+import linkedin from '../../assets/linkedin.png';
+import facebook from '../../assets/facebook.png';
+import volver from '../../assets/volver.png';
 
 import './Footer.css';
 
@@ -96,7 +100,9 @@ export default function Footer() {
               aria-label="Instagram"
               className="footer-social-link"
             >
-              <span>◎</span>
+              <span>
+                <img src={instagram} alt="" width={20} height={20}/>
+              </span>
             </a>
 
             <a
@@ -104,7 +110,9 @@ export default function Footer() {
               aria-label="Facebook"
               className="footer-social-link"
             >
-              <span>f</span>
+              <span>
+                <img src={facebook} alt="" width={20} height={20}/>
+              </span>
             </a>
 
             <a
@@ -112,16 +120,11 @@ export default function Footer() {
               aria-label="LinkedIn"
               className="footer-social-link"
             >
-              <span>in</span>
+              <span>
+                <img src={linkedin} alt="" width={18} height={18}/>
+              </span>
             </a>
 
-            <a
-              href="#youtube"
-              aria-label="YouTube"
-              className="footer-social-link"
-            >
-              <span>▶</span>
-            </a>
 
           </div>
         </div>
@@ -160,7 +163,9 @@ export default function Footer() {
           aria-label="Volver al inicio de la página"
         >
           <span>VOLVER ARRIBA</span>
-          <span className="footer-arrow">⌃</span>
+          <span className="footer-arrow">
+            <img src={volver} alt="" />
+          </span>
         </button>
 
       </div>

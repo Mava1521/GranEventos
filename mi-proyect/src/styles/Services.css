@@ -864,6 +864,19 @@
     padding-right: 40px;
   }
 
+  /* Reemplaza la regla de .services-intro-title h2 span por esta */
+    .services-intro-title h2 span.gradient-text {
+    background: linear-gradient(90deg, var(--services-green) 0%, var(--services-yellow) 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    
+    font-style: italic;
+    font-weight: 800;
+    display: inline-block;
+    }
+
   .services-grid-section {
     padding-left: 40px;
     padding-right: 40px;

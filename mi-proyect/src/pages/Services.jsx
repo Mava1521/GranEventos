@@ -208,14 +208,14 @@ export default function Services() {
         <div className="services-intro-grid">
 
           <div className="services-intro-title">
-            <h2>
-              CADA DETALLE
-              <br />
-              <span>
-                SUMA EXPERIENCIA.
-              </span>
-            </h2>
-          </div>
+          <h2>
+            CADA DETALLE
+            <br />
+            <span className="gradient-text">
+              SUMA EXPERIENCIA.
+            </span>
+          </h2>
+        </div>
 
           <div className="services-intro-divider"></div>
 

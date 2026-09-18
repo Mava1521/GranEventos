@@ -434,56 +434,7 @@ function Contact() {
 
       </section>
 
-      {/* =========================================
-          FOOTER
-      ========================================== */}
-      <br />
-      <footer className="contact-footer">
-        
-
-        <div className="footer-brand">
-          <img
-            src={LogoGE}
-            alt="Gran Eventos"
-          />
-        </div>
-
-        <nav className="footer-navigation">
-          <a href="/historia">NOSOTROS</a>
-          <span>|</span>
-          <a href="/nuevas-tecnologias">PROYECTOS</a>
-          <span>|</span>
-          <a href="/servicios">SERVICIOS</a>
-          <span>|</span>
-          <a href="/sostenibilidad">SOSTENIBILIDAD</a>
-          <span>|</span>
-          <a href="/contacto">CONTACTO</a>
-        </nav>
-
-        <div className="footer-social">
-          <a href="https://www.instagram.com/graneventos_col/" aria-label="Instagram">
-            <img src={instagram} alt="" width={20} height={20}/>
-          </a>
-
-          <a href="/" aria-label="LinkedIn">
-            in
-          </a>
-
-        </div>
-
-        <div className="footer-bottom">
-
-          <span>
-            © 2024 Gran Eventos | SETIE. Todos los derechos reservados.
-          </span>
-
-          <span>
-            Un mismo propósito, más grandes juntos.
-          </span>
-
-        </div>
-
-      </footer>
+    
 
     </main>
   );
