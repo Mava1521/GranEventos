@@ -11,7 +11,7 @@ import History3 from '../assets/History3.jpg';
 import History7 from '../assets/History7.jpg';
 import History5 from '../assets/History5.jpg';
 import History6 from '../assets/History6.jpg';
-import SampleVideo from '../assets/graneventos(2).mov';
+import SampleVideo from '../assets/History.mp4';
 
 export default function History() {
   return (
