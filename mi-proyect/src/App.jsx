@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
+import Footer from './components/footer/Footer';
 import Home from './pages/Home';
 import Historia from './pages/History';
 import Sostenibilidad from './pages/Sustainability';
@@ -11,15 +13,25 @@ import Contacto from './pages/Contact';
 export default function App() {
   return (
     <Router basename={import.meta.env.BASE_URL}>
+
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/historia" element={<Historia />} />
-        <Route path="/sostenibilidad" element={<Sostenibilidad />} />
-        <Route path="/nuevas-tecnologias" element={<NuevasTecnologias />} />
-        <Route path="/servicios" element={<Servicios />} />
-        <Route path="/contacto" element={<Contacto />} />
-      </Routes>
+
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/historia" element={<Historia />} />
+          <Route path="/sostenibilidad" element={<Sostenibilidad />} />
+          <Route
+            path="/nuevas-tecnologias"
+            element={<NuevasTecnologias />}
+          />
+          <Route path="/servicios" element={<Servicios />} />
+          <Route path="/contacto" element={<Contacto />} />
+        </Routes>
+      </main>
+
+      <Footer />
+
     </Router>
   );
 }
