@@ -1,9 +1,12 @@
 import History1 from '../assets/History1.jpg';
 import History2 from '../assets/History2.jpg';
 import History3 from '../assets/History3.jpg';
+import History4 from '../assets/History4.jpg';
 import History5 from '../assets/History5.jpg';
 import History6 from '../assets/History6.jpg';
 import History7 from '../assets/History7.jpg';
+import History8 from '../assets/History8.jpg';
+import History9 from '../assets/History9.jpg';
 
 const timelineData = [
   {
@@ -32,7 +35,7 @@ const timelineData = [
     title: 'Primeros Grandes Conciertos',
     description: 'Ampliamos nuestra capacidad técnica y acompañamos los primeros grandes conciertos del país.',
     fullDesc: 'Durante la década de los 90, la industria del entretenimiento despegó en la región. Gran Eventos expandió drásticamente su estructura de truss y sistemas de distribución eléctrica, participando en las giras nacionales de artistas internacionales icónicos.',
-    image: History3,
+    image: History2,
     stats: [
       { label: 'Capacidad Técnica', value: '+300%' },
       { label: 'Conciertos/Año', value: '45+' },
@@ -51,7 +54,7 @@ const timelineData = [
     title: 'Especialización Energética',
     description: 'Nos especializamos en la generación de energía para eventos masivos, garantizando confiabilidad y seguridad.',
     fullDesc: 'Con la llegada del nuevo milenio, el enfoque estratégico se centró en la confiabilidad energética crítica. Se implementaron plantas generadoras insonorizadas de última generación y sistemas redundantes tipo N+1 para evitar interrupciones en espectáculos en vivo.',
-    image: History2,
+    image: History3,
     stats: [
       { label: 'MW Instalados', value: '15 MW' },
       { label: 'Confiabilidad', value: '99.9%' },
@@ -70,7 +73,7 @@ const timelineData = [
     title: 'Expansión Nacional',
     description: 'Llevamos nuestra experiencia a más ciudades de Colombia, consolidándonos como un aliado estratégico del entretenimiento.',
     fullDesc: 'Gran Eventos expandió sus operaciones a lo largo y ancho del territorio colombiano, desde la Costa Caribe hasta el Suroccidente. La empresa se convirtió en el socio técnico clave para festivales itinerantes y macroeventos institucionales.',
-    image: History5,
+    image: History4,
     stats: [
       { label: 'Cobertura', value: 'Nacional' },
       { label: 'Departamentos', value: '18' },
@@ -89,7 +92,7 @@ const timelineData = [
     title: 'Líderes de la Industria',
     description: 'Hacemos parte de los eventos más importantes del país, trabajando con artistas, marcas y productores de talla internacional.',
     fullDesc: 'Para 2010, la marca GE era sinónimo de garantía absoluta. Grandes giras mundiales de pop y rock exigían la infraestructura de Gran Eventos para sus paradas en el país, consolidando estándares técnicos de nivel mundial.',
-    image: History6,
+    image: History5,
     stats: [
       { label: 'Artistas TOP Global', value: '50+' },
       { label: 'Staff Operativo', value: '120+' },
@@ -108,7 +111,7 @@ const timelineData = [
     title: 'Eficiencia Tecnológica',
     description: 'Incorporamos nuevas tecnologías y soluciones eficientes para optimizar el consumo de energía en eventos.',
     fullDesc: 'Iniciamos una profunda reingeniería tecnológica orientada al consumo inteligente. Integrando telemetría en tiempo real y monitoreo remoto de cargas, logramos reducir significativamente el consumo de combustible diésel por kilovatio generado.',
-    image: History7,
+    image: History6,
     stats: [
       { label: 'Ahorro Diésel', value: '25%' },
       { label: 'Monitoreo', value: 'IoT Real-Time' },
@@ -127,7 +130,7 @@ const timelineData = [
     title: 'Adaptación y Futuro',
     description: 'Nos adaptamos a nuevos formatos y desafíos, fortaleciendo nuestra infraestructura y talento para seguir conectando personas.',
     fullDesc: 'Frente a los retos globales sin precedentes de 2020, Gran Eventos diversificó sus capacidades hacia centros de respuesta rápida, transmisiones por streaming de alta demanda energética e infraestructura temporal para sectores estratégicos.',
-    image: History2,
+    image: History7,
     stats: [
       { label: 'Proyectos Especiales', value: '35+' },
       { label: 'Formatos Híbridos', value: '100%' },
@@ -146,7 +149,7 @@ const timelineData = [
     title: 'Alianza Estratégica SETIE',
     description: 'Junto a SETIE, comenzamos un nuevo capítulo hacia la energía renovable, integrando soluciones sostenibles.',
     fullDesc: 'Nace la unión con SETIE (Soluciones Energéticas Temporales). Esta alianza revolucionaria introdujo bancos de baterías a gran escala, microredes solares fotovoltaicas móviles y generadores híbridos para la industria del entretenimiento.',
-    image: History7,
+    image: History8,
     stats: [
       { label: 'Paneles Móviles', value: '500+ kW' },
       { label: 'Baterías BESS', value: '1.2 MWh' },
@@ -165,7 +168,7 @@ const timelineData = [
     title: 'Same Passion Greener Tomorrow',
     description: 'Seguimos innovando para eventos más sostenibles, conectando tecnología, personas y planeta.',
     fullDesc: 'En 2026 nos consolidamos como pioneros absolutos de eventos 100% net-zero en la región. Combinando la misma pasión técnica con tecnología eólica, solar e hidrógeno verde, garantizamos la energía de los grandes escenarios sin dejar huella.',
-    image: History1,
+    image: History9,
     stats: [
       { label: 'Sostenibilidad', value: 'Net-Zero' },
       { label: 'Energía Verde', value: '85%' },
