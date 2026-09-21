@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import '../styles/History.css';
 
 import Navbar from '../components/Navbar';
@@ -10,6 +11,27 @@ import SampleVideo from '../assets/History.mp4';
 
 export default function History() {
   const [selectedEvent, setSelectedEvent] = useState(null);
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setSelectedEvent(null);
+      }
+    };
+
+    if (selectedEvent) {
+      document.addEventListener('keydown', handleEscape);
+
+      // Evita que la página del fondo haga scroll
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+
+      document.body.style.overflow = '';
+    };
+  }, [selectedEvent]);
+  
 
   const handleOpenModal = (eventData) => {
     console.log("1. History recibió clic para abrir modal con el evento:", eventData);
@@ -58,26 +80,37 @@ export default function History() {
         </section>
 
         {/* COLLAGE */}
-        <section className="history-collage">
-          {timelineData.map((item, index) => (
-            <div
-              key={item.id}
-              className={`collage-item collage-item-${index + 1}`}
-              onClick={() => {
-                console.log("Clic en collage:", item.year);
-                handleOpenModal(item);
-              }}
-              role="button"
-              tabIndex={0}
-              style={{ cursor: 'pointer' }}
-            >
-              <div 
-                className="collage-image-bg" 
-                style={{ backgroundImage: `url(${item.image})` }}
-              />
-            </div>
-          ))}
-        </section>
+          <section
+            className="history-collage"
+            aria-label="Momentos de nuestra historia"
+          >
+            {timelineData.map((item, index) => (
+              <button
+                type="button"
+                key={item.id}
+                className={`collage-item collage-item-${index + 1}`}
+                onClick={() => handleOpenModal(item)}
+                aria-label={`Ver historia de ${item.year}: ${item.title}`}
+              >
+                <img
+                  src={item.image}
+                  alt={`${item.year} - ${item.title}`}
+                  className="collage-image"
+                  loading={index < 3 ? 'eager' : 'lazy'}
+                />
+
+                <span className="collage-overlay">
+                  <span className="collage-year">
+                    {item.year}
+                  </span>
+
+                  <span className="collage-title">
+                    {item.title}
+                  </span>
+                </span>
+              </button>
+            ))}
+          </section>
 
         {/* TIMELINE */}
         <Timeline onOpenModal={handleOpenModal} />
@@ -101,71 +134,155 @@ export default function History() {
         </section>
       </main>
 
-      {/* MODAL CON ALERTA Y ESTILOS EN LÍNEA DIRECTOS */}
-      {selectedEvent && (
-        <div 
-          className="modal-overlay" 
-          onClick={handleCloseModal}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100vw',
-            height: '100vh',
-            backgroundColor: 'rgba(0, 0, 0, 0.85)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 999999,
-            padding: '20px'
-          }}
-        >
-          <div 
-            className="modal-container" 
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              backgroundColor: '#ffffff',
-              color: '#000000',
-              padding: '30px',
-              borderRadius: '12px',
-              maxWidth: '550px',
-              width: '100%',
-              position: 'relative',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
-            }}
+      {selectedEvent &&
+        createPortal(
+          <div
+            className="ge-modal-overlay"
+            onClick={handleCloseModal}
+            role="presentation"
           >
-            <button 
-              className="modal-close-btn" 
-              onClick={handleCloseModal}
-              style={{
-                position: 'absolute',
-                top: '10px',
-                right: '15px',
-                border: 'none',
-                background: 'none',
-                fontSize: '28px',
-                cursor: 'pointer',
-                color: '#333'
-              }}
+            <article
+              className="ge-modal-card"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="history-modal-title"
+              onClick={(event) => event.stopPropagation()}
             >
-              &times;
-            </button>
 
-            <h2>{selectedEvent.year} — {selectedEvent.title}</h2>
-            <p style={{ marginTop: '15px', lineHeight: '1.5', color: '#333' }}>
-              {selectedEvent.fullDesc || selectedEvent.description}
-            </p>
+              {/* ==========================================
+                  BOTÓN CERRAR
+              ========================================== */}
 
-            {selectedEvent.highlights && (
-              <ul style={{ marginTop: '15px', paddingLeft: '20px', color: '#333' }}>
-                {selectedEvent.highlights.map((h, i) => (
-                  <li key={i}>{h}</li>
-                ))}
-              </ul>
-            )}
-          </div>
-        </div>
-      )}
+              <button
+                type="button"
+                className="ge-modal-close"
+                onClick={handleCloseModal}
+                aria-label="Cerrar información del evento"
+              >
+                ×
+              </button>
+
+
+              {/* ==========================================
+                  HEADER
+              ========================================== */}
+
+              <header className="ge-modal-header">
+
+                <span className="ge-modal-badge">
+                  {selectedEvent.tag}
+                </span>
+
+                <h2
+                  id="history-modal-title"
+                  className="ge-modal-year"
+                >
+                  {selectedEvent.year}
+                </h2>
+
+                <p className="ge-modal-subtitle">
+                  {selectedEvent.title}
+                </p>
+
+              </header>
+
+
+              {/* ==========================================
+                  CONTENIDO
+              ========================================== */}
+
+              <div className="ge-modal-grid">
+
+                {/* IMAGEN */}
+
+                <div className="ge-modal-media">
+
+                  <img
+                    src={selectedEvent.image}
+                    alt={`${selectedEvent.title} - ${selectedEvent.year}`}
+                    className="ge-modal-img"
+                  />
+
+                </div>
+
+
+                {/* INFORMACIÓN */}
+
+                <div className="ge-modal-info">
+
+                  <span className="ge-modal-section-title">
+                    HITO HISTÓRICO
+                  </span>
+
+                  <p className="ge-modal-description">
+                    {selectedEvent.fullDesc ||
+                      selectedEvent.description}
+                  </p>
+
+
+                  {/* ESTADÍSTICAS */}
+
+                  {selectedEvent.stats?.length > 0 && (
+                    <div className="ge-modal-stats-wrapper">
+
+                      <span className="ge-modal-section-title">
+                        IMPACTO Y CIFRAS
+                      </span>
+
+                      <div className="ge-modal-stats-grid">
+
+                        {selectedEvent.stats.map(
+                          (stat, index) => (
+                            <div
+                              className="ge-modal-stat-card"
+                              key={`${selectedEvent.id}-stat-${index}`}
+                            >
+
+                              <span className="ge-modal-stat-value">
+                                {stat.value}
+                              </span>
+
+                              <span className="ge-modal-stat-label">
+                                {stat.label}
+                              </span>
+
+                            </div>
+                          )
+                        )}
+
+                      </div>
+
+                    </div>
+                  )}
+
+                </div>
+
+              </div>
+
+
+              {/* ==========================================
+                  FOOTER
+              ========================================== */}
+
+              <footer className="ge-modal-footer">
+
+                <span className="ge-modal-footer-icon">
+                  ◌
+                </span>
+
+                <span>
+                  Gran Eventos · Compromiso con la Calidad e Innovación
+                </span>
+
+              </footer>
+
+            </article>
+          </div>,
+
+          document.body
+        )}
+
+
     </div>
   );
 }
