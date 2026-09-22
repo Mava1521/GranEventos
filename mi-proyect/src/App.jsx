@@ -9,6 +9,9 @@ import Sostenibilidad from './pages/Sustainability';
 import NuevasTecnologias from './pages/Proyects';
 import Servicios from './pages/Services';
 import Contacto from './pages/Contact';
+import Festival from './pages/Festival';
+import Concert from './pages/Concert';
+import Corporate from './pages/Corporate';
 
 export default function App() {
   return (
@@ -27,6 +30,9 @@ export default function App() {
           />
           <Route path="/servicios" element={<Servicios />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/nuevas-tecnologias/festivales" element={<Festival/>}/>
+          <Route path='/nuevas-tecnologias/conciertos' element={<Concert/>} />
+          <Route path='/nuevas-tecnologias/corporativos' element={<Corporate/>}/>
         </Routes>
       </main>
 

@@ -13,6 +13,7 @@ export default function Navbar() {
   const isProjects = location.pathname === '/nuevas-tecnologias';
   const isHistory = location.pathname === '/historia';
   const isContact = location.pathname === '/contacto';
+  const isServices = location.pathname === '/servicios';
 
   /*
    * Logo utilizado según la página.

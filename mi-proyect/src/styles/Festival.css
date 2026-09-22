@@ -1,0 +1,886 @@
+/* =========================================================
+   FESTIVAL PAGE
+   ========================================================= */
+
+.festival-page {
+  --festival-black: #070b0c;
+  --festival-black-soft: #0b1011;
+  --festival-yellow: #fdd000;
+  --festival-yellow-dark: #d9ae00;
+  --festival-white: #ffffff;
+  --festival-text: #d6d6d6;
+  --festival-muted: #9b9b9b;
+  --festival-border: rgba(255, 255, 255, 0.22);
+
+  min-height: 100vh;
+  background: var(--festival-black);
+  color: var(--festival-white);
+
+  font-family: 'Montserrat', sans-serif;
+
+  overflow: hidden;
+}
+
+.festival-page *,
+.festival-page *::before,
+.festival-page *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.festival-container {
+  width: min(100% - 96px, 1180px);
+  margin: 0 auto;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.festival-hero {
+  position: relative;
+  min-height: 780px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--festival-black);
+}
+
+
+/* ---------------------------------------------------------
+   IMAGEN DEL HERO
+   --------------------------------------------------------- */
+
+.festival-hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.festival-hero__background img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center center;
+}
+
+
+/* ---------------------------------------------------------
+   DEGRADADO SOBRE LA FOTOGRAFÍA
+   --------------------------------------------------------- */
+
+.festival-hero__background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 9, 11, 0.98) 0%,
+      rgba(5, 9, 11, 0.94) 17%,
+      rgba(5, 9, 11, 0.78) 31%,
+      rgba(5, 9, 11, 0.43) 48%,
+      rgba(5, 9, 11, 0.08) 72%,
+      rgba(5, 9, 11, 0.00) 100%
+    );
+}
+
+
+/* ---------------------------------------------------------
+   OVERLAY GENERAL
+   --------------------------------------------------------- */
+
+.festival-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.20) 0%,
+      rgba(0, 0, 0, 0.00) 45%,
+      rgba(0, 0, 0, 0.28) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* ---------------------------------------------------------
+   CONTENIDO
+   --------------------------------------------------------- */
+
+.festival-hero__content {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+
+  min-height: 780px;
+
+  padding-top: 70px;
+}
+
+
+.festival-hero__text {
+  width: 470px;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.festival-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 12px;
+
+  color: var(--festival-white);
+
+  font-size: 11px;
+  font-weight: 500;
+
+  letter-spacing: 0.8px;
+}
+
+
+.festival-slash {
+  color: var(--festival-yellow);
+
+  font-size: 22px;
+  font-weight: 700;
+
+  line-height: 0.7;
+
+  transform: rotate(15deg);
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.festival-hero h1 {
+  margin: 0;
+  color: var(--festival-white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(58px, 5vw, 82px);
+  font-weight: 900;
+  line-height: 0.91;
+  letter-spacing: -3px;
+}
+
+
+.festival-hero h1 span {
+  display: block;
+
+  color: var(--festival-yellow);
+}
+
+
+.festival-hero h1 span:last-child {
+  color: var(--festival-white);
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.festival-hero__text > p {
+  max-width: 355px;
+
+  margin: 22px 0 0;
+
+  color: #dddddd;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   DECORATIVE LINE
+   ========================================================= */
+
+.festival-line {
+  display: block;
+
+  width: 42px;
+  height: 3px;
+
+  margin-top: 18px;
+
+  background: var(--festival-yellow);
+}
+
+
+/* =========================================================
+   HERO LINK
+   ========================================================= */
+
+.festival-hero__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 17px;
+
+  color: var(--festival-white);
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.4px;
+
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    gap 0.25s ease;
+}
+
+
+.festival-hero__link span {
+  color: var(--festival-yellow);
+
+  font-size: 22px;
+  font-weight: 300;
+
+  line-height: 0;
+}
+
+
+.festival-hero__link:hover {
+  color: var(--festival-yellow);
+  gap: 20px;
+}
+
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+.festival-services {
+  position: relative;
+
+  padding: 34px 0 36px;
+
+  background: var(--festival-black-soft);
+
+  border-top: 1px solid var(--festival-border);
+  border-bottom: 1px solid var(--festival-border);
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.festival-section-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  align-items: center;
+
+  gap: 70px;
+
+  margin-bottom: 32px;
+}
+
+
+.festival-section-heading__title h2,
+.festival-projects__header h2 {
+  margin: 0;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(32px, 3.4vw, 45px);
+  font-weight: 800;
+
+  line-height: 0.95;
+  letter-spacing: -1.5px;
+}
+
+
+.festival-section-heading__title h2 strong,
+.festival-projects__header h2 strong {
+  color: var(--festival-yellow);
+  font-weight: 800;
+}
+
+
+.festival-section-heading__description {
+  padding-left: 36px;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+
+.festival-section-heading__description p {
+  max-width: 430px;
+
+  margin: 0;
+
+  color: var(--festival-text);
+
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   SERVICE CARDS
+   ========================================================= */
+
+.festival-services__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  margin-top: 15px;
+}
+
+
+.festival-service-card {
+  min-height: 120px;
+
+  padding: 0 25px;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+.festival-service-card:first-child {
+  padding-left: 0;
+}
+
+
+.festival-service-card:last-child {
+  border-right: none;
+}
+
+
+.festival-service-card__icon {
+  display: flex;
+  align-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  margin-bottom: 16px;
+}
+
+.festival-service-card__icon img {
+  display: block;
+
+  width: 42px;
+  height: 42px;
+
+  object-fit: contain;
+}
+
+
+.festival-service-card h3 {
+  margin: 0 0 9px;
+
+  color: var(--festival-white);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  line-height: 1.25;
+}
+
+
+.festival-service-card p {
+  max-width: 190px;
+
+  margin: 0;
+
+  color: #b6b6b6;
+
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   PROJECTS
+   ========================================================= */
+
+.festival-projects {
+  position: relative;
+
+  padding: 36px 0 48px;
+
+  background: var(--festival-black);
+}
+
+
+.festival-projects__header {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr auto;
+
+  align-items: center;
+
+  gap: 45px;
+
+  margin-bottom: 25px;
+}
+
+
+.festival-projects__intro {
+  padding-left: 28px;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+
+.festival-projects__intro p {
+  max-width: 310px;
+
+  margin: 0;
+
+  color: var(--festival-text);
+
+  font-size: 9px;
+  line-height: 1.55;
+}
+
+
+.festival-projects__all {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: var(--festival-white);
+
+  font-size: 8px;
+  font-weight: 600;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: color 0.25s ease;
+}
+
+
+.festival-projects__all span {
+  color: var(--festival-yellow);
+
+  font-size: 18px;
+}
+
+
+.festival-projects__all:hover {
+  color: var(--festival-yellow);
+}
+
+
+/* =========================================================
+   PROJECT CARDS
+   ========================================================= */
+
+.festival-projects__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+}
+
+
+.festival-project-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #090e10;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.festival-project-card:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--festival-yellow);
+}
+
+
+.festival-project-card__image {
+  position: relative;
+
+  width: 100%;
+  height: 145px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #161d20,
+      #080b0c
+    );
+}
+
+
+.festival-project-card__image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.45s ease;
+}
+
+
+.festival-project-card:hover img {
+  transform: scale(1.04);
+}
+
+
+/* =========================================================
+   IMAGE PLACEHOLDER
+   ========================================================= */
+
+.festival-image-placeholder {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #182023,
+      #080b0c
+    );
+
+  color: rgba(255, 255, 255, 0.3);
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 2px;
+}
+
+
+.festival-project-card__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 54px;
+
+  padding: 8px 13px;
+}
+
+
+.festival-project-card__content h3 {
+  margin: 0 0 3px;
+
+  color: var(--festival-white);
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+
+.festival-project-card__content span {
+  color: #9d9d9d;
+
+  font-size: 8px;
+}
+
+
+.festival-project-card__arrow {
+  width: 30px;
+  height: 30px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--festival-yellow);
+
+  font-size: 20px;
+  font-weight: 300;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+
+.festival-project-card__arrow:hover {
+  transform: translateX(4px);
+  color: var(--festival-white);
+}
+
+
+/* =========================================================
+   SLIDER CONTROLS
+   ========================================================= */
+
+.festival-projects__controls {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 17px;
+}
+
+
+.festival-slider-button {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--festival-white);
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+
+.festival-slider-button:hover {
+  background: var(--festival-yellow);
+
+  border-color: var(--festival-yellow);
+
+  color: #111111;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .festival-container {
+    width: min(100% - 50px, 760px);
+  }
+
+
+  .festival-hero {
+    min-height: 570px;
+  }
+
+
+  .festival-hero__content {
+    min-height: 570px;
+  }
+
+
+  .festival-section-heading {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+  }
+
+
+  .festival-section-heading__description {
+    padding-left: 20px;
+  }
+
+
+  .festival-services__grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    row-gap: 30px;
+  }
+
+
+  .festival-service-card:nth-child(2) {
+    border-right: none;
+  }
+
+
+  .festival-projects__header {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .festival-projects__all {
+    justify-self: end;
+  }
+
+
+  .festival-projects__grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .festival-project-card__image {
+    height: 220px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .festival-container {
+    width: min(100% - 34px, 500px);
+  }
+
+
+  .festival-hero {
+    min-height: 620px;
+  }
+
+
+  .festival-hero__content {
+    min-height: 620px;
+
+    align-items: flex-end;
+
+    padding-bottom: 50px;
+  }
+
+
+  .festival-hero__text {
+    width: 100%;
+  }
+
+
+  .festival-hero h1 {
+    font-size: clamp(42px, 13vw, 58px);
+
+    letter-spacing: -1.5px;
+  }
+
+
+  .festival-hero__text > p {
+    max-width: 300px;
+
+    font-size: 11px;
+  }
+
+
+  .festival-services {
+    padding: 40px 0;
+  }
+
+
+  .festival-section-heading {
+    gap: 20px;
+  }
+
+
+  .festival-section-heading__title h2,
+  .festival-projects__header h2 {
+    font-size: 34px;
+  }
+
+
+  .festival-services__grid {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+
+  .festival-service-card,
+  .festival-service-card:first-child {
+    padding: 20px 0;
+
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+
+  .festival-service-card:last-child {
+    border-bottom: none;
+  }
+
+
+  .festival-service-card p {
+    max-width: 300px;
+  }
+
+
+  .festival-projects {
+    padding: 40px 0;
+  }
+
+
+  .festival-projects__header {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+
+  .festival-projects__intro {
+    padding-left: 18px;
+  }
+
+
+  .festival-projects__all {
+    align-self: flex-start;
+  }
+
+
+  .festival-project-card__image {
+    height: 190px;
+  }
+
+
+  .festival-projects__controls {
+    justify-content: center;
+  }
+}

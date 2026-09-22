@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // 1. Importar Link
 import '../styles/Projects.css';
 
 import festivalImg from '../assets/Festival.png';
@@ -54,8 +55,8 @@ export default function Proyects() {
 
         <div className="projects-hero-image">
           <img
-              src={HeroProyect}
-              alt="Gran Eventos Logo"
+            src={HeroProyect}
+            alt="Gran Eventos Logo"
           />
 
           <div className="hero-image-overlay">
@@ -79,6 +80,7 @@ export default function Proyects() {
           subtitle="Grandes ideas para audiencias extraordinarias."
           description="Montaje, energía, producción y tecnología para festivales que dejan huella."
           image={festivalImg}
+           link="/nuevas-tecnologias/festivales" 
         />
 
         <ProjectCard
@@ -87,6 +89,7 @@ export default function Proyects() {
           subtitle="La música nos mueve."
           description="Soluciones integrales en infraestructura, energía y tecnología para conciertos de todos los formatos."
           image={conciertosImg}
+          link="/nuevas-tecnologias/conciertos" 
         />
 
         <ProjectCard
@@ -95,6 +98,7 @@ export default function Proyects() {
           subtitle="Experiencias que impulsan negocios."
           description="Eventos corporativos, lanzamientos, ferias y activaciones con soluciones a la medida."
           image={corporativosImg}
+          link="/nuevas-tecnologias/corporativos"
         />
 
       </section>
@@ -131,10 +135,10 @@ export default function Proyects() {
             para llevar cada idea a la realidad.
           </p>
 
-          <a href="/contacto" className="project-button">
+          <Link to="/contacto" className="project-button">
             <span>HABLEMOS DE TU PROYECTO</span>
             <span className="button-arrow">→</span>
-          </a>
+          </Link>
 
         </div>
 
@@ -191,6 +195,7 @@ function ProjectCard({
   subtitle,
   description,
   image,
+  link,
 }) {
   return (
     <article className="project-card">
@@ -202,9 +207,10 @@ function ProjectCard({
           <span className="gold-line"></span>
         </div>
 
-        <div className="circle-arrow">
+        {/* 2. Convertido a Link para la flecha superior */}
+        <Link to={link} className="circle-arrow">
           →
-        </div>
+        </Link>
 
       </div>
 
@@ -223,10 +229,11 @@ function ProjectCard({
 
       <div className="card-bottom-line"></div>
 
-      <a href="#" className="view-project">
+      {/* 3. Convertido a Link apuntando a {link} */}
+      <Link to={link} className="view-project">
         <span>VER PROYECTOS</span>
         <span>→</span>
-      </a>
+      </Link>
 
     </article>
   );
