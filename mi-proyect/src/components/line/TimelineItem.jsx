@@ -7,20 +7,20 @@ export default function TimelineItem({
 }) {
   const handleClick = (e) => {
     e.stopPropagation();
-    console.log("3. Clic dentro de TimelineItem para el año:", event.year);
+
     if (onSelect) {
       onSelect(event);
     }
   };
 
   return (
-    <div
+    <article
       className={`timeline-item ${
         isActive ? 'timeline-item--active' : ''
       }`}
-      onClick={handleClick}
-      style={{ cursor: 'pointer' }}
     >
+
+      {/* PUNTO + AÑO */}
       <button
         type="button"
         className="timeline-year-button"
@@ -28,7 +28,7 @@ export default function TimelineItem({
         aria-selected={isActive}
         aria-label={`Ver información del año ${event.year}`}
       >
-        <span className="timeline-dot">
+        <span className="timeline-dot" aria-hidden="true">
           <span />
         </span>
 
@@ -37,14 +37,42 @@ export default function TimelineItem({
         </span>
       </button>
 
-      <div className="timeline-card" onClick={handleClick}>
-        <h3>
-          {event.title}
-        </h3>
-        <p>
-          {event.description}
-        </p>
-      </div>
-    </div>
+
+      {/* CONTENIDO */}
+      <button
+        type="button"
+        className="timeline-card"
+        onClick={handleClick}
+        aria-label={`Abrir información de ${event.title}`}
+      >
+
+        {/* Imagen utilizada únicamente en el diseño responsive */}
+        <div className="timeline-card__image">
+          <img
+            src={event.image}
+            alt=""
+            loading="lazy"
+          />
+        </div>
+
+        <div className="timeline-card__content">
+
+         <div className="timeline-card__year">
+            {event.year}
+          </div>
+
+          <h3>
+            {event.title}
+          </h3>
+
+          <p>
+            {event.description}
+          </p>
+
+        </div>
+
+      </button>
+
+    </article>
   );
 }

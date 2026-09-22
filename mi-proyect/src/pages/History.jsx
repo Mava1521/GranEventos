@@ -11,6 +11,7 @@ import SampleVideo from '../assets/History.mp4';
 
 export default function History() {
   const [selectedEvent, setSelectedEvent] = useState(null);
+
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === 'Escape') {
@@ -20,14 +21,11 @@ export default function History() {
 
     if (selectedEvent) {
       document.addEventListener('keydown', handleEscape);
-
-      // Evita que la página del fondo haga scroll
       document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscape);
-
       document.body.style.overflow = '';
     };
   }, [selectedEvent]);
@@ -44,9 +42,9 @@ export default function History() {
 
   return (
     <div className="history-page">
-      <Navbar />
 
-      <main>
+
+      <main className="history-main">
         {/* HERO */}
         <section className="history-hero">
           <div className="history-hero-content">
