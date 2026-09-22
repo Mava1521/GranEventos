@@ -1,5 +1,5 @@
 import React from 'react';
-import { Leaf, Zap, Users, Globe, Clover, Container } from 'lucide-react';
+import { Leaf, Zap, Users, Globe } from 'lucide-react';
 import '../styles/Sustainability.css';
 
 import SetieLogo from '../assets/LOGOSGTIE.png';
@@ -14,14 +14,12 @@ import CommitmentBg from '../assets/Lush.png';
 
 export default function Sustainability() {
   return (
-    
     <main className="sustainability-page">
 
       {/* =========================
           HERO
       ========================== */}
-      <section className="sust-hero">
-
+      <section className="sust-hero" aria-label="Introducción a la sostenibilidad SETIE">
         <img
           src={HeroBg}
           alt="Soluciones energéticas temporales SETIE"
@@ -31,12 +29,11 @@ export default function Sustainability() {
         <div className="sust-hero-overlay"></div>
 
         <div className="sust-hero-content">
-
           <div className="hero-top-right">
-          <span>MÁS QUE EVENTOS</span>
-          <span>UN FUTURO MÁS LIMPIO</span>
-          <span className="hero-green-line"></span> {/* <-- Nombre unificado */}
-        </div>
+            <span>MÁS QUE EVENTOS</span>
+            <span>UN FUTURO MÁS LIMPIO</span>
+            <span className="hero-green-line"></span>
+          </div>
 
           <div className="hero-main-brand">
             <img
@@ -47,14 +44,13 @@ export default function Sustainability() {
           </div>
 
           <div className="hero-bottom-left">
-          <span className="hero-green-line"></span> {/* <-- Nombre unificado */}
-          <h2>ENERGÍA</h2>
-          <p>
-            PARA UN MUNDO<br />
-            DE EXPERIENCIAS
-          </p>
-        </div>
-
+            <span className="hero-green-line"></span>
+            <h2>ENERGÍA</h2>
+            <p>
+              PARA UN MUNDO<br />
+              DE EXPERIENCIAS
+            </p>
+          </div>
         </div>
       </section>
 
@@ -62,7 +58,7 @@ export default function Sustainability() {
       {/* =========================
           ESTADÍSTICAS
       ========================== */}
-      <section className="sust-stats-bar">
+      <section className="sust-stats-bar" aria-label="Métricas de impacto ambiental">
         <div className="sust-section-inner stats-grid">
 
           <div className="stat-item">
@@ -103,11 +99,9 @@ export default function Sustainability() {
           PROPÓSITO
       ========================== */}
       <section className="sust-purpose-wrapper">
-
         <div className="sust-section-inner sust-purpose">
 
           <div className="purpose-text">
-
             <span className="section-subtitle">
               / UN PROPÓSITO REAL
             </span>
@@ -119,33 +113,25 @@ export default function Sustainability() {
             </h2>
 
             <p className="purpose-description">
-              En  <span>SETIE</span>  creemos que la energía puede ser más limpia,
+              En <span>SETIE</span> creemos que la energía puede ser más limpia,
               eficiente y responsable en cualquier escenario. Llevamos
               soluciones energéticas temporales a eventos, industrias,
               proyectos y comunidades, reduciendo emisiones y generando
               un impacto positivo en las personas y en el planeta.
             </p>
-
           </div>
 
           <div
             className="purpose-card"
-           style={{ backgroundImage: `url(${PurposeBg})` , backgroundSize: 670 }}
+            style={{ backgroundImage: `url(${PurposeBg})` }}
           >
             <div className="image-overlay"></div>
-
             <div className="card-overlay-content">
-
-
-
-
-              
               <h3>
                 GRANDES<br />
                 EVENTOS.<br />
                 <span>UN PLANETA<br />REAL.</span>
               </h3>
-
               <span className="yellow-line"></span>
             </div>
           </div>
@@ -158,12 +144,10 @@ export default function Sustainability() {
           PILARES
       ========================== */}
       <section className="sust-features-wrapper">
-
         <div className="sust-section-inner sust-features">
 
           <div className="feature-item">
-            <Leaf className="feature-icon" size={34} strokeWidth={1.5} />
-
+            <Leaf className="feature-icon" size={34} strokeWidth={1.5} aria-hidden="true" />
             <div>
               <h4>MENOS EMISIONES</h4>
               <p>
@@ -174,8 +158,7 @@ export default function Sustainability() {
           </div>
 
           <div className="feature-item">
-            <Zap className="feature-icon1" size={34} strokeWidth={1.5} />
-
+            <Zap className="feature-icon1" size={34} strokeWidth={1.5} aria-hidden="true" />
             <div>
               <h4>MÁS EFICIENCIA</h4>
               <p>
@@ -186,8 +169,7 @@ export default function Sustainability() {
           </div>
 
           <div className="feature-item">
-            <Users className="feature-icon1" size={34} strokeWidth={1.5} />
-
+            <Users className="feature-icon1" size={34} strokeWidth={1.5} aria-hidden="true" />
             <div>
               <h4>EVENTOS RESPONSABLES</h4>
               <p>
@@ -198,8 +180,7 @@ export default function Sustainability() {
           </div>
 
           <div className="feature-item">
-            <Globe className="feature-icon" size={34} strokeWidth={1.5} />
-
+            <Globe className="feature-icon" size={34} strokeWidth={1.5} aria-hidden="true" />
             <div>
               <h4>UN PLANETA REAL</h4>
               <p>
@@ -214,26 +195,19 @@ export default function Sustainability() {
 
 
       {/* =========================
-          CASOS
+          CASOS DE USO
       ========================== */}
       <section className="sust-usecases-wrapper">
-
-        <div className="sust-usecases">
+        <div className="sust-section-inner sust-usecases">
 
           <article
             className="usecase-card"
-            style={{ backgroundImage: `url(${EventsBg})` , backgroundSize: 640 }}
+            style={{ backgroundImage: `url(${EventsBg})` }}
           >
             <div className="usecase-overlay"></div>
-
             <div className="usecase-content">
-              <span className="tag-category">
-                / PARA EVENTOS
-              </span>
+              <span className="tag-category">/ PARA EVENTOS</span>
               <span className="hero-green-line"></span>
-
-              <span className="yellow-line"></span>
-
               <p className="usecase-title">
                 La misma emoción,<br />
                 con un menor impacto.
@@ -241,21 +215,14 @@ export default function Sustainability() {
             </div>
           </article>
 
-
           <article
             className="usecase-card"
-            style={{ backgroundImage: `url(${IndustryBg})`, backgroundSize: 600}}
+            style={{ backgroundImage: `url(${IndustryBg})` }}
           >
             <div className="usecase-overlay"></div>
-
             <div className="usecase-content">
-              <span className="tag-category">
-                / PARA LA INDUSTRIA
-              </span>
+              <span className="tag-category">/ PARA LA INDUSTRIA</span>
               <span className="hero-green-line"></span>
-
-              <span className="yellow-line"></span>
-
               <p className="usecase-title">
                 Productividad<br />
                 y sostenibilidad<br />
@@ -264,21 +231,14 @@ export default function Sustainability() {
             </div>
           </article>
 
-
           <article
             className="usecase-card"
-            style={{ backgroundImage: `url(${ScenarioBg})` , backgroundSize: 649 }}
+            style={{ backgroundImage: `url(${ScenarioBg})` }}
           >
             <div className="usecase-overlay"></div>
-
             <div className="usecase-content">
-              <span className="tag-category">
-                / PARA CUALQUIER ESCENARIO
-              </span>
+              <span className="tag-category">/ PARA CUALQUIER ESCENARIO</span>
               <span className="hero-green-line"></span>
-
-              <span className="yellow-line"></span>
-
               <p className="usecase-title">
                 Soluciones temporales<br />
                 para un futuro permanente.
@@ -297,13 +257,10 @@ export default function Sustainability() {
         className="sust-commitment"
         style={{ backgroundImage: `url(${CommitmentBg})` }}
       >
-
         <div className="commitment-overlay"></div>
-
         <div className="sust-section-inner commitment-content">
 
           <div className="commitment-left">
-
             <span className="section-subtitle">
               / NUESTRO COMPROMISO
             </span>
@@ -313,12 +270,9 @@ export default function Sustainability() {
               UN FUTURO MÁS VERDE<br />
               <span>TAMBIÉN ES POSIBLE.</span>
             </h2>
-
           </div>
 
-
           <div className="commitment-right">
-
             <p>
               Trabajamos cada día para que la energía que mueve
               el entretenimiento, la industria y las comunidades
@@ -329,11 +283,13 @@ export default function Sustainability() {
 
             <div className="commitment-keywords">
               <span>ENERGÍA</span>
+              <span className="dot">•</span>
               <span>PERSONAS</span>
+              <span className="dot">•</span>
               <span>EXPERIENCIAS</span>
+              <span className="dot">•</span>
               <span>PLANETA</span>
             </div>
-
           </div>
 
         </div>

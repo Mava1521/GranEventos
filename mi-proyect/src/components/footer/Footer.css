@@ -1,80 +1,46 @@
 /* =========================================================
-   FOOTER
+   FOOTER - BASE
    ========================================================= */
 
 .footer {
   position: relative;
   width: 100%;
-
   min-height: 195px;
-
   background-color: #090a0b;
   color: #ffffff;
-
   overflow: hidden;
-
   font-family: 'Montserrat', sans-serif;
 }
 
 
 /* =========================================================
-   IMAGEN DE FONDO
+   IMAGEN DE FONDO Y OVERLAY
    ========================================================= */
-
-/*
-  Este elemento queda preparado para colocar posteriormente
-  la fotografía del escenario/evento.
-
-  Por ahora NO necesitamos tener la imagen.
-*/
 
 .footer-background-image {
   position: absolute;
   top: 0;
   right: 0;
-
   width: 58%;
   height: 100%;
-
-  /*background-image: url('../assets/footer-event.jpg');*/
+  /* background-image: url('../assets/footer-event.jpg'); */
   background-size: cover;
   background-position: center;
-
   opacity: 0.35;
-
   z-index: 0;
 }
-
-
-/*
-  Si todavía no tienes la imagen,
-  puedes comentar temporalmente:
-
-  background-image: url('../assets/footer-event.jpg');
-
-  El footer seguirá funcionando con el fondo negro.
-*/
-
-
-/* =========================================================
-   OVERLAY
-   ========================================================= */
 
 .footer-overlay {
   position: absolute;
   inset: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      #090a0b 0%,
-      #090a0b 38%,
-      rgba(9, 10, 11, 0.94) 58%,
-      rgba(9, 10, 11, 0.45) 100%
-    );
-
+  background: linear-gradient(
+    90deg,
+    #090a0b 0%,
+    #090a0b 38%,
+    rgba(9, 10, 11, 0.94) 58%,
+    rgba(9, 10, 11, 0.45) 100%
+  );
   z-index: 1;
-
   pointer-events: none;
 }
 
@@ -86,23 +52,14 @@
 .footer-content {
   position: relative;
   z-index: 2;
-
-  width: min(1200px, calc(100% - 100px));
-
+  width: min(1200px, calc(100% - 60px));
   min-height: 150px;
-
   margin: 0 auto;
-
+  padding: 40px 0;
   display: grid;
-
-  grid-template-columns:
-    minmax(300px, 1.5fr)
-    minmax(150px, 0.8fr)
-    minmax(220px, 1fr);
-
+  grid-template-columns: minmax(280px, 1.4fr) minmax(140px, 0.8fr) minmax(200px, 1fr);
   align-items: center;
-
-  column-gap: 70px;
+  column-gap: 50px;
 }
 
 
@@ -113,68 +70,49 @@
 .footer-brand {
   display: flex;
   flex-direction: column;
-
   justify-content: center;
 }
-
-
-/* LOGOS */
 
 .footer-logos {
   display: flex;
   align-items: center;
-
   gap: 18px;
-
   min-height: 45px;
 }
-
 
 .footer-logo-link {
   display: flex;
   align-items: center;
-
   text-decoration: none;
 }
 
-
 .footer-logo {
   display: block;
-
   object-fit: contain;
+  height: auto;
 }
-
 
 .footer-logo-ge {
   width: 170px;
   max-height: 58px;
 }
 
-
 .footer-logo-setie {
   width: 125px;
   max-height: 52px;
 }
 
-
 .footer-logo-divider {
   width: 1px;
   height: 35px;
-
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-
-/* DESCRIPCIÓN */
-
 .footer-description {
-  margin: 20px 0 0;
-
+  margin: 18px 0 0;
   color: #dddddd;
-
   font-size: 12px;
   font-weight: 400;
-
   line-height: 1.55;
 }
 
@@ -184,57 +122,37 @@
    ========================================================= */
 
 .footer-navigation {
-  padding-left: 50px;
-  border-left: 1px solid rgba(255, 255, 255, 0.35);
+  padding-left: 40px;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
 }
-
 
 .footer-navigation a {
   position: relative;
-
   width: fit-content;
-
   color: #ffffff;
-
   text-decoration: none;
-
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
-
   letter-spacing: 2px;
-
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
-
 
 .footer-navigation a:hover {
   color: #efbd00;
-
   transform: translateX(3px);
 }
 
-
-/*
-  Indicador amarillo del mockup.
-*/
-
 .footer-link-active::after {
   content: '';
-
   position: absolute;
-
   left: 0;
-  bottom: -9px;
-
+  bottom: -6px;
   width: 28px;
   height: 2px;
-
   background-color: #efbd00;
 }
 
@@ -244,63 +162,48 @@
    ========================================================= */
 
 .footer-social {
-  height: 74px;
-
-  padding-left: 50px;
-
-  border-left: 1px solid rgba(255, 255, 255, 0.35);
-
+  height: 100%;
+  padding-left: 40px;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
   display: flex;
   flex-direction: column;
-
   justify-content: center;
 }
 
-
 .footer-social-title {
-  margin: 0 0 13px;
-
+  margin: 0 0 14px;
   color: #ffffff;
-
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 600;
-
   letter-spacing: 2px;
 }
-
 
 .footer-social-links {
   display: flex;
   align-items: center;
-
-  gap: 18px;
+  gap: 16px;
 }
 
-
 .footer-social-link {
-  width: 18px;
-  height: 18px;
-
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-
   color: #ffffff;
-
   text-decoration: none;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.25s ease, transform 0.25s ease;
 }
 
+.footer-social-link img {
+  display: block;
+  object-fit: contain;
+}
 
 .footer-social-link:hover {
-  color: #efbd00;
-
+  background-color: rgba(239, 189, 0, 0.15);
   transform: translateY(-2px);
 }
 
@@ -312,40 +215,27 @@
 .footer-bottom {
   position: relative;
   z-index: 2;
-
-  width: min(1200px, calc(100% - 100px));
-
-  min-height: 43px;
-
+  width: min(1200px, calc(100% - 60px));
+  min-height: 50px;
   margin: 0 auto;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
+  padding: 12px 0;
 }
-
-
-/* INFORMACIÓN LEGAL */
 
 .footer-legal {
   display: flex;
   align-items: center;
-
-  gap: 13px;
-
-  color: #dddddd;
-
-  font-size: 9px;
+  gap: 12px;
+  color: #bbbbbb;
+  font-size: 10px;
   font-weight: 400;
 }
 
-
 .footer-bottom-separator {
-  color: #777777;
+  color: #555555;
 }
 
 
@@ -356,237 +246,222 @@
 .footer-back-top {
   display: flex;
   align-items: center;
-
-  gap: 10px;
-
+  gap: 8px;
   border: none;
   background: transparent;
-
   color: #ffffff;
-
   cursor: pointer;
-
   font-family: inherit;
-
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 600;
-
   letter-spacing: 1.5px;
-
   transition: color 0.25s ease;
+  padding: 6px 0;
 }
-
 
 .footer-back-top:hover {
   color: #efbd00;
 }
 
-
 .footer-arrow {
-  color: #efbd00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  font-size: 19px;
-  font-weight: 300;
+.footer-arrow img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
 
-  line-height: 1;
+.footer-back-top:hover .footer-arrow img {
+  transform: translateY(-3px);
 }
 
 
 /* =========================================================
-   TABLET
+   ADAPTACIÓN TABLET (<= 1024px)
    ========================================================= */
 
-@media (max-width: 1000px) {
-
+@media (max-width: 1024px) {
   .footer-content {
-    width: calc(100% - 60px);
-
-    column-gap: 35px;
-
-    grid-template-columns:
-      1.3fr
-      0.7fr
-      0.9fr;
+    column-gap: 30px;
+    grid-template-columns: 1.2fr 0.8fr 1fr;
   }
-
 
   .footer-navigation,
   .footer-social {
-    padding-left: 30px;
+    padding-left: 24px;
   }
-
 
   .footer-logo-ge {
-    width: 145px;
+    width: 140px;
   }
-
 
   .footer-logo-setie {
-    width: 105px;
-  }
-
-
-  .footer-description {
-    font-size: 11px;
-  }
-
-
-  .footer-bottom {
-    width: calc(100% - 60px);
+    width: 100px;
   }
 }
 
-
 /* =========================================================
-   MÓVIL
+   ADAPTACIÓN MÓVIL RESPONSIVE (<= 768px)
    ========================================================= */
 
-@media (max-width: 760px) {
-
+@media (max-width: 768px) {
   .footer {
     min-height: auto;
   }
 
-
-  /*
-    En móvil la fotografía ocupa una parte más pequeña
-    y el contenido se organiza verticalmente.
-  */
-
   .footer-background-image {
     width: 100%;
-    height: 45%;
-
-    opacity: 0.25;
+    height: 100%;
+    opacity: 0.18;
   }
-
 
   .footer-overlay {
-    background:
-      linear-gradient(
-        180deg,
-        #090a0b 0%,
-        #090a0b 48%,
-        rgba(9, 10, 11, 0.85) 100%
-      );
+    background: linear-gradient(
+      180deg,
+      rgba(9, 10, 11, 0.92) 0%,
+      #090a0b 100%
+    );
   }
 
-
+  /* Contenedor principal alineado al centro */
   .footer-content {
     width: calc(100% - 40px);
-
-    padding: 40px 0 30px;
-
+    padding: 36px 0 24px;
     display: flex;
     flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 30px;
+    align-items: center; /* Centra horizontalmente las 3 secciones */
+    text-align: center;  /* Centra el texto */
+    gap: 28px;
   }
 
-
+  /* 1. SECCIÓN MARCA */
   .footer-brand {
     width: 100%;
+    align-items: center;
   }
 
+  .footer-logos {
+    justify-content: center; /* Centra los logos entre sí */
+    width: 100%;
+  }
 
-  .footer-navigation,
+  .footer-description {
+    text-align: center;
+    margin-top: 14px;
+  }
+
+  /* 2. SECCIÓN NAVEGACIÓN */
+  .footer-navigation {
+    width: 100%;
+    padding-left: 0;
+    border-left: none;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    align-items: center; /* Centra los enlaces */
+    gap: 14px;
+  }
+
+  .footer-navigation a {
+    font-size: 11px;
+    padding: 2px 0;
+  }
+
+  /* Ajuste de la línea amarilla indicadora para que quede centrada */
+  .footer-link-active::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* 3. SECCIÓN REDES SOCIALES */
   .footer-social {
     width: 100%;
-
-    height: auto;
-
     padding-left: 0;
-
     border-left: none;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    align-items: center; /* Centra el título y los iconos */
   }
 
-
-  .footer-navigation {
-    padding-top: 20px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  .footer-social-title {
+    font-size: 11px;
+    margin-bottom: 14px;
+    text-align: center;
   }
 
-
-  .footer-social {
-    padding-top: 20px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  .footer-social-links {
+    justify-content: center; /* Centra los íconos de redes */
+    gap: 16px;
   }
 
-
+  /* 4. SECCIÓN INFERIOR Y LEGAL */
   .footer-bottom {
     width: calc(100% - 40px);
-
-    padding: 18px 0;
-
-    min-height: auto;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 15px;
+    padding: 20px 0 28px;
+    flex-direction: column-reverse;
+    align-items: center; /* Centra el texto legal y el botón */
+    text-align: center;
+    gap: 18px;
   }
-
 
   .footer-legal {
-    flex-wrap: wrap;
-
-    line-height: 1.6;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    text-align: center;
   }
 
+  .footer-bottom-separator {
+    display: none;
+  }
 
   .footer-back-top {
-    padding: 0;
+    width: 100%;
+    max-width: 320px; /* Ancho máximo para que no se extienda demasiado si la pantalla crece */
+    justify-content: center; /* Centra el contenido del botón */
+    gap: 12px;
+    padding: 12px 16px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
 
 
 /* =========================================================
-   MÓVIL PEQUEÑO
+   ADAPTACIÓN MÓVIL PEQUEÑO (<= 480px)
    ========================================================= */
 
 @media (max-width: 480px) {
-
   .footer-content {
-    padding-top: 35px;
+    width: calc(100% - 32px);
+    padding-top: 28px;
   }
-
 
   .footer-logos {
     gap: 12px;
+    flex-wrap: nowrap; /* Mantiene ambos logos en la misma línea */
   }
-
 
   .footer-logo-ge {
-    width: 125px;
+    width: 120px;
   }
-
 
   .footer-logo-setie {
-    width: 90px;
+    width: 85px;
   }
-
-
-  .footer-logo-divider {
-    height: 28px;
-  }
-
 
   .footer-description {
-    font-size: 10px;
+    font-size: 11px;
+    line-height: 1.5;
   }
 
-
-  .footer-social-links {
-    gap: 15px;
-  }
-
-
-  .footer-legal {
-    font-size: 8px;
+  .footer-bottom {
+    width: calc(100% - 32px);
   }
 }

@@ -174,19 +174,40 @@
 .lang-selector {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
+  color: #ffffff;
+}
+
+.lang-selector button {
+  background: transparent;
+  border: none;
+  color: #888888;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.lang-selector button:hover {
+  color: #ffffff;
 }
 
 .lang-selector .active {
-  color: #e8b700;
+  color: #fdd000;
+  font-weight: 700;
 }
 
 .lang-selector .separator {
-  color: #777777;
+  color: rgba(255, 255, 255, 0.2);
+  user-select: none;
 }
 
 .navbar-history {
@@ -589,6 +610,50 @@
 }
 
 /* =========================================================
+   SELECTOR DE IDIOMA BASE
+   ========================================================= */
+
+.lang-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  color: #ffffff;
+}
+
+.lang-selector button {
+  background: transparent;
+  border: none;
+  color: #888888;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.lang-selector button:hover {
+  color: #ffffff;
+}
+
+.lang-selector button.active {
+  color: #fdd000;
+  font-weight: 700;
+}
+
+.lang-selector .separator {
+  color: rgba(255, 255, 255, 0.2);
+  user-select: none;
+}
+
+
+/* =========================================================
    BREAKPOINT MÓVIL (< 900px)
    ========================================================= */
 
@@ -605,23 +670,28 @@
     display: flex;
   }
 
+  /* Menú Desplegable Lateral */
   .nav-menu-wrapper {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
+    width: 85%;
     max-width: 320px;
     height: 100vh;
+    height: 100dvh; /* Para navegadores móviles modernos */
     background: rgba(11, 11, 11, 0.96);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 36px;
-    transition: right 0.35s ease-in-out;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    gap: 40px;
+    padding: 60px 24px;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7);
     z-index: 100;
+    box-sizing: border-box;
   }
 
   .nav-menu-wrapper.is-open {
@@ -630,12 +700,35 @@
 
   .nav-links {
     flex-direction: column;
-    gap: 24px;
+    gap: 22px;
     text-align: center;
+    width: 100%;
   }
 
   .nav-item {
-    font-size: 1.05rem;
+    font-size: 1rem;
     letter-spacing: 2px;
+  }
+
+  /* ELIMINAMOS margin-left: auto para que no se desalinee */
+  .lang-selector {
+    margin-left: 0 !important;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 4px 6px;
+    border-radius: 30px; /* Cápsula curva elegante */
+    gap: 4px;
+  }
+
+  .lang-selector .separator {
+    display: none; /* En móvil se reemplaza por el estilo cápsula */
+  }
+
+  .lang-selector button {
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
   }
 }

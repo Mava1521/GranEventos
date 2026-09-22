@@ -1,3 +1,7 @@
+/* =========================================================
+   SUSTAINABILITY PAGE - STYLES & RESPONSIVE DESIGN (ISO / WCAG 2.1)
+   ========================================================= */
+
 .sustainability-page {
   background-color: #ffffff;
   color: #111111;
@@ -11,6 +15,7 @@
   margin: 0 auto;
   padding-left: 60px;
   padding-right: 60px;
+  box-sizing: border-box;
 }
 
 .text-green {
@@ -21,7 +26,9 @@
   color: #aaaaaa !important;
 }
 
-/* 1. HERO SECTION */
+/* =========================================================
+   1. HERO SECTION
+   ========================================================= */
 .sust-hero {
   position: relative;
   width: 100%;
@@ -45,7 +52,7 @@
 .sust-hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25); /* Overlay suave para mantener contraste sin distorsionar */
+  background: rgba(0, 0, 0, 0.45);
   z-index: 2;
 }
 
@@ -56,10 +63,10 @@
   height: 100%;
   max-width: 1440px;
   margin: 0 auto;
+  padding: 0 60px;
   box-sizing: border-box;
 }
 
-/* Logo SETIE a la izquierda */
 .hero-main-brand {
   position: absolute;
   top: 230px;
@@ -70,16 +77,17 @@
 }
 
 .setie-logo-img {
-  width: 130%;
+  width: 100%;
+  max-width: 400px;
   height: auto;
   object-fit: contain;
+  display: block;
 }
 
-/* Texto Superior Derecho */
 .hero-top-right {
   position: absolute;
   top: 160px;
-  right: 100px;
+  right: 60px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -91,11 +99,10 @@
   color: #ffffff;
 }
 
-/* Texto Inferior Izquierdo */
 .hero-bottom-left {
   position: absolute;
-  bottom: 160px;
-  left: 100px;
+  bottom: 120px;
+  left: 60px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -104,16 +111,16 @@
 }
 
 .hero-bottom-left h2 {
-  font-family: inherit;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   letter-spacing: 4px;
-  line-height: 1.2;
+  line-height: 1.1;
   font-weight: 700;
-  margin: 0 0 2px 0;
+  margin: 0 0 4px 0;
   color: #ffffff;
 }
 
 .hero-bottom-left p {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   letter-spacing: 2.5px;
   line-height: 1.35;
   color: #ffffff;
@@ -121,31 +128,32 @@
   font-weight: 600;
 }
 
-/* Barras verdes de acento exactas al diseño original */
-.hero-accent-line {
-  width: 38px;
-  height: 3px;
-  background-color: #9dc425; /* Verde SETIE idéntico al logo */
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-
-/* Líneas verdes decorativas */
 .hero-green-line {
-  display: block;        /* Obligatorio para que un <span> respete width y height */
+  display: block;
   width: 50px;
   height: 4px;
-  background-color: #9dc425; /* Verde SETIE */
+  background-color: #9dc425;
   margin-top: 8px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
-/* 2. STATS BAR */
+.yellow-line {
+  display: block;
+  width: 45px;
+  height: 3px;
+  background-color: #fdd000;
+  margin-top: 12px;
+}
+
+/* =========================================================
+   2. STATS BAR
+   ========================================================= */
 .sust-stats-bar {
   width: 100%;
   background-color: #ffffff;
   color: #111111;
-  padding: 40px 0;
+  padding: 50px 0;
+  border-bottom: 1px solid #eaeaea;
 }
 
 .stats-grid {
@@ -160,6 +168,7 @@
   align-items: center;
   text-align: center;
   border-right: 1px solid #e0e0e0;
+  padding: 0 10px;
 }
 
 .stat-item:last-child {
@@ -168,21 +177,25 @@
 
 .stat-number {
   font-family: var(--font-condensed, 'Oswald', sans-serif);
-  font-size: 2.5rem;
+  font-size: clamp(2.2rem, 4vw, 3rem);
   font-weight: 700;
   color: #111111;
+  line-height: 1;
 }
 
 .stat-label {
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 1.5px;
   color: #555555;
-  max-width: 180px;
-  margin-top: 6px;
+  max-width: 200px;
+  margin-top: 10px;
+  text-transform: uppercase;
 }
 
-/* 3. PROPÓSITO REAL */
+/* =========================================================
+   3. PROPÓSITO REAL
+   ========================================================= */
 .sust-purpose-wrapper {
   width: 100%;
   background-color: #ffffff;
@@ -197,73 +210,98 @@
 }
 
 .section-subtitle {
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  color: #ffffff;
+  font-size: 0.8rem;
+  letter-spacing: 2.5px;
+  color: #111111;
   display: block;
   margin-bottom: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .section-title {
   font-family: var(--font-condensed, 'Oswald', sans-serif);
-  font-size: 3.2rem;
+  font-size: clamp(2.4rem, 5vw, 3.5rem);
   line-height: 1.05;
   margin-bottom: 24px;
   color: #111111;
   font-weight: 700;
 }
 
-.section-title span{
+.section-title span {
   color: #9dc425;
-}
-.purpose-description {
-  color: #555555;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  max-width: 480px;
 }
 
-.purpose-description span{
+.purpose-description {
+  color: #555555;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.purpose-description span {
   color: #9dc425;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .purpose-card {
-  height: 380px;
+  position: relative;
+  height: 420px;
   display: flex;
   align-items: flex-end;
   padding: 40px;
   background-color: #111111;
+  background-size: cover;
+  background-position: center;
   border-radius: 16px;
-  
+  overflow: hidden;
+}
+
+.purpose-card .image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%);
+  z-index: 1;
+}
+
+.card-overlay-content {
+  position: relative;
+  z-index: 2;
 }
 
 .card-overlay-content h3 {
   font-family: var(--font-condensed, 'Oswald', sans-serif);
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   line-height: 1.1;
   color: #ffffff;
+  margin: 0;
 }
 
-/* 4. PILARES */
+.card-overlay-content h3 span {
+  color: #9dc425;
+}
+
+/* =========================================================
+   4. PILARES / FEATURES
+   ========================================================= */
 .sust-features-wrapper {
   width: 100%;
-  background-color: #ffffff;
-  padding: 60px 0;
+  background-color: #fafafa;
+  padding: 80px 0;
   border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
 }
 
 .sust-features {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  gap: 32px;
 }
 
 .feature-item {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
 }
 
 .feature-icon {
@@ -274,26 +312,28 @@
   color: #fdd000;
 }
 
-
-
 .feature-item h4 {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   letter-spacing: 1.5px;
   font-weight: 700;
   color: #111111;
+  margin: 0 0 8px 0;
 }
 
 .feature-item p {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: #666666;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin: 0;
 }
 
-/* 5. CARDS CASOS DE USO */
+/* =========================================================
+   5. CASOS DE USO / CARDS
+   ========================================================= */
 .sust-usecases-wrapper {
   width: 100%;
   background-color: #ffffff;
-  padding: 30px 0;
+  padding: 80px 0;
 }
 
 .sust-usecases {
@@ -303,95 +343,308 @@
 }
 
 .usecase-card {
-  height: 320px;
-  padding: 32px;
+  position: relative;
+  height: 380px;
+  padding: 36px 28px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   background-color: #111111;
+  background-size: cover;
+  background-position: center;
   border-radius: 16px;
   color: #ffffff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.usecase-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%);
+  z-index: 1;
+}
+
+.usecase-content {
+  position: relative;
+  z-index: 2;
 }
 
 .tag-category {
   font-size: 0.75rem;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   color: #ffffff;
   font-weight: 600;
+  display: block;
 }
 
 .usecase-title {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 600;
   line-height: 1.3;
+  margin: 0;
+  color: #ffffff;
 }
 
-/* 6. BANNER COMPROMISO FOOTER */
+/* =========================================================
+   6. COMPROMISO BANNER
+   ========================================================= */
 .sust-commitment {
+  position: relative;
   width: 100%;
   background-color: #070707;
+  background-size: cover;
+  background-position: center;
   color: #ffffff;
   padding: 100px 0;
 }
 
+.commitment-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 7, 7, 0.88);
+  z-index: 1;
+}
+
 .commitment-content {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
 }
 
+.commitment-left .section-subtitle {
+  color: #9dc425;
+}
+
 .commitment-left h2 {
   font-family: var(--font-condensed, 'Oswald', sans-serif);
-  font-size: 3rem;
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
   line-height: 1.1;
   margin-top: 12px;
+  color: #ffffff;
+}
+
+.commitment-left h2 span {
+  color: #9dc425;
 }
 
 .commitment-right p {
-  color: #ffffff;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin-bottom: 24px;
-  font-weight: 900;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 28px;
+  font-weight: 400;
 }
 
 .commitment-keywords {
-  font-size: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
   letter-spacing: 2px;
-  color: #ffffff;
-  font-weight: 600;
+  color: #9dc425;
+  font-weight: 700;
 }
 
-/* RESPONSIVE */
+.commitment-keywords .dot {
+  color: #ffffff;
+  opacity: 0.5;
+}
+
+/* =========================================================
+   ADAPTACIÓN RESPONSIVE / MEDIA QUERIES (BREAKPOINTS)
+   ========================================================= */
+
+/* Tablets / Laptops Pequeñas (< 1024px) */
 @media (max-width: 1024px) {
   .sust-section-inner {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
-  .section-title {
-    font-size: 2.5rem;
+
+  .sust-hero {
+    height: 750px;
   }
-  .hero-bottom-left h2 {
-    font-size: 2.2rem;
+
+  .hero-main-brand {
+    top: 180px;
+    left: 32px;
+    max-width: 320px;
+  }
+
+  .hero-top-right {
+    top: 120px;
+    right: 32px;
+    font-size: 0.95rem;
+  }
+
+  .hero-bottom-left {
+    bottom: 80px;
+    left: 32px;
+  }
+
+  .sust-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
   }
 }
 
+/* Dispositivos Móviles (< 768px) */
 @media (max-width: 768px) {
-  .stats-grid, .sust-purpose, .sust-features, .sust-usecases, .commitment-content {
-    grid-template-columns: 1fr;
-    gap: 30px;
+  .sust-section-inner {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  .stat-item {
-    border-right: none;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 20px;
+
+  /* 1. Hero Móvil Adaptado */
+  .sust-hero {
+    height: auto;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
   }
+
+  .sust-hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 100px 20px 60px 20px;
+  }
+
+  .hero-top-right {
+    position: relative;
+    top: auto;
+    right: auto;
+    align-items: flex-start;
+    text-align: left;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 30px;
+  }
+
   .hero-main-brand {
     position: relative;
     top: auto;
     left: auto;
-    transform: none;
-    margin: 40px 0;
+    max-width: 260px;
+    margin: 20px 0 40px 0;
+  }
+
+  .hero-bottom-left {
+    position: relative;
+    bottom: auto;
+    left: auto;
+  }
+
+  .hero-bottom-left h2 {
+    font-size: 2.2rem;
+  }
+
+  .hero-bottom-left p {
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+  }
+
+  /* 2. Estadísticas en Móvil */
+  .sust-stats-bar {
+    padding: 40px 0 10px 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .stat-item {
+    border-right: none;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 24px;
+  }
+
+  .stat-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  /* 3. Propósito en Móvil */
+  .sust-purpose-wrapper {
+    padding: 60px 0;
+  }
+
+  .sust-purpose {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .purpose-card {
+    height: 320px;
+    padding: 24px;
+  }
+
+  /* 4. Pilares en Móvil */
+  .sust-features-wrapper {
+    padding: 50px 0;
+  }
+
+  .sust-features {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  /* 5. Casos de Uso en Móvil */
+  .sust-usecases-wrapper {
+    padding: 50px 0;
+  }
+
+  .sust-usecases {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .usecase-card {
+    height: 300px;
+    padding: 24px;
+  }
+
+  /* 6. Compromiso en Móvil */
+  .sust-commitment {
+    padding: 60px 0;
+  }
+
+  .commitment-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .commitment-keywords {
+    gap: 8px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Pantallas Extra Pequeñas (< 480px) */
+@media (max-width: 480px) {
+  .hero-main-brand {
+    max-width: 210px;
+  }
+
+  .hero-bottom-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-bottom-left p {
+    font-size: 0.95rem;
+  }
+
+  .purpose-card {
+    height: 280px;
+  }
+
+  .card-overlay-content h3 {
+    font-size: 1.6rem;
   }
 }

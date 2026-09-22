@@ -80,9 +80,20 @@ export default function Navbar() {
 
           {/* IDIOMAS */}
           <div className="lang-selector">
-            <span className="active">ES</span>
+            <button 
+              className="active" 
+              type="button" 
+              aria-label="Cambiar idioma a Español"
+            >
+              ES
+            </button>
             <span className="separator">|</span>
-            <span>EN</span>
+            <button 
+              type="button" 
+              aria-label="Switch language to English"
+            >
+              EN
+            </button>
           </div>
         </div>
 
