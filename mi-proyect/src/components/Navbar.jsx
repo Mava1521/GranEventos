@@ -15,14 +15,21 @@ export default function Navbar() {
   const isProjects = location.pathname === '/nuevas-tecnologias';
   const isHistory = location.pathname === '/historia';
   const isContact = location.pathname === '/contacto';
+  const isSustainability = location.pathname === '/sostenibilidad';
 
   let currentLogo = isHistory ? LogoHistory : LogoGE;
 
+  // Asignación de variantes de estilo
   let navbarVariant = 'navbar-inner';
-  if (isHome) navbarVariant = 'navbar-home';
-  else if (isProjects) navbarVariant = 'navbar-projects';
-  else if (isHistory) navbarVariant = 'navbar-history';
-  else if (isContact) navbarVariant = 'navbar-contact';
+  if (isHome || isSustainability) {
+    navbarVariant = 'navbar-transparent'; // Transparente sobre la imagen de fondo
+  } else if (isProjects) {
+    navbarVariant = 'navbar-projects';
+  } else if (isHistory) {
+    navbarVariant = 'navbar-history';
+  } else if (isContact) {
+    navbarVariant = 'navbar-contact';
+  }
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
@@ -68,6 +75,7 @@ export default function Navbar() {
               <Link to="/sostenibilidad" className="nav-item" onClick={closeMenu}>
                 SOSTENIBILIDAD
               </Link>
+              {isSustainability && <div className="active-indicator" />}
             </li>
 
             <li className="nav-item-wrapper">
@@ -80,18 +88,11 @@ export default function Navbar() {
 
           {/* IDIOMAS */}
           <div className="lang-selector">
-            <button 
-              className="active" 
-              type="button" 
-              aria-label="Cambiar idioma a Español"
-            >
+            <button className="active" type="button" aria-label="Cambiar a Español">
               ES
             </button>
-            <span className="separator">|</span>
-            <button 
-              type="button" 
-              aria-label="Switch language to English"
-            >
+
+            <button type="button" aria-label="Switch to English">
               EN
             </button>
           </div>
@@ -101,7 +102,7 @@ export default function Navbar() {
         <button
           className="mobile-menu-toggle"
           onClick={toggleMenu}
-          aria-label={menuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={menuOpen}
         >
           {menuOpen ? <X size={26} color="#ffffff" /> : <Menu size={26} color="#ffffff" />}

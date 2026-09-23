@@ -1,499 +1,11 @@
 /* =========================================================
-   NAVBAR BASE
+   NAVBAR BASE & CONTENEDOR
    ========================================================= */
 
 .navbar {
   width: 100%;
   z-index: 100;
-  padding: 32px 60px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-}
-
-/* =========================================================
-   HOME
-   ========================================================= */
-
-.navbar-home {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  background: transparent;
-}
-
-.navbar-home .nav-item {
-  color: #ffffff;
-}
-
-.navbar-home .logo-placeholder {
-  border: 1px dashed rgba(255, 255, 255, 0.25);
-}
-
-/* =========================================================
-   PAGINAS INTERNAS
-   ========================================================= */
-
-.navbar-inner {
-  position: relative;
-}
-
-.navbar-inner .nav-item {
-  color: #ffffff;
-}
-
-.navbar-inner .logo-placeholder {
-  border: 1px dashed rgba(255, 255, 255, 0.15);
-}
-
-/* =========================================================
-   PROYECTOS
-   SOLO AFECTA /nuevas-tecnologias
-   ========================================================= */
-
-.navbar-projects {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  background: #111;
-
-  padding: 22px 46px 18px;
-
-  color: #111111;
-}
-
-.navbar-projects .nav-item {
-  color: #ffffff;
-}
-
-.navbar-projects .nav-item:hover {
-  color: #eab900;
-}
-
-.navbar-projects .logo-placeholder {
-  border: none;
-}
-
-.navbar-projects .active-indicator {
-  background-color: #efbd00;
-}
-
-/* =========================================================
-   LOGO
-   ========================================================= */
-
-.brand-logos {
-  display: flex;
-  align-items: center;
-}
-
-.logo-placeholder {
-  display: flex;
-  align-items: center;
-
-  padding: 0;
-
-  text-decoration: none;
-}
-
-.logo-placeholder img {
-  display: block;
-  width: 190px;
-  height: auto;
-}
-
-/* =========================================================
-   LINKS
-   ========================================================= */
-
-.nav-links {
-  display: flex;
-  align-items: center;
-
-  gap: 36px;
-
-  margin: 0;
-  padding: 0;
-
-  list-style: none;
-}
-
-.nav-item-wrapper {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.nav-item {
-  position: relative;
-
-  text-decoration: none;
-
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-
-  letter-spacing: 1.25px;
-
-  padding-bottom: 7px;
-
-  transition: color 0.2s ease;
-}
-
-.nav-item:hover {
-  color: var(--accent-gold, #efbd00);
-}
-
-/* =========================================================
-   ACTIVE
-   ========================================================= */
-
-.active-indicator {
-  position: absolute;
-
-  bottom: 0;
-
-  width: 100%;
-  height: 2px;
-
-  background-color: var(--accent-gold, #efbd00);
-}
-
-/* =========================================================
-   IDIOMA
-   ========================================================= */
-
-.lang-selector {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 1.2px;
-  color: #ffffff;
-}
-
-.lang-selector button {
-  background: transparent;
-  border: none;
-  color: #888888;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  letter-spacing: inherit;
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: all 0.25s ease;
-}
-
-.lang-selector button:hover {
-  color: #ffffff;
-}
-
-.lang-selector .active {
-  color: #fdd000;
-  font-weight: 700;
-}
-
-.lang-selector .separator {
-  color: rgba(255, 255, 255, 0.2);
-  user-select: none;
-}
-
-.navbar-history {
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-
-  padding:
-    25px
-    50px;
-
-  background: transparent;
-
-  z-index: 100;
-}
-
-
-.navbar-history .nav-item {
-  color: #222222;
-}
-
-
-.navbar-history .logo-placeholder {
-  border: none;
-}
-
-
-.navbar-history .active-indicator {
-  background: var(--accent-gold, #f4c400);
-}
-
-
-.navbar-history .lang-selector {
-  color: #222222;
-}
-
-/* =========================================================
-   CONTACTO
-   Solo afecta /contacto
-   ========================================================= */
-
-.navbar-contact {
-  position: relative;
-
-  width: 100%;
-
-  padding: 8px 48px;
-
-  background-color: #111111;
-
-  color: #111111;
-
-  z-index: 100;
-
-  box-sizing: border-box;
-}
-
-
-/* ---------------------------------------------------------
-   LOGO
-   --------------------------------------------------------- */
-
-.navbar-contact .logo-placeholder {
-  border: none;
-}
-
-.navbar-contact .logo-placeholder img {
-  width: 150px;
-  height: auto;
-  display: block;
-}
-
-
-/* ---------------------------------------------------------
-   LINKS
-   --------------------------------------------------------- */
-
-.navbar-contact .nav-item {
-  color: #ffffff;
-
-  font-family: 'Montserrat', sans-serif;
-
-  font-size: 10px;
-
-  font-weight: 500;
-
-  letter-spacing: 1.1px;
-
-  text-decoration: none;
-
-  padding-bottom: 8px;
-
-  transition:
-    color 0.2s ease,
-    opacity 0.2s ease;
-}
-
-
-/* Hover */
-
-.navbar-contact .nav-item:hover {
-  color: #eab900;
-}
-
-
-/* ---------------------------------------------------------
-   LINK ACTIVO
-   --------------------------------------------------------- */
-
-.navbar-contact .active-indicator {
-  position: absolute;
-
-  bottom: 0;
-
-  left: 0;
-
-  width: 100%;
-
-  height: 2px;
-
-  background-color: #eab900;
-}
-
-
-/* ---------------------------------------------------------
-   IDIOMAS
-   --------------------------------------------------------- */
-
-.navbar-contact .lang-selector {
-  color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
-
-.navbar-contact .lang-selector .active {
-  color: #eab900;
-}
-
-
-.navbar-contact .lang-selector .separator {
-  color: #777777;
-}
-
-
-/* =========================================================
-   RESPONSIVE CONTACTO
-   ========================================================= */
-
-@media (max-width: 1000px) {
-
-  .navbar-contact {
-    padding: 10px 30px;
-  }
-
-  .navbar-contact .logo-placeholder img {
-    width: 140px;
-  }
-
-}
-
-
-@media (max-width: 760px) {
-
-  .navbar-contact {
-    flex-wrap: wrap;
-
-    gap: 15px;
-  }
-
-  .navbar-contact .nav-links {
-    order: 3;
-
-    width: 100%;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 18px;
-  }
-
-}
-
-
-@media (max-width: 480px) {
-
-  .navbar-contact {
-    padding: 12px 20px;
-  }
-
-  .navbar-contact .logo-placeholder img {
-    width: 125px;
-  }
-
-  .navbar-contact .nav-links {
-    gap: 12px;
-  }
-
-  .navbar-contact .nav-item {
-    font-size: 8px;
-
-    letter-spacing: 0.7px;
-  }
-
-}
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
-@media (max-width: 1000px) {
-  .navbar {
-    padding: 22px 30px;
-  }
-
-  .navbar-projects {
-    padding: 20px 30px;
-  }
-
-  .nav-links {
-    gap: 22px;
-  }
-
-  .logo-placeholder img {
-    width: 150px;
-  }
-}
-
-@media (max-width: 760px) {
-  .navbar {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .nav-links {
-    order: 3;
-    width: 100%;
-
-    justify-content: center;
-    flex-wrap: wrap;
-
-    gap: 18px;
-  }
-
-  .lang-selector {
-    margin-left: auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar {
-    padding: 18px 20px;
-  }
-
-  .navbar-projects {
-    padding: 18px 20px;
-  }
-
-  .logo-placeholder img {
-    width: 135px;
-  }
-
-  .nav-links {
-    gap: 12px;
-  }
-
-  .nav-item {
-    font-size: 8px;
-    letter-spacing: 0.8px;
-  }
-}
-
-/* =========================================================
-   NAVBAR BASE Y ESTRUCTURA RESPONSIVE
-   ========================================================= */
-
-.navbar {
-  width: 100%;
-  z-index: 100;
-  padding: 24px 40px;
+  padding: 24px 50px;
   transition: all 0.3s ease;
   box-sizing: border-box;
 }
@@ -507,22 +19,74 @@
   width: 100%;
 }
 
+/* =========================================================
+   VARIANTE 1: TRANSPARENTE (Home, Sostenibilidad, etc.)
+   ========================================================= */
+
+.navbar-transparent,
 .navbar-home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent !important; /* Elimina la barra negra superior */
+}
+
+.navbar-transparent .nav-item,
+.navbar-home .nav-item {
+  color: #ffffff;
+}
+
+/* =========================================================
+   VARIANTE 2: PÁGINAS CON FONDO OSCURO (Contacto, Proyectos, etc.)
+   ========================================================= */
+
+.navbar-inner,
+.navbar-contact,
+.navbar-projects {
+  position: relative;
+  background-color: #0b0b0b;
+}
+
+.navbar-inner .nav-item,
+.navbar-contact .nav-item,
+.navbar-projects .nav-item {
+  color: #ffffff;
+}
+
+/* =========================================================
+   VARIANTE 3: HISTORIA / NOSOTROS (Texto Oscuro)
+   ========================================================= */
+
+.navbar-history {
   position: absolute;
   top: 0;
   left: 0;
   background: transparent;
 }
 
-.navbar-inner {
-  position: relative;
-  background: #0b0b0b;
+.navbar-history .nav-item {
+  color: #222222;
 }
+
+.navbar-history .lang-selector button {
+  color: #222222;
+}
+
+/* =========================================================
+   LOGOS, ENLACES E INDICADORES
+   ========================================================= */
 
 .brand-logos {
   display: flex;
   align-items: center;
   z-index: 101;
+}
+
+.logo-placeholder {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border: none;
 }
 
 .navbar-logo-img {
@@ -532,7 +96,6 @@
   object-fit: contain;
 }
 
-/* MENÚ DE NAVEGACIÓN Y LINKS */
 .nav-menu-wrapper {
   display: flex;
   align-items: center;
@@ -556,18 +119,17 @@
 }
 
 .nav-item {
-  color: #ffffff;
   text-decoration: none;
-  font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 1.5px;
-  padding: 8px 0;
+  padding: 6px 0;
   transition: color 0.2s ease;
 }
 
 .nav-item:hover {
-  color: var(--accent-gold);
+  color: var(--accent-gold, #efbd00);
 }
 
 .active-indicator {
@@ -575,53 +137,21 @@
   bottom: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--accent-gold);
-}
-
-.lang-selector {
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.lang-selector span.active {
-  color: var(--accent-gold);
-}
-
-.lang-selector .separator {
-  opacity: 0.4;
-}
-
-.mobile-menu-toggle {
-  display: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  z-index: 101;
-  min-width: 44px;
-  min-height: 44px;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--accent-gold, #efbd00);
 }
 
 /* =========================================================
-   SELECTOR DE IDIOMA BASE
+   SELECTOR DE IDIOMA (PC)
    ========================================================= */
 
 .lang-selector {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 1.2px;
-  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .lang-selector button {
@@ -631,25 +161,17 @@
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
-  letter-spacing: inherit;
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 4px;
-  transition: all 0.25s ease;
-}
-
-.lang-selector button:hover {
-  color: #ffffff;
+  padding: 2px 4px;
+  transition: color 0.2s ease;
 }
 
 .lang-selector button.active {
-  color: #fdd000;
-  font-weight: 700;
+  color: var(--accent-gold, #efbd00);
 }
 
-.lang-selector .separator {
-  color: rgba(255, 255, 255, 0.2);
-  user-select: none;
+.mobile-menu-toggle {
+  display: none;
 }
 
 
@@ -668,9 +190,14 @@
 
   .mobile-menu-toggle {
     display: flex;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 101;
   }
 
-  /* Menú Desplegable Lateral */
+  /* Menú desplegable lateral móvil */
   .nav-menu-wrapper {
     position: fixed;
     top: 0;
@@ -678,7 +205,7 @@
     width: 85%;
     max-width: 320px;
     height: 100vh;
-    height: 100dvh; /* Para navegadores móviles modernos */
+    height: 100dvh;
     background: rgba(11, 11, 11, 0.96);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -686,8 +213,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    padding: 60px 24px;
+    gap: 36px;
+    padding: 40px 20px;
     transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7);
     z-index: 100;
@@ -707,28 +234,26 @@
 
   .nav-item {
     font-size: 1rem;
-    letter-spacing: 2px;
+    color: #ffffff !important; /* Siempre texto blanco en el menú móvil oscuro */
   }
 
-  /* ELIMINAMOS margin-left: auto para que no se desalinee */
+  /* Selector de idioma centrado en formato cápsula en móvil */
   .lang-selector {
-    margin-left: 0 !important;
-    justify-content: center;
-    align-items: center;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.12);
     padding: 4px 6px;
-    border-radius: 30px; /* Cápsula curva elegante */
-    gap: 4px;
-  }
-
-  .lang-selector .separator {
-    display: none; /* En móvil se reemplaza por el estilo cápsula */
+    border-radius: 30px;
   }
 
   .lang-selector button {
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 0.75rem;
+    color: #888888 !important;
+  }
+
+  .lang-selector button.active {
+    color: #0b0b0b !important;
+    background-color: var(--accent-gold, #efbd00);
   }
 }
