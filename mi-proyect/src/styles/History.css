@@ -8,12 +8,19 @@
    ========================================================== */
 
 .history-page {
+  /* =====================================================
+     GRAN EVENTOS — SISTEMA VISUAL
+     ===================================================== */
   --gold: #f4c400;
   --black: #151515;
   --gray: #686868;
   --light: #f8f7f3;
   --border: #dedbd3;
   --green: #9dc425;
+
+  /* Sistema de alineación */
+  --history-desktop-gutter: 40px;
+  --history-mobile-gutter: 24px;
 
   min-height: 100vh;
   background: var(--light);
@@ -43,27 +50,58 @@
 .history-hero {
   position: relative;
   min-height: 330px;
-  padding: 125px 50px 30px;
+
+  /*
+   * El Hero utiliza el mismo eje horizontal general
+   * del Navbar en escritorio.
+   */
+  padding: 125px var(--history-desktop-gutter) 30px;
+
   overflow: hidden;
   background: var(--light);
 }
 
+
+/* ----------------------------------------------------------
+   CONTENIDO PRINCIPAL
+   ---------------------------------------------------------- */
+
 .history-hero-content {
   position: relative;
   z-index: 5;
+
+  width: 100%;
   max-width: 380px;
+
+  margin: 0;
+  padding: 0;
 }
+
+
+/* ----------------------------------------------------------
+   EYEBROW
+   ---------------------------------------------------------- */
 
 .history-eyebrow {
   display: block;
+
   margin-bottom: 18px;
+
+  color: var(--black);
+
   font-size: 14px;
   font-weight: 500;
   letter-spacing: 7px;
 }
 
+
+/* ----------------------------------------------------------
+   TÍTULO
+   ---------------------------------------------------------- */
+
 .history-hero h1 {
   margin: 0;
+
   font-family: 'Oswald', sans-serif;
   font-size: clamp(38px, 3.2vw, 57px);
   font-weight: 500;
@@ -71,19 +109,38 @@
   letter-spacing: 5px;
 }
 
-.history-hero h1 .text-yellow { color: var(--gold); }
-.history-hero h1 .text-green { color: var(--green); }
+.history-hero h1 .text-yellow {
+  color: var(--gold);
+}
+
+.history-hero h1 .text-green {
+  color: var(--green);
+}
+
+
+/* ----------------------------------------------------------
+   LÍNEA AMARILLA
+   ---------------------------------------------------------- */
 
 .history-gold-line {
   width: 40px;
   height: 3px;
+
   margin: 20px 0 17px;
+
   background: var(--gold);
 }
 
+
+/* ----------------------------------------------------------
+   DESCRIPCIÓN
+   ---------------------------------------------------------- */
+
 .history-hero-content p {
   margin: 0;
+
   color: #4f4f4f;
+
   font-size: 14px;
   line-height: 1.35;
   letter-spacing: 0.4px;
@@ -91,36 +148,51 @@
 
 
 /* ==========================================================
-   3. MENSAJE SUPERIOR Y LOGO
+   MENSAJE SUPERIOR
    ========================================================== */
 
 .history-top-message {
   position: absolute;
+
   top: 150px;
-  right: 52px;
+  right: var(--history-desktop-gutter);
+
   color: #333;
+
   font-size: 8px;
   letter-spacing: 3px;
 }
 
-.history-top-message p { margin: 0; }
+.history-top-message p {
+  margin: 0;
+}
+
+
+/* ==========================================================
+   LOGO GE CENTRAL
+   ========================================================== */
 
 .history-center-logo {
   position: absolute;
+
   top: 115px;
   left: 40%;
+
   font-family: Arial, sans-serif;
   font-size: 105px;
   font-weight: 900;
   letter-spacing: -20px;
+
   color: var(--gold);
   opacity: 0.95;
 }
 
 .history-center-logo img {
   display: block;
+
   width: 370px;
   height: 290px;
+
   object-fit: contain;
 }
 
@@ -647,65 +719,107 @@
   }
 
   /* ---------- Hero ---------- */
-  .history-hero {
-    position: relative;
-    min-height: auto;
-    padding: 42px 24px 35px;
-    display: block;
-    background: #f5f2e9;
-  }
+ .history-hero {
+  position: relative;
 
-  .history-hero-content {
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
-  }
+  width: 100%;
+  min-height: 430px;
+
+  display: block;
+
+  padding:
+    42px
+    var(--history-mobile-gutter)
+    35px;
+
+  overflow: hidden;
+
+  background: #f5f2e9;
+}
+
+ .history-hero-content {
+  width: 100%;
+  max-width: 360px;
+  /*
+   * En móvil el mockup utiliza una columna centrada.
+   * No debe heredar ningún margin-left del desktop.
+   */
+  margin: 0 auto;
+
+  padding: 0;
+}
 
   .history-eyebrow {
-    margin-bottom: 18px;
-    color: #202020;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 4px;
-  }
+  display: block;
 
-  .history-hero h1 {
-    font-size: clamp(39px, 11vw, 55px);
-    line-height: 0.94;
-    letter-spacing: -1.5px;
-    font-weight: 900;
-  }
+  margin-bottom: 18px;
 
-  .history-hero h1 .text-yellow { color: #f5c400; }
-  .history-hero h1 .text-green { color: #75b82a; }
+  color: #202020;
 
-  .history-gold-line { width: 35px; height: 3px; margin: 18px 0; background: #f5c400; }
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
 
-  .history-hero-content p {
-    max-width: 290px;
-    color: #777777;
-    font-size: 12px;
-    line-height: 1.55;
-  }
+
+.history-hero h1 {
+  margin: 0;
+
+  font-size: clamp(39px, 11vw, 55px);
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: -1.5px;
+}
+
+.history-hero h1 .text-yellow {
+  color: #f5c400;
+}
+
+.history-hero h1 .text-green {
+  color: #75b82a;
+}
+
+
+.history-gold-line {
+  width: 35px;
+  height: 3px;
+
+  margin: 18px 0;
+
+  background: #f5c400;
+}
+
+
+.history-hero-content p {
+  max-width: 290px;
+
+  margin: 0;
+
+  color: #777777;
+
+  font-size: 12px;
+  line-height: 1.55;
+}
+
 
   /* Logo GE pequeño junto al bloque de texto del hero */
-  .history-center-logo {
-    position: absolute;
-    top: auto;
-    left: auto;
-    right: 18px;
-    bottom: 42px;
-    width: 105px;
-    font-size: 0; /* neutraliza el fallback tipográfico de escritorio */
-    letter-spacing: normal;
-    opacity: 1;
-  }
+ .history-center-logo {
+  position: absolute;
+  top: auto;
+  left: auto;
+  right: 18px;
+  bottom: 42px;
+  width: 105px;
+  font-size: 0;
+  letter-spacing: normal;
+  opacity: 1;
+}
 
-  .history-center-logo img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+.history-center-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
   /* El mensaje lateral ("LA ENERGIA TAMBIEN...") no aparece en móvil */
   .history-top-message { display: none; }

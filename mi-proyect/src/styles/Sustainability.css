@@ -402,7 +402,7 @@
 .commitment-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(7, 7, 7, 0.88);
+  background: rgba(7, 7, 7, 0.479);
   z-index: 1;
 }
 
