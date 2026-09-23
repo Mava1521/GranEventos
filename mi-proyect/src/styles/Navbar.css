@@ -1,22 +1,22 @@
 /* =========================================================
-   NAVBAR BASE & CONTENEDOR
+   NAVBAR BASE & CONTENEDOR FLUIDO (UX/UI MEJORADO)
    ========================================================= */
 
 .navbar {
   width: 100%;
   z-index: 100;
-  padding: 24px 50px;
+  padding: 28px 40px; /* Padding equilibrado en bordes de pantalla */
   transition: all 0.3s ease;
   box-sizing: border-box;
 }
 
 .navbar-container {
-  max-width: 1440px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%; /* Elimina el límite de 1440px para extenderse en monitores ultrawide */
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
 
 /* =========================================================
@@ -28,7 +28,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: transparent !important; /* Elimina la barra negra superior */
+  background: transparent !important;
 }
 
 .navbar-transparent .nav-item,
@@ -121,7 +121,7 @@
 .nav-item {
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
   padding: 6px 0;
@@ -149,7 +149,7 @@
   align-items: center;
   gap: 4px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
 }
@@ -174,9 +174,8 @@
   display: none;
 }
 
-
 /* =========================================================
-   BREAKPOINT MÓVIL (< 900px)
+   BREAKPOINT MÓVIL (< 900px) - Mantiene comportamiento excelente
    ========================================================= */
 
 @media (max-width: 900px) {
@@ -197,7 +196,6 @@
     z-index: 101;
   }
 
-  /* Menú desplegable lateral móvil */
   .nav-menu-wrapper {
     position: fixed;
     top: 0;
@@ -234,10 +232,9 @@
 
   .nav-item {
     font-size: 1rem;
-    color: #ffffff !important; /* Siempre texto blanco en el menú móvil oscuro */
+    color: #ffffff !important;
   }
 
-  /* Selector de idioma centrado en formato cápsula en móvil */
   .lang-selector {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.12);

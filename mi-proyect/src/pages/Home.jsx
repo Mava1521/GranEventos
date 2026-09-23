@@ -2,9 +2,9 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import '../styles/Home.css';
 import GranEventosVideo from '../assets/graneventos(2).mov';
-import ImgPanoramica from '../assets/FOTO1.jpg';
-import Energia from '../assets/Nature.png'
-import Tecnologia from '../assets/Tecnology.png'
+import Sesion2Home from '../assets/Sesion2Home2.jpg';
+import Energia from '../assets/Sesion2Energia.jpg';
+import Tecnologia from '../assets/Nature.png';
 import Experiencias from '../assets/Experience.png'
 
 export default function Home() {
@@ -33,34 +33,108 @@ export default function Home() {
       </section>
 
       {/* MIDDLE SECTION */}
-        <div className="middle-section-wrapper">
-        <div className="container">
-            <section className="middle-section">
-            <div className="middle-content">
-                <span className="tag-clean">
-                GRAN EVENTOS <span className="accent-x">×</span> SETIE
+        {/* =========================================================
+            SEGUNDA SECCIÓN — GRAN EVENTOS + SETIE
+            ========================================================= */}
+        <section
+          className="ge-home-story"
+          aria-labelledby="ge-home-story-title"
+        >
+          {/* IMAGEN DE FONDO */}
+          <img
+            className="ge-home-story-image"
+            src={Sesion2Home}
+            alt=""
+            aria-hidden="true"
+          />
+
+          {/* CAPA OSCURA PARA MEJORAR CONTRASTE */}
+          <div
+            className="ge-home-story-overlay"
+            aria-hidden="true"
+          />
+
+          {/* CONTENIDO PRINCIPAL */}
+          <div className="ge-home-story-content">
+
+            {/* IDENTIFICADOR */}
+            <p className="ge-home-story-kicker">
+              GRAN EVENTOS
+              <span aria-hidden="true">×</span>
+              SETIE
+            </p>
+
+            {/* TITULAR */}
+            <h2
+              id="ge-home-story-title"
+              className="ge-home-story-title"
+            >
+              <span className="ge-home-story-title-light">
+                DOS HISTORIAS,
+              </span>
+
+              <span className="ge-home-story-title-yellow">
+                UNA{' '}
+                <span className="ge-home-story-title-split">
+                  MISMA
                 </span>
+              </span>
 
-                <h2 className="section-title-light">
-                DOS <span className="text-gold">HISTORIAS</span>. <br />
-                UNA MISMA <span className="green-point">ENERGÍA</span>.
-                </h2>
+              <span className="ge-home-story-title-green">
+                ENERGÍA
+              </span>
 
-                <div className="green-line"></div>
+              <span className="ge-home-story-title-light ge-home-story-title-last">
+                QUE LO HACE TODO POSIBLE.
+              </span>
+            </h2>
 
-                <p className="description-light">
-                La unión de nuestra pasión por crear experiencias y nuestra ingeniería
-                energética nos permite ir más lejos, ser más eficientes y generar un impacto
-                positivo en cada proyecto.
-                </p>
+            {/* LÍNEA DECORATIVA */}
+            <span
+              className="ge-home-story-line"
+              aria-hidden="true"
+            />
+
+            {/* DESCRIPCIÓN */}
+            <p className="ge-home-story-description">
+              La unión de nuestra pasión por crear
+              experiencias y nuestra ingeniería
+              energética nos permite ir más lejos,
+              ser más eficientes y generar un
+              impacto positivo en cada proyecto.
+            </p>
+
+          </div>
+
+          {/* MENSAJE LATERAL */}
+          <aside
+            className="ge-home-story-side"
+            aria-label="Nuestro propósito"
+          >
+            <div className="ge-home-story-side-list">
+              <span>EVENTOS</span>
+              <span aria-hidden="true">+</span>
+              <span>ENERGÍA</span>
+              <span aria-hidden="true">+</span>
+              <span>PERSONAS</span>
+              <span aria-hidden="true">+</span>
+              <span>PLANETA</span>
             </div>
 
-            <div className="image-placeholder middle-media">
-                <img src={ImgPanoramica} alt=""  width={655} height={400}/>
-            </div>
-            </section>
-        </div>
-        </div>
+            <span
+              className="ge-home-story-side-line"
+              aria-hidden="true"
+            />
+
+            <p className="ge-home-story-side-message">
+              UN FUTURO
+              <br />
+              MÁS GRANDE
+              <br />
+              ES POSIBLE.
+            </p>
+          </aside>
+        </section>
 
         {/* ==========================================
             NUESTRAS FORTALEZAS
