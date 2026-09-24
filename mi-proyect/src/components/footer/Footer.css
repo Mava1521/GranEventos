@@ -1,5 +1,5 @@
 /* =========================================================
-   FOOTER - BASE
+   FOOTER - BASE FLUIDA Y COMPLETA
    ========================================================= */
 
 .footer {
@@ -10,8 +10,8 @@
   color: #ffffff;
   overflow: hidden;
   font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
 }
-
 
 /* =========================================================
    IMAGEN DE FONDO Y OVERLAY
@@ -23,7 +23,6 @@
   right: 0;
   width: 58%;
   height: 100%;
-  /* background-image: url('../assets/footer-event.jpg'); */
   background-size: cover;
   background-position: center;
   opacity: 0.35;
@@ -44,33 +43,30 @@
   pointer-events: none;
 }
 
-
 /* =========================================================
-   CONTENIDO PRINCIPAL
+   CONTENIDO PRINCIPAL (3 COLUMNAS: IZQ, CENTRO, DER)
    ========================================================= */
 
 .footer-content {
   position: relative;
   z-index: 2;
-  width: min(1200px, calc(100% - 60px));
-  min-height: 150px;
-  margin: 0 auto;
-  padding: 40px 0;
+  width: 100%;
+  padding: 40px 60px; /* Alineado a los 60px laterales del navbar/hero */
+  box-sizing: border-box;
   display: grid;
-  grid-template-columns: minmax(280px, 1.4fr) minmax(140px, 0.8fr) minmax(200px, 1fr);
+  grid-template-columns: 1fr auto 1fr; /* Marca a la izq, Menú centrado, Redes a la der */
   align-items: center;
-  column-gap: 50px;
 }
 
-
 /* =========================================================
-   MARCA
+   1. MARCA (IZQUIERDA TOTAL)
    ========================================================= */
 
 .footer-brand {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .footer-logos {
@@ -114,19 +110,21 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 1.55;
+  text-align: left;
 }
 
-
 /* =========================================================
-   NAVEGACIÓN
+   2. NAVEGACIÓN (EXACTAMENTE EN EL CENTRO)
    ========================================================= */
 
 .footer-navigation {
-  padding-left: 40px;
+  padding: 0 150px;
   border-left: 1px solid rgba(255, 255, 255, 0.25);
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 12px;
 }
 
@@ -156,18 +154,15 @@
   background-color: #efbd00;
 }
 
-
 /* =========================================================
-   REDES SOCIALES
+   3. REDES SOCIALES (DERECHA TOTAL)
    ========================================================= */
 
 .footer-social {
-  height: 100%;
-  padding-left: 40px;
-  border-left: 1px solid rgba(255, 255, 255, 0.25);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-end; /* Empuja todo al borde derecho */
 }
 
 .footer-social-title {
@@ -176,12 +171,14 @@
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 2px;
+  text-align: right;
 }
 
 .footer-social-links {
   display: flex;
   align-items: center;
   gap: 16px;
+  justify-content: flex-end;
 }
 
 .footer-social-link {
@@ -207,9 +204,8 @@
   transform: translateY(-2px);
 }
 
-
 /* =========================================================
-   PARTE INFERIOR
+   PARTE INFERIOR (EXTREMO IZQUIERDO Y DERECHO)
    ========================================================= */
 
 .footer-bottom {
@@ -222,11 +218,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /*
-   * Mantiene el contenido visualmente alineado
-   * sin limitar la línea divisoria.
-   */
-  padding: 12px max(30px, calc((100vw - 1200px) / 2));
+  padding: 12px 60px; /* Bordes alineados totalmente con el resto del layout */
   box-sizing: border-box;
 }
 
@@ -242,7 +234,6 @@
 .footer-bottom-separator {
   color: #555555;
 }
-
 
 /* =========================================================
    VOLVER ARRIBA
@@ -285,192 +276,61 @@
   transform: translateY(-3px);
 }
 
-
 /* =========================================================
-   ADAPTACIÓN TABLET (<= 1024px)
+   ADAPTACIÓN RESPONSIVE
    ========================================================= */
 
 @media (max-width: 1024px) {
   .footer-content {
-    column-gap: 30px;
-    grid-template-columns: 1.2fr 0.8fr 1fr;
+    padding: 30px 40px;
   }
 
-  .footer-navigation,
-  .footer-social {
-    padding-left: 24px;
-  }
-
-  .footer-logo-ge {
-    width: 140px;
-  }
-
-  .footer-logo-setie {
-    width: 100px;
+  .footer-bottom {
+    padding: 12px 40px;
   }
 }
 
-/* =========================================================
-   ADAPTACIÓN MÓVIL RESPONSIVE (<= 768px)
-   ========================================================= */
-
 @media (max-width: 768px) {
-  .footer {
-    min-height: auto;
-  }
-
-  .footer-background-image {
-    width: 100%;
-    height: 100%;
-    opacity: 0.18;
-  }
-
-  .footer-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(9, 10, 11, 0.92) 0%,
-      #090a0b 100%
-    );
-  }
-
-  /* Contenedor principal alineado al centro */
   .footer-content {
-    width: calc(100% - 40px);
-    padding: 36px 0 24px;
+    padding: 36px 20px 24px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra horizontalmente las 3 secciones */
-    text-align: center;  /* Centra el texto */
+    align-items: center;
+    text-align: center;
     gap: 28px;
   }
 
-  /* 1. SECCIÓN MARCA */
   .footer-brand {
-    width: 100%;
     align-items: center;
-  }
-
-  .footer-logos {
-    justify-content: center; /* Centra los logos entre sí */
-    width: 100%;
   }
 
   .footer-description {
     text-align: center;
-    margin-top: 14px;
   }
 
-  /* 2. SECCIÓN NAVEGACIÓN */
   .footer-navigation {
-    width: 100%;
-    padding-left: 0;
+    padding: 24px 0 0 0;
     border-left: none;
-    padding-top: 24px;
+    border-right: none;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
-    align-items: center; /* Centra los enlaces */
-    gap: 14px;
+    width: 100%;
   }
 
-  .footer-navigation a {
-    font-size: 11px;
-    padding: 2px 0;
-  }
-
-  /* Ajuste de la línea amarilla indicadora para que quede centrada */
-  .footer-link-active::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /* 3. SECCIÓN REDES SOCIALES */
   .footer-social {
-    width: 100%;
-    padding-left: 0;
-    border-left: none;
+    align-items: center;
     padding-top: 24px;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
-    align-items: center; /* Centra el título y los iconos */
+    width: 100%;
   }
 
   .footer-social-title {
-    font-size: 11px;
-    margin-bottom: 14px;
     text-align: center;
   }
 
-  .footer-social-links {
-    justify-content: center; /* Centra los íconos de redes */
-    gap: 16px;
-  }
-
-  /* 4. SECCIÓN INFERIOR Y LEGAL */
   .footer-bottom {
-  width: 100%;
-  padding: 20px 20px 28px;
-  box-sizing: border-box;
-  flex-direction: column-reverse;
-  align-items: center;
-  text-align: center;
-  gap: 18px;
-}
-
-  .footer-legal {
-    flex-direction: column;
+    padding: 20px 20px 28px;
+    flex-direction: column-reverse;
     align-items: center;
-    gap: 4px;
-    font-size: 10px;
-    text-align: center;
-  }
-
-  .footer-bottom-separator {
-    display: none;
-  }
-
-  .footer-back-top {
-    width: 100%;
-    max-width: 320px; /* Ancho máximo para que no se extienda demasiado si la pantalla crece */
-    justify-content: center; /* Centra el contenido del botón */
-    gap: 12px;
-    padding: 12px 16px;
-    background-color: rgba(255, 255, 255, 0.04);
-    border-radius: 6px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-}
-
-
-/* =========================================================
-   ADAPTACIÓN MÓVIL PEQUEÑO (<= 480px)
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-  .footer-content {
-    width: calc(100% - 32px);
-    padding-top: 28px;
-  }
-
-  .footer-logos {
-    gap: 12px;
-    flex-wrap: nowrap;
-  }
-
-  .footer-logo-ge {
-    width: 120px;
-  }
-
-  .footer-logo-setie {
-    width: 85px;
-  }
-
-  .footer-description {
-    font-size: 11px;
-    line-height: 1.5;
-  }
-
-  .footer-bottom {
-    width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
+    gap: 18px;
   }
 }

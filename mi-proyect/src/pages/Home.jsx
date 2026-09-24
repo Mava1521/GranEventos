@@ -25,7 +25,7 @@ export default function Home() {
             <p className="hero-subtext-left">
               Integramos experiencia, producción, tecnología e ingeniería energética para crear eventos extraordinarios y sostenibles.
             </p>
-            <a href="#proyectos" className="btn-cta-gold">
+            <a href="/GranEventos/servicios" className="btn-cta-gold">
               CONOCE MÁS <ArrowRight size={18} />
             </a>
           </div>

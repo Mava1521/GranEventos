@@ -211,6 +211,136 @@
   object-fit: contain;
 }
 
+/* Wrapper del collage y título superior */
+.history-collage-wrapper {
+  width: 100%;
+  padding: 20px 42px 0;
+  background: var(--history-light);
+}
+
+.history-timeline-title-desktop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.history-timeline-title-desktop .timeline-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--history-black);
+  text-transform: uppercase;
+}
+
+.history-timeline-title-desktop h2 {
+  margin: 2px 0 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--history-black);
+  text-transform: uppercase;
+}
+
+/* Ocultar este título en versión Móvil */
+
+
+/* ==========================================================
+   01. TITULO EN DESKTOP (Arriba del collage)
+   ========================================================== */
+
+.history-collage-wrapper {
+  width: 100%;
+  padding: 20px 42px 0;
+  background: var(--history-light);
+}
+
+.history-timeline-title-desktop {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.history-timeline-title-desktop .timeline-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--history-black);
+  text-transform: uppercase;
+}
+
+.history-timeline-title-desktop h2 {
+  margin: 2px 0 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--history-black);
+  text-transform: uppercase;
+}
+
+/* En escritorio, ocultamos el título inferior para que no quede duplicado */
+.history-timeline-title-mobile {
+  display: none;
+}
+
+
+/* ==========================================================
+   02. TIMELINE — TEXTOS SIN RECUADRO (Escritorio)
+   ========================================================== */
+
+.timeline-card {
+  padding-right: 15px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.timeline-card h3 {
+  min-height: 30px;
+  margin: 0 0 10px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 2px;
+  color: var(--history-black);
+}
+
+.timeline-card p {
+  margin: 0;
+  color: #777;
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+
+/* ==========================================================
+   03. RESPONSIVE (MÓVIL - Sin alterar nada)
+   ========================================================== */
+@media (max-width: 768px) {
+  /* Oculta el título superior en móvil */
+  .history-timeline-title-desktop {
+    display: none;
+  }
+
+  /* Reactiva el título en la línea de tiempo para móvil */
+  .history-timeline-title-mobile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  /* Resetea el padding/fondo del wrapper en móvil */
+  .history-collage-wrapper {
+    padding: 0;
+    background: transparent;
+  }
+}
+
+
 
 /* ==========================================================
    06. COLLAGE — ESCRITORIO
@@ -258,6 +388,8 @@
     transform 0.35s ease,
     box-shadow 0.35s ease;
 }
+
+
 
 
 /* Variaciones de altura del collage */
@@ -396,6 +528,8 @@
   outline: 2px solid var(--history-gold);
   outline-offset: 3px;
 }
+
+
 
 
 /* ==========================================================
@@ -543,27 +677,31 @@
 
 .timeline-card {
   padding-right: 15px;
+  background: transparent;  /* Remueve fondo si lo tenía */
+  border: none;             /* Remueve bordes si los tenía */
+  box-shadow: none;         /* Remueve sombras si las tenía */
 }
 
 .timeline-card h3 {
   min-height: 30px;
-
   margin: 0 0 10px;
-
   font-family: 'Oswald', sans-serif;
   font-size: 11px;
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: 2px;
+  color: var(--history-black);
+  text-align: left;
+  align-items: end;
 }
 
 .timeline-card p {
   margin: 0;
-
   color: #777;
-
   font-size: 9px;
   line-height: 1.45;
+  text-align: left;
+  align-items: end;
 }
 
 

@@ -236,11 +236,6 @@ body {
 
   .hero-section {
     min-height: 100dvh;
-
-    /*
-     * El espacio horizontal lo controla .container.
-     * No agregamos otro padding lateral aquí.
-     */
     padding: 60px 0 0;
   }
 
@@ -321,7 +316,7 @@ body {
 
 
   /* =========================================
-     STRENGTHS
+     STRENGTHS (AJUSTADO PARA MÓVIL)
      ========================================= */
 
   .strengths-section {
@@ -341,23 +336,49 @@ body {
 
   .strengths-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
   }
 
+  /* Ajustes claves para que las cards mantengan la jerarquía vertical correcta */
   .strength-card {
-    height: 420px;
+    height: auto;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .strength-card-content {
-    padding: 24px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box;
+  }
+
+  .strength-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+
+  .strength-card-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .strength-card-bottom h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    margin: 0;
   }
 
   .strength-card-bottom p {
     font-size: 0.85rem;
+    line-height: 1.45;
+    margin: 0 0 8px 0;
   }
 }
 
@@ -597,7 +618,7 @@ body {
   margin: 0;
   color: #111111;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.30rem;
   font-weight: 400;
   line-height: 1.65;
 }
@@ -625,7 +646,7 @@ body {
   overflow: hidden;
   border: 1px solid hsl(0, 0%, 100%);
   border-radius: 12px;
-  background-color: #17191c;
+  background-color: #ffffff;
   isolation: isolate;
   cursor: pointer;
   transition:
@@ -647,7 +668,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: -3;
-  background-color: #151719;
+  background-color: rgba(241, 241, 241, 0.96);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -695,10 +716,10 @@ body {
   background:
     linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.10) 0%,
-      rgba(0, 0, 0, 0.16) 28%,
-      rgba(0, 0, 0, 0.38) 50%,
-      rgba(0, 0, 0, 0.96) 100%
+      rgba(0 0 0 / 68%) 0%,
+      rgb(0 0 0 / 6%) 28%,
+      rgba(0 0 0 / 0%) 50%,
+      rgba(241, 241, 241, 0.96) 100%
     );
   transition: background 0.35s ease;
 }
@@ -710,7 +731,7 @@ body {
       rgba(0, 0, 0, 0.12) 0%,
       rgba(0, 0, 0, 0.18) 28%,
       rgba(0, 0, 0, 0.45) 52%,
-      rgba(0, 0, 0, 0.98) 100%
+      rgba(241, 241, 241, 0.96) 100%
     );
 }
 
@@ -862,7 +883,7 @@ body {
 
   margin: 0 0 25px;
 
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(0, 0, 0, 0.82);
 
   font-family: var(--font-body);
 
@@ -1112,7 +1133,7 @@ body {
   /* Hero Adjustments */
   .hero-section {
     min-height: 100dvh;
-    padding: 60px 20px 0 20px; /* Iguala los 20px de padding del container/navbar en móvil */
+    padding: 60px 20px 0 20px;
   }
 
   .hero-content-left {
@@ -1182,24 +1203,117 @@ body {
 
   .strengths-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
   }
 
   .strength-card {
-    height: 420px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    background-color: #e6e6e6; /* Fondo gris claro unificado */
+    border-radius: 16px;
+    overflow: hidden;
   }
 
+  /* 1. SECCIÓN DE LA IMAGEN (Por delante del fondo gris) */
+  .strength-card-media {
+    position: relative;
+    z-index: 5; /* Asegura que la imagen esté totalmente por delante */
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .strength-card-media img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Capa de sombra sólo superior para los textos blancos */
+  .strength-card-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.65) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+
+  /* 2. REESTRUCTURACIÓN DEL CONTENIDO */
   .strength-card-content {
-    padding: 24px;
+    position: static;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+  }
+
+  /* Bloque superior con número y tag (flotando sobre la imagen) */
+  .strength-card-top {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .strength-card-top .strength-num {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+.strength-card-top .strength-tag {
+    text-align: right;
+    max-width: 60%; /* Evita que el texto se salga */
+    word-wrap: break-word;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+
+  .strength-card-top .strength-tag span:first-child,
+  .strength-card-top .strength-tag {
+    color: #ffffff; /* O color claro para máxima visibilidad */
+  }
+
+  /* SECCIÓN INFERIOR CON TEXTOS */
+  .strength-card-bottom {
+    position: relative;
+    z-index: 4;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .strength-card-bottom h3 {
-    font-size: 2rem;
+    margin: 0 0 10px 0;
+    font-size: 1.9rem;
   }
 
   .strength-card-bottom p {
-    font-size: 0.85rem;
+    color: #444444;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin: 0 0 20px 0;
   }
+
+ 
 }
 
 /* =========================================================

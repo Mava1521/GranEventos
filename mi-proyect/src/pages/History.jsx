@@ -76,58 +76,71 @@ export default function History() {
         </section>
 
         {/* COLLAGE */}
-          <section
-            className="history-collage"
-            aria-label="Momentos de nuestra historia"
-          >
-            {timelineData.map((item, index) => (
-              <button
-                type="button"
-                key={item.id}
-                className={`collage-item collage-item-${index + 1}`}
-                onClick={() => handleOpenModal(item)}
-                aria-label={`Ver historia de ${item.year}: ${item.title}`}
-              >
-                <img
-                  src={item.image}
-                  alt={`${item.year} - ${item.title}`}
-                  className="collage-image"
-                  loading={index < 3 ? 'eager' : 'lazy'}
-                />
+          {/* COLLAGE CON TÍTULO DESKTOP */}
+          <section className="history-collage-wrapper">
+            {/* Este título solo se verá en Desktop */}
+            <div className="history-timeline-title-desktop">
+              <span className="timeline-eyebrow">NUESTRA HISTORIA</span>
+              <h2>LÍNEA DE TIEMPO</h2>
+            </div>
 
-                <span className="collage-overlay">
-                  <span className="collage-year">
-                    {item.year}
-                  </span>
+            <section
+              className="history-collage"
+              aria-label="Momentos de nuestra historia"
+            >
+              {timelineData.map((item, index) => (
+                <button
+                  type="button"
+                  key={item.id}
+                  className={`collage-item collage-item-${index + 1}`}
+                  onClick={() => handleOpenModal(item)}
+                  aria-label={`Ver historia de ${item.year}: ${item.title}`}
+                >
+                  <img
+                    src={item.image}
+                    alt={`${item.year} - ${item.title}`}
+                    className="collage-image"
+                    loading={index < 3 ? 'eager' : 'lazy'}
+                  />
 
-                  <span className="collage-title">
-                    {item.title}
+                  <span className="collage-overlay">
+                    <span className="collage-year">{item.year}</span>
+                    <span className="collage-title">{item.title}</span>
                   </span>
-                </span>
-              </button>
-            ))}
+                </button>
+              ))}
+            </section>
           </section>
 
-        {/* TIMELINE */}
-        <Timeline onOpenModal={handleOpenModal} />
+          {/* SECCIÓN LÍNEA DE TIEMPO / TEXTOS */}
+          <section className="history-timeline-section">
+            {/* Este título solo se muestra EN MÓVIL y se oculta EN DESKTOP */}
+            <div className="history-timeline-title-mobile">
+              <span className="timeline-eyebrow">NUESTRA HISTORIA</span>
+              <h2>LÍNEA DE TIEMPO</h2>
+            </div>
 
-        {/* VIDEO */}
-        <ScrollVideoSection videoSrc={SampleVideo} />
+            {/* TIMELINE adentro de la sección */}
+            <Timeline onOpenModal={handleOpenModal} />
+          </section>
 
-        {/* FOOTER */}
-        <section className="history-footer">
-          <div className="history-footer-brand">
-            <span className="footer-gold-line" />
-            <span>GRAN EVENTOS</span>
-          </div>
-          <div className="history-footer-locations">
-            <span>COLOMBIA</span>
-            <span>|</span>
-            <span>LATINOAMÉRICA</span>
-            <span>|</span>
-            <span>EL MUNDO</span>
-          </div>
-        </section>
+          {/* VIDEO */}
+          <ScrollVideoSection videoSrc={SampleVideo} />
+
+          {/* FOOTER */}
+          <section className="history-footer">
+            <div className="history-footer-brand">
+              <span className="footer-gold-line" />
+              <span>GRAN EVENTOS</span>
+            </div>
+            <div className="history-footer-locations">
+              <span>COLOMBIA</span>
+              <span>|</span>
+              <span>LATINOAMÉRICA</span>
+              <span>|</span>
+              <span>EL MUNDO</span>
+            </div>
+          </section>
       </main>
 
       {selectedEvent &&
