@@ -72,10 +72,10 @@ export default function Navbar() {
             </li>
 
             <li className="nav-item-wrapper">
-              <Link to="/sostenibilidad" className="nav-item" onClick={closeMenu}>
+              <Link to="/sostenibilidad" className="nav-item nav-item-green" onClick={closeMenu}>
                 SOSTENIBILIDAD
               </Link>
-              {isSustainability && <div className="active-indicator" />}
+              {isSustainability && <div className="active-indicator active-indicator-green" />}
             </li>
 
             <li className="nav-item-wrapper">

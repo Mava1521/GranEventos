@@ -554,6 +554,10 @@ body {
   text-transform: uppercase;
 }
 
+.green-point{
+  color: #9dc425;
+}
+
 .strengths-label-line {
   width: 68px;
   height: 5px;
@@ -619,7 +623,7 @@ body {
   position: relative;
   height: 540px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid hsl(0, 0%, 100%);
   border-radius: 12px;
   background-color: #17191c;
   isolation: isolate;

@@ -132,6 +132,17 @@
   color: var(--accent-gold, #efbd00);
 }
 
+
+.nav-item-green:hover {
+  color: #9dc425 !important; 
+}
+
+
+.active-indicator-green {
+  background-color: #9dc425;
+}
+
+
 .active-indicator {
   position: absolute;
   bottom: 0;
