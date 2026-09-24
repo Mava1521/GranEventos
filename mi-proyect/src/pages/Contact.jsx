@@ -9,6 +9,7 @@ import youtube from '../assets/youtube.png';
 import clock from '../assets/clock.png';
 import FooterProyect from '../assets/FooterProyect.jpg';
 import Foto4 from '../assets/FOTO3.jpg'
+
 const initialForm = {
   name: '',
   email: '',

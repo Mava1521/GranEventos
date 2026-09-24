@@ -42,8 +42,6 @@ export default function History() {
 
   return (
     <div className="history-page">
-
-
       <main className="history-main">
         {/* HERO */}
         <section className="history-hero">

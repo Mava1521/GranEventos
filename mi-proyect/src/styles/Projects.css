@@ -1,12 +1,18 @@
 /* =========================================================
-   FUENTES
+   GRAN EVENTOS — PROJECTS PAGE
+   Hoja de estilos consolidada y responsive
+   ========================================================= */
+
+
+/* =========================================================
+   1. FUENTES
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
 
 
 /* =========================================================
-   VARIABLES
+   2. VARIABLES Y BASE
    ========================================================= */
 
 .projects-page {
@@ -14,21 +20,21 @@
   --black: #171717;
   --gray: #6d6d6d;
   --light-gray: #f5f5f5;
+  --border: #dddddd;
+
+  /* Mismo eje horizontal utilizado por el Navbar desktop */
+  --page-gutter: 40px;
 
   width: 100%;
+  min-height: 100vh;
+
   overflow: hidden;
 
   background: #ffffff;
-
-  color: var( --black);
+  color: var(--black);
 
   font-family: 'Montserrat', sans-serif;
 }
-
-
-/* =========================================================
-   GENERAL
-   ========================================================= */
 
 .projects-page *,
 .projects-page *::before,
@@ -38,70 +44,81 @@
 
 .projects-page img {
   display: block;
-  width: 100%;
-}
-
-.section-label1 {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  line-height: 1; /* Mantiene la misma altura de línea que el texto */
-}
-
-.gold-line {
-  display: inline-block;
-  width: 34px;
-  height: 2px;
-  background: var(--gold);
-  vertical-align: middle; /* Asegura centrado perfecto */
+  max-width: 100%;
 }
 
 
 /* =========================================================
-   HERO
+   3. ELEMENTOS COMPARTIDOS
    ========================================================= */
+
+.projects-page .section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 20px;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 3px;
+}
+
+.projects-page .gold-line {
+  display: inline-block;
+
+  width: 34px;
+  height: 2px;
+
+  flex-shrink: 0;
+
+  background: var(--gold);
+}
+
+
+/* =========================================================
+   4. HERO
+   ========================================================= */
+
 .projects-hero {
   position: relative;
+
   min-height: 470px;
-  
-  /* 1. Este padding-top empuja TODO el contenido (texto e imagen) hacia abajo, 
-        dándole el espacio suficiente para no quedar debajo de la Navbar */
-  padding-top: 140px; 
-  
+
   display: grid;
   grid-template-columns: 47% 18% 35%;
-  background: #111111;
+
+  padding-top: 140px;
   padding-bottom: 60px;
+
+  background: #111111;
   color: #ffffff;
 }
 
 
 /* =========================================================
-   HERO TEXT
+   5. HERO — CONTENIDO PRINCIPAL
    ========================================================= */
 
 .projects-hero-content {
   position: relative;
   z-index: 3;
 
-  padding-left: 47px;
+  /*
+   * Alineación exacta con el Navbar:
+   * Navbar desktop = 40px
+   */
+  padding-left: var(--page-gutter);
 }
 
 .projects-hero-content h1 {
   margin: 0;
 
   font-family: 'Oswald', sans-serif;
-
   font-size: clamp(45px, 4.1vw, 70px);
-
-  line-height: 0.92;
-
   font-weight: 500;
-
+  line-height: 0.92;
   letter-spacing: -1px;
 }
 
@@ -110,37 +127,44 @@
 }
 
 .projects-hero-content p {
-  margin-top: 30px;
+  margin: 30px 0 0;
 
   color: #ffffff;
 
   font-size: 15px;
-  line-height: 1.65;
-
   font-weight: 400;
+  line-height: 1.65;
 }
 
 
 /* =========================================================
-   KEYWORDS
+   6. HERO — ETIQUETA
+   ========================================================= */
+
+.projects-hero .section-label {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   7. HERO — KEYWORDS
    ========================================================= */
 
 .hero-keywords {
   position: relative;
   z-index: 5;
 
-  padding-top: 54px;
-
   display: flex;
   flex-direction: column;
 
   gap: 9px;
 
-  font-size: 10px;
-
-  letter-spacing: 2.5px;
+  padding-top: 54px;
 
   color: #ffffff;
+
+  font-size: 10px;
+  letter-spacing: 2.5px;
 }
 
 .hero-small-line {
@@ -154,26 +178,28 @@
 
 
 /* =========================================================
-   HERO IMAGE
+   8. HERO — IMAGEN
    ========================================================= */
 
 .projects-hero-image {
   position: absolute;
-  
-  /* 2. Alineamos la imagen para que empiece exactamente a la misma altura
-        donde termina la Navbar y comienza el espacio útil del Hero */
-  top: 90px; 
+  top: 90px;
   right: 0;
+
   width: 45%;
-  height: 380px; /* Ajusta la altura para cubrir la sección */
-  overflow: visible; 
+  height: 380px;
+
+  overflow: visible;
 }
 
 .projects-hero-image img {
   width: 100%;
   height: 100%;
+
   object-fit: cover;
+
   filter: grayscale(100%);
+
   clip-path: polygon(
     13% 0,
     100% 0,
@@ -185,21 +211,27 @@
 .hero-image-overlay {
   position: absolute;
   right: 48px;
-  bottom: -35px; /* Lo desplaza hacia abajo fuera del borde de la imagen */
+  bottom: -35px;
+
+  z-index: 10;
+
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  color: #ffffff; /* Cambiado de blanco a gris para ser visible sobre fondo blanco */
+
+  color: #ffffff;
+
   font-size: 9px;
   font-weight: 500;
   letter-spacing: 2px;
+  line-height: 1.5;
+
   text-align: right;
-  z-index: 10;
 }
 
 
 /* =========================================================
-   CATEGORIES
+   9. CATEGORÍAS
    ========================================================= */
 
 .projects-categories {
@@ -207,7 +239,6 @@
   grid-template-columns: repeat(3, 1fr);
 
   margin-top: 15px;
-
   padding: 0 46px;
 }
 
@@ -216,7 +247,7 @@
 
   padding: 0 25px 42px;
 
-  border-right: 1px solid #dddddd;
+  border-right: 1px solid var(--border);
 }
 
 .project-card:last-child {
@@ -225,7 +256,7 @@
 
 
 /* =========================================================
-   CARD HEADER
+   10. CARD — HEADER
    ========================================================= */
 
 .project-card-header {
@@ -261,41 +292,52 @@
   border: 1px solid #333333;
   border-radius: 50%;
 
+  color: #111111;
+  text-decoration: none;
+
   font-size: 19px;
   font-weight: 300;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.circle-arrow:hover {
+  color: #ffffff;
+  background: #111111;
+
+  transform: translateX(2px);
 }
 
 
 /* =========================================================
-   CARD TITLE
+   11. CARD — TÍTULO
    ========================================================= */
 
 .project-card h2 {
   margin: 0 0 12px;
 
   font-family: 'Oswald', sans-serif;
-
   font-size: 33px;
-
-  line-height: 1;
-
   font-weight: 600;
-
+  line-height: 1;
   letter-spacing: -0.5px;
 }
 
 
 /* =========================================================
-   CARD IMAGE
+   12. CARD — IMAGEN
    ========================================================= */
 
 .project-card-image {
   width: 100%;
   height: 370px;
 
-  overflow: hidden;
-
   margin-bottom: 14px;
+
+  overflow: hidden;
 }
 
 .project-card-image img {
@@ -313,17 +355,17 @@
 
 
 /* =========================================================
-   CARD TEXT
+   13. CARD — TEXTO
    ========================================================= */
 
 .project-card h3 {
-  margin: 0 0 12px;
-
   max-width: 300px;
 
-  line-height: 1.4;
+  margin: 0 0 12px;
 
+  font-size: 16px;
   font-weight: 700;
+  line-height: 1.4;
 }
 
 .project-card p {
@@ -333,12 +375,13 @@
 
   color: #707070;
 
+  font-size: 14px;
   line-height: 1.65;
 }
 
 
 /* =========================================================
-   CARD BOTTOM
+   14. CARD — FOOTER
    ========================================================= */
 
 .card-bottom-line {
@@ -359,8 +402,9 @@
   color: #111111;
 
   text-decoration: none;
-  font-weight: 600;
 
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 0.5px;
 }
 
@@ -377,7 +421,7 @@
 
 
 /* =========================================================
-   TEAM
+   15. EQUIPO
    ========================================================= */
 
 .projects-team {
@@ -388,7 +432,7 @@
 
   margin-top: 5px;
 
-  background: #f5f5f5;
+  background: var(--light-gray);
 }
 
 .team-image {
@@ -418,12 +462,9 @@
   margin: 0;
 
   font-family: 'Oswald', sans-serif;
-
   font-size: 38px;
-
-  line-height: 0.95;
-
   font-weight: 600;
+  line-height: 0.95;
 }
 
 .team-content p {
@@ -434,13 +475,12 @@
   color: #6a6a6a;
 
   font-size: 13px;
-
   line-height: 1.5;
 }
 
 
 /* =========================================================
-   BUTTON
+   16. BOTÓN PRINCIPAL
    ========================================================= */
 
 .project-button {
@@ -454,22 +494,28 @@
   padding: 0 18px;
 
   color: #ffffff;
-
   background: #111111;
 
   text-decoration: none;
 
   font-size: 9px;
-
   font-weight: 600;
-
   letter-spacing: 0.8px;
 
-  transition: background 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .project-button:hover {
   background: var(--gold);
+}
+
+.project-button:focus-visible,
+.circle-arrow:focus-visible,
+.view-project:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
 }
 
 .button-arrow {
@@ -479,12 +525,11 @@
 
 
 /* =========================================================
-   STATS
+   17. ESTADÍSTICAS
    ========================================================= */
 
 .projects-stats {
   display: grid;
-
   grid-template-columns: 1.2fr repeat(4, 1fr);
 
   min-height: 125px;
@@ -502,11 +547,10 @@
 
   gap: 3px;
 
-  font-size: 10px;
-
-  letter-spacing: 2px;
-
   color: #555555;
+
+  font-size: 10px;
+  letter-spacing: 2px;
 }
 
 .stats-intro .gold-line {
@@ -527,12 +571,9 @@
 
 .project-stat strong {
   font-family: 'Oswald', sans-serif;
-
   font-size: 27px;
-
-  line-height: 1;
-
   font-weight: 600;
+  line-height: 1;
 }
 
 .project-stat span {
@@ -541,13 +582,12 @@
   color: #777777;
 
   font-size: 8px;
-
   letter-spacing: 1.5px;
 }
 
 
 /* =========================================================
-   TABLET
+   18. TABLET
    ========================================================= */
 
 @media (max-width: 1000px) {
@@ -603,15 +643,22 @@
   .project-stat {
     padding-left: 18px;
   }
-
 }
 
 
 /* =========================================================
-   MOBILE
+   19. MOBILE
    ========================================================= */
 
 @media (max-width: 700px) {
+
+  .projects-page {
+    --page-gutter: 20px;
+  }
+
+  /* -----------------------------------------
+     HERO
+     ----------------------------------------- */
 
   .projects-hero {
     display: flex;
@@ -619,7 +666,7 @@
 
     min-height: auto;
 
-    padding: 145px 25px 50px;
+    padding: 145px var(--page-gutter) 50px;
   }
 
   .projects-hero-content {
@@ -638,10 +685,20 @@
     display: none;
   }
 
+
+  /* -----------------------------------------
+     KEYWORDS
+     ----------------------------------------- */
+
   .hero-keywords {
     margin-top: 35px;
     padding-top: 0;
   }
+
+
+  /* -----------------------------------------
+     HERO IMAGE
+     ----------------------------------------- */
 
   .projects-hero-image {
     position: relative;
@@ -649,33 +706,51 @@
     top: auto;
     right: auto;
 
-    width: calc(100% + 50px);
-
+    width: calc(100% + (var(--page-gutter) * 2));
     height: 260px;
 
     margin-top: 35px;
-    margin-left: -25px;
+    margin-left: calc(var(--page-gutter) * -1);
 
     clip-path: none;
   }
+
+  .hero-image-overlay {
+    right: 20px;
+    bottom: -30px;
+  }
+
+
+  /* -----------------------------------------
+     CATEGORÍAS
+     ----------------------------------------- */
 
   .projects-categories {
     display: flex;
     flex-direction: column;
 
-    padding: 0 25px;
+    padding: 0 var(--page-gutter);
   }
 
   .project-card {
     padding: 40px 0;
 
     border-right: none;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .project-card:last-child {
+    border-bottom: none;
   }
 
   .project-card-image {
     height: 400px;
   }
+
+
+  /* -----------------------------------------
+     EQUIPO
+     ----------------------------------------- */
 
   .projects-team {
     display: flex;
@@ -687,18 +762,22 @@
   }
 
   .team-content {
-    padding: 40px 25px;
+    padding: 40px var(--page-gutter);
   }
+
+
+  /* -----------------------------------------
+     ESTADÍSTICAS
+     ----------------------------------------- */
 
   .projects-stats {
     display: flex;
     flex-direction: column;
-
     align-items: stretch;
 
     gap: 20px;
 
-    padding: 40px 25px;
+    padding: 40px var(--page-gutter);
   }
 
   .stats-intro {
@@ -711,6 +790,41 @@
     padding: 20px 0 0;
 
     border-left: none;
-    border-top: 1px solid #dddddd;
+    border-top: 1px solid var(--border);
   }
+}
+
+
+/* =========================================================
+   20. REDUCCIÓN DE MOVIMIENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .projects-page *,
+  .projects-page *::before,
+  .projects-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* =========================================================
+   AJUSTE DE ALINEACIÓN — DESKTOP
+   ========================================================= */
+
+@media (min-width: 1001px) {
+
+  .projects-hero-content {
+    padding-left: 62px;
+  }
+
+  .projects-hero-content .section-label,
+  .projects-hero-content h1,
+  .projects-hero-content p {
+    margin-left: 0;
+  }
+
 }

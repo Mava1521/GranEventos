@@ -1,30 +1,38 @@
 /* ==========================================================
    GRAN EVENTOS — HISTORY PAGE
-   Hoja de estilos consolidada
+   CSS CONSOLIDADO
    ========================================================== */
 
+
 /* ==========================================================
-   1. VARIABLES Y BASE
+   01. SISTEMA VISUAL Y BASE
    ========================================================== */
 
 .history-page {
-  /* =====================================================
-     GRAN EVENTOS — SISTEMA VISUAL
-     ===================================================== */
-  --gold: #f4c400;
-  --black: #151515;
-  --gray: #686868;
-  --light: #f8f7f3;
-  --border: #dedbd3;
-  --green: #9dc425;
+  --history-gold: #f4c400;
+  --history-black: #151515;
+  --history-gray: #686868;
+  --history-light: #f8f7f3;
+  --history-border: #dedbd3;
+  --history-green: #9dc425;
 
-  /* Sistema de alineación */
-  --history-desktop-gutter: 40px;
+  /*
+   * Eje visual del contenido del hero.
+   *
+   * El logo del Navbar tiene espacio transparente dentro
+   * de la imagen, por eso su parte visible comienza aprox.
+   * en 72px. Usamos ese mismo eje para el hero.
+   */
+  --history-desktop-left: 72px;
+  --history-desktop-right: 40px;
+
   --history-mobile-gutter: 24px;
 
   min-height: 100vh;
-  background: var(--light);
-  color: var(--black);
+
+  background: var(--history-light);
+  color: var(--history-black);
+
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -44,27 +52,27 @@
 
 
 /* ==========================================================
-   2. HERO
+   02. HERO
    ========================================================== */
 
 .history-hero {
   position: relative;
-  min-height: 330px;
 
-  /*
-   * El Hero utiliza el mismo eje horizontal general
-   * del Navbar en escritorio.
-   */
-  padding: 125px var(--history-desktop-gutter) 30px;
+  width: 100%;
+  min-height: 510px;
+
+  padding: 125px var(--history-desktop-right) 30px
+    var(--history-desktop-left);
 
   overflow: hidden;
-  background: var(--light);
+
+  background: var(--history-light);
 }
 
 
-/* ----------------------------------------------------------
-   CONTENIDO PRINCIPAL
-   ---------------------------------------------------------- */
+/* ==========================================================
+   03. CONTENIDO PRINCIPAL DEL HERO
+   ========================================================== */
 
 .history-hero-content {
   position: relative;
@@ -78,29 +86,32 @@
 }
 
 
-/* ----------------------------------------------------------
+/* ==========================================================
    EYEBROW
-   ---------------------------------------------------------- */
+   ========================================================== */
 
 .history-eyebrow {
   display: block;
 
-  margin-bottom: 18px;
+  margin: 0 0 18px;
 
-  color: var(--black);
+  color: var(--history-black);
 
   font-size: 14px;
   font-weight: 500;
+  line-height: 1.2;
   letter-spacing: 7px;
 }
 
 
-/* ----------------------------------------------------------
+/* ==========================================================
    TÍTULO
-   ---------------------------------------------------------- */
+   ========================================================== */
 
 .history-hero h1 {
   margin: 0;
+
+  color: var(--history-black);
 
   font-family: 'Oswald', sans-serif;
   font-size: clamp(38px, 3.2vw, 57px);
@@ -110,17 +121,17 @@
 }
 
 .history-hero h1 .text-yellow {
-  color: var(--gold);
+  color: var(--history-gold);
 }
 
 .history-hero h1 .text-green {
-  color: var(--green);
+  color: var(--history-green);
 }
 
 
-/* ----------------------------------------------------------
-   LÍNEA AMARILLA
-   ---------------------------------------------------------- */
+/* ==========================================================
+   LÍNEA AMARILLA DEL HERO
+   ========================================================== */
 
 .history-gold-line {
   width: 40px;
@@ -128,15 +139,17 @@
 
   margin: 20px 0 17px;
 
-  background: var(--gold);
+  background: var(--history-gold);
 }
 
 
-/* ----------------------------------------------------------
-   DESCRIPCIÓN
-   ---------------------------------------------------------- */
+/* ==========================================================
+   DESCRIPCIÓN DEL HERO
+   ========================================================== */
 
 .history-hero-content p {
+  max-width: 290px;
+
   margin: 0;
 
   color: #4f4f4f;
@@ -148,19 +161,23 @@
 
 
 /* ==========================================================
-   MENSAJE SUPERIOR
+   04. MENSAJE LATERAL
    ========================================================== */
 
 .history-top-message {
   position: absolute;
-
   top: 150px;
-  right: var(--history-desktop-gutter);
+  right: var(--history-desktop-right);
 
   color: #333;
 
   font-size: 8px;
+  line-height: 1.35;
   letter-spacing: 3px;
+}
+
+.history-top-message .history-gold-line {
+  margin: 0 0 17px;
 }
 
 .history-top-message p {
@@ -169,7 +186,7 @@
 
 
 /* ==========================================================
-   LOGO GE CENTRAL
+   05. LOGO GE CENTRAL
    ========================================================== */
 
 .history-center-logo {
@@ -178,12 +195,10 @@
   top: 115px;
   left: 40%;
 
-  font-family: Arial, sans-serif;
-  font-size: 105px;
-  font-weight: 900;
-  letter-spacing: -20px;
+  z-index: 2;
 
-  color: var(--gold);
+  width: 370px;
+
   opacity: 0.95;
 }
 
@@ -198,67 +213,142 @@
 
 
 /* ==========================================================
-   4. COLLAGE — ESCRITORIO
+   06. COLLAGE — ESCRITORIO
    ========================================================== */
 
 .history-collage {
   position: relative;
+
   display: grid;
   grid-template-columns: repeat(9, minmax(0, 1fr));
   align-items: center;
-  gap: 8px;
+
   width: 100%;
   height: 235px;
+
+  gap: 8px;
+
   padding: 15px 42px 25px;
+
   overflow: hidden;
-  background: var(--light);
+
+  background: var(--history-light);
 }
 
 .collage-item {
   position: relative;
+
   width: 100%;
-  height: 155px;
   min-width: 0;
+  height: 155px;
+
   padding: 0;
+
   border: 0;
   border-radius: 4px;
+
   overflow: hidden;
+
   background: #ddd;
+
   cursor: pointer;
   appearance: none;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-.collage-item-1 { height: 135px; transform: translateY(12px); }
-.collage-item-2 { height: 175px; transform: translateY(-5px); }
-.collage-item-3 { height: 150px; transform: translateY(10px); }
-.collage-item-4 { height: 190px; transform: translateY(-8px); }
-.collage-item-5 { height: 155px; transform: translateY(5px); }
-.collage-item-6 { height: 180px; transform: translateY(-7px); }
-.collage-item-7 { height: 145px; transform: translateY(10px); }
-.collage-item-8 { height: 185px; transform: translateY(-5px); }
-.collage-item-9 { height: 150px; transform: translateY(8px); }
+
+/* Variaciones de altura del collage */
+
+.collage-item-1 {
+  height: 135px;
+  transform: translateY(12px);
+}
+
+.collage-item-2 {
+  height: 175px;
+  transform: translateY(-5px);
+}
+
+.collage-item-3 {
+  height: 150px;
+  transform: translateY(10px);
+}
+
+.collage-item-4 {
+  height: 190px;
+  transform: translateY(-8px);
+}
+
+.collage-item-5 {
+  height: 155px;
+  transform: translateY(5px);
+}
+
+.collage-item-6 {
+  height: 180px;
+  transform: translateY(-7px);
+}
+
+.collage-item-7 {
+  height: 145px;
+  transform: translateY(10px);
+}
+
+.collage-item-8 {
+  height: 185px;
+  transform: translateY(-5px);
+}
+
+.collage-item-9 {
+  height: 150px;
+  transform: translateY(8px);
+}
+
+
+/* Imagen */
 
 .collage-image {
   display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
   object-position: center;
-  transition: transform 0.6s ease, filter 0.4s ease;
+
+  transition:
+    transform 0.6s ease,
+    filter 0.4s ease;
 }
+
+
+/* Overlay */
 
 .collage-overlay {
   position: absolute;
   inset: 0;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-end;
+
   padding: 12px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.05) 65%);
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0.05) 65%
+    );
+
   color: #fff;
+
   opacity: 0;
+
   transition: opacity 0.3s ease;
 }
 
@@ -271,6 +361,7 @@
 
 .collage-title {
   margin-top: 4px;
+
   font-size: 8px;
   line-height: 1.3;
   letter-spacing: 1px;
@@ -278,115 +369,187 @@
   text-transform: uppercase;
 }
 
+
+/* Hover */
+
 .collage-item:hover {
   z-index: 10;
+
   transform: translateY(-5px) scale(1.04);
+
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
 }
 
-.collage-item:hover .collage-image { transform: scale(1.08); filter: brightness(0.78); }
-.collage-item:hover .collage-overlay { opacity: 1; }
-.collage-item:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.collage-item:hover .collage-image {
+  transform: scale(1.08);
+  filter: brightness(0.78);
+}
+
+.collage-item:hover .collage-overlay {
+  opacity: 1;
+}
+
+
+/* Accesibilidad */
+
+.collage-item:focus-visible {
+  outline: 2px solid var(--history-gold);
+  outline-offset: 3px;
+}
 
 
 /* ==========================================================
-   5. TIMELINE — ESCRITORIO
+   07. TIMELINE — ESCRITORIO
    ========================================================== */
 
 .timeline-section {
   position: relative;
+
   width: 100%;
+
   padding: 0 50px 35px;
 }
 
 .timeline-track {
   position: relative;
+
   display: grid;
   grid-template-columns: repeat(9, minmax(0, 1fr));
+
   width: 100%;
+
   gap: 0;
 }
 
 .timeline-line {
   position: absolute;
+
   top: 18px;
   right: 0;
   left: 0;
+
   z-index: 0;
+
   height: 1px;
+
   background: #cfcfcf;
 }
 
 .timeline-item {
   position: relative;
+
   z-index: 2;
+
   min-width: 0;
+
   padding-right: 18px;
 }
 
+
+/* Botón del año */
+
 .timeline-year-button {
   position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
   width: 100%;
+
   padding: 0;
+
   border: 0;
+
   background: transparent;
-  color: var(--black);
+  color: var(--history-black);
+
   cursor: pointer;
+
   text-align: left;
 }
 
-.timeline-year-button:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+.timeline-year-button:focus-visible {
+  outline: 2px solid var(--history-gold);
+  outline-offset: 5px;
+}
+
+
+/* Punto */
 
 .timeline-dot {
   position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 36px;
   height: 36px;
+
   margin-bottom: 4px;
-  background: var(--light);
+
+  background: var(--history-light);
 }
 
 .timeline-dot::before {
   content: '';
+
   position: absolute;
+
   top: 0;
   left: 50%;
+
   width: 1px;
   height: 36px;
-  background: var(--gold);
+
+  background: var(--history-gold);
 }
 
 .timeline-dot span {
   position: relative;
   z-index: 2;
+
   width: 8px;
   height: 8px;
+
   border-radius: 50%;
-  background: var(--gold);
+
+  background: var(--history-gold);
+
   transition: transform 0.25s ease;
 }
 
-.timeline-item--active .timeline-dot span { transform: scale(1.45); }
+.timeline-item--active .timeline-dot span {
+  transform: scale(1.45);
+}
+
+
+/* Año */
 
 .timeline-year {
   display: block;
+
   margin-bottom: 13px;
+
   font-family: 'Oswald', sans-serif;
   font-size: 23px;
   font-weight: 500;
   line-height: 1;
 }
 
-.timeline-card { padding-right: 15px; }
+
+/* Tarjeta */
+
+.timeline-card {
+  padding-right: 15px;
+}
 
 .timeline-card h3 {
   min-height: 30px;
+
   margin: 0 0 10px;
+
   font-family: 'Oswald', sans-serif;
   font-size: 11px;
   font-weight: 500;
@@ -396,134 +559,192 @@
 
 .timeline-card p {
   margin: 0;
+
   color: #777;
+
   font-size: 9px;
   line-height: 1.45;
 }
 
+
 /*
- * El markup del componente incluye siempre un bloque de
- * imagen + año pensado exclusivamente para el layout móvil
- * (ver sección 11). En escritorio y tablet deben permanecer
- * ocultos: si no se ocultan aquí, se "filtran" en el diseño
- * de escritorio y rompen la maqueta.
+ * Elementos utilizados únicamente por el layout móvil.
  */
+
 .timeline-card__image,
 .timeline-card__year {
   display: none;
 }
 
-.timeline-detail { display: none; }
+.timeline-detail {
+  display: none;
+}
 
 
 /* ==========================================================
-   6. FOOTER
+   08. FOOTER INTERNO DE HISTORY
    ========================================================== */
 
 .history-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 20px 50px 25px;
+
   border-top: 1px solid #e1e0dc;
 }
 
 .history-footer-brand {
   display: flex;
   align-items: center;
+
   gap: 12px;
+
   font-size: 8px;
   letter-spacing: 3px;
 }
 
-.footer-gold-line { width: 34px; height: 3px; background: var(--gold); }
+.footer-gold-line {
+  width: 34px;
+  height: 3px;
+
+  background: var(--history-gold);
+}
 
 .history-footer-locations {
   display: flex;
+
   gap: 14px;
+
   color: #555;
+
   font-size: 8px;
   letter-spacing: 3px;
 }
 
 
 /* ==========================================================
-   7. MODAL HISTÓRICO (ESCRITORIO)
-   No usamos ".history-page .ge-modal-*" para que funcione
-   tanto si el modal está dentro de History como si se
-   renderiza con createPortal en body.
+   09. MODAL
    ========================================================== */
 
 .ge-modal-overlay {
   position: fixed;
   inset: 0;
+
   z-index: 999999;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 100%;
   min-height: 100vh;
+
   padding: 20px;
+
   background: rgba(0, 0, 0, 0.85);
+
   backdrop-filter: blur(4px);
+
   overflow-y: auto;
+
   animation: geModalFadeIn 0.25s ease;
 }
 
 .ge-modal-card {
   position: relative;
+
   width: 100%;
   max-width: 920px;
   max-height: calc(100vh - 40px);
+
   margin: auto;
   padding: 0;
+
   overflow-y: auto;
+
   background: #fff;
   color: #171717;
+
   border: 1px solid #e3d49a;
   border-radius: 16px;
+
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+
   animation: geModalScaleIn 0.25s ease;
 }
 
+
+/* Botón cerrar */
+
 .ge-modal-close {
   position: absolute;
+
   top: 15px;
   right: 15px;
+
   z-index: 10;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 38px;
   height: 38px;
+
   padding: 0;
+
   border: 1px solid #ccc;
   border-radius: 50%;
+
   background: #fff;
   color: #222;
+
   font-family: Arial, sans-serif;
   font-size: 27px;
   line-height: 1;
+
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.ge-modal-close:hover { background: var(--black); color: #fff; transform: rotate(90deg); }
-.ge-modal-close:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.ge-modal-close:hover {
+  background: var(--history-black);
+  color: #fff;
+
+  transform: rotate(90deg);
+}
+
+.ge-modal-close:focus-visible {
+  outline: 2px solid var(--history-gold);
+  outline-offset: 3px;
+}
+
+
+/* Header */
 
 .ge-modal-header {
   padding: 28px 70px 20px 30px;
-  border-bottom: 1px solid var(--border);
-  
+
+  border-bottom: 1px solid var(--history-border);
 }
 
 .ge-modal-badge {
   display: inline-flex;
   align-items: center;
+
   padding: 5px 11px;
+
   border-radius: 30px;
+
   background: #fff3c4;
   color: #776000;
+
   font-family: 'Montserrat', sans-serif;
   font-size: 9px;
   font-weight: 700;
@@ -533,7 +754,9 @@
 
 .ge-modal-year {
   margin: 9px 0 0;
+
   color: #171717;
+
   font-family: 'Oswald', sans-serif;
   font-size: clamp(42px, 6vw, 62px);
   font-weight: 700;
@@ -542,7 +765,9 @@
 
 .ge-modal-subtitle {
   margin: 8px 0 0;
+
   color: #303030;
+
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -551,36 +776,54 @@
   text-transform: uppercase;
 }
 
+
+/* Contenido */
+
 .ge-modal-grid {
   display: grid;
-  grid-template-columns: minmax(280px, 0.95fr) minmax(300px, 1.05fr);
+
+  grid-template-columns:
+    minmax(280px, 0.95fr)
+    minmax(300px, 1.05fr);
+
   gap: 28px;
+
   padding: 25px 30px;
 }
 
 .ge-modal-media {
   width: 100%;
   min-height: 300px;
+
   overflow: hidden;
+
   border-radius: 10px;
+
   background: #eee;
 }
 
 .ge-modal-img {
   display: block;
+
   width: 100%;
   height: 100%;
   min-height: 300px;
+
   object-fit: cover;
   object-position: center;
 }
 
-.ge-modal-info { min-width: 0; }
+.ge-modal-info {
+  min-width: 0;
+}
 
 .ge-modal-section-title {
   display: block;
+
   margin-bottom: 10px;
+
   color: #777;
+
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   font-weight: 600;
@@ -590,35 +833,50 @@
 
 .ge-modal-description {
   margin: 0;
+
   color: #666;
+
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   line-height: 1.7;
 }
 
-.ge-modal-stats-wrapper { margin-top: 25px; }
+
+/* Estadísticas */
+
+.ge-modal-stats-wrapper {
+  margin-top: 25px;
+}
 
 .ge-modal-stats-grid {
   display: grid;
+
   grid-template-columns: repeat(3, minmax(0, 1fr));
+
   gap: 9px;
 }
 
 .ge-modal-stat-card {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+
   min-height: 70px;
+
   padding: 10px 6px;
+
   border: 1px solid #dedbd3;
   border-radius: 7px;
+
   background: #faf9f6;
+
   text-align: center;
 }
 
 .ge-modal-stat-value {
   color: #222;
+
   font-family: 'Oswald', sans-serif;
   font-size: 21px;
   font-weight: 700;
@@ -627,89 +885,132 @@
 
 .ge-modal-stat-label {
   margin-top: 5px;
+
   color: #858585;
+
   font-family: 'Montserrat', sans-serif;
   font-size: 8px;
   line-height: 1.3;
   text-transform: uppercase;
 }
 
+
+/* Footer modal */
+
 .ge-modal-footer {
   display: flex;
   align-items: center;
+
   gap: 9px;
+
   min-height: 48px;
+
   padding: 11px 30px;
-  border-top: 1px solid var(--border);
+
+  border-top: 1px solid var(--history-border);
+
   color: #858585;
+
   font-family: 'Montserrat', sans-serif;
   font-size: 9px;
   line-height: 1.4;
 }
 
-.ge-modal-footer-icon { color: #999; font-size: 17px; }
+.ge-modal-footer-icon {
+  color: #999;
+  font-size: 17px;
+}
 
 
 /* ==========================================================
-   8. ANIMACIONES
+   10. ANIMACIONES
    ========================================================== */
 
 @keyframes geModalFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes geModalScaleIn {
-  from { opacity: 0; transform: scale(0.96) translateY(10px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 
 /* ==========================================================
-   9. TABLET (≤1100px)
-   Ajustes intermedios para pantallas medianas, antes de
-   pasar al layout de teléfono de la sección 10.
+   11. TABLET
    ========================================================== */
 
 @media (max-width: 1100px) {
-  .history-hero { padding-right: 35px; padding-left: 35px; }
-  .history-top-message { right: 35px; }
+
+  .history-hero {
+    padding-right: 35px;
+    padding-left: 35px;
+  }
+
+  .history-top-message {
+    right: 35px;
+  }
 
   .history-collage {
     gap: 6px;
+
     padding-right: 30px;
     padding-left: 30px;
   }
 
-  .timeline-section { padding-right: 30px; padding-left: 30px; }
-  .timeline-card p { font-size: 8px; }
+  .timeline-section {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
 
-  .collage-item { height: 140px; }
+  .timeline-card p {
+    font-size: 8px;
+  }
+
+  .collage-item {
+    height: 140px;
+  }
 
   .collage-item-1,
   .collage-item-3,
   .collage-item-5,
   .collage-item-7,
-  .collage-item-9 { height: 130px; }
+  .collage-item-9 {
+    height: 130px;
+  }
 
   .collage-item-2,
   .collage-item-4,
   .collage-item-6,
-  .collage-item-8 { height: 160px; }
+  .collage-item-8 {
+    height: 160px;
+  }
 }
 
 
 /* ==========================================================
-   10. MÓVIL (≤768px)
-   Único breakpoint para teléfono. Reemplaza por completo el
-   layout de escritorio: hero, collage oculto, línea de
-   tiempo vertical con imagen, modal a pantalla casi completa
-   y footer apilado — según la maqueta de referencia.
+   10. MÓVIL — HISTORY
    ========================================================== */
 
 @media (max-width: 768px) {
 
-  /* ---------- Contenedor general ---------- */
+  /* ========================================================
+     BASE MÓVIL
+     ======================================================== */
+
   .history-page {
     width: 100%;
     min-height: 100vh;
@@ -718,307 +1019,508 @@
     color: #111111;
   }
 
-  /* ---------- Hero ---------- */
- .history-hero {
-  position: relative;
 
-  width: 100%;
-  min-height: 430px;
+  /* ========================================================
+     HERO MÓVIL
+     ======================================================== */
 
-  display: block;
+  .history-hero {
+    position: relative;
+    width: 100%;
+    min-height: 455px;
+    display: block;
+    padding: 118px 35px 35px;
+    overflow: hidden;
+    background: #f5f2e9;
+    box-sizing: border-box;
+  }
 
-  padding:
-    42px
-    var(--history-mobile-gutter)
-    35px;
 
-  overflow: hidden;
+  /* --------------------------------------------------------
+     CONTENIDO DEL HERO
+     -------------------------------------------------------- */
 
-  background: #f5f2e9;
-}
+     .history-hero-content {
+        position: relative;
+        z-index: 5;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
 
- .history-hero-content {
-  width: 100%;
-  max-width: 360px;
-  /*
-   * En móvil el mockup utiliza una columna centrada.
-   * No debe heredar ningún margin-left del desktop.
-   */
-  margin: 0 auto;
-
-  padding: 0;
-}
+  /* --------------------------------------------------------
+     EYEBROW
+     -------------------------------------------------------- */
 
   .history-eyebrow {
-  display: block;
+    display: block;
 
-  margin-bottom: 18px;
+    margin: 0 0 18px;
 
-  color: #202020;
+    color: #202020;
 
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 4px;
-}
-
-
-.history-hero h1 {
-  margin: 0;
-
-  font-size: clamp(39px, 11vw, 55px);
-  font-weight: 900;
-  line-height: 0.94;
-  letter-spacing: -1.5px;
-}
-
-.history-hero h1 .text-yellow {
-  color: #f5c400;
-}
-
-.history-hero h1 .text-green {
-  color: #75b82a;
-}
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 4px;
+  }
 
 
-.history-gold-line {
-  width: 35px;
-  height: 3px;
+  /* --------------------------------------------------------
+     TÍTULO PRINCIPAL
+     -------------------------------------------------------- */
 
-  margin: 18px 0;
+  .history-hero h1 {
+    margin: 0;
 
-  background: #f5c400;
-}
+    color: #111111;
+
+    font-family: "Oswald", sans-serif;
+    font-size: clamp(39px, 11vw, 55px);
+    font-weight: 900;
+    line-height: 0.94;
+    letter-spacing: -1.5px;
+  }
+
+  .history-hero h1 .text-yellow {
+    color: #f5c400;
+  }
+
+  .history-hero h1 .text-green {
+    color: #75b82a;
+  }
 
 
-.history-hero-content p {
-  max-width: 290px;
+  /* --------------------------------------------------------
+     LÍNEA AMARILLA
+     -------------------------------------------------------- */
 
-  margin: 0;
+  .history-gold-line {
+    width: 35px;
+    height: 3px;
 
-  color: #777777;
+    margin: 18px 0;
 
-  font-size: 12px;
-  line-height: 1.55;
-}
+    background: #f5c400;
+  }
 
 
-  /* Logo GE pequeño junto al bloque de texto del hero */
- .history-center-logo {
-  position: absolute;
-  top: auto;
-  left: auto;
-  right: 18px;
-  bottom: 42px;
-  width: 105px;
-  font-size: 0;
-  letter-spacing: normal;
-  opacity: 1;
-}
+  /* --------------------------------------------------------
+     DESCRIPCIÓN
+     -------------------------------------------------------- */
 
-.history-center-logo img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
+  .history-hero-content p {
+    width: 100%;
+    max-width: 290px;
 
-  /* El mensaje lateral ("LA ENERGIA TAMBIEN...") no aparece en móvil */
-  .history-top-message { display: none; }
+    margin: 0;
 
-  /* Collage superior: excluido a propósito del diseño móvil */
-  .history-collage { display: none; }
+    color: #777777;
 
-  /* ---------- Encabezado de la línea de tiempo ---------- */
+    font-size: 12px;
+    line-height: 1.55;
+    letter-spacing: 0;
+  }
+
+
+  /* --------------------------------------------------------
+     LOGO GE DEL HERO
+     -------------------------------------------------------- */
+
+  .history-center-logo {
+    position: absolute;
+
+    top: auto;
+    left: auto;
+
+    right: 18px;
+    bottom: 42px;
+
+    width: 105px;
+
+    margin: 0;
+
+    font-size: 0;
+    letter-spacing: normal;
+
+    opacity: 1;
+  }
+
+  .history-center-logo img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+  }
+
+
+  /* --------------------------------------------------------
+     MENSAJE LATERAL
+     -------------------------------------------------------- */
+
+  .history-top-message {
+    display: none;
+  }
+
+
+  /* ========================================================
+     COLLAGE
+     ======================================================== */
+
+  .history-collage {
+    display: none;
+  }
+
+
+  /* ========================================================
+     TIMELINE
+     ======================================================== */
+
   .timeline-section {
     width: calc(100% - 48px);
     max-width: 520px;
+
     margin: 0 auto;
-    padding: 30px 0 55px;
+
+    padding: 28px 0 55px;
   }
 
-  .timeline-heading { margin-bottom: 28px; }
+
+  /* --------------------------------------------------------
+     ENCABEZADO TIMELINE
+     -------------------------------------------------------- */
+
+  .timeline-heading {
+    margin-bottom: 28px;
+  }
 
   .timeline-heading__eyebrow {
     display: block;
+
     margin-bottom: 8px;
+
     color: #252525;
+
     font-size: 10px;
     font-weight: 600;
+    line-height: 1.2;
     letter-spacing: 3px;
   }
 
   .timeline-heading h2 {
     margin: 0;
+
     color: #111111;
+
+    font-family: "Montserrat", sans-serif;
     font-size: clamp(27px, 8vw, 38px);
     font-weight: 900;
     line-height: 1;
     letter-spacing: -1px;
   }
 
-  /* ---------- Línea de tiempo vertical ---------- */
+
+  /* --------------------------------------------------------
+     EJE VERTICAL
+     -------------------------------------------------------- */
+
   .timeline-track {
     position: relative;
+
     display: flex;
     flex-direction: column;
+
     gap: 0;
+
+    width: 100%;
   }
 
   .timeline-line {
     position: absolute;
+
     top: 8px;
     bottom: 8px;
     left: 9px;
+
     right: auto;
+
     width: 2px;
     height: auto;
+
     background: #f5c400;
   }
 
+
+  /* --------------------------------------------------------
+     ITEM
+     -------------------------------------------------------- */
+
   .timeline-item {
     position: relative;
+
     display: grid;
-    grid-template-columns: 28px 1fr;
+
+    grid-template-columns: 28px minmax(0, 1fr);
+
     column-gap: 12px;
+
+    width: 100%;
+
     padding: 0 0 22px;
   }
 
-  /* Punto sobre la línea */
+
+  /* --------------------------------------------------------
+     BOTÓN / PUNTO
+     -------------------------------------------------------- */
+
   .timeline-year-button {
     position: relative;
     z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
     width: 20px;
     min-height: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
     padding: 0;
+
     border: 0;
+
     background: transparent;
+
     cursor: pointer;
   }
 
+  .timeline-year-button:focus-visible {
+    outline: 2px solid #f5c400;
+    outline-offset: 4px;
+  }
+
+
+  /* --------------------------------------------------------
+     PUNTO
+     -------------------------------------------------------- */
+
   .timeline-dot {
-    width: 11px;
-    height: 11px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 11px;
+    height: 11px;
+
     margin-top: 3px;
+
     border: 2px solid #f5c400;
     border-radius: 50%;
+
     background: #f5f2e9;
   }
 
-  .timeline-dot::before { display: none; }
+  .timeline-dot::before {
+    display: none;
+  }
 
   .timeline-dot span {
     width: 5px;
     height: 5px;
+
     border-radius: 50%;
+
     background: transparent;
   }
 
-  .timeline-item--active .timeline-dot span { background: #f5c400; }
+  .timeline-item--active .timeline-dot span {
+    background: #f5c400;
+  }
 
-  /* El año de escritorio se reemplaza por .timeline-card__year */
-  .timeline-year { display: none; }
 
-  /* Tarjeta: imagen a la izquierda, texto a la derecha */
+  /* --------------------------------------------------------
+     AÑO DESKTOP
+     -------------------------------------------------------- */
+
+  .timeline-year {
+    display: none;
+  }
+
+
+  /* ========================================================
+     TARJETA MOBILE
+     ======================================================== */
+
   .timeline-card {
-    width: 100%;
     display: grid;
-    grid-template-columns: 105px 1fr;
+
+    grid-template-columns: 105px minmax(0, 1fr);
+
     gap: 13px;
+
+    width: 100%;
+
     padding: 0;
+
     border: 0;
+
     background: transparent;
+
     text-align: left;
+
     cursor: pointer;
   }
 
+
+  /* --------------------------------------------------------
+     IMAGEN
+     -------------------------------------------------------- */
+
   .timeline-card__image {
     display: block;
+
     width: 105px;
     height: 72px;
+
     overflow: hidden;
+
     border-radius: 5px;
+
     background: #d9d5ca;
   }
 
   .timeline-card__image img {
+    display: block;
+
     width: 100%;
     height: 100%;
-    display: block;
+
     object-fit: cover;
+
     filter: grayscale(100%);
   }
 
-  .timeline-card__content { min-width: 0; }
+
+  /* --------------------------------------------------------
+     CONTENIDO
+     -------------------------------------------------------- */
+
+  .timeline-card__content {
+    min-width: 0;
+  }
+
+
+  /* --------------------------------------------------------
+     AÑO MOBILE
+     -------------------------------------------------------- */
 
   .timeline-card__year {
     display: block;
-    margin-bottom: 2px;
+
+    margin: 0 0 2px;
+
     color: #111111;
+
+    font-family: "Montserrat", sans-serif;
     font-size: 17px;
     font-weight: 900;
     line-height: 1;
   }
 
+
+  /* --------------------------------------------------------
+     TÍTULO
+     -------------------------------------------------------- */
+
   .timeline-card h3 {
     min-height: 0;
+
     margin: 0 0 3px;
+
     color: #111111;
-    font-family: 'Montserrat', sans-serif;
+
+    font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-weight: 800;
-    letter-spacing: normal;
     line-height: 1.05;
+    letter-spacing: 0;
   }
+
+
+  /* --------------------------------------------------------
+     DESCRIPCIÓN
+     -------------------------------------------------------- */
 
   .timeline-card p {
     margin: 0;
+
     color: #777777;
+
     font-size: 10px;
     line-height: 1.4;
   }
 
-  /* ---------- Modal en móvil ---------- */
+
+  /* ========================================================
+     MODAL MOBILE
+     ======================================================== */
+
   .ge-modal-overlay {
     align-items: center;
+
     padding: 18px;
+
     background: rgba(0, 0, 0, 0.72);
   }
 
   .ge-modal-card {
+    width: 100%;
     max-width: 390px;
     max-height: calc(100vh - 36px);
+
     padding: 24px 20px 20px;
+
     border-radius: 20px;
+
     background: #f5f2e9;
+
     color: #111111;
+
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
   }
 
   .ge-modal-close {
     top: 18px;
     right: 18px;
+
     width: 32px;
     height: 32px;
+
     border: 1px solid #111111;
+
     background: transparent;
+
     color: #111111;
+
     font-size: 23px;
   }
 
   .ge-modal-header {
     padding: 0 42px 0 0;
+
     border-bottom: 0;
   }
 
   .ge-modal-badge {
     padding: 5px 10px;
+
     background: #f5d65c;
+
     color: #111111;
+
     font-size: 7px;
     font-weight: 800;
     letter-spacing: 1px;
@@ -1026,7 +1528,9 @@
 
   .ge-modal-year {
     margin: 13px 0 2px;
+
     color: #111111;
+
     font-size: 40px;
     font-weight: 900;
     line-height: 1;
@@ -1034,7 +1538,9 @@
 
   .ge-modal-subtitle {
     margin: 0;
+
     color: #222222;
+
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 1px;
@@ -1042,24 +1548,39 @@
 
   .ge-modal-grid {
     display: block;
+
     margin-top: 20px;
     padding: 0;
   }
 
-  .ge-modal-media { width: 100%; min-height: 0; margin-bottom: 22px; }
+  .ge-modal-media {
+    width: 100%;
+    min-height: 0;
+
+    margin-bottom: 22px;
+  }
 
   .ge-modal-img {
+    display: block;
+
     width: 100%;
     height: 145px;
     min-height: 0;
+
     border-radius: 9px;
+
+    object-fit: cover;
   }
 
-  .ge-modal-info { width: 100%; }
+  .ge-modal-info {
+    width: 100%;
+  }
 
   .ge-modal-section-title {
     margin-bottom: 8px;
+
     color: #666666;
+
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -1067,75 +1588,128 @@
 
   .ge-modal-description {
     color: #666666;
+
     font-size: 12px;
     line-height: 1.55;
   }
 
-  .ge-modal-stats-wrapper { margin-top: 24px; }
-  .ge-modal-stats-grid { grid-template-columns: repeat(3, 1fr); gap: 7px; }
+  .ge-modal-stats-wrapper {
+    margin-top: 24px;
+  }
+
+  .ge-modal-stats-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 7px;
+  }
 
   .ge-modal-stat-card {
     min-height: 70px;
+
     padding: 8px;
+
     border: 1px solid #ded9cb;
+
     background: rgba(255, 255, 255, 0.25);
   }
 
-  .ge-modal-stat-value { color: #111111; font-size: 19px; font-weight: 800; }
-  .ge-modal-stat-label { margin-top: 3px; color: #888888; font-size: 7px; line-height: 1.25; }
+  .ge-modal-stat-value {
+    color: #111111;
+
+    font-size: 19px;
+    font-weight: 800;
+  }
+
+  .ge-modal-stat-label {
+    margin-top: 3px;
+
+    color: #888888;
+
+    font-size: 7px;
+    line-height: 1.25;
+  }
 
   .ge-modal-footer {
     margin-top: 22px;
+
     padding: 16px 0 0;
+
     border-top: 1px solid #ded9cb;
+
     color: #8a8a8a;
+
     font-size: 9px;
   }
 
-  .ge-modal-footer-icon { color: #c4a300; font-size: 16px; }
+  .ge-modal-footer-icon {
+    color: #c4a300;
 
-  /* ---------- Footer de la página ---------- */
+    font-size: 16px;
+  }
+
+
+  /* ========================================================
+     FOOTER HISTORY MOBILE
+     ======================================================== */
+
   .history-footer {
+    display: flex;
+
     flex-direction: column;
     align-items: flex-start;
+
     gap: 10px;
+
     padding: 20px 24px;
+
     background: #f5f2e9;
+
     border-top: 1px solid #ded9cb;
   }
 
   .history-footer-brand {
     color: #222222;
+
     font-size: 8px;
     font-weight: 700;
     letter-spacing: 2px;
   }
 
-  .footer-gold-line { width: 22px; height: 2px; }
+  .footer-gold-line {
+    width: 22px;
+    height: 2px;
+  }
 
   .history-footer-locations {
+    display: flex;
+
     flex-wrap: wrap;
+
     gap: 6px;
+
     color: #999999;
+
     font-size: 6px;
     letter-spacing: 1.5px;
   }
 }
 
-
 /* ==========================================================
-   11. ACCESIBILIDAD — REDUCIR ANIMACIONES
+   14. REDUCIR MOVIMIENTO
    ========================================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
   .history-page *,
   .history-page *::before,
   .history-page *::after,
   .ge-modal-overlay,
   .ge-modal-card {
     scroll-behavior: auto;
+
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+
     transition-duration: 0.01ms !important;
   }
 }
