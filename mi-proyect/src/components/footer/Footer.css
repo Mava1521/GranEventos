@@ -215,14 +215,19 @@
 .footer-bottom {
   position: relative;
   z-index: 2;
-  width: min(1200px, calc(100% - 60px));
+  width: 100%;
   min-height: 50px;
-  margin: 0 auto;
+  margin: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0;
+  /*
+   * Mantiene el contenido visualmente alineado
+   * sin limitar la línea divisoria.
+   */
+  padding: 12px max(30px, calc((100vw - 1200px) / 2));
+  box-sizing: border-box;
 }
 
 .footer-legal {
@@ -400,13 +405,14 @@
 
   /* 4. SECCIÓN INFERIOR Y LEGAL */
   .footer-bottom {
-    width: calc(100% - 40px);
-    padding: 20px 0 28px;
-    flex-direction: column-reverse;
-    align-items: center; /* Centra el texto legal y el botón */
-    text-align: center;
-    gap: 18px;
-  }
+  width: 100%;
+  padding: 20px 20px 28px;
+  box-sizing: border-box;
+  flex-direction: column-reverse;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+}
 
   .footer-legal {
     flex-direction: column;
@@ -438,6 +444,7 @@
    ========================================================= */
 
 @media (max-width: 480px) {
+
   .footer-content {
     width: calc(100% - 32px);
     padding-top: 28px;
@@ -445,7 +452,7 @@
 
   .footer-logos {
     gap: 12px;
-    flex-wrap: nowrap; /* Mantiene ambos logos en la misma línea */
+    flex-wrap: nowrap;
   }
 
   .footer-logo-ge {
@@ -462,6 +469,8 @@
   }
 
   .footer-bottom {
-    width: calc(100% - 32px);
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 }

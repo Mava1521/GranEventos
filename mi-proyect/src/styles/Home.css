@@ -522,7 +522,7 @@ body {
 .strengths-section {
   width: 100%;
   padding: 92px 0 110px;
-  background-color: #0b0b0b;
+  background-color: #ffffff;
 }
 
 
@@ -546,7 +546,7 @@ body {
   align-items: center;
   gap: 18px;
   margin-bottom: 18px;
-  color: #b9b9b9;
+  color: #111111;
   font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 500;
@@ -572,7 +572,7 @@ body {
   font-weight: 700;
   line-height: 0.98;
   letter-spacing: 0.2px;
-  color: #ffffff;
+  color: #111111;
   text-transform: uppercase;
 }
 
@@ -591,7 +591,7 @@ body {
 
 .strengths-header-description p {
   margin: 0;
-  color: #d0d0d0;
+  color: #111111;
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 400;
