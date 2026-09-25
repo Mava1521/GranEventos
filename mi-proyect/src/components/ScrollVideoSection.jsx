@@ -4,566 +4,309 @@ import '../styles/ScrollVideoSection.css';
 const TEXT =
   '¿QUÉ ES GRAN EVENTOS? MÁS DE 30 AÑOS CREANDO EXPERIENCIAS INMENSAS BAJO LA ENERGÍA DE NUESTRO EQUIPO';
 
-const words = TEXT.split(' ');
+const WORDS = TEXT.split(' ');
+
+/*
+ * Cuánta distancia de scroll (en múltiplos de la altura
+ * de pantalla) dura la animación del texto.
+ * 2.6 = el wrapper mide 260vh, así que el usuario tiene
+ * 1.6 pantallas de "scroll congelado" para revelar el texto
+ * (260vh de wrapper - 100vh que ya está ocupando el sticky).
+ */
+const WRAPPER_HEIGHT_VH = 260;
+
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
 
 export default function ScrollVideoSection({ videoSrc }) {
-  const sectionRef = useRef(null);
-  const touchStartY = useRef(null);
+  const wrapperRef = useRef(null);
+  const progressFillRef = useRef(null);
+  const wordRefs = useRef([]);
 
-  const [progress, setProgress] = useState(0);
-  const [isLocked, setIsLocked] = useState(false);
+  const videoSectionRef = useRef(null);
+  const videoRef = useRef(null);
 
-  /*
-   * Evita que se ejecuten varias activaciones
-   * al mismo tiempo.
-   */
-  const lockRef = useRef(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+  const [videoInView, setVideoInView] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
-  /*
-   * Posición exacta donde comienza la sección.
-   */
-  const sectionTopRef = useRef(0);
+  const rafRef = useRef(null);
 
   /*
-   * Detecta si la sección está entrando
-   * en el viewport.
+   * =====================================================
+   * ACCESIBILIDAD: prefers-reduced-motion
+   * =====================================================
+   * Si el usuario pidió menos movimiento, no forzamos
+   * ningún scroll-jacking ni animación: todo se muestra
+   * directamente.
    */
-  const isSectionInViewport = useCallback(() => {
-    if (!sectionRef.current) return false;
-
-    const rect = sectionRef.current.getBoundingClientRect();
-    const viewportHeight = window.innerHeight;
-
-    return (
-      rect.top <= viewportHeight * 0.25 &&
-      rect.bottom > viewportHeight * 0.5
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
     );
+
+    setReducedMotion(mediaQuery.matches);
+
+    const handleChange = (event) =>
+      setReducedMotion(event.matches);
+
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () =>
+      mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
   /*
-   * Bloquea el scroll normal.
+   * =====================================================
+   * APLICAR PROGRESO AL DOM
+   * =====================================================
+   * Escribimos directamente en el DOM (sin setState) para
+   * que la animación corra a 60fps sin re-renderizar React
+   * en cada pixel de scroll.
    */
-  const lockScroll = useCallback(() => {
-    if (lockRef.current) return;
-
-    lockRef.current = true;
-    setIsLocked(true);
-
-    /*
-     * Guardamos la posición exacta de la sección.
-     */
-    if (sectionRef.current) {
-      sectionTopRef.current =
-        window.scrollY +
-        sectionRef.current.getBoundingClientRect().top;
+  const applyProgress = useCallback((progress) => {
+    if (progressFillRef.current) {
+      progressFillRef.current.style.transform =
+        `scaleX(${progress})`;
     }
 
-    /*
-     * Dejamos la página exactamente
-     * en el comienzo de la sección.
-     */
-    window.scrollTo({
-      top: sectionTopRef.current,
-      behavior: 'auto',
+    const total = wordRefs.current.length;
+
+    wordRefs.current.forEach((el, index) => {
+      if (!el) return;
+
+      const wordThreshold =
+        total > 1 ? index / (total - 1) : 0;
+
+      const raw =
+        (progress - wordThreshold * 0.7) / 0.3;
+
+      const opacity =
+        0.14 + clamp(raw, 0, 1) * 0.86;
+
+      el.style.opacity = opacity.toFixed(3);
     });
-
-    /*
-     * Bloqueamos el scroll nativo.
-     */
-    document.body.classList.add('scroll-animation-lock');
   }, []);
 
   /*
-   * Libera el scroll.
+   * =====================================================
+   * CALCULAR PROGRESO A PARTIR DEL SCROLL REAL
+   * =====================================================
+   * Nada de wheel/touch/keydown interceptados: solo leemos
+   * dónde está el wrapper respecto al viewport. Como el
+   * wrapper mide más que 100vh y su contenido es `sticky`,
+   * el navegador "congela" visualmente la escena mientras
+   * el usuario recorre esa distancia extra — ida y vuelta,
+   * de forma completamente nativa.
    */
-  const unlockScroll = useCallback(() => {
-    lockRef.current = false;
-    setIsLocked(false);
+  const updateFromScroll = useCallback(() => {
+    rafRef.current = null;
 
-    document.body.classList.remove(
-      'scroll-animation-lock'
+    if (!wrapperRef.current) return;
+
+    const rect = wrapperRef.current.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const scrollableDistance = rect.height - viewportHeight;
+
+    if (scrollableDistance <= 0) {
+      applyProgress(1);
+      return;
+    }
+
+    const scrolled = clamp(
+      -rect.top,
+      0,
+      scrollableDistance
     );
-  }, []);
 
-  /*
-   * CONTROL PRINCIPAL DEL WHEEL
-   */
-  const handleWheel = useCallback(
-    (event) => {
-      /*
-       * Si la sección todavía no está cerca,
-       * dejamos que el navegador haga scroll normal.
-       */
-      if (
-        !lockRef.current &&
-        !isSectionInViewport()
-      ) {
-        return;
-      }
+    applyProgress(scrolled / scrollableDistance);
+  }, [applyProgress]);
 
-      /*
-       * Si acaba de entrar en la sección,
-       * la bloqueamos inmediatamente.
-       */
-      if (!lockRef.current) {
-        lockScroll();
-      }
-
-      const direction =
-        event.deltaY > 0 ? 1 : -1;
-
-      /*
-       * Si estamos al principio y queremos subir,
-       * permitimos salir hacia arriba.
-       */
-      if (
-        progress <= 0 &&
-        direction < 0
-      ) {
-        unlockScroll();
-        return;
-      }
-
-      /*
-       * Si terminamos todo y queremos seguir bajando,
-       * liberamos el scroll.
-       */
-      if (
-        progress >= 2 &&
-        direction > 0
-      ) {
-        unlockScroll();
-        return;
-      }
-
-      /*
-       * IMPORTANTE:
-       * aquí evitamos que el navegador avance.
-       */
-      event.preventDefault();
-
-      /*
-       * Controlamos la velocidad de la animación.
-       */
-      const delta =
-        Math.min(Math.abs(event.deltaY), 100) / 650;
-
-      setProgress((current) => {
-        const next =
-          current + delta * direction;
-
-        return Math.min(
-          Math.max(next, 0),
-          2
-        );
-      });
-    },
-    [
-      progress,
-      isSectionInViewport,
-      lockScroll,
-      unlockScroll,
-    ]
-  );
-
-  /*
-   * =====================================================
-   * TECLADO
-   * =====================================================
-   *
-   * También bloqueamos:
-   *
-   * ArrowDown
-   * ArrowUp
-   * PageDown
-   * PageUp
-   * Space
-   */
-  const handleKeyDown = useCallback(
-    (event) => {
-      if (!lockRef.current) return;
-
-      const scrollKeys = [
-        'ArrowDown',
-        'ArrowUp',
-        'PageDown',
-        'PageUp',
-        ' ',
-        'Spacebar',
-      ];
-
-      if (!scrollKeys.includes(event.key)) {
-        return;
-      }
-
-      const direction =
-        event.key === 'ArrowUp' ||
-        event.key === 'PageUp'
-          ? -1
-          : 1;
-
-      /*
-       * Si intenta salir hacia arriba
-       * desde el comienzo.
-       */
-      if (
-        progress <= 0 &&
-        direction < 0
-      ) {
-        unlockScroll();
-        return;
-      }
-
-      /*
-       * Si terminó y quiere continuar.
-       */
-      if (
-        progress >= 2 &&
-        direction > 0
-      ) {
-        unlockScroll();
-        return;
-      }
-
-      event.preventDefault();
-
-      setProgress((current) => {
-        const next =
-          current + 0.035 * direction;
-
-        return Math.min(
-          Math.max(next, 0),
-          2
-        );
-      });
-    },
-    [
-      progress,
-      unlockScroll,
-    ]
-  );
-
-  /*
-   * =====================================================
-   * TOUCH / MÓVIL
-   * =====================================================
-   */
-
-  const handleTouchStart = useCallback(
-    (event) => {
-      touchStartY.current =
-        event.touches[0].clientY;
-    },
-    []
-  );
-
-  const handleTouchMove = useCallback(
-    (event) => {
-      if (!isSectionInViewport()) {
-        return;
-      }
-
-      if (!lockRef.current) {
-        lockScroll();
-      }
-
-      if (
-        touchStartY.current === null
-      ) {
-        return;
-      }
-
-      const currentY =
-        event.touches[0].clientY;
-
-      const difference =
-        touchStartY.current -
-        currentY;
-
-      if (Math.abs(difference) < 2) {
-        return;
-      }
-
-      const direction =
-        difference > 0 ? 1 : -1;
-
-      if (
-        progress <= 0 &&
-        direction < 0
-      ) {
-        unlockScroll();
-        return;
-      }
-
-      if (
-        progress >= 2 &&
-        direction > 0
-      ) {
-        unlockScroll();
-        return;
-      }
-
-      event.preventDefault();
-
-      const delta =
-        Math.min(
-          Math.abs(difference),
-          35
-        ) / 700;
-
-      setProgress((current) => {
-        const next =
-          current + delta * direction;
-
-        return Math.min(
-          Math.max(next, 0),
-          2
-        );
-      });
-
-      touchStartY.current = currentY;
-    },
-    [
-      progress,
-      isSectionInViewport,
-      lockScroll,
-      unlockScroll,
-    ]
-  );
-
-  /*
-   * =====================================================
-   * EVENTOS
-   * =====================================================
-   */
+  const requestUpdate = useCallback(() => {
+    if (rafRef.current !== null) return;
+    rafRef.current = requestAnimationFrame(updateFromScroll);
+  }, [updateFromScroll]);
 
   useEffect(() => {
-    window.addEventListener(
-      'wheel',
-      handleWheel,
-      {
-        passive: false,
-        capture: true,
-      }
-    );
+    if (reducedMotion) {
+      applyProgress(1);
+      return undefined;
+    }
 
-    window.addEventListener(
-      'keydown',
-      handleKeyDown,
-      {
-        capture: true,
-      }
-    );
+    requestUpdate();
 
-    window.addEventListener(
-      'touchstart',
-      handleTouchStart,
-      {
-        passive: true,
-      }
-    );
-
-    window.addEventListener(
-      'touchmove',
-      handleTouchMove,
-      {
-        passive: false,
-      }
-    );
+    /*
+     * IMPORTANTE: usamos { capture: true } a propósito.
+     *
+     * El evento "scroll" NO hace bubbling, así que si por
+     * alguna regla CSS del proyecto `body` (o cualquier
+     * ancestro) termina siendo el elemento que realmente
+     * scrollea (por tener `overflow: auto/scroll`), un
+     * listener normal en `window` nunca se entera.
+     *
+     * Con `capture: true` el listener se ejecuta en la
+     * fase de captura (de window hacia abajo), así que
+     * detecta el scroll sin importar en qué elemento
+     * del árbol esté ocurriendo realmente.
+     */
+    window.addEventListener('scroll', requestUpdate, {
+      passive: true,
+      capture: true,
+    });
+    window.addEventListener('resize', requestUpdate);
 
     return () => {
-      window.removeEventListener(
-        'wheel',
-        handleWheel,
-        {
-          capture: true,
-        }
-      );
+      window.removeEventListener('scroll', requestUpdate, {
+        capture: true,
+      });
+      window.removeEventListener('resize', requestUpdate);
 
-      window.removeEventListener(
-        'keydown',
-        handleKeyDown,
-        {
-          capture: true,
-        }
-      );
-
-      window.removeEventListener(
-        'touchstart',
-        handleTouchStart
-      );
-
-      window.removeEventListener(
-        'touchmove',
-        handleTouchMove
-      );
-
-      document.body.classList.remove(
-        'scroll-animation-lock'
-      );
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+      }
     };
-  }, [
-    handleWheel,
-    handleKeyDown,
-    handleTouchStart,
-    handleTouchMove,
-  ]);
+  }, [reducedMotion, requestUpdate, applyProgress]);
 
   /*
    * =====================================================
-   * PROGRESO DE LAS DOS FASES
+   * VIDEO: aparece con fade al entrar en pantalla
    * =====================================================
+   * Esta sección NO bloquea el scroll, solo reacciona
+   * cuando entra/sale del viewport para reproducir/pausar
+   * y aplicar el fade-in.
    */
+  useEffect(() => {
+    const node = videoSectionRef.current;
+    if (!node) return undefined;
 
-  /*
-   * 0 → 1
-   *
-   * Animación del texto.
-   */
-  const textProgress =
-    Math.min(progress, 1);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVideoInView(entry.isIntersecting);
 
-  /*
-   * 1 → 2
-   *
-   * Animación del video.
-   */
-  const videoProgress =
-    Math.max(
-      0,
-      progress - 1
+        if (!videoRef.current) return;
+
+        if (entry.isIntersecting) {
+          videoRef.current
+            .play()
+            .catch(() => {
+              /* el navegador puede bloquear autoplay; se ignora */
+            });
+        } else {
+          videoRef.current.pause();
+        }
+      },
+      { threshold: 0.35 }
     );
 
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
+
   /*
-   * =====================================================
-   * ANIMACIÓN DEL VIDEO
-   * =====================================================
+   * El video empieza muteado (requisito de los navegadores
+   * para autoplay). El usuario decide activar el sonido.
    */
+  const toggleSound = () => {
+    if (!videoRef.current) return;
 
-  const videoStyle = {
-    opacity: videoProgress,
-
-    transform: `
-      translateY(
-        ${120 - videoProgress * 120}px
-      )
-      scale(
-        ${0.92 + videoProgress * 0.08}
-      )
-    `,
+    const nextMuted = !videoRef.current.muted;
+    videoRef.current.muted = nextMuted;
+    setIsMuted(nextMuted);
   };
 
   return (
-    <section
-      ref={sectionRef}
-      className={`scroll-reveal-section ${
-        isLocked
-          ? 'is-locked'
-          : ''
-      }`}
-    >
-      <div className="scroll-reveal-scene">
+    <>
+      {/* =========================================
+          FASE 1 — TEXTO (scroll "congelado")
+      ========================================== */}
 
-        {/* =========================================
-            TEXTO
-        ========================================== */}
+      <section
+        ref={wrapperRef}
+        className="scroll-reveal-wrapper"
+        style={
+          reducedMotion
+            ? { height: 'auto' }
+            : { height: `${WRAPPER_HEIGHT_VH}vh` }
+        }
+      >
+        <div className="scroll-reveal-sticky">
 
-        <div className="scroll-text-content">
-
-          <span className="scroll-eyebrow">
-            EL IMPACTO
-          </span>
-
-          <h2 className="scroll-reveal-text">
-
-            {words.map(
-              (word, index) => {
-
-                /*
-                 * Posición de la palabra
-                 * dentro de la animación.
-                 */
-                const wordProgress =
-                  index /
-                  Math.max(
-                    words.length - 1,
-                    1
-                  );
-
-                /*
-                 * Transición suave.
-                 */
-                const opacity =
-                  Math.min(
-                    Math.max(
-                      (
-                        textProgress -
-                        wordProgress *
-                        0.75
-                      ) / 0.25,
-                      0
-                    ),
-                    1
-                  );
-
-                return (
-                  <span
-                    key={`${word}-${index}`}
-                    className="word"
-                    style={{
-                      opacity:
-                        0.15 +
-                        opacity * 0.85,
-                    }}
-                  >
-                    {word}{' '}
-                  </span>
-                );
-              }
-            )}
-
-          </h2>
-
-        </div>
-
-
-        {/* =========================================
-            VIDEO
-        ========================================== */}
-
-        <div
-          className="scroll-video-wrapper"
-          style={{
-            opacity:
-              videoProgress,
-            pointerEvents:
-              videoProgress >= 1
-                ? 'auto'
-                : 'none',
-          }}
-        >
           <div
-            className="video-card"
-            style={videoStyle}
+            className="scroll-progress-track"
+            role="progressbar"
+            aria-label="Progreso de la animación"
+            aria-valuemin={0}
+            aria-valuemax={100}
           >
-            <video
-              src={videoSrc}
-              autoPlay
-              loop
-              muted
-              playsInline
-              aria-label="Video promocional de Gran Eventos"
+            <div
+              ref={progressFillRef}
+              className="scroll-progress-fill"
             />
-
-            <div className="video-overlay" />
-
-            <span className="video-label">
-              GRAN EVENTOS
-            </span>
           </div>
-        </div>
 
-      </div>
-    </section>
+          <div className="scroll-text-content">
+
+            <span className="scroll-eyebrow">
+              EL IMPACTO
+            </span>
+
+            <h2 className="scroll-reveal-text">
+              {WORDS.map((word, index) => (
+                <span
+                  key={`${word}-${index}`}
+                  ref={(el) => {
+                    wordRefs.current[index] = el;
+                  }}
+                  className="word"
+                >
+                  {word}{' '}
+                </span>
+              ))}
+            </h2>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================
+          FASE 2 — VIDEO (scroll normal)
+      ========================================== */}
+
+      <section
+        ref={videoSectionRef}
+        className={`scroll-video-section ${
+          videoInView ? 'is-visible' : ''
+        }`}
+        aria-label="Video institucional de Gran Eventos"
+      >
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          loop
+          muted={isMuted}
+          playsInline
+          preload="metadata"
+          className="scroll-video"
+        />
+
+        <div className="scroll-video-overlay" />
+
+        <button
+          type="button"
+          className="scroll-video-sound-toggle"
+          onClick={toggleSound}
+          aria-pressed={!isMuted}
+        >
+          {isMuted ? '🔇 Activar sonido' : '🔊 Silenciar'}
+        </button>
+
+        <span className="scroll-video-label">
+          GRAN EVENTOS
+        </span>
+      </section>
+    </>
   );
 }

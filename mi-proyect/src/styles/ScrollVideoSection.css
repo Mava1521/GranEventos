@@ -4,42 +4,70 @@ body {
 }
 
 
-/*
- * Mientras la animación está activa,
- * se deshabilita el scroll nativo.
- */
-body.scroll-animation-lock {
-  overflow: hidden;
-}
-
-
 /* =========================================================
-   SCROLL REVEAL SECTION
+   FASE 1 — WRAPPER DEL TEXTO
+   =========================================================
+   Este contenedor es más alto que la pantalla (260vh).
+   Mientras el usuario recorre ese espacio extra, el
+   contenido interno queda "pegado" (sticky) y el progreso
+   se calcula leyendo la posición real de scroll — por eso
+   nunca puede quedar "trabado": es scroll nativo del
+   navegador, no interceptado.
    ========================================================= */
 
-.scroll-reveal-section {
+.scroll-reveal-wrapper {
   position: relative;
-  min-height: 200vh;
+  width: 100%;
   background: #0d0d0d;
   color: #ffffff;
+}
+
+
+.scroll-reveal-sticky {
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100vh;
+
+  box-sizing: border-box;
+  padding: 80px 24px;
+
   overflow: hidden;
 }
 
 
 /* =========================================================
-   ESCENA STICKY
+   BARRA DE PROGRESO
    ========================================================= */
 
-.scroll-reveal-scene {
-  position: sticky;
+.scroll-progress-track {
+  position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+
+  height: 3px;
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.scroll-progress-fill {
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 80px 24px;
+  height: 100%;
+
+  background: #f4c400;
+
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  will-change: transform;
 }
 
 
@@ -48,160 +76,154 @@ body.scroll-animation-lock {
    ========================================================= */
 
 .scroll-text-content {
-  width: 100%;
-  max-width: 1000px;
-  text-align: center;
   position: relative;
   z-index: 2;
 
-  /*
-   * El texto ocupa el espacio principal
-   * mientras se ejecuta la primera fase.
-   */
-  transition:
-    transform 0.45s ease,
-    opacity 0.45s ease;
-}
+  width: 100%;
+  max-width: 1000px;
 
+  text-align: center;
+}
 
 .scroll-eyebrow {
   display: block;
+
   margin-bottom: 26px;
+
+  color: #f4c400;
+
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 5px;
-  color: #f4c400;
   text-transform: uppercase;
 }
 
-
 .scroll-reveal-text {
   margin: 0;
+
+  color: #ffffff;
+
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(
-    36px,
-    5vw,
-    68px
-  );
+  font-size: clamp(36px, 5vw, 68px);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-
 .scroll-reveal-text .word {
-  /*
-   * El valor real de opacity lo controla React.
-   */
-  color: #ffffff;
   display: inline;
+
+  /* El valor real lo escribe JS directamente en el DOM */
+  opacity: 0.14;
+
   will-change: opacity;
-  transition:
-    opacity 0.12s linear;
 }
 
 
 /* =========================================================
-   VIDEO
+   FASE 2 — VIDEO (sección normal, sin scroll-jacking)
    ========================================================= */
 
-.scroll-video-wrapper {
-  position: absolute;
-  left: 50%;
-  bottom: 6vh;
-  width: min(
-    1100px,
-    calc(100% - 48px)
-  );
-  transform: translateX(-50%);
-  z-index: 3;
-  /*
-   * El video permanece oculto hasta que
-   * termina completamente el texto.
-   */
-  opacity: 0;
-  transition:
-    opacity 0.08s linear;
-}
-
-
-.video-card {
+.scroll-video-section {
   position: relative;
+
   width: 100%;
+  height: 100vh;
+
   overflow: hidden;
-  border-radius: 18px;
-  border: 1px solid
-    rgba(255, 255, 255, 0.12);
-  background: #111111;
-  box-shadow:
-    0 30px 80px
-    rgba(0, 0, 0, 0.55);
-  will-change:
-    transform,
-    opacity;
+
+  background: #000;
+
+  opacity: 0;
+  transform: scale(0.97);
+
   transition:
-    transform 0.08s linear,
-    opacity 0.08s linear;
+    opacity 0.7s ease,
+    transform 0.7s ease;
 }
 
+.scroll-video-section.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
 
-.video-card video {
-  display: block;
+.scroll-video {
+  position: absolute;
+  inset: 0;
+
   width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
+  height: 100%;
+
   object-fit: cover;
 }
 
-
-/* =========================================================
-   OVERLAY DEL VIDEO
-   ========================================================= */
-
-.video-overlay {
+.scroll-video-overlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.35),
-      transparent 45%
-    );
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.05) 55%
+  );
 
   pointer-events: none;
 }
 
-
-/* =========================================================
-   LABEL DEL VIDEO
-   ========================================================= */
-
-.video-label {
+.scroll-video-label {
   position: absolute;
   left: 24px;
-  bottom: 22px;
+  bottom: 28px;
+  z-index: 4;
+
+  color: #ffffff;
+
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 3px;
-  color: #ffffff;
   text-transform: uppercase;
-  z-index: 2;
 }
 
+.scroll-video-sound-toggle {
+  position: absolute;
+  right: 24px;
+  bottom: 26px;
+  z-index: 4;
 
-/* =========================================================
-   ESTADO BLOQUEADO
-   ========================================================= */
+  padding: 10px 18px;
 
-.scroll-reveal-section.is-locked {
-  /*
-   * Evita interacciones accidentales con elementos
-   * internos durante la animación.
-   */
-  overscroll-behavior: contain;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
+
+  background: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(4px);
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.scroll-video-sound-toggle:hover {
+  background: rgba(0, 0, 0, 0.55);
+  transform: translateY(-1px);
+}
+
+.scroll-video-sound-toggle:focus-visible {
+  outline: 2px solid #f4c400;
+  outline-offset: 3px;
 }
 
 
@@ -211,62 +233,72 @@ body.scroll-animation-lock {
 
 @media (max-width: 768px) {
 
-  .scroll-reveal-scene {
+  /*
+   * En pantallas chicas el scroll es más difícil de
+   * dosificar con precisión, así que acortamos un poco
+   * la distancia "congelada" para que no se sienta larga.
+   */
+  .scroll-reveal-wrapper {
+    height: 220vh !important;
+  }
+
+  .scroll-reveal-sticky {
     padding: 60px 20px;
   }
 
   .scroll-eyebrow {
+    margin-bottom: 20px;
+
     font-size: 10px;
     letter-spacing: 4px;
-    margin-bottom: 20px;
   }
 
   .scroll-reveal-text {
-    font-size: clamp(
-      30px,
-      9vw,
-      48px
-    );
-
+    font-size: clamp(30px, 9vw, 48px);
     line-height: 1.12;
   }
 
-  .scroll-video-wrapper {
-    width: calc(100% - 32px);
-
-    bottom: 5vh;
-  }
-
-  .video-card {
-    border-radius: 12px;
-  }
-
-  .video-label {
+  .scroll-video-label {
     left: 16px;
-    bottom: 15px;
+    bottom: 16px;
+
     font-size: 9px;
+  }
+
+  .scroll-video-sound-toggle {
+    right: 16px;
+    bottom: 14px;
+
+    padding: 8px 14px;
+
+    font-size: 10px;
   }
 }
 
 
 /* =========================================================
-   REDUCED MOTION
-   WCAG / ACCESIBILIDAD
+   REDUCED MOTION — WCAG 2.3.3 / ISO 9241-171 (accesibilidad)
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
+  .scroll-reveal-wrapper {
+    height: auto !important;
+  }
+
+  .scroll-reveal-sticky {
+    position: relative;
+    height: auto;
+
+    padding: 60px 24px;
+  }
+
   .scroll-reveal-text .word {
     opacity: 1 !important;
-    transition: none !important;
   }
 
-  .scroll-video-wrapper {
+  .scroll-video-section {
     opacity: 1 !important;
-    transition: none !important;
-  }
-
-  .video-card {
     transform: none !important;
     transition: none !important;
   }

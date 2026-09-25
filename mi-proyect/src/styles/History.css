@@ -1,6 +1,6 @@
 /* ==========================================================
    GRAN EVENTOS — HISTORY PAGE
-   CSS CONSOLIDADO
+   CSS CONSOLIDADO Y ORGANIZADO
    ========================================================== */
 
 
@@ -35,6 +35,11 @@
 
   font-family: 'Montserrat', sans-serif;
 }
+
+
+/* ----------------------------------------------------------
+   REGLAS GENERALES
+   ---------------------------------------------------------- */
 
 .history-page *,
 .history-page *::before,
@@ -86,9 +91,9 @@
 }
 
 
-/* ==========================================================
+/* ----------------------------------------------------------
    EYEBROW
-   ========================================================== */
+   ---------------------------------------------------------- */
 
 .history-eyebrow {
   display: block;
@@ -104,9 +109,9 @@
 }
 
 
-/* ==========================================================
-   TÍTULO
-   ========================================================== */
+/* ----------------------------------------------------------
+   TÍTULO PRINCIPAL
+   ---------------------------------------------------------- */
 
 .history-hero h1 {
   margin: 0;
@@ -129,9 +134,9 @@
 }
 
 
-/* ==========================================================
-   LÍNEA AMARILLA DEL HERO
-   ========================================================== */
+/* ----------------------------------------------------------
+   LÍNEA AMARILLA
+   ---------------------------------------------------------- */
 
 .history-gold-line {
   width: 40px;
@@ -143,9 +148,9 @@
 }
 
 
-/* ==========================================================
-   DESCRIPCIÓN DEL HERO
-   ========================================================== */
+/* ----------------------------------------------------------
+   DESCRIPCIÓN
+   ---------------------------------------------------------- */
 
 .history-hero-content p {
   max-width: 290px;
@@ -166,6 +171,7 @@
 
 .history-top-message {
   position: absolute;
+
   top: 150px;
   right: var(--history-desktop-right);
 
@@ -211,139 +217,65 @@
   object-fit: contain;
 }
 
-/* Wrapper del collage y título superior */
-.history-collage-wrapper {
-  width: 100%;
-  padding: 20px 42px 0;
-  background: var(--history-light);
-}
-
-.history-timeline-title-desktop {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 10px;
-}
-
-.history-timeline-title-desktop .timeline-eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: var(--history-black);
-  text-transform: uppercase;
-}
-
-.history-timeline-title-desktop h2 {
-  margin: 2px 0 0;
-  font-family: 'Oswald', sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--history-black);
-  text-transform: uppercase;
-}
-
-/* Ocultar este título en versión Móvil */
-
 
 /* ==========================================================
-   01. TITULO EN DESKTOP (Arriba del collage)
+   06. TÍTULO + COLLAGE
    ========================================================== */
+
+
+/* ----------------------------------------------------------
+   CONTENEDOR GENERAL
+   ---------------------------------------------------------- */
 
 .history-collage-wrapper {
   width: 100%;
+
   padding: 20px 42px 0;
+
   background: var(--history-light);
 }
 
-.history-timeline-title-desktop {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 12px;
-}
+
+/* ----------------------------------------------------------
+   TÍTULO DESKTOP
+   ---------------------------------------------------------- */
+
 
 .history-timeline-title-desktop .timeline-eyebrow {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: var(--history-black);
-  text-transform: uppercase;
-}
-
-.history-timeline-title-desktop h2 {
-  margin: 2px 0 0;
-  font-family: 'Oswald', sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--history-black);
-  text-transform: uppercase;
-}
-
-/* En escritorio, ocultamos el título inferior para que no quede duplicado */
-.history-timeline-title-mobile {
-  display: none;
-}
-
-
-/* ==========================================================
-   02. TIMELINE — TEXTOS SIN RECUADRO (Escritorio)
-   ========================================================== */
-
-.timeline-card {
-  padding-right: 15px;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-.timeline-card h3 {
-  min-height: 30px;
-  margin: 0 0 10px;
-  font-family: 'Oswald', sans-serif;
-  font-size: 11px;
+  margin: 0 0 8px;
+  font-family: "Oswald", sans-serif;
+  font-size: 14px;
   font-weight: 500;
-  line-height: 1.15;
   letter-spacing: 2px;
-  color: var(--history-black);
+  text-transform: uppercase;
+  color: #111;
 }
 
-.timeline-card p {
+.history-timeline-title-desktop h2 {
   margin: 0;
-  color: #777;
-  font-size: 9px;
-  line-height: 1.45;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(36px, 4vw, 64px);
+  font-weight: 700;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: #111;
 }
 
 
-/* ==========================================================
-   03. RESPONSIVE (MÓVIL - Sin alterar nada)
-   ========================================================== */
-@media (max-width: 768px) {
-  /* Oculta el título superior en móvil */
-  .history-timeline-title-desktop {
-    display: none;
-  }
+/* ----------------------------------------------------------
+   TÍTULO MOBILE
+   ---------------------------------------------------------- */
 
-  /* Reactiva el título en la línea de tiempo para móvil */
-  .history-timeline-title-mobile {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
+/*
+ * En escritorio permanece oculto.
+ * Se activa dentro del media query móvil.
+ */
 
-  /* Resetea el padding/fondo del wrapper en móvil */
-  .history-collage-wrapper {
-    padding: 0;
-    background: transparent;
-  }
-}
 
 
 
 /* ==========================================================
-   06. COLLAGE — ESCRITORIO
+   07. COLLAGE — ESCRITORIO
    ========================================================== */
 
 .history-collage {
@@ -364,6 +296,11 @@
 
   background: var(--history-light);
 }
+
+
+/* ----------------------------------------------------------
+   ITEM DEL COLLAGE
+   ---------------------------------------------------------- */
 
 .collage-item {
   position: relative;
@@ -390,9 +327,9 @@
 }
 
 
-
-
-/* Variaciones de altura del collage */
+/* ----------------------------------------------------------
+   VARIACIONES DE ALTURA
+   ---------------------------------------------------------- */
 
 .collage-item-1 {
   height: 135px;
@@ -440,7 +377,9 @@
 }
 
 
-/* Imagen */
+/* ----------------------------------------------------------
+   IMAGEN
+   ---------------------------------------------------------- */
 
 .collage-image {
   display: block;
@@ -457,7 +396,9 @@
 }
 
 
-/* Overlay */
+/* ----------------------------------------------------------
+   OVERLAY
+   ---------------------------------------------------------- */
 
 .collage-overlay {
   position: absolute;
@@ -502,7 +443,9 @@
 }
 
 
-/* Hover */
+/* ----------------------------------------------------------
+   HOVER
+   ---------------------------------------------------------- */
 
 .collage-item:hover {
   z-index: 10;
@@ -522,7 +465,9 @@
 }
 
 
-/* Accesibilidad */
+/* ----------------------------------------------------------
+   ACCESIBILIDAD
+   ---------------------------------------------------------- */
 
 .collage-item:focus-visible {
   outline: 2px solid var(--history-gold);
@@ -530,10 +475,8 @@
 }
 
 
-
-
 /* ==========================================================
-   07. TIMELINE — ESCRITORIO
+   08. TIMELINE — ESCRITORIO
    ========================================================== */
 
 .timeline-section {
@@ -543,6 +486,11 @@
 
   padding: 0 50px 35px;
 }
+
+
+/* ----------------------------------------------------------
+   TRACK
+   ---------------------------------------------------------- */
 
 .timeline-track {
   position: relative;
@@ -554,6 +502,11 @@
 
   gap: 0;
 }
+
+
+/* ----------------------------------------------------------
+   LÍNEA
+   ---------------------------------------------------------- */
 
 .timeline-line {
   position: absolute;
@@ -569,6 +522,11 @@
   background: #cfcfcf;
 }
 
+
+/* ----------------------------------------------------------
+   ITEM
+   ---------------------------------------------------------- */
+
 .timeline-item {
   position: relative;
 
@@ -580,7 +538,9 @@
 }
 
 
-/* Botón del año */
+/* ----------------------------------------------------------
+   BOTÓN DEL AÑO
+   ---------------------------------------------------------- */
 
 .timeline-year-button {
   position: relative;
@@ -609,7 +569,9 @@
 }
 
 
-/* Punto */
+/* ----------------------------------------------------------
+   PUNTO
+   ---------------------------------------------------------- */
 
 .timeline-dot {
   position: relative;
@@ -659,7 +621,9 @@
 }
 
 
-/* Año */
+/* ----------------------------------------------------------
+   AÑO
+   ---------------------------------------------------------- */
 
 .timeline-year {
   display: block;
@@ -673,41 +637,51 @@
 }
 
 
-/* Tarjeta */
+/* ----------------------------------------------------------
+   TARJETA
+   ---------------------------------------------------------- */
 
 .timeline-card {
   padding-right: 15px;
-  background: transparent;  /* Remueve fondo si lo tenía */
-  border: none;             /* Remueve bordes si los tenía */
-  box-shadow: none;         /* Remueve sombras si las tenía */
+
+  border: none;
+
+  background: transparent;
+
+  box-shadow: none;
 }
 
 .timeline-card h3 {
   min-height: 30px;
+
   margin: 0 0 10px;
+
+  color: var(--history-black);
+
   font-family: 'Oswald', sans-serif;
   font-size: 11px;
   font-weight: 500;
   line-height: 1.15;
   letter-spacing: 2px;
-  color: var(--history-black);
+
   text-align: left;
-  align-items: end;
 }
 
 .timeline-card p {
   margin: 0;
+
   color: #777;
+
   font-size: 9px;
   line-height: 1.45;
+
   text-align: left;
-  align-items: end;
 }
 
 
-/*
- * Elementos utilizados únicamente por el layout móvil.
- */
+/* ----------------------------------------------------------
+   ELEMENTOS EXCLUSIVOS DE MOBILE
+   ---------------------------------------------------------- */
 
 .timeline-card__image,
 .timeline-card__year {
@@ -720,7 +694,7 @@
 
 
 /* ==========================================================
-   08. FOOTER INTERNO DE HISTORY
+   09. FOOTER INTERNO DE HISTORY
    ========================================================== */
 
 .history-footer {
@@ -763,8 +737,13 @@
 
 
 /* ==========================================================
-   09. MODAL
+   10. MODAL
    ========================================================== */
+
+
+/* ----------------------------------------------------------
+   OVERLAY
+   ---------------------------------------------------------- */
 
 .ge-modal-overlay {
   position: fixed;
@@ -781,14 +760,19 @@
 
   padding: 20px;
 
+  overflow-y: auto;
+
   background: rgba(0, 0, 0, 0.85);
 
   backdrop-filter: blur(4px);
 
-  overflow-y: auto;
-
   animation: geModalFadeIn 0.25s ease;
 }
+
+
+/* ----------------------------------------------------------
+   CARD
+   ---------------------------------------------------------- */
 
 .ge-modal-card {
   position: relative;
@@ -802,11 +786,11 @@
 
   overflow-y: auto;
 
-  background: #fff;
-  color: #171717;
-
   border: 1px solid #e3d49a;
   border-radius: 16px;
+
+  background: #fff;
+  color: #171717;
 
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
 
@@ -814,7 +798,9 @@
 }
 
 
-/* Botón cerrar */
+/* ----------------------------------------------------------
+   BOTÓN CERRAR
+   ---------------------------------------------------------- */
 
 .ge-modal-close {
   position: absolute;
@@ -864,7 +850,9 @@
 }
 
 
-/* Header */
+/* ----------------------------------------------------------
+   HEADER
+   ---------------------------------------------------------- */
 
 .ge-modal-header {
   padding: 28px 70px 20px 30px;
@@ -887,6 +875,7 @@
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 1.5px;
+
   text-transform: uppercase;
 }
 
@@ -911,11 +900,14 @@
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: 1.2px;
+
   text-transform: uppercase;
 }
 
 
-/* Contenido */
+/* ----------------------------------------------------------
+   CONTENIDO
+   ---------------------------------------------------------- */
 
 .ge-modal-grid {
   display: grid;
@@ -966,6 +958,7 @@
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 2px;
+
   text-transform: uppercase;
 }
 
@@ -980,7 +973,9 @@
 }
 
 
-/* Estadísticas */
+/* ----------------------------------------------------------
+   ESTADÍSTICAS
+   ---------------------------------------------------------- */
 
 .ge-modal-stats-wrapper {
   margin-top: 25px;
@@ -1029,11 +1024,14 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 8px;
   line-height: 1.3;
+
   text-transform: uppercase;
 }
 
 
-/* Footer modal */
+/* ----------------------------------------------------------
+   FOOTER DEL MODAL
+   ---------------------------------------------------------- */
 
 .ge-modal-footer {
   display: flex;
@@ -1056,12 +1054,13 @@
 
 .ge-modal-footer-icon {
   color: #999;
+
   font-size: 17px;
 }
 
 
 /* ==========================================================
-   10. ANIMACIONES
+   11. ANIMACIONES
    ========================================================== */
 
 @keyframes geModalFadeIn {
@@ -1077,18 +1076,20 @@
 @keyframes geModalScaleIn {
   from {
     opacity: 0;
+
     transform: scale(0.96) translateY(10px);
   }
 
   to {
     opacity: 1;
+
     transform: scale(1) translateY(0);
   }
 }
 
 
 /* ==========================================================
-   11. TABLET
+   12. TABLET
    ========================================================== */
 
 @media (max-width: 1100px) {
@@ -1140,36 +1141,43 @@
 
 
 /* ==========================================================
-   10. MÓVIL — HISTORY
+   13. MOBILE — HISTORY
    ========================================================== */
 
 @media (max-width: 768px) {
 
   /* ========================================================
-     BASE MÓVIL
+     BASE
      ======================================================== */
 
   .history-page {
     width: 100%;
     min-height: 100vh;
+
     overflow-x: hidden;
+
     background: #f5f2e9;
     color: #111111;
   }
 
-
   /* ========================================================
-     HERO MÓVIL
+     HERO
      ======================================================== */
 
   .history-hero {
     position: relative;
+
+    display: block;
+
     width: 100%;
     min-height: 455px;
-    display: block;
+
     padding: 118px 35px 35px;
+
     overflow: hidden;
+
     background: #f5f2e9;
+
     box-sizing: border-box;
   }
 
@@ -1178,14 +1186,17 @@
      CONTENIDO DEL HERO
      -------------------------------------------------------- */
 
-     .history-hero-content {
-        position: relative;
-        z-index: 5;
-        width: 100%;
-        max-width: none;
-        margin: 0;
-        padding: 0;
-      }
+  .history-hero-content {
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+    padding: 0;
+  }
+
 
   /* --------------------------------------------------------
      EYEBROW
@@ -1214,7 +1225,7 @@
 
     color: #111111;
 
-    font-family: "Oswald", sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: clamp(39px, 11vw, 55px);
     font-weight: 900;
     line-height: 0.94;
@@ -1263,7 +1274,7 @@
 
 
   /* --------------------------------------------------------
-     LOGO GE DEL HERO
+     LOGO GE
      -------------------------------------------------------- */
 
   .history-center-logo {
@@ -1307,6 +1318,12 @@
   /* ========================================================
      COLLAGE
      ======================================================== */
+
+  .history-collage-wrapper {
+    padding: 0;
+
+    background: transparent;
+  }
 
   .history-collage {
     display: none;
@@ -1353,7 +1370,7 @@
 
     color: #111111;
 
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: clamp(27px, 8vw, 38px);
     font-weight: 900;
     line-height: 1;
@@ -1562,7 +1579,7 @@
 
     color: #111111;
 
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 17px;
     font-weight: 900;
     line-height: 1;
@@ -1580,7 +1597,7 @@
 
     color: #111111;
 
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: 800;
     line-height: 1.05;
@@ -1640,7 +1657,6 @@
     border: 1px solid #111111;
 
     background: transparent;
-
     color: #111111;
 
     font-size: 23px;
@@ -1656,7 +1672,6 @@
     padding: 5px 10px;
 
     background: #f5d65c;
-
     color: #111111;
 
     font-size: 7px;
@@ -1792,7 +1807,6 @@
 
   .history-footer {
     display: flex;
-
     flex-direction: column;
     align-items: flex-start;
 
@@ -1820,7 +1834,6 @@
 
   .history-footer-locations {
     display: flex;
-
     flex-wrap: wrap;
 
     gap: 6px;
@@ -1831,6 +1844,7 @@
     letter-spacing: 1.5px;
   }
 }
+
 
 /* ==========================================================
    14. REDUCIR MOVIMIENTO
@@ -1849,5 +1863,91 @@
     animation-iteration-count: 1 !important;
 
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   TÍTULO — LÍNEA DE TIEMPO
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   ESTILO COMPARTIDO
+   Ambos títulos utilizan exactamente el mismo diseño
+   --------------------------------------------------------- */
+
+.history-timeline-title-desktop,
+.history-timeline-title-mobile {
+  width: 100%;
+  background: #f5f2e9;
+  text-align: left;
+}
+
+.history-timeline-title-desktop .timeline-eyebrow,
+.history-timeline-title-mobile .timeline-eyebrow {
+  margin: 0 0 8px;
+  font-family: "Oswald", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #111;
+}
+
+.history-timeline-title-desktop h2,
+.history-timeline-title-mobile h2 {
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(36px, 4vw, 64px);
+  font-weight: 700;
+  line-height: 0.95;
+  text-transform: uppercase;
+  color: #111;
+}
+
+
+/* ---------------------------------------------------------
+   DESKTOP
+   --------------------------------------------------------- */
+
+/* Título que está ARRIBA del collage */
+.history-timeline-title-desktop {
+  display: block;
+  padding: 25px 42px 15px;
+}
+
+/* Título que está DEBAJO del collage */
+.history-timeline-title-mobile {
+  display: none;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+  /* Ocultar el título de arriba */
+  .history-timeline-title-desktop {
+    display: none;
+  }
+
+  /* Mostrar el título de abajo */
+  .history-timeline-title-mobile {
+    display: block;
+    padding: 25px 20px 15px;
+  }
+
+  /*
+   * Mantenemos EXACTAMENTE el mismo tamaño visual
+   * que el título de escritorio.
+   */
+  .history-timeline-title-mobile .timeline-eyebrow {
+    font-size: 14px;
+  }
+
+  .history-timeline-title-mobile h2 {
+    font-size: clamp(36px, 10vw, 48px);
   }
 }

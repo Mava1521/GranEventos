@@ -77,52 +77,67 @@ export default function History() {
 
         {/* COLLAGE */}
           {/* COLLAGE CON TÍTULO DESKTOP */}
-          <section className="history-collage-wrapper">
-            {/* Este título solo se verá en Desktop */}
-            <div className="history-timeline-title-desktop">
-              <span className="timeline-eyebrow">NUESTRA HISTORIA</span>
-              <h2>LÍNEA DE TIEMPO</h2>
-            </div>
+          {/* =====================================================
+    COLLAGE + TÍTULO DE LÍNEA DE TIEMPO
+    ===================================================== */}
+<section className="history-collage-wrapper">
 
-            <section
-              className="history-collage"
-              aria-label="Momentos de nuestra historia"
-            >
-              {timelineData.map((item, index) => (
-                <button
-                  type="button"
-                  key={item.id}
-                  className={`collage-item collage-item-${index + 1}`}
-                  onClick={() => handleOpenModal(item)}
-                  aria-label={`Ver historia de ${item.year}: ${item.title}`}
-                >
-                  <img
-                    src={item.image}
-                    alt={`${item.year} - ${item.title}`}
-                    className="collage-image"
-                    loading={index < 3 ? 'eager' : 'lazy'}
-                  />
+  {/* TÍTULO SOLO PARA ESCRITORIO */}
+  <div className="history-timeline-title-desktop">
+    <span className="timeline-eyebrow">
+      NUESTRA HISTORIA
+    </span>
 
-                  <span className="collage-overlay">
-                    <span className="collage-year">{item.year}</span>
-                    <span className="collage-title">{item.title}</span>
-                  </span>
-                </button>
-              ))}
-            </section>
-          </section>
+    <h2>LÍNEA DE TIEMPO</h2>
+  </div>
 
-          {/* SECCIÓN LÍNEA DE TIEMPO / TEXTOS */}
-          <section className="history-timeline-section">
-            {/* Este título solo se muestra EN MÓVIL y se oculta EN DESKTOP */}
-            <div className="history-timeline-title-mobile">
-              <span className="timeline-eyebrow">NUESTRA HISTORIA</span>
-              <h2>LÍNEA DE TIEMPO</h2>
-            </div>
+  {/* COLLAGE */}
+    <section
+      className="history-collage"
+      aria-label="Momentos de nuestra historia"
+    >
+      {timelineData.map((item, index) => (
+        <button
+          type="button"
+          key={item.id}
+          className={`collage-item collage-item-${index + 1}`}
+          onClick={() => handleOpenModal(item)}
+          aria-label={`Ver historia de ${item.year}: ${item.title}`}
+        >
+          <img
+            src={item.image}
+            alt={`${item.year} - ${item.title}`}
+            className="collage-image"
+            loading={index < 3 ? 'eager' : 'lazy'}
+          />
 
-            {/* TIMELINE adentro de la sección */}
-            <Timeline onOpenModal={handleOpenModal} />
-          </section>
+          <span className="collage-overlay">
+            <span className="collage-year">{item.year}</span>
+            <span className="collage-title">{item.title}</span>
+          </span>
+        </button>
+      ))}
+    </section>
+  </section>
+
+
+  {/* =====================================================
+      TIMELINE
+      ===================================================== */}
+  <section className="history-timeline-section">
+
+    {/* TÍTULO SOLO PARA MÓVIL */}
+    <div className="history-timeline-title-mobile">
+      <span className="timeline-eyebrow">
+        NUESTRA HISTORIA
+      </span>
+
+      <h2>LÍNEA DE TIEMPO</h2>
+    </div>
+
+    <Timeline onOpenModal={handleOpenModal} />
+
+  </section>
 
           {/* VIDEO */}
           <ScrollVideoSection videoSrc={SampleVideo} />
