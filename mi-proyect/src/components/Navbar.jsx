@@ -16,20 +16,23 @@ export default function Navbar() {
   const isHistory = location.pathname === '/historia';
   const isContact = location.pathname === '/contacto';
   const isSustainability = location.pathname === '/sostenibilidad';
+  const isServices = location.pathname === '/servicios';
 
   let currentLogo = isHistory ? LogoHistory : LogoGE;
 
   // Asignación de variantes de estilo
   let navbarVariant = 'navbar-inner';
   if (isHome || isSustainability) {
-    navbarVariant = 'navbar-transparent'; // Transparente sobre la imagen de fondo
-  } else if (isProjects) {
-    navbarVariant = 'navbar-projects';
-  } else if (isHistory) {
-    navbarVariant = 'navbar-history';
-  } else if (isContact) {
-    navbarVariant = 'navbar-contact';
-  }
+  navbarVariant = 'navbar-transparent';
+} else if (isProjects) {
+  navbarVariant = 'navbar-projects';
+} else if (isHistory) {
+  navbarVariant = 'navbar-history';
+} else if (isContact) {
+  navbarVariant = 'navbar-contact';
+} else if (isServices) {
+  navbarVariant = 'navbar-services';
+}
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
@@ -66,9 +69,15 @@ export default function Navbar() {
             </li>
 
             <li className="nav-item-wrapper">
-              <Link to="/servicios" className="nav-item" onClick={closeMenu}>
+              <Link
+                to="/servicios"
+                className="nav-item"
+                onClick={closeMenu}
+              >
                 SERVICIOS
               </Link>
+
+              {isServices && <div className="active-indicator" />}
             </li>
 
             <li className="nav-item-wrapper">

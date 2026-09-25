@@ -265,3 +265,27 @@
     background-color: var(--accent-gold, #efbd00);
   }
 }
+
+/* =========================================================
+   SERVICES NAVBAR
+   ========================================================= */
+
+    .navbar-services {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      background: #ffffff;
+    }
+
+    .navbar-services .nav-item {
+      color: #222222;
+    }
+
+    .navbar-services .lang-selector button {
+      color: #222222;
+    }
+
+    .navbar-services .lang-selector button.active {
+      color: #efbd00;
+    }

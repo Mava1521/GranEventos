@@ -1,307 +1,235 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Services.css';
-import HeroServices from '../assets/Services.jpg';
-import logistica from '../assets/Logistica.jpg';
-import produccion from '../assets/Produccion.png';
-import sostenibilidad from '../assets/Sostenibilidad.png';
-import talento from '../assets/Talento.png';
-import audio from '../assets/Audio.jpg';
-import escenografia from '../assets/Services1.jpg';
-import ServiceContact from '../assets/ServiceContact.jpg';
+
+import ServiceHero from '../assets/ServiceHero.jpg';
+import plantas from '../assets/Plantas.jpg';
+import diseño from '../assets/Diseño.jpg';
+import transformadores from '../assets/Transformadores.jpg';
+import distribucion from '../assets/Distribuicion.jpg';
+import iluminacion from '../assets/Iluminacion.jpg';
+import ventas from '../assets/Ventas.jpg';
+import ServiceSeccion3 from '../assets/ServicesSeccion3.jpg';
+
 
 const services = [
   {
-    id: '01',
-    title: (
-      <>
-        PRODUCCIÓN
-        <br />
-        DE EVENTOS
-      </>
-    ),
+    number: '01',
+    title: 'PLANTAS DE ENERGÍA',
+    subtitle: 'Confiabilidad en cualquier escala.',
     description:
-      'Gestionamos cada etapa del evento, desde la planificación hasta la ejecución, con un equipo experto y comprometido.',
-    image: produccion, // Agregar imagen posteriormente
+      'Alquiler de plantas eléctricas de alta, media y baja capacidad, con soporte técnico especializado para eventos y proyectos temporales.',
+    image: plantas,
+    alt: 'Plantas de energía de Gran Eventos',
   },
   {
-    id: '02',
-    title: (
-      <>
-        AUDIO, ILUMINACIÓN
-        <br />Y VIDEO
-      </>
-    ),
+    number: '02',
+    title: 'VENTA DE PLANTAS',
+    subtitle: 'Energía para un futuro en expansión.',
     description:
-      'Creamos ambientes inmersivos con tecnología de última generación, para que cada momento se viva al máximo.',
-    image: audio,
+      'Comercialización de plantas eléctricas con asesoría especializada, adaptadas a las necesidades de cada industria.',
+    image: ventas,
+    alt: 'Venta de plantas eléctricas',
   },
   {
-    id: '03',
-    title: (
-      <>
-        ESCENOGRAFÍA
-        <br />Y DISEÑO
-      </>
-    ),
+    number: '03',
+    title: 'DISEÑO DE PROYECTOS',
+    subtitle: 'Ingeniería al servicio de grandes ideas.',
     description:
-      'Transformamos ideas en espacios únicos que conectan con el público y refuerzan la identidad de tu marca.',
-    image: escenografia,
+      'Desarrollamos soluciones personalizadas de energía e infraestructura, desde la planificación hasta la ejecución.',
+    image: diseño,
+    alt: 'Diseño de proyectos de energía',
   },
   {
-    id: '04',
-    title: (
-      <>
-        TALENTO ARTÍSTICO
-        <br />Y ENTRETENIMIENTO
-      </>
-    ),
+    number: '04',
+    title: 'TRANSFORMADORES',
+    subtitle: 'Estabilidad y seguridad en cada conexión.',
     description:
-      'Contamos con una amplia red de artistas, conferencistas y talentos que hacen de cada evento una experiencia inolvidable.',
-    image: talento,
+      'Suministro, instalación y operación de transformadores para garantizar un desempeño seguro y eficiente.',
+    image: transformadores,
+    alt: 'Transformadores eléctricos',
   },
   {
-    id: '05',
-    title: (
-      <>
-        LOGÍSTICA
-        <br />Y PRODUCCIÓN TÉCNICA
-      </>
-    ),
+    number: '05',
+    title: 'DISTRIBUCIÓN Y CABLEADO',
+    subtitle: 'Conexiones que lo hacen posible.',
     description:
-      'Coordinamos todos los aspectos técnicos y operativos para garantizar el desarrollo fluido y seguro de tu evento.',
-    image: logistica,
+      'Diseño e instalación de distritos eléctricos y cableado certificado, asegurando una distribución confiable y segura en todo tipo de eventos.',
+    image: distribucion,
+    alt: 'Distribución y cableado eléctrico',
   },
   {
-    id: '06',
-    title: (
-      <>
-        SOSTENIBILIDAD
-        <br />EN EVENTOS
-      </>
-    ),
+    number: '06',
+    title: 'TORRES DE ILUMINACIÓN',
+    subtitle: 'Luz para experiencias sin límites.',
     description:
-      'Implementamos prácticas responsables para generar un impacto positivo en el medio ambiente y la sociedad.',
-    image: sostenibilidad,
+      'Torres de iluminación de alto rendimiento para áreas de producción, parqueaderos, backstage y zonas operativas.',
+    image: iluminacion,
+    alt: 'Torres de iluminación para eventos',
   },
 ];
 
-function ServiceCard({ service }) {
+function ServiceImage({ image, alt, number }) {
+  if (image) {
+    return (
+      <img
+        className="service-card__image"
+        src={image}
+        alt={alt}
+        loading="lazy"
+      />
+    );
+  }
+
   return (
-    <article className="service-card">
-      <div className="service-card-number">{service.id}</div>
-
-      <div className="service-card-image">
-        {service.image ? (
-          <img
-            src={service.image}
-            alt=""
-            loading="lazy"
-          />
-        ) : (
-          <div className="image-placeholder">
-            <span>IMAGEN</span>
-          </div>
-        )}
-      </div>
-
-      <div className="service-card-content">
-        <div className="service-icon" aria-hidden="true">
-          <span></span>
-        </div>
-
-        <h3>{service.title}</h3>
-
-        <p>{service.description}</p>
-
-        <button
-          type="button"
-          className="service-link"
-          aria-label={`Ver más sobre ${service.id}`}
-        >
-          <span>VER MÁS</span>
-          <span className="service-arrow" aria-hidden="true">
-            →
-          </span>
-        </button>
-      </div>
-    </article>
+    <div
+      className="service-card__placeholder"
+      role="img"
+      aria-label={`${alt}. Imagen pendiente por agregar.`}
+    >
+      <span>IMAGEN {number}</span>
+    </div>
   );
 }
 
 export default function Services() {
   return (
     <main className="services-page">
-
       {/* =====================================================
           HERO
       ====================================================== */}
+      <section className="services-hero" aria-labelledby="services-title">
+        <div className="services-hero__content">
+          <p className="services-eyebrow">SERVICIOS</p>
 
-      <section className="services-hero">
-        <div className="services-hero-content">
-
-          <div className="section-label">
-            <span className="section-marker"></span>
-            <span>SERVICIOS</span>
-          </div>
-
-          <h1>
-            SOLUCIONES
-            <br />
-
-            <span className="text-yellow">
-              INTEGRALES
-            </span>
-
-            <br />
-
-            <span className="text-light">
-              PARA EVENTOS
-            </span>
-
-            <br />
-
-            <span className="text-light">
-              QUE INSPIRAN.
+          <h1 id="services-title" className="services-hero__title">
+            <span>ENERGÍA</span>
+            <span>QUE HACE POSIBLE</span>
+            <span className="services-hero__title-light">
+              EXPERIENCIAS EXTRAORDINARIAS<span className="yellow-dot">.</span>
             </span>
           </h1>
 
-          <div className="yellow-line"></div>
-
-          <p className="services-hero-description">
-            En Gran Eventos creamos experiencias únicas
-            <br className="desktop-break" />
-            a través de una producción integral, estratégica
-            <br className="desktop-break" />
-            y de alto impacto.
+          <p className="services-hero__description">
+            Soluciones integrales de energía e infraestructura temporal
+            <br className="desktop-only" />
+            para eventos, producciones y proyectos de gran escala.
           </p>
-
         </div>
 
-        {/* Espacio preparado para imagen */}
-        <div className="services-hero-image">
-
-          <div className="hero-image-placeholder">
+        <div className="services-hero__visual">
+          <div className="services-hero__image-placeholder">
             <span>
-              <img src={HeroServices} alt="" width={1500} height={900} />
+              <img src={ServiceHero} alt=""  width={1700} height={625}/>
             </span>
           </div>
 
-          <div className="hero-yellow-shape"></div>
-          <div className="hero-green-shape"></div>
-
-        </div>
-      </section>
-
-
-      {/* =====================================================
-          INTRODUCCIÓN
-      ====================================================== */}
-
-      <section className="services-intro">
-
-        <div className="section-label">
-          <span className="section-marker"></span>
-          <span>NUESTROS SERVICIOS</span>
-        </div>
-
-        <div className="services-intro-grid">
-
-          <div className="services-intro-title">
-          <h2>
-            CADA DETALLE
-            <br />
-            <span className="gradient-text">
-              SUMA EXPERIENCIA.
-            </span>
-          </h2>
-        </div>
-
-          <div className="services-intro-divider"></div>
-
-          <div className="services-intro-text">
+          <div className="services-hero__message">
             <p>
-              Desde la conceptualización hasta la ejecución,
-              nos encargamos de cada aspecto para que tu evento
-              sea memorable, seguro y sin contratiempos.
+              IMPULSAMOS
+              <br />
+              IDEAS,
+              <br />
+              CONECTAMOS
+              <br />
+              EMOCIONES.
             </p>
-          </div>
 
+            <span className="yellow-line" aria-hidden="true" />
+          </div>
         </div>
       </section>
 
-
       {/* =====================================================
-          GRID DE SERVICIOS
+          SERVICIOS
       ====================================================== */}
-
-      <section className="services-grid-section">
+      <section
+        className="services-grid-section"
+        aria-labelledby="services-grid-title"
+      >
+        <h2 id="services-grid-title" className="sr-only">
+          Nuestros servicios
+        </h2>
 
         <div className="services-grid">
           {services.map((service) => (
-            <ServiceCard
-              key={service.id}
-              service={service}
-            />
+            <article className="service-card" key={service.number}>
+              <div className="service-card__number">
+                <span>{service.number}</span>
+                <span className="service-card__number-line" aria-hidden="true" />
+              </div>
+
+              <ServiceImage
+                image={service.image}
+                alt={service.alt}
+                number={service.number}
+              />
+
+              <div className="service-card__content">
+                <h3>{service.title}</h3>
+
+                <p className="service-card__subtitle">
+                  {service.subtitle}
+                </p>
+
+                <p className="service-card__description">
+                  {service.description}
+                </p>
+
+                <Link
+                  to="/contacto"
+                  className="service-card__link"
+                  aria-label={`Ver más sobre ${service.title.toLowerCase()}`}
+                >
+                  <span>VER MÁS</span>
+
+                  <span className="service-card__arrow" aria-hidden="true">
+                    →
+                  </span>
+                </Link>
+              </div>
+            </article>
           ))}
         </div>
-
       </section>
-
 
       {/* =====================================================
-          CTA
+          CTA FINAL
       ====================================================== */}
-
-      <section className="services-cta">
-
-        <div className="services-cta-background">
-          <div className="cta-image-placeholder">
-            <span>
-              <img src={ServiceContact} alt="" />
-            </span>
-          </div>
+      <section className="services-cta" aria-labelledby="services-cta-title">
+        <div className="services-cta__background">
+          <span>
+            <img src={ServiceSeccion3} alt="" width={1850} height={300}/>
+          </span>
         </div>
 
-        <div className="services-cta-overlay"></div>
+        <div className="services-cta__overlay" />
 
-        <div className="services-cta-content">
+        <div className="services-cta__content">
+          <span className="services-cta__line" aria-hidden="true" />
 
-          <div className="section-label">
-            <span className="section-marker"></span>
-            <span>TU EVENTO, EN BUENAS MANOS</span>
-          </div>
-
-          <h2>
-            ¿LISTO PARA
+          <h2 id="services-cta-title">
+            SOLUCIONES QUE
             <br />
-            CREAR ALGO{' '}
-            <span>INCREÍBLE?</span>
+            SE ADAPTAN A TU EVENTO.
           </h2>
 
-          <p>
-            Hablemos de tu próximo evento y llevémoslo
-            <br className="desktop-break" />
-            al siguiente nivel.
-          </p>
+          <Link to="/contacto" className="services-cta__button">
+            <span>HABLEMOS DE TU PROYECTO</span>
 
-          <Link
-            to="/contacto"
-            className="cta-button"
-          >
-            <span>CONTÁCTANOS</span>
-            <span aria-hidden="true">→</span>
+            <span className="services-cta__button-arrow" aria-hidden="true">
+              →
+            </span>
           </Link>
-
         </div>
 
-        <div className="cta-decoration">
-          <span></span>
-          <span></span>
+        <div className="services-cta__side-text">
+          <span>MÁS</span>
+          <span>ENERGÍA</span>
+          <span>MÁS IDEAS</span>
+          <span>MÁS EXPERIENCIAS</span>
         </div>
-
       </section>
-
     </main>
   );
 }
