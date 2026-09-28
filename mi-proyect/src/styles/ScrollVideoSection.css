@@ -5,19 +5,13 @@ body {
 
 
 /* =========================================================
-   FASE 1 — TEXTO (scroll bloqueado por JS)
-   =========================================================
-   Ya NO es un wrapper alto con `sticky`: es una sección
-   normal de 100vh. El "congelamiento" lo produce
-   directamente el JS (previniendo el scroll nativo con
-   preventDefault) mientras `progress` va de 0 a 1.
+   SECCIÓN ÚNICA — TEXTO + VIDEO (candado de scroll por JS)
    ========================================================= */
 
 .scroll-reveal-section {
   position: relative;
 
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 
@@ -25,28 +19,21 @@ body {
   height: 100vh;
 
   box-sizing: border-box;
-  padding: 80px 24px;
-
   overflow: hidden;
 
   background: #0d0d0d;
   color: #ffffff;
 
-  /*
-   * Evita el "rubber-band"/rebote del navegador en los
-   * bordes mientras el scroll está interceptado.
-   */
   overscroll-behavior: contain;
+}
+
+.scroll-reveal-section.is-locked {
+  cursor: ns-resize;
 }
 
 
 /* =========================================================
    BARRA DE PROGRESO
-   =========================================================
-   Al estar "congelada" la sección durante el bloqueo,
-   basta con position: absolute (no hace falta fixed/sticky):
-   la sección ocupa exactamente el viewport mientras dura
-   la animación.
    ========================================================= */
 
 .scroll-progress-track {
@@ -54,7 +41,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 5;
+  z-index: 6;
 
   height: 3px;
 
@@ -76,6 +63,9 @@ body {
 
 /* =========================================================
    TEXTO
+   =========================================================
+   Se "aleja" (achica, desenfoca, se apaga) cuando el video
+   empieza a apilarse encima, dando sensación de profundidad.
    ========================================================= */
 
 .scroll-text-content {
@@ -85,7 +75,12 @@ body {
   width: 100%;
   max-width: 1000px;
 
+  padding: 80px 24px;
+  box-sizing: border-box;
+
   text-align: center;
+
+  will-change: transform, filter, opacity;
 }
 
 .scroll-eyebrow {
@@ -118,45 +113,36 @@ body {
 .scroll-reveal-text .word {
   display: inline;
 
-  /* El valor real lo escribe JS directamente en el DOM */
   opacity: 0.14;
 
   will-change: opacity;
 }
 
 
-/* Cursor "candado" — pequeña pista visual de que el scroll
-   está intencionalmente interceptado (opcional, sutil). */
-.scroll-reveal-section.is-locked {
-  cursor: ns-resize;
-}
-
-
 /* =========================================================
-   FASE 2 — VIDEO (sección normal, sin bloqueo)
+   VIDEO — "card" apilada, tipo ScrollStack
+   =========================================================
+   Arranca abajo del viewport, achicada y desenfocada; sube,
+   crece y se enfoca hasta cubrir la escena. Todo controlado
+   por JS vía transform/filter/opacity inline — el estado
+   inicial de acá abajo es solo el punto de partida visual.
    ========================================================= */
 
-.scroll-video-section {
-  position: relative;
-
-  width: 100%;
-  height: 100vh;
+.scroll-video-card {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
 
   overflow: hidden;
-
-  background: #000;
+  border-radius: 0;
 
   opacity: 0;
-  transform: scale(0.97);
+  transform: translateY(55%) scale(0.86);
+  filter: blur(12px);
 
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
-}
+  pointer-events: none;
 
-.scroll-video-section.is-visible {
-  opacity: 1;
-  transform: scale(1);
+  will-change: transform, filter, opacity;
 }
 
 .scroll-video {
@@ -186,7 +172,7 @@ body {
   position: absolute;
   left: 24px;
   bottom: 28px;
-  z-index: 4;
+  z-index: 2;
 
   color: #ffffff;
 
@@ -201,7 +187,7 @@ body {
   position: absolute;
   right: 24px;
   bottom: 26px;
-  z-index: 4;
+  z-index: 2;
 
   padding: 10px 18px;
 
@@ -243,7 +229,7 @@ body {
 
 @media (max-width: 768px) {
 
-  .scroll-reveal-section {
+  .scroll-text-content {
     padding: 60px 20px;
   }
 
@@ -278,12 +264,12 @@ body {
 
 
 /* =========================================================
-   REDUCED MOTION — WCAG 2.3.3 (accesibilidad)
+   REDUCED MOTION — WCAG 2.3.3
    =========================================================
-   Con reduced-motion, el componente NO intercepta el scroll
-   (ver el JS: si reducedMotion es true, nunca se agregan
-   los listeners de wheel/touch/keydown). Aquí solo forzamos
-   que el texto se vea completo desde el primer momento.
+   Con reduced-motion, el JS nunca agrega los listeners de
+   wheel/touch/keydown (ver applyProgress(MAX_PROGRESS) en
+   el componente), así que aquí solo forzamos el estado
+   final visible desde el primer render.
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -292,9 +278,16 @@ body {
     opacity: 1 !important;
   }
 
-  .scroll-video-section {
+  .scroll-text-content {
+    transform: none !important;
+    filter: none !important;
+    opacity: 0.25 !important;
+  }
+
+  .scroll-video-card {
     opacity: 1 !important;
     transform: none !important;
-    transition: none !important;
+    filter: none !important;
+    pointer-events: auto !important;
   }
 }

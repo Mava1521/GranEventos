@@ -44,7 +44,7 @@
 .navbar-contact,
 .navbar-projects {
   position: relative;
-  background-color: #0b0b0b;
+ /* background-color: #0b0b0b;*/
 }
 
 .navbar-inner .nav-item,

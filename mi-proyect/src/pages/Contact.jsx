@@ -8,7 +8,14 @@ import location from '../assets/location.png';
 import youtube from '../assets/youtube.png';
 import clock from '../assets/clock.png';
 import FooterProyect from '../assets/FooterProyect.jpg';
-import Foto4 from '../assets/FOTO3.jpg'
+import Foto4 from '../assets/FOTO3.jpg';
+import ColombiaContact from '../assets/ColombiaContact.png';
+import MundialMap from '../assets/MundialMap2.png';
+import mapa from '../assets/mapa.png';
+import mundo from '../assets/mundo.png';
+import soluciones from '../assets/soluciones.png';
+import hoja from '../assets/hoja.png';
+import global from '../assets/global.png';
 
 const initialForm = {
   name: '',
@@ -110,10 +117,13 @@ function Contact() {
       </section>
 
       {/* =========================================
-          CONTACT FORM
-      ========================================== */}
+          CONTACT MAIN
+      ========================================= */}
       <section className="contact-main">
 
+        {/* =====================================
+            CONTACT FORM
+        ====================================== */}
         <div className="contact-form-column">
 
           <div className="contact-kicker dark">
@@ -250,6 +260,7 @@ function Contact() {
 
         </div>
 
+
         {/* =====================================
             OTHER CHANNELS
         ====================================== */}
@@ -263,7 +274,12 @@ function Contact() {
           <div className="contact-channel whatsapp">
 
             <div className="channel-icon">
-              <img src={IconWhatsApp} alt="" width={66} height={66}/>
+              <img
+                src={IconWhatsApp}
+                alt=""
+                width={66}
+                height={66}
+              />
             </div>
 
             <div>
@@ -276,14 +292,21 @@ function Contact() {
           <div className="contact-channel">
 
             <div className="channel-icon">
-              <svg viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="14" rx="1" />
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect
+                  x="3"
+                  y="5"
+                  width="18"
+                  height="14"
+                  rx="1"
+                />
                 <path d="m3 7 9 6 9-6" />
               </svg>
             </div>
 
             <div>
               <h3>Envíanos un correo</h3>
+
               <p>
                 info@graneventos.com
                 <br />
@@ -296,13 +319,14 @@ function Contact() {
           <div className="contact-channel">
 
             <div className="channel-icon">
-              <svg viewBox="0 0 24 24">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6 3h4l2 5-3 2a14 14 0 0 0 5 5l2-3 5 2v4c0 1-1 2-2 2C11 20 4 13 4 5c0-1 1-2 2-2Z" />
               </svg>
             </div>
 
             <div>
               <h3>Llámanos</h3>
+
               <p>
                 +57 350 500 3388
               </p>
@@ -310,43 +334,242 @@ function Contact() {
 
           </div>
 
-          <div className="contact-location">
+        </aside>
 
-            <div>
-              <strong>
-                <img src={location} alt="" width={25} height={22}/>
-              </strong>
+      </section>
 
-              <h4>Nuestra ubicación</h4>
 
-              <p>
-                Autopista Medellin Km 2.5 Via Parcelas Ciem oiks occidente 
-                <br />
-                bodega 169-170, Cota, Cundinamarca
-                <br />
-                (Operamos en todo el país)
-              </p>
+      {/* =========================================
+          LOCATION
+      ========================================= */}
+      <section className="contact-location-section">
+
+        {/* =====================================
+            LOCATION INTRO
+        ====================================== */}
+        <div className="location-main">
+
+          <div className="location-copy">
+
+            <div className="contact-kicker dark">
+              NUESTRA UBICACIÓN
             </div>
 
-            <div>
-              <strong>
-                <img src={clock} alt="" width={20} height={20}/>
-              </strong>
+            <div className="location-yellow-line" />
 
-              <h4>Horario de atención</h4>
+            <h2>
+              BASE EN COLOMBIA,
+              <br />
+              EXPERIENCIAS
+              <strong>SIN FRONTERAS.</strong>
+            </h2>
 
-              <p>
-                Lunes a viernes
-                <br />
-                8:00 a.m. - 6:00 p.m.
-                <br />
-                Sábados 8:00 a.m. - 12:00 m.
-              </p>
+            <p className="location-description">
+              Desde nuestra sede en Cota, operamos en todo el país
+              y llevamos la experiencia de Gran Eventos más allá
+              de las fronteras, con soluciones energéticas de SETIE
+              para eventos en la región.
+            </p>
+
+            <div className="location-headquarters">
+
+              <div className="location-pin">
+                <img
+                  src={location}
+                  alt=""
+                  width="30"
+                  height="30"
+                />
+              </div>
+
+              <div>
+                <h3>SEDE PRINCIPAL</h3>
+
+                <p>
+                  Autopista Medellín Km 2.5 Vía Parcelas
+                  <br />
+                  Ciem oiks occidente bodega 169-170,
+                  <br />
+                  Cota, Cundinamarca
+                  <br />
+                  <span>(Operamos en todo el país)</span>
+                </p>
+              </div>
+
+              <article className="location-data-card">
+
+                <div className="location-data-icon">
+                  <img
+                    src={clock}
+                    alt=""
+                    width="24"
+                    height="24"
+                  />
+                </div>
+
+                <div>
+
+                  <h3>ESTAMOS PARA TI</h3>
+
+                  <p>
+                    Lunes a viernes
+                    <br />
+                    8:00 a.m. - 6:00 p.m.
+                    <br />
+                    Sábados 8:00 a.m. - 12:00 m.
+                  </p>
+
+                </div>
+
+              </article>
+
+            </div>
+
+            
+
+          </div>
+
+
+          {/* MAP */}
+          <div className="location-map">
+
+            <div className="map-title">
+              <span>COLOMBIA</span>
+              <strong>COBERTURA NACIONAL</strong>
+            </div>
+
+            <div className="map-graphic">
+              <img src={ColombiaContact} alt="" />
+
             </div>
 
           </div>
 
-        </aside>
+        </div>
+
+
+        {/* =====================================
+            COVERAGE FEATURES
+        ====================================== */}
+        <div className="location-features">
+
+          <div className="location-feature">
+            <div className="feature-symbol">
+              <img src={mapa} alt="" />
+            </div>
+
+            <div>
+              <strong>COBERTURA</strong>
+              <span>NACIONAL</span>
+              <small>EN TODAS<br />LAS REGIONES</small>
+            </div>
+          </div>
+
+          <div className="location-feature">
+            <div className="feature-symbol">
+              <img src={mundo} alt="" width={60} height={60} />
+            </div>
+
+            <div>
+              <strong>PRESENCIA</strong>
+              <span>INTERNACIONAL</span>
+              <small>LATAM Y<br />OTROS PAÍSES</small>
+            </div>
+          </div>
+
+          <div className="location-feature">
+            <div className="feature-symbol">
+              <img src={soluciones} alt="" width={70} height={70}/>
+            </div>
+
+            <div>
+              <strong>SOLUCIONES</strong>
+              <span>MÓVILES</span>
+              <small>NOS ADAPTAMOS<br />A CUALQUIER LUGAR</small>
+            </div>
+          </div>
+
+          <div className="location-feature">
+            <div className="feature-symbol">
+              <img src={hoja} alt="" width={50} height={50}/>
+            </div>
+
+            <div>
+              <strong>EVENTOS</strong>
+              <span>MÁS SOSTENIBLES</span>
+              <small>EN CUALQUIER<br />DESTINO</small>
+            </div>
+          </div>
+
+        </div>
+
+
+        {/* =====================================
+            INTERNATIONAL REACH
+        ====================================== */}
+        <div className="location-international">
+
+          <div className="international-copy">
+
+            <div className="contact-kicker dark">
+              <span />
+              ALCANCE INTERNACIONAL
+            </div>
+
+            <h2>
+              LLEVAMOS
+              <br />
+              NUESTRA ENERGÍA
+              <br />
+              MÁS LEJOS.
+            </h2>
+
+            <div className="location-yellow-line" />
+
+            <p>
+              Hoy operamos en toda Colombia y contamos con
+              capacidad para desarrollar proyectos en
+              Latinoamérica y otros países, acompañando
+              eventos que conectan personas en todo el mundo.
+            </p>
+
+          </div>
+
+          <div className="world-map">
+            <img src={MundialMap} alt="" width={1100} height={650}/>
+
+          </div>
+
+        </div>
+
+
+        {/* =====================================
+            LOCATION CTA
+        ====================================== */}
+        <div className="location-cta">
+
+          <div className="location-cta-icon">
+            <img src={global} alt="" />
+          </div>
+
+          <div>
+            <span>UN MUNDO DE POSIBILIDADES</span>
+
+            <strong>
+              TU EVENTO,
+              <em> EN CUALQUIER LUGAR.</em>
+            </strong>
+          </div>
+
+          <svg
+            viewBox="0 0 40 20"
+            aria-hidden="true"
+          >
+            <path d="M1 10h34" />
+            <path d="M28 3l7 7-7 7" />
+          </svg>
+
+        </div>
 
       </section>
 

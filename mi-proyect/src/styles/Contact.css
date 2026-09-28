@@ -4,7 +4,7 @@
 
 .contact-page {
   --contact-yellow: #f5c400;
-  --contact-green: #8bc53f;
+  --contact-green: #9dc425;
   --contact-black: #111111;
   --contact-dark: #080808;
   --contact-gray: #666666;
@@ -48,7 +48,7 @@
 
   margin-bottom: 22px;
 
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 1.4px;
   color: #ffffff;
@@ -435,43 +435,7 @@
 }
 
 
-/* Location */
 
-.contact-location {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 30px;
-  padding-top: 25px;
-  border-top: 1px solid #d5d5d5;
-}
-
-.contact-location > div {
-  padding-left: 30px;
-}
-
-.contact-location > div + div {
-  border-left: 1px solid #d5d5d5;
-}
-
-.contact-location strong {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 22px;
-  font-weight: 300;
-}
-
-.contact-location h4 {
-  margin: 0 0 4px;
-  font-family: 'Oswald', Impact, sans-serif;
-  font-size: 13px;
-}
-
-.contact-location p {
-  margin: 0;
-  font-size: 10px;
-  line-height: 1.45;
-  color: #666;
-}
 
 
 /* =========================================================
@@ -764,6 +728,690 @@
     flex-direction: column;
     gap: 10px;
   }
+
+    /* =========================================
+     LOCATION - TABLET
+  ========================================== */
+
+  .location-main {
+    grid-template-columns: 1fr;
+    padding: 60px var(--page-gutter) 35px;
+  }
+
+  .location-copy {
+    padding-right: 0;
+  }
+
+  .location-description {
+    max-width: 650px;
+  }
+
+  .location-map {
+    min-height: 500px;
+    margin-top: 30px;
+  }
+
+  .location-features {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .location-feature {
+    min-height: 110px;
+  }
+
+  .location-feature:nth-child(3) {
+    border-left: none;
+    border-top: 1px solid #d2d2d2;
+  }
+
+  .location-feature:nth-child(4) {
+    border-top: 1px solid #d2d2d2;
+  }
+
+  .location-contact-data {
+    padding: 45px var(--page-gutter);
+  }
+
+  .location-data-card {
+    padding: 15px 25px;
+  }
+
+  .location-international {
+    grid-template-columns: 1fr;
+    padding: 60px var(--page-gutter);
+  }
+
+  .international-copy {
+    padding-right: 0;
+  }
+
+  .international-copy p {
+    max-width: 600px;
+  }
+
+  .world-map {
+    margin-top: 30px;
+  }
+}
+
+/* =========================================================
+   LOCATION SECTION
+   ========================================================= */
+
+.contact-location-section {
+  width: 100%;
+  background: #f1f2f3;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   LOCATION MAIN
+   ========================================================= */
+
+.location-main {
+  min-height: 650px;
+  display: grid;
+  grid-template-columns: 43% 57%;
+  align-items: stretch;
+  padding: 70px var(--page-gutter) 45px;
+  box-sizing: border-box;
+}
+
+.location-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 45px;
+}
+
+.location-yellow-line {
+  width: 48px;
+  height: 3px;
+  margin: 0 0 28px;
+  background: var(--contact-yellow);
+}
+
+.location-copy h2 {
+  margin: 0;
+  font-family: 'Oswald', Impact, sans-serif;
+  font-size: clamp(42px, 4vw, 66px);
+  line-height: 0.94;
+  letter-spacing: -1px;
+  font-weight: 700;
+  color: #151515;
+}
+
+.location-copy h2 strong {
+  display: block;
+  color: var(--contact-green);
+  font-weight: 700;
+}
+
+.location-description {
+  max-width: 470px;
+  margin: 28px 0 35px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #4e4e4e;
+}
+
+.location-headquarters {
+  display: -webkit-box;
+  align-items: flex-start;
+  gap: 18px;
+  max-width: 460px;
+}
+
+.location-pin {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+}
+
+.location-pin img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.location-headquarters h3 {
+  margin: 0 0 8px;
+  font-family: 'Oswald', Impact, sans-serif;
+  font-size: 17px;
+  letter-spacing: 1.5px;
+}
+
+.location-headquarters p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5b5b5b;
+}
+
+.location-headquarters p span {
+  color: #222;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   COLOMBIA MAP
+   ========================================================= */
+
+.location-map {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-title {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: right;
+  letter-spacing: 2px;
+}
+
+.map-title span {
+  font-size: 10px;
+  color: #666;
+}
+
+.map-title strong {
+  font-family: 'Oswald', Impact, sans-serif;
+  font-size: 15px;
+  color: #181818;
+}
+
+.map-graphic {
+  position: relative;
+  width: min(100%, 590px);
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/*
+ * Representación visual provisional del mapa.
+ * Cuando tengas el mapa real de Colombia,
+ * solamente reemplazamos este elemento.
+ */
+
+.map-shape {
+  position: relative;
+  width: 330px;
+  height: 450px;
+  background:
+    linear-gradient(
+      145deg,
+      #202020 0%,
+      #0b0b0b 65%,
+      #292929 100%
+    );
+  clip-path: polygon(
+    38% 0%,
+    54% 4%,
+    61% 14%,
+    76% 20%,
+    69% 31%,
+    82% 39%,
+    72% 49%,
+    77% 61%,
+    66% 69%,
+    72% 82%,
+    61% 100%,
+    48% 91%,
+    38% 84%,
+    28% 77%,
+    24% 65%,
+    14% 57%,
+    21% 46%,
+    10% 36%,
+    22% 28%,
+    18% 18%,
+    29% 12%
+  );
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Connecting lines */
+
+.map-shape::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(245, 196, 0, 0.75);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.map-shape::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 145px;
+  height: 145px;
+  border: 1px dashed rgba(245, 196, 0, 0.65);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* Cities */
+
+.map-city {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.map-city::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--contact-yellow);
+  box-shadow: 0 0 12px rgba(245, 196, 0, 0.9);
+}
+
+.map-city.cota {
+  left: 48%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Oswald', Impact, sans-serif;
+  font-size: 14px;
+}
+
+.map-city.cota::before {
+  width: 15px;
+  height: 15px;
+  border: 3px solid #ffffff;
+}
+
+.map-city.barranquilla {
+  left: 28%;
+  top: 14%;
+}
+
+.map-city.cartagena {
+  left: 57%;
+  top: 18%;
+}
+
+.map-city.bucaramanga {
+  right: 3%;
+  top: 35%;
+}
+
+.map-city.medellin {
+  left: 14%;
+  top: 39%;
+}
+
+.map-city.bogota {
+  left: 45%;
+  top: 56%;
+}
+
+.map-city.villavicencio {
+  right: -4%;
+  top: 59%;
+}
+
+.map-city.cali {
+  left: 12%;
+  top: 69%;
+}
+
+.map-city.pereira {
+  left: 25%;
+  top: 62%;
+}
+
+.map-city.neiva {
+  left: 45%;
+  bottom: 11%;
+}
+
+
+/* =========================================================
+   LOCATION FEATURES
+   ========================================================= */
+
+.location-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #d2d2d2;
+  border-bottom: 1px solid #d2d2d2;
+  margin: 0 var(--page-gutter);
+}
+
+.location-feature {
+  min-height: 105px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 28px;
+  box-sizing: border-box;
+}
+
+.location-feature + .location-feature {
+  border-left: 1px solid #d2d2d2;
+}
+
+.feature-symbol {
+  flex: 0 0 45px;
+  font-size: 38px;
+  line-height: 1;
+  color: var(--contact-green);
+  text-align: center;
+}
+
+.location-feature strong,
+.location-feature span {
+  display: block;
+  font-family: 'Oswald', Impact, sans-serif;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+}
+
+.location-feature strong {
+  color: #151515;
+}
+
+.location-feature span {
+  color: #151515;
+}
+
+.location-feature small {
+  display: block;
+  margin-top: 6px;
+  color: #777;
+  font-size: 9px;
+  line-height: 1.35;
+  letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   LOCATION / SCHEDULE DATA
+   ========================================================= */
+
+.location-contact-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 55px var(--page-gutter);
+  box-sizing: border-box;
+}
+
+.location-data-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 15px 45px;
+}
+
+.location-headquarters + .location-data-card {
+  border-left: 1px solid #d0d0d0;
+}
+
+.location-data-icon {
+  flex: 0 0 45px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location-data-icon img {
+  object-fit: contain;
+}
+
+.location-data-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #777;
+}
+
+.location-data-card h3 {
+  margin: 0 0 8px;
+  font-family: 'Oswald', Impact, sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.location-data-card p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #555;
+}
+
+.location-data-card small {
+  display: block;
+  margin-top: 7px;
+  font-size: 10px;
+  color: #777;
+}
+
+
+/* =========================================================
+   INTERNATIONAL
+   ========================================================= */
+
+.location-international {
+  display: grid;
+  grid-template-columns: 32% 68%;
+  min-height: 470px;
+  padding: 75px var(--page-gutter);
+  box-sizing: border-box;
+  background: #e9eaeb;
+}
+
+.international-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 40px;
+}
+
+.international-copy h2 {
+  margin: 0 0 25px;
+  font-family: 'Oswald', Impact, sans-serif;
+  font-size: clamp(38px, 3.6vw, 58px);
+  line-height: 0.95;
+  letter-spacing: 1px;
+}
+
+.international-copy p {
+  max-width: 330px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #555;
+}
+
+
+/* World map visual */
+
+.world-map {
+  position: relative;
+  min-height: 360px;
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(139, 197, 63, 0.25),
+      transparent 55%
+    );
+  opacity: 0.95;
+  display: flex;
+  justify-content: center;
+}
+
+.world-map::before {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Oswald', Impact, sans-serif;
+  font-size: clamp(90px, 12vw, 180px);
+  font-weight: 700;
+  letter-spacing: 10px;
+  color: rgba(180, 180, 180, 0.22);
+}
+
+.world-map-label {
+  position: absolute;
+  z-index: 2;
+  padding-left: 12px;
+  font-size: 11px;
+  color: #222;
+  font-weight: 600;
+}
+
+.world-map-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--contact-green);
+  transform: translateY(-50%);
+}
+
+.world-map-label.colombia {
+  left: 42%;
+  top: 48%;
+}
+
+.world-map-label.mexico {
+  left: 27%;
+  top: 35%;
+}
+
+.world-map-label.usa {
+  left: 30%;
+  top: 22%;
+}
+
+.world-map-label.peru {
+  left: 37%;
+  top: 60%;
+}
+
+.world-map-label.chile {
+  left: 36%;
+  top: 76%;
+}
+
+.world-map-label.brazil {
+  left: 50%;
+  top: 60%;
+}
+
+.world-map-label.argentina {
+  left: 46%;
+  top: 79%;
+}
+
+.world-map-label.europe {
+  left: 67%;
+  top: 25%;
+}
+
+.world-map-label.others {
+  right: 5%;
+  top: 43%;
+}
+
+
+/* =========================================================
+   LOCATION CTA
+   ========================================================= */
+
+.location-cta {
+  min-height: 125px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  margin: 0 var(--page-gutter) 65px;
+  padding: 25px 45px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background: #151515;
+  color: #ffffff;
+}
+
+.location-cta-icon {
+  flex: 0 0 65px;
+  font-size: 58px;
+  line-height: 1;
+  text-align: center;
+}
+
+.location-cta > div:nth-child(2) {
+  flex: 1;
+}
+
+.location-cta span {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #ffffff;
+}
+
+.location-cta strong {
+  display: block;
+  font-family: 'Oswald', Impact, sans-serif;
+  font-size: clamp(23px, 2.4vw, 34px);
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.location-cta em {
+  color: var(--contact-yellow);
+  font-style: normal;
+}
+
+.location-cta svg {
+  width: 38px;
+  height: 20px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.5;
 }
 
 
@@ -828,7 +1476,134 @@
 
   .footer-navigation {
     gap: 7px;
-
     font-size: 8px;
   }
+
+    /* =========================================
+     LOCATION - MOBILE
+  ========================================== */
+
+  .location-main {
+    padding: 50px 7% 30px;
+  }
+
+  .location-copy h2 {
+    font-size: 42px;
+  }
+
+  .location-description {
+    font-size: 13px;
+  }
+
+  .location-headquarters {
+    gap: 10px;
+  }
+
+  .location-headquarters p {
+    font-size: 11px;
+  }
+
+  .location-map {
+    min-height: 390px;
+    margin-top: 15px;
+  }
+
+  .map-graphic {
+    height: 370px;
+  }
+
+  .map-shape {
+    width: 245px;
+    height: 340px;
+  }
+
+  .map-title {
+    top: 5px;
+    right: 0;
+  }
+
+  .map-city {
+    font-size: 8px;
+  }
+
+  .map-city.cota {
+    font-size: 11px;
+  }
+
+  .location-features {
+    grid-template-columns: 1fr;
+    margin: 0 7%;
+  }
+
+  .location-feature {
+    min-height: 95px;
+    padding: 18px 10px;
+  }
+
+  .location-feature + .location-feature {
+    border-left: none;
+    border-top: 1px solid #d2d2d2;
+  }
+
+  .location-contact-data {
+    grid-template-columns: 1fr;
+    padding: 35px 7%;
+  }
+
+  .location-data-card {
+    padding: 20px 0;
+  }
+
+  .location-data-card + .location-data-card {
+    border-left: none;
+    border-top: 1px solid #d0d0d0;
+  }
+
+  .location-international {
+    padding: 50px 7%;
+  }
+
+  .international-copy h2 {
+    font-size: 42px;
+  }
+
+  .world-map {
+    min-height: 300px;
+  }
+
+  .world-map::before {
+    font-size: 75px;
+  }
+
+  .world-map-label {
+    font-size: 8px;
+  }
+
+  .location-cta {
+    min-height: 100px;
+    margin: 0 7% 45px;
+    padding: 22px;
+    gap: 15px;
+    border-radius: 14px;
+  }
+
+  .location-cta-icon {
+    flex: 0 0 40px;
+    font-size: 38px;
+  }
+
+  .location-cta span {
+    font-size: 7px;
+    letter-spacing: 1.5px;
+  }
+
+  .location-cta strong {
+    font-size: 21px;
+  }
+
+  .location-cta svg {
+    width: 25px;
+  }
+
+
 }
