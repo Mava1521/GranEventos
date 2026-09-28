@@ -240,6 +240,10 @@
    TÍTULO DESKTOP
    ---------------------------------------------------------- */
 
+.history-timeline-title-desktop {
+  display: block;
+  margin-bottom: 10px;
+}
 
 .history-timeline-title-desktop .timeline-eyebrow {
   margin: 0 0 8px;
@@ -261,15 +265,17 @@
   color: #111;
 }
 
+.timeline-heading{
+  display: none;
+}
 
 /* ----------------------------------------------------------
-   TÍTULO MOBILE
+   TÍTULO MOBILE (Oculto en Escritorio)
    ---------------------------------------------------------- */
 
-/*
- * En escritorio permanece oculto.
- * Se activa dentro del media query móvil.
- */
+.history-timeline-title-mobile {
+  display: none; /* Oculta el título duplicado inferior en pantallas grandes */
+}
 
 
 
@@ -1866,19 +1872,13 @@
   }
 }
 
-/* =========================================================
-   TÍTULO — LÍNEA DE TIEMPO
-   ========================================================= */
-
 /* ---------------------------------------------------------
-   ESTILO COMPARTIDO
-   Ambos títulos utilizan exactamente el mismo diseño
+   ESTILO BASE / COMPARTIDO
    --------------------------------------------------------- */
 
 .history-timeline-title-desktop,
 .history-timeline-title-mobile {
   width: 100%;
-  background: #f5f2e9;
   text-align: left;
 }
 
@@ -1898,56 +1898,62 @@
 .history-timeline-title-mobile h2 {
   margin: 0;
   font-family: "Oswald", sans-serif;
-  font-size: clamp(36px, 4vw, 64px);
-  font-weight: 700;
-  line-height: 0.95;
+  font-size: clamp(27px, 8vw, 38px);
+  font-weight: 900;
+  line-height: 1;
   text-transform: uppercase;
   color: #111;
 }
 
 
 /* ---------------------------------------------------------
-   DESKTOP
+   COMPORTAMIENTO ESCRITORIO (Pantallas mayores a 768px)
    --------------------------------------------------------- */
+@media (min-width: 769px) {
+  .history-timeline-title-desktop {
+    display: block;
+    padding: 25px 42px 15px;
+  }
 
-/* Título que está ARRIBA del collage */
-.history-timeline-title-desktop {
-  display: block;
-  padding: 25px 42px 15px;
-}
-
-/* Título que está DEBAJO del collage */
-.history-timeline-title-mobile {
-  display: none;
+  .history-timeline-title-mobile {
+    display: none;
+  }
 }
 
 
 /* ---------------------------------------------------------
-   MOBILE
+   COMPORTAMIENTO MÓVIL (Pantallas hasta 768px)
    --------------------------------------------------------- */
-
 @media (max-width: 768px) {
-
-  /* Ocultar el título de arriba */
   .history-timeline-title-desktop {
+    display: none !important; /* El !important evita cualquier otra sobreescritura */
+  }
+
+  .history-timeline-title-mobile {
+    display: block;
+    margin-bottom: 20px;
     display: none;
   }
 
-  /* Mostrar el título de abajo */
-  .history-timeline-title-mobile {
-    display: block;
-    padding: 25px 20px 15px;
-  }
-
-  /*
-   * Mantenemos EXACTAMENTE el mismo tamaño visual
-   * que el título de escritorio.
-   */
   .history-timeline-title-mobile .timeline-eyebrow {
-    font-size: 14px;
+    display: block;
+    margin-bottom: 6px;
+    font-family: "Oswald", sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #111;
   }
 
   .history-timeline-title-mobile h2 {
-    font-size: clamp(36px, 10vw, 48px);
+    margin: 0;
+    font-family: "Oswald", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #111;
+  }
+
+  .timeline-heading{
+    display: block;
   }
 }
+
