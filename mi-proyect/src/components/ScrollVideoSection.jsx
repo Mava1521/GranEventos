@@ -7,20 +7,26 @@ const TEXT =
 const WORDS = TEXT.split(' ');
 
 /*
- * Cuánta distancia de scroll (en múltiplos de la altura
- * de pantalla) dura la animación del texto.
- * 2.6 = el wrapper mide 260vh, así que el usuario tiene
- * 1.6 pantallas de "scroll congelado" para revelar el texto
- * (260vh de wrapper - 100vh que ya está ocupando el sticky).
+ * Fases del "candado" de scroll.
+ *
+ * ABOVE   → el usuario está antes de la sección, scroll libre.
+ * LOCKED  → el usuario está DENTRO de la sección, scroll nativo
+ *           bloqueado; el wheel/touch/teclado controla `progress`.
+ * BELOW   → el usuario ya pasó la sección (texto 100% blanco),
+ *           scroll libre hacia el video y más abajo.
  */
-const WRAPPER_HEIGHT_VH = 260;
+const PHASE = {
+  ABOVE: 'above',
+  LOCKED: 'locked',
+  BELOW: 'below',
+};
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
 
 export default function ScrollVideoSection({ videoSrc }) {
-  const wrapperRef = useRef(null);
+  const sectionRef = useRef(null);
   const progressFillRef = useRef(null);
   const wordRefs = useRef([]);
 
@@ -28,18 +34,24 @@ export default function ScrollVideoSection({ videoSrc }) {
   const videoRef = useRef(null);
 
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [isLocked, setIsLocked] = useState(false);
   const [videoInView, setVideoInView] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
 
-  const rafRef = useRef(null);
+  /*
+   * Usamos refs (no state) para la fase y el progreso porque
+   * se leen/escriben en cada evento de wheel/touch — si
+   * dependiéramos de state aquí, cada tick forzaría un
+   * re-render de React innecesario (y closures obsoletas).
+   */
+  const phaseRef = useRef(PHASE.ABOVE);
+  const progressRef = useRef(0);
+  const touchStartYRef = useRef(null);
 
   /*
    * =====================================================
    * ACCESIBILIDAD: prefers-reduced-motion
    * =====================================================
-   * Si el usuario pidió menos movimiento, no forzamos
-   * ningún scroll-jacking ni animación: todo se muestra
-   * directamente.
    */
   useEffect(() => {
     const mediaQuery = window.matchMedia(
@@ -61,9 +73,8 @@ export default function ScrollVideoSection({ videoSrc }) {
    * =====================================================
    * APLICAR PROGRESO AL DOM
    * =====================================================
-   * Escribimos directamente en el DOM (sin setState) para
-   * que la animación corra a 60fps sin re-renderizar React
-   * en cada pixel de scroll.
+   * Sin setState por cada tick: escribimos directo en el
+   * DOM para que sea instantáneo y fluido.
    */
   const applyProgress = useCallback((progress) => {
     if (progressFillRef.current) {
@@ -89,92 +100,267 @@ export default function ScrollVideoSection({ videoSrc }) {
     });
   }, []);
 
+  const step = useCallback(
+    (delta) => {
+      const next = clamp(progressRef.current + delta, 0, 1);
+      progressRef.current = next;
+      applyProgress(next);
+    },
+    [applyProgress]
+  );
+
   /*
    * =====================================================
-   * CALCULAR PROGRESO A PARTIR DEL SCROLL REAL
+   * ENGANCHAR / DESENGANCHAR EL CANDADO
    * =====================================================
-   * Nada de wheel/touch/keydown interceptados: solo leemos
-   * dónde está el wrapper respecto al viewport. Como el
-   * wrapper mide más que 100vh y su contenido es `sticky`,
-   * el navegador "congela" visualmente la escena mientras
-   * el usuario recorre esa distancia extra — ida y vuelta,
-   * de forma completamente nativa.
+   * Al enganchar, alineamos el borde correspondiente de la
+   * sección exactamente con el borde del viewport — así no
+   * importa si el wheel/touch que disparó el enganche traía
+   * más "impulso" del necesario, la sección siempre arranca
+   * perfectamente encuadrada.
    */
-  const updateFromScroll = useCallback(() => {
-    rafRef.current = null;
+  const engageFromAbove = useCallback(() => {
+    const section = sectionRef.current;
+    if (!section) return;
 
-    if (!wrapperRef.current) return;
+    const rect = section.getBoundingClientRect();
+    const targetY = window.scrollY + rect.top;
 
-    const rect = wrapperRef.current.getBoundingClientRect();
-    const viewportHeight = window.innerHeight;
-    const scrollableDistance = rect.height - viewportHeight;
+    window.scrollTo({ top: targetY, behavior: 'auto' });
 
-    if (scrollableDistance <= 0) {
-      applyProgress(1);
-      return;
-    }
-
-    const scrolled = clamp(
-      -rect.top,
-      0,
-      scrollableDistance
-    );
-
-    applyProgress(scrolled / scrollableDistance);
+    phaseRef.current = PHASE.LOCKED;
+    progressRef.current = 0;
+    applyProgress(0);
+    setIsLocked(true);
   }, [applyProgress]);
 
-  const requestUpdate = useCallback(() => {
-    if (rafRef.current !== null) return;
-    rafRef.current = requestAnimationFrame(updateFromScroll);
-  }, [updateFromScroll]);
+  const engageFromBelow = useCallback(() => {
+    const section = sectionRef.current;
+    if (!section) return;
 
+    const rect = section.getBoundingClientRect();
+    const targetY =
+      window.scrollY + rect.bottom - window.innerHeight;
+
+    window.scrollTo({ top: targetY, behavior: 'auto' });
+
+    phaseRef.current = PHASE.LOCKED;
+    progressRef.current = 1;
+    applyProgress(1);
+    setIsLocked(true);
+  }, [applyProgress]);
+
+  const releaseUpward = useCallback(() => {
+    phaseRef.current = PHASE.ABOVE;
+    setIsLocked(false);
+  }, []);
+
+  const releaseDownward = useCallback(() => {
+    phaseRef.current = PHASE.BELOW;
+    setIsLocked(false);
+  }, []);
+
+  /*
+   * =====================================================
+   * PROCESAR UNA "INTENCIÓN" DE SCROLL
+   * =====================================================
+   * Punto único compartido por wheel, touch y teclado.
+   * `direction`: 1 = hacia abajo, -1 = hacia arriba.
+   * `magnitude`: qué tan fuerte fue el gesto (para dosificar
+   * la velocidad de la animación).
+   * Devuelve true si el evento debe cancelarse
+   * (preventDefault), false si debe dejarse pasar nativo.
+   */
+  const processIntent = useCallback(
+    (direction, magnitude) => {
+      const section = sectionRef.current;
+      if (!section) return false;
+
+      const phase = phaseRef.current;
+
+      if (phase === PHASE.LOCKED) {
+        if (progressRef.current <= 0 && direction < 0) {
+          releaseUpward();
+          return false; // deja que ESTE evento escape hacia arriba
+        }
+
+        if (progressRef.current >= 1 && direction > 0) {
+          releaseDownward();
+          return false; // deja que ESTE evento escape hacia abajo
+        }
+
+        step(direction * magnitude);
+        return true;
+      }
+
+      if (phase === PHASE.ABOVE) {
+        if (direction < 0) return false;
+
+        const rect = section.getBoundingClientRect();
+        if (rect.top > 1) return false; // aún no llega a la sección
+
+        engageFromAbove();
+        return true;
+      }
+
+      if (phase === PHASE.BELOW) {
+        if (direction > 0) return false;
+
+        const rect = section.getBoundingClientRect();
+        if (rect.bottom < window.innerHeight - 1) return false;
+
+        engageFromBelow();
+        return true;
+      }
+
+      return false;
+    },
+    [step, engageFromAbove, engageFromBelow, releaseUpward, releaseDownward]
+  );
+
+  /*
+   * =====================================================
+   * WHEEL (mouse / trackpad)
+   * =====================================================
+   */
+  const handleWheel = useCallback(
+    (event) => {
+      const direction = event.deltaY > 0 ? 1 : -1;
+      const magnitude =
+        Math.min(Math.abs(event.deltaY), 100) / 600;
+
+      const shouldPreventDefault = processIntent(
+        direction,
+        magnitude
+      );
+
+      if (shouldPreventDefault) {
+        event.preventDefault();
+      }
+    },
+    [processIntent]
+  );
+
+  /*
+   * =====================================================
+   * TOUCH (móvil)
+   * =====================================================
+   */
+  const handleTouchStart = useCallback((event) => {
+    touchStartYRef.current = event.touches[0].clientY;
+  }, []);
+
+  const handleTouchMove = useCallback(
+    (event) => {
+      if (touchStartYRef.current === null) return;
+
+      const currentY = event.touches[0].clientY;
+      const diff = touchStartYRef.current - currentY;
+
+      if (Math.abs(diff) < 4) return;
+
+      const direction = diff > 0 ? 1 : -1;
+      const magnitude = Math.min(Math.abs(diff), 60) / 500;
+
+      const shouldPreventDefault = processIntent(
+        direction,
+        magnitude
+      );
+
+      if (shouldPreventDefault) {
+        event.preventDefault();
+      }
+
+      touchStartYRef.current = currentY;
+    },
+    [processIntent]
+  );
+
+  /*
+   * =====================================================
+   * TECLADO (accesibilidad)
+   * =====================================================
+   * Solo interviene mientras ya está LOCKED, para no romper
+   * la navegación normal por teclado en el resto de la página.
+   */
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (phaseRef.current !== PHASE.LOCKED) return;
+
+      const downKeys = ['ArrowDown', 'PageDown', ' '];
+      const upKeys = ['ArrowUp', 'PageUp'];
+
+      let direction = 0;
+      if (downKeys.includes(event.key)) direction = 1;
+      else if (upKeys.includes(event.key)) direction = -1;
+      else return;
+
+      const shouldPreventDefault = processIntent(
+        direction,
+        0.06
+      );
+
+      if (shouldPreventDefault) {
+        event.preventDefault();
+      }
+    },
+    [processIntent]
+  );
+
+  /*
+   * =====================================================
+   * REGISTRO DE EVENTOS
+   * =====================================================
+   */
   useEffect(() => {
     if (reducedMotion) {
       applyProgress(1);
       return undefined;
     }
 
-    requestUpdate();
-
-    /*
-     * IMPORTANTE: usamos { capture: true } a propósito.
-     *
-     * El evento "scroll" NO hace bubbling, así que si por
-     * alguna regla CSS del proyecto `body` (o cualquier
-     * ancestro) termina siendo el elemento que realmente
-     * scrollea (por tener `overflow: auto/scroll`), un
-     * listener normal en `window` nunca se entera.
-     *
-     * Con `capture: true` el listener se ejecuta en la
-     * fase de captura (de window hacia abajo), así que
-     * detecta el scroll sin importar en qué elemento
-     * del árbol esté ocurriendo realmente.
-     */
-    window.addEventListener('scroll', requestUpdate, {
-      passive: true,
+    window.addEventListener('wheel', handleWheel, {
+      passive: false,
       capture: true,
     });
-    window.addEventListener('resize', requestUpdate);
+    window.addEventListener('keydown', handleKeyDown, {
+      capture: true,
+    });
+    window.addEventListener('touchstart', handleTouchStart, {
+      passive: true,
+    });
+    window.addEventListener('touchmove', handleTouchMove, {
+      passive: false,
+    });
 
     return () => {
-      window.removeEventListener('scroll', requestUpdate, {
+      window.removeEventListener('wheel', handleWheel, {
         capture: true,
       });
-      window.removeEventListener('resize', requestUpdate);
-
-      if (rafRef.current !== null) {
-        cancelAnimationFrame(rafRef.current);
-      }
+      window.removeEventListener('keydown', handleKeyDown, {
+        capture: true,
+      });
+      window.removeEventListener(
+        'touchstart',
+        handleTouchStart
+      );
+      window.removeEventListener(
+        'touchmove',
+        handleTouchMove
+      );
     };
-  }, [reducedMotion, requestUpdate, applyProgress]);
+  }, [
+    reducedMotion,
+    handleWheel,
+    handleKeyDown,
+    handleTouchStart,
+    handleTouchMove,
+    applyProgress,
+  ]);
 
   /*
    * =====================================================
    * VIDEO: aparece con fade al entrar en pantalla
    * =====================================================
-   * Esta sección NO bloquea el scroll, solo reacciona
-   * cuando entra/sale del viewport para reproducir/pausar
-   * y aplicar el fade-in.
    */
   useEffect(() => {
     const node = videoSectionRef.current;
@@ -187,11 +373,7 @@ export default function ScrollVideoSection({ videoSrc }) {
         if (!videoRef.current) return;
 
         if (entry.isIntersecting) {
-          videoRef.current
-            .play()
-            .catch(() => {
-              /* el navegador puede bloquear autoplay; se ignora */
-            });
+          videoRef.current.play().catch(() => {});
         } else {
           videoRef.current.pause();
         }
@@ -204,10 +386,6 @@ export default function ScrollVideoSection({ videoSrc }) {
     return () => observer.disconnect();
   }, []);
 
-  /*
-   * El video empieza muteado (requisito de los navegadores
-   * para autoplay). El usuario decide activar el sonido.
-   */
   const toggleSound = () => {
     if (!videoRef.current) return;
 
@@ -219,55 +397,44 @@ export default function ScrollVideoSection({ videoSrc }) {
   return (
     <>
       {/* =========================================
-          FASE 1 — TEXTO (scroll "congelado")
+          FASE 1 — TEXTO (scroll bloqueado)
       ========================================== */}
 
       <section
-        ref={wrapperRef}
-        className="scroll-reveal-wrapper"
-        style={
-          reducedMotion
-            ? { height: 'auto' }
-            : { height: `${WRAPPER_HEIGHT_VH}vh` }
-        }
+        ref={sectionRef}
+        className={`scroll-reveal-section ${
+          isLocked ? 'is-locked' : ''
+        }`}
       >
-        <div className="scroll-reveal-sticky">
-
+        <div
+          className="scroll-progress-track"
+          role="progressbar"
+          aria-label="Progreso de la animación"
+          aria-valuemin={0}
+          aria-valuemax={100}
+        >
           <div
-            className="scroll-progress-track"
-            role="progressbar"
-            aria-label="Progreso de la animación"
-            aria-valuemin={0}
-            aria-valuemax={100}
-          >
-            <div
-              ref={progressFillRef}
-              className="scroll-progress-fill"
-            />
-          </div>
+            ref={progressFillRef}
+            className="scroll-progress-fill"
+          />
+        </div>
 
-          <div className="scroll-text-content">
+        <div className="scroll-text-content">
+          <span className="scroll-eyebrow">EL IMPACTO</span>
 
-            <span className="scroll-eyebrow">
-              EL IMPACTO
-            </span>
-
-            <h2 className="scroll-reveal-text">
-              {WORDS.map((word, index) => (
-                <span
-                  key={`${word}-${index}`}
-                  ref={(el) => {
-                    wordRefs.current[index] = el;
-                  }}
-                  className="word"
-                >
-                  {word}{' '}
-                </span>
-              ))}
-            </h2>
-
-          </div>
-
+          <h2 className="scroll-reveal-text">
+            {WORDS.map((word, index) => (
+              <span
+                key={`${word}-${index}`}
+                ref={(el) => {
+                  wordRefs.current[index] = el;
+                }}
+                className="word"
+              >
+                {word}{' '}
+              </span>
+            ))}
+          </h2>
         </div>
       </section>
 
@@ -303,9 +470,7 @@ export default function ScrollVideoSection({ videoSrc }) {
           {isMuted ? '🔇 Activar sonido' : '🔊 Silenciar'}
         </button>
 
-        <span className="scroll-video-label">
-          GRAN EVENTOS
-        </span>
+        <span className="scroll-video-label">GRAN EVENTOS</span>
       </section>
     </>
   );

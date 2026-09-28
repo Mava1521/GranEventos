@@ -5,27 +5,16 @@ body {
 
 
 /* =========================================================
-   FASE 1 — WRAPPER DEL TEXTO
+   FASE 1 — TEXTO (scroll bloqueado por JS)
    =========================================================
-   Este contenedor es más alto que la pantalla (260vh).
-   Mientras el usuario recorre ese espacio extra, el
-   contenido interno queda "pegado" (sticky) y el progreso
-   se calcula leyendo la posición real de scroll — por eso
-   nunca puede quedar "trabado": es scroll nativo del
-   navegador, no interceptado.
+   Ya NO es un wrapper alto con `sticky`: es una sección
+   normal de 100vh. El "congelamiento" lo produce
+   directamente el JS (previniendo el scroll nativo con
+   preventDefault) mientras `progress` va de 0 a 1.
    ========================================================= */
 
-.scroll-reveal-wrapper {
+.scroll-reveal-section {
   position: relative;
-  width: 100%;
-  background: #0d0d0d;
-  color: #ffffff;
-}
-
-
-.scroll-reveal-sticky {
-  position: sticky;
-  top: 0;
 
   display: flex;
   flex-direction: column;
@@ -39,11 +28,25 @@ body {
   padding: 80px 24px;
 
   overflow: hidden;
+
+  background: #0d0d0d;
+  color: #ffffff;
+
+  /*
+   * Evita el "rubber-band"/rebote del navegador en los
+   * bordes mientras el scroll está interceptado.
+   */
+  overscroll-behavior: contain;
 }
 
 
 /* =========================================================
    BARRA DE PROGRESO
+   =========================================================
+   Al estar "congelada" la sección durante el bloqueo,
+   basta con position: absolute (no hace falta fixed/sticky):
+   la sección ocupa exactamente el viewport mientras dura
+   la animación.
    ========================================================= */
 
 .scroll-progress-track {
@@ -122,8 +125,15 @@ body {
 }
 
 
+/* Cursor "candado" — pequeña pista visual de que el scroll
+   está intencionalmente interceptado (opcional, sutil). */
+.scroll-reveal-section.is-locked {
+  cursor: ns-resize;
+}
+
+
 /* =========================================================
-   FASE 2 — VIDEO (sección normal, sin scroll-jacking)
+   FASE 2 — VIDEO (sección normal, sin bloqueo)
    ========================================================= */
 
 .scroll-video-section {
@@ -233,16 +243,7 @@ body {
 
 @media (max-width: 768px) {
 
-  /*
-   * En pantallas chicas el scroll es más difícil de
-   * dosificar con precisión, así que acortamos un poco
-   * la distancia "congelada" para que no se sienta larga.
-   */
-  .scroll-reveal-wrapper {
-    height: 220vh !important;
-  }
-
-  .scroll-reveal-sticky {
+  .scroll-reveal-section {
     padding: 60px 20px;
   }
 
@@ -277,21 +278,15 @@ body {
 
 
 /* =========================================================
-   REDUCED MOTION — WCAG 2.3.3 / ISO 9241-171 (accesibilidad)
+   REDUCED MOTION — WCAG 2.3.3 (accesibilidad)
+   =========================================================
+   Con reduced-motion, el componente NO intercepta el scroll
+   (ver el JS: si reducedMotion es true, nunca se agregan
+   los listeners de wheel/touch/keydown). Aquí solo forzamos
+   que el texto se vea completo desde el primer momento.
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
-  .scroll-reveal-wrapper {
-    height: auto !important;
-  }
-
-  .scroll-reveal-sticky {
-    position: relative;
-    height: auto;
-
-    padding: 60px 24px;
-  }
 
   .scroll-reveal-text .word {
     opacity: 1 !important;
