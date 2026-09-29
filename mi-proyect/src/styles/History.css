@@ -309,28 +309,24 @@
    ---------------------------------------------------------- */
 
 .collage-item {
-  position: relative;
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    height: 155px;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    overflow: hidden; /* Mantiene la imagen dentro del borde en estado normal */
+    background: #ddd;
+    cursor: pointer;
+    appearance: none;
 
-  width: 100%;
-  min-width: 0;
-  height: 155px;
-
-  padding: 0;
-
-  border: 0;
-  border-radius: 4px;
-
-  overflow: hidden;
-
-  background: #ddd;
-
-  cursor: pointer;
-  appearance: none;
-
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease;
-}
+    /* Transición suave para el resalte y tamaño */
+    transition:
+      transform 0.35s cubic-bezier(0.25, 1, 0.5, 1),
+      box-shadow 0.35s ease,
+      border-radius 0.35s ease;
+  }
 
 
 /* ----------------------------------------------------------
@@ -454,16 +450,25 @@
    ---------------------------------------------------------- */
 
 .collage-item:hover {
-  z-index: 10;
+  /* Eleva la tarjeta por encima de todas las demás tarjetas adyacentes */
+  z-index: 50;
 
-  transform: translateY(-5px) scale(1.04);
-
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+  /*
+   * Scale aumenta el tamaño únicamente de este elemento.
+   * translateY(-12px) hace que sobresalga hacia arriba.
+   * Al estar en un CSS Grid, no afecta el flujo ni el tamaño de las demás tarjetas.
+   */
+  transform: translateY(-12px) scale(1.22);
+  
+  /* Sombra pronunciada para darle profundidad 3D y destacar sobre el fondo */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  border-radius: 8px;
 }
 
+/* Evitamos que la imagen interna mantenga zoom innecesario para no distorsionar el recuadro */
 .collage-item:hover .collage-image {
-  transform: scale(1.08);
-  filter: brightness(0.78);
+  transform: scale(1); /* No hace zoom interno a la imagen, el zoom es del recuadro completo */
+  filter: brightness(0.85);
 }
 
 .collage-item:hover .collage-overlay {

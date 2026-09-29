@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import '../styles/Home.css';
 import GranEventosVideo from '../assets/graneventos(2).mov';
 import Sesion2Home from '../assets/Sesion2Home2.jpg';
@@ -25,9 +26,9 @@ export default function Home() {
             <p className="hero-subtext-left">
               Integramos experiencia, producción, tecnología e ingeniería energética para crear eventos extraordinarios y sostenibles.
             </p>
-            <a href="/GranEventos/servicios" className="btn-cta-gold">
+            <Link to="/servicios" className="btn-cta-gold">
               CONOCE MÁS <ArrowRight size={18} />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
