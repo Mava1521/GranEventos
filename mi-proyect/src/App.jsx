@@ -12,6 +12,9 @@ import Contacto from './pages/Contact';
 import Festival from './pages/Festival';
 import Concert from './pages/Concert';
 import Corporate from './pages/Corporate';
+import Experiences from './pages/Experiences';
+import Energy from './pages/Energy';
+import Tecnology from './pages/Tecnology';
 
 export default function App() {
   return (
@@ -33,6 +36,9 @@ export default function App() {
           <Route path="/nuevas-tecnologias/festivales" element={<Festival/>}/>
           <Route path='/nuevas-tecnologias/conciertos' element={<Concert/>} />
           <Route path='/nuevas-tecnologias/corporativos' element={<Corporate/>}/>
+          <Route path='/experiencias' element={<Experiences/>}/>
+          <Route path='/energia' element={<Energy/>}/>
+          <Route path='/tecnologia' element={<Tecnology/>}/>
         </Routes>
       </main>
 

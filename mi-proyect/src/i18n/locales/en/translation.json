@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "altLogo": "Gran Eventos - Passion for great service",
+    "nav": {
+      "about": "ABOUT US",
+      "projects": "PROJECTS",
+      "services": "SERVICES",
+      "sustainability": "SUSTAINABILITY",
+      "contact": "CONTACT"
+    },
+    "aria": {
+      "switchToEs": "Switch to Spanish",
+      "switchToEn": "Switch to English",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
+    }
+  }
+}

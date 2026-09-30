@@ -1,0 +1,18 @@
+{
+  "navbar": {
+    "altLogo": "Gran Eventos - Pasión por el buen servicio",
+    "nav": {
+      "about": "NOSOTROS",
+      "projects": "PROYECTOS",
+      "services": "SERVICIOS",
+      "sustainability": "SOSTENIBILIDAD",
+      "contact": "CONTACTO"
+    },
+    "aria": {
+      "switchToEs": "Cambiar a Español",
+      "switchToEn": "Cambiar a Inglés",
+      "openMenu": "Abrir menú",
+      "closeMenu": "Cerrar menú"
+    }
+  }
+}

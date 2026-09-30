@@ -18,21 +18,27 @@ export default function Navbar() {
   const isSustainability = location.pathname === '/sostenibilidad';
   const isServices = location.pathname === '/servicios';
 
-  let currentLogo = isHistory ? LogoHistory : LogoGE;
+  let currentLogo = (isHistory || isServices) ? LogoHistory : LogoGE;
 
   // Asignación de variantes de estilo
   let navbarVariant = 'navbar-inner';
   if (isHome || isSustainability) {
-  navbarVariant = 'navbar-transparent';
-} else if (isProjects) {
-  navbarVariant = 'navbar-projects';
-} else if (isHistory) {
-  navbarVariant = 'navbar-history';
-} else if (isContact) {
-  navbarVariant = 'navbar-contact';
-} else if (isServices) {
-  navbarVariant = 'navbar-services';
-}
+    navbarVariant = 'navbar-transparent';
+  } else if (isProjects) {
+    navbarVariant = 'navbar-projects';
+  } else if (isHistory) {
+    navbarVariant = 'navbar-history';
+  } else if (isContact) {
+    navbarVariant = 'navbar-contact';
+  } else if (isServices) {
+    navbarVariant = 'navbar-services';
+  }
+
+  // Determinar si la página tiene fondo claro en la cabecera
+  const isLightBg = isHistory || isServices;
+
+  // El color del icono será negro solo si la página es de fondo claro Y el menú móvil no está abierto
+  const toggleIconColor = (isLightBg && !menuOpen) ? '#000000' : '#ffffff';
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
@@ -69,11 +75,7 @@ export default function Navbar() {
             </li>
 
             <li className="nav-item-wrapper">
-              <Link
-                to="/servicios"
-                className="nav-item"
-                onClick={closeMenu}
-              >
+              <Link to="/servicios" className="nav-item" onClick={closeMenu}>
                 SERVICIOS
               </Link>
 
@@ -114,7 +116,7 @@ export default function Navbar() {
           aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={menuOpen}
         >
-          {menuOpen ? <X size={26} color="#ffffff" /> : <Menu size={26} color="#ffffff" />}
+          {menuOpen ? <X size={26} color={toggleIconColor} /> : <Menu size={26} color={toggleIconColor} />}
         </button>
       </div>
     </nav>

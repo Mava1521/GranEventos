@@ -347,106 +347,135 @@ function Contact() {
         {/* =====================================
             LOCATION INTRO
         ====================================== */}
-        <div className="location-main">
+        <div className="location-header">
 
-          <div className="location-copy">
-
-            <div className="contact-kicker dark">
-              NUESTRA UBICACIÓN
-            </div>
-
-            <div className="location-yellow-line" />
-
-            <h2>
-              BASE EN COLOMBIA,
-              <br />
-              EXPERIENCIAS
-              <strong>SIN FRONTERAS.</strong>
-            </h2>
-
-            <p className="location-description">
-              Desde nuestra sede en Cota, operamos en todo el país
-              y llevamos la experiencia de Gran Eventos más allá
-              de las fronteras, con soluciones energéticas de SETIE
-              para eventos en la región.
-            </p>
-
-            <div className="location-headquarters">
-
-              <div className="location-pin">
-                <img
-                  src={location}
-                  alt=""
-                  width="30"
-                  height="30"
-                />
-              </div>
-
-              <div>
-                <h3>SEDE PRINCIPAL</h3>
-
-                <p>
-                  Autopista Medellín Km 2.5 Vía Parcelas
-                  <br />
-                  Ciem oiks occidente bodega 169-170,
-                  <br />
-                  Cota, Cundinamarca
-                  <br />
-                  <span>(Operamos en todo el país)</span>
-                </p>
-              </div>
-
-              <article className="location-data-card">
-
-                <div className="location-data-icon">
-                  <img
-                    src={clock}
-                    alt=""
-                    width="24"
-                    height="24"
-                  />
-                </div>
-
-                <div>
-
-                  <h3>ESTAMOS PARA TI</h3>
-
-                  <p>
-                    Lunes a viernes
-                    <br />
-                    8:00 a.m. - 6:00 p.m.
-                    <br />
-                    Sábados 8:00 a.m. - 12:00 m.
-                  </p>
-
-                </div>
-
-              </article>
-
-            </div>
-
-            
-
+          <div className="contact-kicker dark">
+            NUESTRA UBICACIÓN
           </div>
 
+          <div className="location-yellow-line" />
 
-          {/* MAP */}
-          <div className="location-map">
+          <h2>
+            BASE EN COLOMBIA,
+            <br />
+            EXPERIENCIAS
+            <br />
+            <strong>SIN FRONTERAS.</strong>
+          </h2>
 
-            <div className="map-title">
-              <span>COLOMBIA</span>
-              <strong>COBERTURA NACIONAL</strong>
-            </div>
+          <p>
+            Desde nuestra sede en Cota, operamos en todo el país y
+            llevamos la experiencia de Gran Eventos más allá de las
+            fronteras, con soluciones energéticas de SETIE para
+            eventos en la región.
+          </p>
 
-            <div className="map-graphic">
-              <img src={ColombiaContact} alt="" />
+        </div>
 
-            </div>
+
+        {/* =====================================
+            MAP AREA
+        ====================================== */}
+
+        <div className="location-map-area">
+
+          <div className="location-map-placeholder">
+            <img src={ColombiaContact} alt="" />
 
           </div>
 
         </div>
 
+
+        {/* =====================================
+            LOCATION DETAILS
+        ====================================== */}
+
+        <div className="location-details">
+
+          {/* SEDE PRINCIPAL */}
+
+          <article className="location-detail">
+
+            <div className="location-detail-icon">
+
+              <img
+                src={location}
+                alt=""
+                width={25}
+                height={25}
+              />
+
+            </div>
+
+
+            <div className="location-detail-content">
+
+              <h3>
+                SEDE PRINCIPAL
+              </h3>
+
+              <p>
+                Autopista Medellín Km 2.5 Vía Parcelas
+                <br />
+                Ciem oiks occidente bodega 169-170,
+                <br />
+                Cota, Cundinamarca
+                <br />
+                <strong>
+                  (Operamos en todo el país)
+                </strong>
+              </p>
+
+            </div>
+
+          </article>
+
+
+          {/* DIVIDER */}
+
+          <div
+            className="location-details-divider"
+            aria-hidden="true"
+          />
+
+
+
+          {/* HORARIO */}
+
+          <article className="location-detail">
+
+            <div className="location-detail-icon">
+
+              <img
+                src={clock}
+                alt=""
+                width={22}
+                height={22}
+              />
+
+            </div>
+
+
+            <div className="location-detail-content">
+
+              <h3>
+                ESTAMOS PARA TI
+              </h3>
+
+              <p>
+                Lunes a viernes
+                <br />
+                8:00 a.m. - 6:00 p.m.
+                <br />
+                Sábados 8:00 a.m. - 12:00 m.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
 
         {/* =====================================
             COVERAGE FEATURES
@@ -536,38 +565,92 @@ function Contact() {
           </div>
 
           <div className="world-map">
-            <img src={MundialMap} alt="" width={1100} height={650}/>
+            <img src={MundialMap} alt="" width={900} height={600}/>
 
           </div>
 
         </div>
 
 
-        {/* =====================================
-            LOCATION CTA
+         {/* =====================================
+            WORLD POSSIBILITIES CTA
         ====================================== */}
-        <div className="location-cta">
 
-          <div className="location-cta-icon">
-            <img src={global} alt="" />
+        <div className="possibilities-card">
+
+          {/* ICON */}
+
+          <div className="possibilities-icon">
+
+            <svg
+              viewBox="0 0 64 64"
+              aria-hidden="true"
+            >
+
+              <circle
+                cx="32"
+                cy="32"
+                r="27"
+              />
+
+              <ellipse
+                cx="32"
+                cy="32"
+                rx="13"
+                ry="27"
+              />
+
+              <path d="M5 32h54" />
+
+              <path d="M9 20h46" />
+
+              <path d="M9 44h46" />
+
+            </svg>
+
           </div>
 
-          <div>
-            <span>UN MUNDO DE POSIBILIDADES</span>
 
-            <strong>
-              TU EVENTO,
-              <em> EN CUALQUIER LUGAR.</em>
-            </strong>
-          </div>
+          {/* DIVIDER */}
 
-          <svg
-            viewBox="0 0 40 20"
+          <div
+            className="possibilities-divider"
             aria-hidden="true"
-          >
-            <path d="M1 10h34" />
-            <path d="M28 3l7 7-7 7" />
-          </svg>
+          />
+
+
+          {/* TEXT */}
+
+          <div className="possibilities-text">
+
+            <span>
+              UN MUNDO DE POSIBILIDADES
+            </span>
+
+            <h3>
+              TU EVENTO,
+              <strong> EN CUALQUIER LUGAR.</strong>
+            </h3>
+
+          </div>
+
+
+          {/* ARROW */}
+
+          <div className="possibilities-arrow">
+
+            <svg
+              viewBox="0 0 40 20"
+              aria-hidden="true"
+            >
+
+              <path d="M1 10h34" />
+
+              <path d="M28 3l7 7-7 7" />
+
+            </svg>
+
+          </div>
 
         </div>
 

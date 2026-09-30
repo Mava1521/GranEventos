@@ -206,13 +206,13 @@ export default function Home() {
                         y generan un impacto duradero.
                       </p>
 
-                      <a href="#proyectos" className="strength-card-link">
+                      <Link to="/experiencias" className="strength-card-link">
                         <span>CONOCE MÁS</span>
 
                         <span className="strength-arrow">
                           <ArrowRight size={20} strokeWidth={1.8} />
                         </span>
-                      </a>
+                      </Link>
 
                     </div>
 
@@ -253,13 +253,13 @@ export default function Home() {
                         escalables para todo tipo de proyecto.
                       </p>
 
-                      <a href="#proyectos" className="strength-card-link2">
+                      <Link to="/energia" className="strength-card-link2">
                         <span>CONOCE MÁS</span>
 
-                        <span className="strength-arrow">
-                          <ArrowRight size={20} strokeWidth={1.8} />
-                        </span>
-                      </a>
+                          <span className="strength-arrow">
+                            <ArrowRight size={20} strokeWidth={1.8} />
+                          </span>
+                      </Link>
 
                     </div>
 
@@ -299,14 +299,15 @@ export default function Home() {
                         Innovación en soluciones temporales
                         para un futuro más sostenible.
                       </p>
-
-                      <a href="#proyectos" className="strength-card-link">
+                      
+                      <Link to="/tecnologia" className="strength-card-link">
                         <span>CONOCE MÁS</span>
 
                         <span className="strength-arrow">
                           <ArrowRight size={20} strokeWidth={1.8} />
                         </span>
-                      </a>
+
+                      </Link>
 
                     </div>
 
