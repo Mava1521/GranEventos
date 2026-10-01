@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 import LogoGE from '../assets/LOGOGE.png';
 import LogoHistory from '../assets/GE.png';
@@ -10,6 +11,7 @@ import '../styles/Navbar.css';
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
+  const { t, i18n } = useTranslation();
 
   const isHome = location.pathname === '/';
   const isProjects = location.pathname === '/nuevas-tecnologias';
@@ -18,7 +20,7 @@ export default function Navbar() {
   const isSustainability = location.pathname === '/sostenibilidad';
   const isServices = location.pathname === '/servicios';
 
-  let currentLogo = (isHistory || isServices) ? LogoHistory : LogoGE;
+  const currentLogo = (isHistory || isServices) ? LogoHistory : LogoGE;
 
   // Asignación de variantes de estilo
   let navbarVariant = 'navbar-inner';
@@ -43,6 +45,14 @@ export default function Navbar() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
+  // Cambio de idioma controlado
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    document.documentElement.lang = lng; // Buena práctica WCAG / ISO para accesibilidad HTML
+  };
+
+  const currentLanguage = i18n.language ? i18n.language.split('-')[0] : 'es';
+
   return (
     <nav className={`navbar ${navbarVariant}`}>
       <div className="navbar-container">
@@ -51,7 +61,7 @@ export default function Navbar() {
           <Link to="/" className="logo-placeholder" onClick={closeMenu}>
             <img
               src={currentLogo}
-              alt="Gran Eventos - Pasión por el buen servicio"
+              alt={t('navbar.altLogo')}
               className="navbar-logo-img"
             />
           </Link>
@@ -62,48 +72,57 @@ export default function Navbar() {
           <ul className="nav-links">
             <li className="nav-item-wrapper">
               <Link to="/historia" className="nav-item" onClick={closeMenu}>
-                NOSOTROS
+                {t('navbar.nav.about')}
               </Link>
               {isHistory && <div className="active-indicator" />}
             </li>
 
             <li className="nav-item-wrapper">
               <Link to="/nuevas-tecnologias" className="nav-item" onClick={closeMenu}>
-                PROYECTOS
+                {t('navbar.nav.projects')}
               </Link>
               {isProjects && <div className="active-indicator" />}
             </li>
 
             <li className="nav-item-wrapper">
               <Link to="/servicios" className="nav-item" onClick={closeMenu}>
-                SERVICIOS
+                {t('navbar.nav.services')}
               </Link>
-
               {isServices && <div className="active-indicator" />}
             </li>
 
             <li className="nav-item-wrapper">
               <Link to="/sostenibilidad" className="nav-item nav-item-green" onClick={closeMenu}>
-                SOSTENIBILIDAD
+                {t('navbar.nav.sustainability')}
               </Link>
               {isSustainability && <div className="active-indicator active-indicator-green" />}
             </li>
 
             <li className="nav-item-wrapper">
               <Link to="/contacto" className="nav-item" onClick={closeMenu}>
-                CONTACTO
+                {t('navbar.nav.contact')}
               </Link>
               {isContact && <div className="active-indicator" />}
             </li>
           </ul>
 
-          {/* IDIOMAS */}
+          {/* SELECTOR DE IDIOMAS */}
           <div className="lang-selector">
-            <button className="active" type="button" aria-label="Cambiar a Español">
+            <button
+              className={currentLanguage === 'es' ? 'active' : ''}
+              type="button"
+              onClick={() => changeLanguage('es')}
+              aria-label={t('navbar.aria.switchToEs')}
+            >
               ES
             </button>
 
-            <button type="button" aria-label="Switch to English">
+            <button
+              className={currentLanguage === 'en' ? 'active' : ''}
+              type="button"
+              onClick={() => changeLanguage('en')}
+              aria-label={t('navbar.aria.switchToEn')}
+            >
               EN
             </button>
           </div>
@@ -113,7 +132,7 @@ export default function Navbar() {
         <button
           className="mobile-menu-toggle"
           onClick={toggleMenu}
-          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-label={menuOpen ? t('navbar.aria.closeMenu') : t('navbar.aria.openMenu')}
           aria-expanded={menuOpen}
         >
           {menuOpen ? <X size={26} color={toggleIconColor} /> : <Menu size={26} color={toggleIconColor} />}

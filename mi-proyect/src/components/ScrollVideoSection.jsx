@@ -1,10 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/ScrollVideoSection.css';
-
-const TEXT =
-  '¿QUÉ ES GRAN EVENTOS? MÁS DE 30 AÑOS CREANDO EXPERIENCIAS INMENSAS BAJO LA ENERGÍA DE NUESTRO EQUIPO';
-
-const WORDS = TEXT.split(' ');
 
 /*
  * Fases del "candado" de scroll.
@@ -28,6 +24,15 @@ function clamp(value, min, max) {
 }
 
 export default function ScrollVideoSection({ videoSrc }) {
+  const { t } = useTranslation();
+
+  // Obtenemos el texto traducido y lo dividimos en palabras dinámicamente
+  const textContent = t(
+    'history.scrollVideo.text',
+    '¿QUÉ ES GRAN EVENTOS? MÁS DE 30 AÑOS CREANDO EXPERIENCIAS INMENSAS BAJO LA ENERGÍA DE NUESTRO EQUIPO'
+  );
+  const words = textContent.split(' ');
+
   const sectionRef = useRef(null);
   const progressFillRef = useRef(null);
   const wordRefs = useRef([]);
@@ -39,23 +44,16 @@ export default function ScrollVideoSection({ videoSrc }) {
   const [isLocked, setIsLocked] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
 
-  /*
-   * Refs (no state) para todo lo que se lee/escribe en cada
-   * tick de wheel/touch — evita re-renders innecesarios y
-   * closures obsoletas dentro de los handlers de eventos.
-   */
   const phaseRef = useRef(PHASE.ABOVE);
   const progressRef = useRef(0);
   const touchStartYRef = useRef(null);
   const videoIsPlayingRef = useRef(false);
-
-  /*
-   * Posición de scroll en la que la sección queda "clavada"
-   * mientras dura el bloqueo. Se usa para corregir cualquier
-   * fuga de scroll residual (inercia de trackpad) frame a
-   * frame — así se elimina el "me deja bajar un poquito".
-   */
   const pinnedScrollYRef = useRef(null);
+
+  /* Reiniciamos la lista de referencias a las palabras si el texto cambia de idioma */
+  useEffect(() => {
+    wordRefs.current = wordRefs.current.slice(0, words.length);
+  }, [words.length]);
 
   /*
    * =====================================================
@@ -89,8 +87,7 @@ export default function ScrollVideoSection({ videoSrc }) {
 
     /* Barra de progreso — solo refleja la fase de texto */
     if (progressFillRef.current) {
-      progressFillRef.current.style.transform =
-        `scaleX(${textProgress})`;
+      progressFillRef.current.style.transform = `scaleX(${textProgress})`;
     }
 
     /* Palabras */
@@ -98,31 +95,22 @@ export default function ScrollVideoSection({ videoSrc }) {
     wordRefs.current.forEach((el, index) => {
       if (!el) return;
 
-      const wordThreshold =
-        total > 1 ? index / (total - 1) : 0;
-
-      const raw =
-        (textProgress - wordThreshold * 0.7) / 0.3;
-
-      const opacity =
-        0.14 + clamp(raw, 0, 1) * 0.86;
+      const wordThreshold = total > 1 ? index / (total - 1) : 0;
+      const raw = (textProgress - wordThreshold * 0.7) / 0.3;
+      const opacity = 0.14 + clamp(raw, 0, 1) * 0.86;
 
       el.style.opacity = opacity.toFixed(3);
     });
 
-    /* El texto "retrocede" (se achica, se desenfoca, se apaga)
-       a medida que el video se apila encima */
+    /* El texto "retrocede" */
     if (textContentRef.current) {
       const scale = 1 - videoProgress * 0.08;
       const blur = videoProgress * 6;
       const fade = 1 - videoProgress * 0.75;
 
-      textContentRef.current.style.transform =
-        `scale(${scale})`;
-      textContentRef.current.style.filter =
-        `blur(${blur}px)`;
-      textContentRef.current.style.opacity =
-        fade.toFixed(3);
+      textContentRef.current.style.transform = `scale(${scale})`;
+      textContentRef.current.style.filter = `blur(${blur}px)`;
+      textContentRef.current.style.opacity = fade.toFixed(3);
     }
 
     /* Video: entra como "card apilada" desde abajo */
@@ -131,12 +119,9 @@ export default function ScrollVideoSection({ videoSrc }) {
       const scale = 0.86 + videoProgress * 0.14;
       const blur = (1 - videoProgress) * 12;
 
-      videoCardRef.current.style.transform =
-        `translateY(${translateY}%) scale(${scale})`;
-      videoCardRef.current.style.filter =
-        `blur(${blur}px)`;
-      videoCardRef.current.style.opacity =
-        videoProgress.toFixed(3);
+      videoCardRef.current.style.transform = `translateY(${translateY}%) scale(${scale})`;
+      videoCardRef.current.style.filter = `blur(${blur}px)`;
+      videoCardRef.current.style.opacity = videoProgress.toFixed(3);
       videoCardRef.current.style.pointerEvents =
         videoProgress > 0.6 ? 'auto' : 'none';
     }
@@ -166,11 +151,6 @@ export default function ScrollVideoSection({ videoSrc }) {
     [applyProgress]
   );
 
-  /*
-   * =====================================================
-   * ENGANCHAR EL CANDADO
-   * =====================================================
-   */
   const pinScrollTo = useCallback((targetY) => {
     pinnedScrollYRef.current = targetY;
     window.scrollTo({ top: targetY, behavior: 'auto' });
@@ -207,19 +187,6 @@ export default function ScrollVideoSection({ videoSrc }) {
     setIsLocked(true);
   }, [applyProgress, pinScrollTo]);
 
-  /*
-   * =====================================================
-   * LIBERAR EL CANDADO
-   * =====================================================
-   * IMPORTANTE: no confiamos en que el navegador vaya a
-   * seguir scrolleando solo después de liberar. Un trackpad
-   * que veníamos interceptando con preventDefault suele
-   * "matar" el resto de su inercia (momentum) — el usuario
-   * no ve más eventos de wheel aunque siga con los dedos en
-   * movimiento. Por eso el propio componente empuja el
-   * scroll con una animación, garantizando que SIEMPRE
-   * continúe visualmente hacia la siguiente sección.
-   */
   const releaseAndScroll = useCallback((direction, nextPhase) => {
     phaseRef.current = nextPhase;
     pinnedScrollYRef.current = null;
@@ -241,11 +208,6 @@ export default function ScrollVideoSection({ videoSrc }) {
     [releaseAndScroll]
   );
 
-  /*
-   * =====================================================
-   * PROCESAR UNA "INTENCIÓN" DE SCROLL
-   * =====================================================
-   */
   const processIntent = useCallback(
     (direction, magnitude) => {
       const section = sectionRef.current;
@@ -256,7 +218,7 @@ export default function ScrollVideoSection({ videoSrc }) {
       if (phase === PHASE.LOCKED) {
         if (progressRef.current <= 0 && direction < 0) {
           releaseUpward();
-          return true; // el propio componente ya mueve el scroll
+          return true;
         }
 
         if (
@@ -264,7 +226,7 @@ export default function ScrollVideoSection({ videoSrc }) {
           direction > 0
         ) {
           releaseDownward();
-          return true; // el propio componente ya mueve el scroll
+          return true;
         }
 
         step(direction * magnitude);
@@ -296,11 +258,6 @@ export default function ScrollVideoSection({ videoSrc }) {
     [step, engageFromAbove, engageFromBelow, releaseUpward, releaseDownward]
   );
 
-  /*
-   * =====================================================
-   * WHEEL
-   * =====================================================
-   */
   const handleWheel = useCallback(
     (event) => {
       const direction = event.deltaY > 0 ? 1 : -1;
@@ -319,11 +276,6 @@ export default function ScrollVideoSection({ videoSrc }) {
     [processIntent]
   );
 
-  /*
-   * =====================================================
-   * TOUCH
-   * =====================================================
-   */
   const handleTouchStart = useCallback((event) => {
     touchStartYRef.current = event.touches[0].clientY;
   }, []);
@@ -354,11 +306,6 @@ export default function ScrollVideoSection({ videoSrc }) {
     [processIntent]
   );
 
-  /*
-   * =====================================================
-   * TECLADO
-   * =====================================================
-   */
   const handleKeyDown = useCallback(
     (event) => {
       if (phaseRef.current !== PHASE.LOCKED) return;
@@ -383,14 +330,6 @@ export default function ScrollVideoSection({ videoSrc }) {
     [processIntent]
   );
 
-  /*
-   * =====================================================
-   * ANTI-FUGA: clava el scroll mientras está LOCKED
-   * =====================================================
-   * Corrige, frame a frame, cualquier desplazamiento que
-   * se cuele pese al preventDefault (típico de la inercia
-   * de trackpads en Safari/Chrome).
-   */
   useEffect(() => {
     const handleNativeScroll = () => {
       if (phaseRef.current !== PHASE.LOCKED) return;
@@ -417,11 +356,6 @@ export default function ScrollVideoSection({ videoSrc }) {
       });
   }, []);
 
-  /*
-   * =====================================================
-   * REGISTRO DE EVENTOS PRINCIPALES
-   * =====================================================
-   */
   useEffect(() => {
     if (reducedMotion) {
       applyProgress(MAX_PROGRESS);
@@ -485,7 +419,7 @@ export default function ScrollVideoSection({ videoSrc }) {
       <div
         className="scroll-progress-track"
         role="progressbar"
-        aria-label="Progreso de la animación"
+        aria-label={t('history.scrollVideo.ariaProgress')}
         aria-valuemin={0}
         aria-valuemax={100}
       >
@@ -495,15 +429,14 @@ export default function ScrollVideoSection({ videoSrc }) {
         />
       </div>
 
-      {/* =========================================
-          TEXTO
-      ========================================== */}
-
+      {/* TEXTO */}
       <div ref={textContentRef} className="scroll-text-content">
-        <span className="scroll-eyebrow">EL IMPACTO</span>
+        <span className="scroll-eyebrow">
+          {t('history.scrollVideo.eyebrow')}
+        </span>
 
         <h2 className="scroll-reveal-text">
-          {WORDS.map((word, index) => (
+          {words.map((word, index) => (
             <span
               key={`${word}-${index}`}
               ref={(el) => {
@@ -517,10 +450,7 @@ export default function ScrollVideoSection({ videoSrc }) {
         </h2>
       </div>
 
-      {/* =========================================
-          VIDEO — aparece apilándose sobre el texto
-      ========================================== */}
-
+      {/* VIDEO */}
       <div
         ref={videoCardRef}
         className="scroll-video-card"
@@ -544,10 +474,14 @@ export default function ScrollVideoSection({ videoSrc }) {
           onClick={toggleSound}
           aria-pressed={!isMuted}
         >
-          {isMuted ? '🔇 Activar sonido' : '🔊 Silenciar'}
+          {isMuted
+            ? `🔇 ${t('history.scrollVideo.soundActivate')}`
+            : `🔊 ${t('history.scrollVideo.soundMute')}`}
         </button>
 
-        <span className="scroll-video-label">GRAN EVENTOS</span>
+        <span className="scroll-video-label">
+          {t('history.scrollVideo.brandLabel')}
+        </span>
       </div>
     </section>
   );

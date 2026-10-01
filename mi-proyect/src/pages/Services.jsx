@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../styles/Services.css';
 
 import ServiceHero from '../assets/ServiceHero.jpg';
@@ -11,65 +12,9 @@ import iluminacion from '../assets/Iluminacion.jpg';
 import ventas from '../assets/Ventas.jpg';
 import ServiceSeccion3 from '../assets/ServicesSeccion3.jpg';
 
-
-const services = [
-  {
-    number: '01',
-    title: 'PLANTAS DE ENERGÍA',
-    subtitle: 'Confiabilidad en cualquier escala.',
-    description:
-      'Alquiler de plantas eléctricas de alta, media y baja capacidad, con soporte técnico especializado para eventos y proyectos temporales.',
-    image: plantas,
-    alt: 'Plantas de energía de Gran Eventos',
-  },
-  {
-    number: '02',
-    title: 'VENTA DE PLANTAS',
-    subtitle: 'Energía para un futuro en expansión.',
-    description:
-      'Comercialización de plantas eléctricas con asesoría especializada, adaptadas a las necesidades de cada industria.',
-    image: ventas,
-    alt: 'Venta de plantas eléctricas',
-  },
-  {
-    number: '03',
-    title: 'DISEÑO DE PROYECTOS',
-    subtitle: 'Ingeniería al servicio de grandes ideas.',
-    description:
-      'Desarrollamos soluciones personalizadas de energía e infraestructura, desde la planificación hasta la ejecución.',
-    image: diseño,
-    alt: 'Diseño de proyectos de energía',
-  },
-  {
-    number: '04',
-    title: 'TRANSFORMADORES',
-    subtitle: 'Estabilidad y seguridad en cada conexión.',
-    description:
-      'Suministro, instalación y operación de transformadores para garantizar un desempeño seguro y eficiente.',
-    image: transformadores,
-    alt: 'Transformadores eléctricos',
-  },
-  {
-    number: '05',
-    title: 'DISTRIBUCIÓN Y CABLEADO',
-    subtitle: 'Conexiones que lo hacen posible.',
-    description:
-      'Diseño e instalación de distritos eléctricos y cableado certificado, asegurando una distribución confiable y segura en todo tipo de eventos.',
-    image: distribucion,
-    alt: 'Distribución y cableado eléctrico',
-  },
-  {
-    number: '06',
-    title: 'TORRES DE ILUMINACIÓN',
-    subtitle: 'Luz para experiencias sin límites.',
-    description:
-      'Torres de iluminación de alto rendimiento para áreas de producción, parqueaderos, backstage y zonas operativas.',
-    image: iluminacion,
-    alt: 'Torres de iluminación para eventos',
-  },
-];
-
 function ServiceImage({ image, alt, number }) {
+  const { t } = useTranslation();
+
   if (image) {
     return (
       <img
@@ -85,14 +30,67 @@ function ServiceImage({ image, alt, number }) {
     <div
       className="service-card__placeholder"
       role="img"
-      aria-label={`${alt}. Imagen pendiente por agregar.`}
+      aria-label={`${alt}. ${t('services.imagePending')}`}
     >
-      <span>IMAGEN {number}</span>
+      <span>{t('services.imageLabel')} {number}</span>
     </div>
   );
 }
 
 export default function Services() {
+  const { t } = useTranslation();
+
+  const services = [
+    {
+      number: '01',
+      title: t('services.items.powerPlants.title'),
+      subtitle: t('services.items.powerPlants.subtitle'),
+      description: t('services.items.powerPlants.description'),
+      image: plantas,
+      alt: t('services.items.powerPlants.alt'),
+    },
+    {
+      number: '02',
+      title: t('services.items.sales.title'),
+      subtitle: t('services.items.sales.subtitle'),
+      description: t('services.items.sales.description'),
+      image: ventas,
+      alt: t('services.items.sales.alt'),
+    },
+    {
+      number: '03',
+      title: t('services.items.design.title'),
+      subtitle: t('services.items.design.subtitle'),
+      description: t('services.items.design.description'),
+      image: diseño,
+      alt: t('services.items.design.alt'),
+    },
+    {
+      number: '04',
+      title: t('services.items.transformers.title'),
+      subtitle: t('services.items.transformers.subtitle'),
+      description: t('services.items.transformers.description'),
+      image: transformadores,
+      alt: t('services.items.transformers.alt'),
+    },
+    {
+      number: '05',
+      title: t('services.items.distribution.title'),
+      subtitle: t('services.items.distribution.subtitle'),
+      description: t('services.items.distribution.description'),
+      image: distribucion,
+      alt: t('services.items.distribution.alt'),
+    },
+    {
+      number: '06',
+      title: t('services.items.lighting.title'),
+      subtitle: t('services.items.lighting.subtitle'),
+      description: t('services.items.lighting.description'),
+      image: iluminacion,
+      alt: t('services.items.lighting.alt'),
+    },
+  ];
+
   return (
     <main className="services-page">
       {/* =====================================================
@@ -100,39 +98,37 @@ export default function Services() {
       ====================================================== */}
       <section className="services-hero" aria-labelledby="services-title">
         <div className="services-hero__content">
-          <p className="services-eyebrow">SERVICIOS</p>
+          <p className="services-eyebrow">{t('services.hero.eyebrow')}</p>
 
           <h1 id="services-title" className="services-hero__title">
-            <span>ENERGÍA</span>
-            <span>QUE HACE POSIBLE</span>
+            <span>{t('services.hero.titleLine1')}</span>
+            <span>{t('services.hero.titleLine2')}</span>
             <span className="services-hero__title-light">
-              EXPERIENCIAS EXTRAORDINARIAS<span className="yellow-dot">.</span>
+              {t('services.hero.titleLine3')}<span className="yellow-dot">.</span>
             </span>
           </h1>
 
           <p className="services-hero__description">
-            Soluciones integrales de energía e infraestructura temporal
-            <br className="desktop-only" />
-            para eventos, producciones y proyectos de gran escala.
+            {t('services.hero.description')}
           </p>
         </div>
 
         <div className="services-hero__visual">
           <div className="services-hero__image-placeholder">
             <span>
-              <img src={ServiceHero} alt=""  width={1700} height={625}/>
+              <img src={ServiceHero} alt="" width={1700} height={625} />
             </span>
           </div>
 
           <div className="services-hero__message">
             <p>
-              IMPULSAMOS
+              {t('services.hero.message.line1')}
               <br />
-              IDEAS,
+              {t('services.hero.message.line2')}
               <br />
-              CONECTAMOS
+              {t('services.hero.message.line3')}
               <br />
-              EMOCIONES.
+              {t('services.hero.message.line4')}
             </p>
 
             <span className="yellow-line" aria-hidden="true" />
@@ -148,7 +144,7 @@ export default function Services() {
         aria-labelledby="services-grid-title"
       >
         <h2 id="services-grid-title" className="sr-only">
-          Nuestros servicios
+          {t('services.gridTitle')}
         </h2>
 
         <div className="services-grid">
@@ -179,9 +175,9 @@ export default function Services() {
                 <Link
                   to="/contacto"
                   className="service-card__link"
-                  aria-label={`Ver más sobre ${service.title.toLowerCase()}`}
+                  aria-label={`${t('services.seeMore')} ${service.title}`}
                 >
-                  <span>VER MÁS</span>
+                  <span>{t('services.seeMore')}</span>
 
                   <span className="service-card__arrow" aria-hidden="true">
                     →
@@ -199,7 +195,7 @@ export default function Services() {
       <section className="services-cta" aria-labelledby="services-cta-title">
         <div className="services-cta__background">
           <span>
-            <img src={ServiceSeccion3} alt="" width={1850} height={300}/>
+            <img src={ServiceSeccion3} alt="" width={1850} height={300} />
           </span>
         </div>
 
@@ -209,13 +205,13 @@ export default function Services() {
           <span className="services-cta__line" aria-hidden="true" />
 
           <h2 id="services-cta-title">
-            SOLUCIONES QUE
+            {t('services.cta.titleLine1')}
             <br />
-            SE ADAPTAN A TU EVENTO.
+            {t('services.cta.titleLine2')}
           </h2>
 
           <Link to="/contacto" className="services-cta__button">
-            <span>HABLEMOS DE TU PROYECTO</span>
+            <span>{t('services.cta.button')}</span>
 
             <span className="services-cta__button-arrow" aria-hidden="true">
               →
@@ -224,10 +220,10 @@ export default function Services() {
         </div>
 
         <div className="services-cta__side-text">
-          <span>MÁS</span>
-          <span>ENERGÍA</span>
-          <span>MÁS IDEAS</span>
-          <span>MÁS EXPERIENCIAS</span>
+          <span>{t('services.cta.sideText.more')}</span>
+          <span>{t('services.cta.sideText.energy')}</span>
+          <span>{t('services.cta.sideText.ideas')}</span>
+          <span>{t('services.cta.sideText.experiences')}</span>
         </div>
       </section>
     </main>

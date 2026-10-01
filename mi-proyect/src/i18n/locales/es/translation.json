@@ -14,5 +14,707 @@
       "openMenu": "Abrir menú",
       "closeMenu": "Cerrar menú"
     }
+  },
+  "home": {
+    "hero": {
+      "titlePart1": "EL",
+      "titleGold1": "PODER",
+      "titlePart2": "DETRÁS DE",
+      "titlePart3": "CADA EXPERIENCIA",
+      "subtext": "Integramos experiencia, producción, tecnología e ingeniería energética para crear eventos extraordinarios y sostenibles.",
+      "cta": "CONOCE MÁS"
+    },
+    "story": {
+      "kicker": "GRAN EVENTOS × SETIE",
+      "titleLight1": "DOS HISTORIAS,",
+      "titleYellow": "UNA",
+      "titleSplit": "MISMA",
+      "titleGreen": "ENERGÍA",
+      "titleLight2": "QUE LO HACE TODO POSIBLE.",
+      "description": "La unión de nuestra pasión por crear experiencias y nuestra ingeniería energética nos permite ir más lejos, ser más eficientes y generar un impacto positivo en cada proyecto.",
+      "sideList": {
+        "events": "EVENTOS",
+        "energy": "ENERGÍA",
+        "people": "PERSONAS",
+        "planet": "PLANETA"
+      },
+      "sideMessagePart1": "UN FUTURO",
+      "sideMessagePart2": "MÁS GRANDE",
+      "sideMessagePart3": "ES POSIBLE."
+    },
+    "strengths": {
+      "label": "NUESTRAS FORTALEZAS",
+      "titleMain": "SOLUCIONES",
+      "titleSpan": "DIFERENCIA.",
+      "titlePreSpan": "QUE HACEN LA ",
+      "description": "Integramos experiencia, energía y tecnología para diseñar eventos extraordinarios, más eficientes, sostenibles y con un impacto real.",
+      "cards": {
+        "01": {
+          "tagBlue": "EVENTOS",
+          "tagText": "QUE CONECTAN",
+          "title": "EXPERIENCIAS",
+          "description": "Producción integral de eventos que inspiran y generan un impacto duradero.",
+          "cta": "CONOCE MÁS"
+        },
+        "02": {
+          "tagGold": "ENERGÍA",
+          "tagText": "SIN LÍMITES",
+          "title": "ENERGÍA",
+          "description": "Soluciones energéticas confiables y escalables para todo tipo de proyecto.",
+          "cta": "CONOCE MÁS"
+        },
+        "03": {
+          "tagGreen": "TECNOLOGÍA",
+          "tagText": "QUE IMPULSA",
+          "title": "TECNOLOGÍA",
+          "description": "Innovación en soluciones temporales para un futuro más sostenible.",
+          "cta": "CONOCE MÁS"
+        }
+      }
+    }
+  },
+  "footer": {
+    "aria": {
+      "goHome": "Ir a inicio",
+      "navigation": "Navegación del pie de página",
+      "backToTop": "Volver al inicio de la página"
+    },
+    "alt": {
+      "geLogo": "Gran Eventos Producción",
+      "setieLogo": "SETIE Energía Temporal"
+    },
+    "descriptionPart1": "Producción logística y energía temporal",
+    "descriptionPart2": "para eventos que mueven al mundo.",
+    "nav": {
+      "about": "NOSOTROS",
+      "projects": "PROYECTOS",
+      "services": "SERVICIOS",
+      "sustainability": "SOSTENIBILIDAD",
+      "contact": "CONTACTO"
+    },
+    "socialTitle": "SÍGUENOS EN REDES",
+    "rights": "Gran Eventos Producción S.A.S.",
+    "location": "Cota, Cundinamarca - Colombia",
+    "backTop": "VOLVER ARRIBA"
+  },
+  "history": {
+    "hero": {
+      "eyebrow": "NUESTRA HISTORIA",
+      "titlePart1": "UNA",
+      "titleYellow": "HISTORIA",
+      "titlePart2": "QUE IMPULSA",
+      "titleGreen": "GRANDES",
+      "titlePart3": "MOMENTOS.",
+      "subtextPart1": "Más de tres décadas generando",
+      "subtextPart2": "la energía que hace posible",
+      "subtextPart3": "experiencias inolvidables."
+    },
+    "topMessage": {
+      "line1": "LA ENERGÍA",
+      "line2": "TAMBIÉN",
+      "line3": "DEJA",
+      "line4": "HUELLA",
+      "line5": "POSITIVA"
+    },
+    "collage": {
+      "ariaLabel": "Momentos de nuestra historia",
+      "buttonAria": "Ver historia de {{year}}: {{title}}"
+    },
+    "timeline": {
+      "eyebrow": "NUESTRA HISTORIA",
+      "title": "LÍNEA DE TIEMPO",
+      "aria": {
+        "viewYear": "Ver información del año {{year}}",
+        "openTitle": "Abrir información de {{title}}"
+      },
+      "items": {
+        "1987": {
+          "tag": "EL INICIO",
+          "title": "Nace Gran Eventos",
+          "description": "Nace Gran Eventos con la pasión de crear experiencias inolvidables a través de la producción de eventos.",
+          "fullDesc": "En 1987, dos visionarios sentaron las bases de lo que se convertiría en el referente técnico y logístico para grandes eventos en el país. Con un primer tráiler equipado y planos dibujados a mano, la empresa inició su camino impulsada por la pasión por el trabajo impecable y la excelencia operativa.",
+          "stats": [
+            { "label": "Proyectos Año 1", "value": "12" },
+            { "label": "Equipo Inicial", "value": "5 personas" },
+            { "label": "Potencia Inicial", "value": "50 kVA" }
+          ],
+          "highlights": [
+            "Primer camión de asistencia móvil GE",
+            "Diseño artesanal de redes temporales de energía",
+            "Atención a los primeros festivales locales"
+          ]
+        },
+        "1995": {
+          "tag": "CRECIMIENTO",
+          "title": "Primeros Grandes Conciertos",
+          "description": "Ampliamos nuestra capacidad técnica y acompañamos los primeros grandes conciertos del país.",
+          "fullDesc": "Durante la década de los 90, la industria del entretenimiento despegó en la región. Gran Eventos expandió drásticamente su estructura de truss y sistemas de distribución eléctrica, participando en las giras nacionales de artistas internacionales icónicos.",
+          "stats": [
+            { "label": "Capacidad Técnica", "value": "+300%" },
+            { "label": "Conciertos/Año", "value": "45+" },
+            { "label": "Ciudades Cubiertas", "value": "6" }
+          ],
+          "highlights": [
+            "Adquisición de estructuras truss de alta resistencia",
+            "Especialización en sonorización masiva y soporte",
+            "Primeros contratos de gran escala en estadios"
+          ]
+        },
+        "2000": {
+          "tag": "ENERGÍA EN ESCENA",
+          "title": "Especialización Energética",
+          "description": "Nos especializamos en la generación de energía para eventos masivos, garantizando confiabilidad y seguridad.",
+          "fullDesc": "Con la llegada del nuevo milenio, el enfoque estratégico se centró en la confiabilidad energética crítica. Se implementaron plantas generadoras insonorizadas de última generación y sistemas redundantes tipo N+1 para evitar interrupciones en espectáculos en vivo.",
+          "stats": [
+            { "label": "MW Instalados", "value": "15 MW" },
+            { "label": "Confiabilidad", "value": "99.9%" },
+            { "label": "Eventos Masivos", "value": "80+" }
+          ],
+          "highlights": [
+            "Implementación de transferencia automática de energía",
+            "Personal técnico certificado en alta tensión temporal",
+            "Creación del protocolo GE Zero Interruption"
+          ]
+        },
+        "2005": {
+          "tag": "NUEVOS HORIZONTES",
+          "title": "Expansión Nacional",
+          "description": "Llevamos nuestra experiencia a más ciudades de Colombia, consolidándonos como un aliado estratégico del entretenimiento.",
+          "fullDesc": "Gran Eventos expandió sus operaciones a lo largo y ancho del territorio colombiano, desde la Costa Caribe hasta el Suroccidente. La empresa se convirtió en el socio técnico clave para festivales itinerantes y macroeventos institucionales.",
+          "stats": [
+            { "label": "Cobertura", "value": "Nacional" },
+            { "label": "Departamentos", "value": "18" },
+            { "label": "Asistentes/Año", "value": "1.2M+" }
+          ],
+          "highlights": [
+            "Presencia en los principales festivales de Colombia",
+            "Logística de transporte propia para zonas complejas",
+            "Alianzas con los más grandes promotores del país"
+          ]
+        },
+        "2010": {
+          "tag": "GRANDES ALIANZAS",
+          "title": "Líderes de la Industria",
+          "description": "Hacemos parte de los eventos más importantes del país, trabajando con artistas, marcas y productores de talla internacional.",
+          "fullDesc": "Para 2010, la marca GE era sinónimo de garantía absoluta. Grandes giras mundiales de pop y rock exigían la infraestructura de Gran Eventos para sus paradas en el país, consolidando estándares técnicos de nivel mundial.",
+          "stats": [
+            { "label": "Artistas TOP Global", "value": "50+" },
+            { "label": "Staff Operativo", "value": "120+" },
+            { "label": "Satisfacción", "value": "100%" }
+          ],
+          "highlights": [
+            "Suministro integral para estadios completos",
+            "Cumplimiento de riders internacionales exigentes",
+            "Modernización de flota de módulos insonorizados GE"
+          ]
+        },
+        "2015": {
+          "tag": "INNOVACIÓN CON PROPÓSITO",
+          "title": "Eficiencia Tecnológica",
+          "description": "Incorporamos nuevas tecnologías y soluciones eficientes para optimizar el consumo de energía en eventos.",
+          "fullDesc": "Iniciamos una profunda reingeniería tecnológica orientada al consumo inteligente. Integrando telemetría en tiempo real y monitoreo remoto de cargas, logramos reducir significativamente el consumo de combustible diésel por kilovatio generado.",
+          "stats": [
+            { "label": "Ahorro Diésel", "value": "25%" },
+            { "label": "Monitoreo", "value": "IoT Real-Time" },
+            { "label": "Giras Simultáneas", "value": "5" }
+          ],
+          "highlights": [
+            "Sistemas de gestión de carga dinámicos",
+            "Reducción de huella acústica en entornos urbanos",
+            "Certificaciones de seguridad industrial ISO 45001"
+          ]
+        },
+        "2020": {
+          "tag": "RESILIENCIA Y EVOLUCIÓN",
+          "title": "Adaptación y Futuro",
+          "description": "Nos adaptamos a nuevos formatos y desafíos, fortaleciendo nuestra infraestructura y talento para seguir conectando personas.",
+          "fullDesc": "Frente a los retos globales sin precedentes de 2020, Gran Eventos diversificó sus capacidades hacia centros de respuesta rápida, transmisiones por streaming de alta demanda energética e infraestructura temporal para sectores estratégicos.",
+          "stats": [
+            { "label": "Proyectos Especiales", "value": "35+" },
+            { "label": "Formatos Híbridos", "value": "100%" },
+            { "label": "Continuidad", "value": "100%" }
+          ],
+          "highlights": [
+            "Respuesta técnica y logística en tiempo récord",
+            "Desarrollo de centros de comando híbridos",
+            "Planificación de la transición energética sostenible"
+          ]
+        },
+        "2023": {
+          "tag": "INICIA LA TRANSFORMACIÓN",
+          "title": "Alianza Estratégica SETIE",
+          "description": "Junto a SETIE, comenzamos un nuevo capítulo hacia la energía renovable, integrando soluciones sostenibles.",
+          "fullDesc": "Nace la unión con SETIE (Soluciones Energéticas Temporales). Esta alianza revolucionaria introdujo bancos de baterías a gran escala, microredes solares fotovoltaicas móviles y generadores híbridos para la industria del entretenimiento.",
+          "stats": [
+            { "label": "Paneles Móviles", "value": "500+ kW" },
+            { "label": "Baterías BESS", "value": "1.2 MWh" },
+            { "label": "Reducción CO2", "value": "-40%" }
+          ],
+          "highlights": [
+            "Lanzamiento oficial de la marca conjunta SETIE",
+            "Primer concierto masivo alimentado por energía solar acumulada",
+            "Integración de economía circular en la producción"
+          ]
+        },
+        "2026": {
+          "tag": "UN FUTURO MÁS LIMPIO",
+          "title": "Same Passion Greener Tomorrow",
+          "description": "Seguimos innovando para eventos más sostenibles, conectando tecnología, personas y planeta.",
+          "fullDesc": "En 2026 nos consolidamos como pioneros absolutos de eventos 100% net-zero en la región. Combinando la misma pasión técnica con tecnología eólica, solar e hidrógeno verde, garantizamos la energía de los grandes escenarios sin dejar huella.",
+          "stats": [
+            { "label": "Sostenibilidad", "value": "Net-Zero" },
+            { "label": "Energía Verde", "value": "85%" },
+            { "label": "Compromiso 2030", "value": "100% Eco" }
+          ],
+          "highlights": [
+            "Sistemas eólicos y solares portátiles de alto rendimiento",
+            "Certificación Verde para producciones internacionales",
+            "La misma pasión de 1987 con la tecnología más limpia del mañana"
+          ]
+        }
+      }
+    },
+    "scrollVideo": {
+        "eyebrow": "EL IMPACTO",
+        "text": "¿QUÉ ES GRAN EVENTOS? MÁS DE 30 AÑOS CREANDO EXPERIENCIAS INMENSAS BAJO LA ENERGÍA DE NUESTRO EQUIPO",
+        "ariaProgress": "Progreso de la animación",
+        "soundActivate": "Activar sonido",
+        "soundMute": "Silenciar",
+        "brandLabel": "GRAN EVENTOS"
+      },
+    "footer": {
+      "brand": "GRAN EVENTOS",
+      "loc1": "COLOMBIA",
+      "loc2": "LATINOAMÉRICA",
+      "loc3": "EL MUNDO"
+    },
+    "modal": {
+      "closeAria": "Cerrar información del evento",
+      "sectionMilestone": "HITO HISTÓRICO",
+      "sectionImpact": "IMPACTO Y CIFRAS",
+      "footerTagline": "Gran Eventos · Compromiso con la Calidad e Innovación"
+    }
+  },
+  "projects": {
+        "hero": {
+          "sectionLabel": "PROYECTOS",
+          "titlePart1": "ESCENARIOS",
+          "titlePart2": "QUE INSPIRAN",
+          "titlePart3": "UN MUNDO MEJOR.",
+          "description": "Diseñamos, producimos y montamos experiencias que conectan personas a través de la energía, la tecnología y la creatividad.",
+          "keywords": {
+            "ideas": "IDEAS",
+            "energy": "ENERGÍA",
+            "people": "PERSONAS",
+            "experiences": "EXPERIENCIAS",
+            "real": "REALES"
+          },
+          "overlayTitle": "MÁS QUE EVENTOS.",
+          "overlaySubtitle": "UN FUTURO COMPARTIDO."
+        },
+        "categories": {
+          "viewProjects": "VER PROYECTOS",
+          "festivals": {
+            "title": "FESTIVALES",
+            "subtitle": "Grandes ideas para audiencias extraordinarias.",
+            "description": "Montaje, energía, producción y tecnología para festivales que dejan huella."
+          },
+          "concerts": {
+            "title": "CONCIERTOS",
+            "subtitle": "La música nos mueve.",
+            "description": "Soluciones integrales en infraestructura, energía y tecnología para conciertos de todos los formatos."
+          },
+          "corporate": {
+            "title": "CORPORATIVOS",
+            "subtitle": "Experiencias que impulsan negocios.",
+            "description": "Eventos corporativos, lanzamientos, ferias y activaciones con soluciones a la medida."
+          }
+        },
+        "team": {
+          "label": "DETRÁS DE CADA EVENTO",
+          "titlePart1": "HAY UN EQUIPO",
+          "titlePart2": "QUE LO HACE POSIBLE.",
+          "description": "Planeación, talento, tecnología y compromiso para llevar cada idea a la realidad.",
+          "ctaButton": "HABLEMOS DE TU PROYECTO",
+          "imgAlt": "Equipo de Gran Eventos trabajando"
+        },
+        "stats": {
+          "introLabel1": "EXPERIENCIAS",
+          "introLabel2": "EN NÚMEROS",
+          "eventsDone": "EVENTOS REALIZADOS",
+          "peopleConnected": "PERSONAS CONECTADAS",
+          "yearsExperience": "DE EXPERIENCIA",
+          "purposeNumber": "UN SOLO PROPÓSITO",
+          "purposeText": "UN PLANETA MÁS VIVO"
+        }
+      },
+      "services": {
+        "hero": {
+          "eyebrow": "SERVICIOS",
+          "titleLine1": "ENERGÍA",
+          "titleLine2": "QUE HACE POSIBLE",
+          "titleLine3": "EXPERIENCIAS EXTRAORDINARIAS",
+          "description": "Soluciones integrales de energía e infraestructura temporal para eventos, producciones y proyectos de gran escala.",
+          "message": {
+            "line1": "IMPULSAMOS",
+            "line2": "IDEAS,",
+            "line3": "CONECTAMOS",
+            "line4": "EMOCIONES."
+          }
+        },
+        "gridTitle": "Nuestros servicios",
+        "seeMore": "VER MÁS",
+        "imagePending": "Imagen pendiente por agregar.",
+        "imageLabel": "IMAGEN",
+        "items": {
+          "powerPlants": {
+            "title": "PLANTAS DE ENERGÍA",
+            "subtitle": "Confiabilidad en cualquier escala.",
+            "description": "Alquiler de plantas eléctricas de alta, media y baja capacidad, con soporte técnico especializado para eventos y proyectos temporales.",
+            "alt": "Plantas de energía de Gran Eventos"
+          },
+          "sales": {
+            "title": "VENTA DE PLANTAS",
+            "subtitle": "Energía para un futuro en expansión.",
+            "description": "Comercialización de plantas eléctricas con asesoría especializada, adaptadas a las necesidades de cada industria.",
+            "alt": "Venta de plantas eléctricas"
+          },
+          "design": {
+            "title": "DISEÑO DE PROYECTOS",
+            "subtitle": "Ingeniería al servicio de grandes ideas.",
+            "description": "Desarrollamos soluciones personalizadas de energía e infraestructura, desde la planificación hasta la ejecución.",
+            "alt": "Diseño de proyectos de energía"
+          },
+          "transformers": {
+            "title": "TRANSFORMADORES",
+            "subtitle": "Estabilidad y seguridad en cada conexión.",
+            "description": "Suministro, instalación y operación de transformadores para garantizar un desempeño seguro y eficiente.",
+            "alt": "Transformadores eléctricos"
+          },
+          "distribution": {
+            "title": "DISTRIBUCIÓN Y CABLEADO",
+            "subtitle": "Conexiones que lo hacen posible.",
+            "description": "Diseño e instalación de distritos eléctricos y cableado certificado, asegurando una distribución confiable y segura en todo tipo de eventos.",
+            "alt": "Distribución y cableado eléctrico"
+          },
+          "lighting": {
+            "title": "TORRES DE ILUMINACIÓN",
+            "subtitle": "Luz para experiencias sin límites.",
+            "description": "Torres de iluminación de alto rendimiento para áreas de producción, parqueaderos, backstage y zonas operativas.",
+            "alt": "Torres de iluminación para eventos"
+          }
+        },
+        "cta": {
+          "titleLine1": "SOLUCIONES QUE",
+          "titleLine2": "SE ADAPTAN A TU EVENTO.",
+          "button": "HABLEMOS DE TU PROYECTO",
+          "sideText": {
+            "more": "MÁS",
+            "energy": "ENERGÍA",
+            "ideas": "MÁS IDEAS",
+            "experiences": "MÁS EXPERIENCIAS"
+          }
+        }
+      },
+      "sustainability": {
+      "hero": {
+        "ariaLabel": "Introducción a la sostenibilidad SETIE",
+        "topRight": {
+          "line1": "MÁS QUE EVENTOS",
+          "line2": "UN FUTURO MÁS LIMPIO"
+        },
+        "bottomLeft": {
+          "title": "ENERGÍA",
+          "pLine1": "PARA UN MUNDO",
+          "pLine2": "DE EXPERIENCIAS"
+        },
+        "altBg": "Soluciones energéticas temporales SETIE",
+        "altLogo": "SETIE - Soluciones Energéticas Temporales"
+      },
+      "stats": {
+        "ariaLabel": "Métricas de impacto ambiental",
+        "projectsNumber": "+300",
+        "projectsLabel": "PROYECTOS SOSTENIBLES",
+        "co2Number": "-1.200 t",
+        "co2Label": "DE CO₂ EVITADAS",
+        "committedNumber": "100%",
+        "committedLabelLine1": "COMPROMETIDOS",
+        "committedLabelLine2": "CON UN FUTURO MÁS LIMPIO",
+        "peopleNumber": "+4M",
+        "peopleLabelLine1": "PERSONAS CON ENERGÍA",
+        "peopleLabelLine2": "MÁS RESPONSABLE"
+      },
+      "purpose": {
+        "subtitle": "/ UN PROPÓSITO REAL",
+        "titleLine1": "ENERGÍA QUE",
+        "titleHighlight": "TRANSFORMA",
+        "titleLine2": "EXPERIENCIAS.",
+        "description": "En {{brand}} creemos que la energía puede ser más limpia, eficiente y responsable en cualquier escenario. Llevamos soluciones energéticas temporales a eventos, industrias, proyectos y comunidades, reduciendo emisiones y generando un impacto positivo en las personas y en el planeta.",
+        "cardTitleLine1": "GRANDES",
+        "cardTitleLine2": "EVENTOS.",
+        "cardHighlightLine1": "UN PLANETA",
+        "cardHighlightLine2": "REAL."
+      },
+      "pillars": {
+        "emissions": {
+          "title": "MENOS EMISIONES",
+          "description": "Reducimos la huella de carbono de cada proyecto."
+        },
+        "efficiency": {
+          "title": "MÁS EFICIENCIA",
+          "description": "Soluciones inteligentes para un mejor rendimiento."
+        },
+        "events": {
+          "title": "EVENTOS RESPONSABLES",
+          "description": "Impulsamos una industria del entretenimiento consciente."
+        },
+        "planet": {
+          "title": "UN PLANETA REAL",
+          "description": "Hoy hacemos posible un futuro más limpio para las próximas generaciones."
+        }
+      },
+      "useCases": {
+        "events": {
+          "category": "/ PARA EVENTOS",
+          "titleLine1": "La misma emoción,",
+          "titleLine2": "con un menor impacto."
+        },
+        "industry": {
+          "category": "/ PARA LA INDUSTRIA",
+          "titleLine1": "Productividad",
+          "titleLine2": "y sostenibilidad",
+          "titleLine3": "en movimiento."
+        },
+        "scenarios": {
+          "category": "/ PARA CUALQUIER ESCENARIO",
+          "titleLine1": "Soluciones temporales",
+          "titleLine2": "para un futuro permanente."
+        }
+      },
+      "commitment": {
+        "subtitle": "/ NUESTRO COMPROMISO",
+        "titleLine1": "UN FUTURO MÁS VERDE",
+        "titleHighlight": "TAMBIÉN ES POSIBLE.",
+        "description": "Trabajamos cada día para que la energía que mueve el entretenimiento, la industria y las comunidades sea más limpia, eficiente y consciente. Porque creemos que los grandes proyectos también pueden dejar una huella positiva.",
+        "keywords": {
+          "energy": "ENERGÍA",
+          "people": "PERSONAS",
+          "experiences": "EXPERIENCIAS",
+          "planet": "PLANETA"
+        }
+      }
+    },
+    "contact": {
+    "hero": {
+      "kicker": "CONTACTO",
+      "title1": "ENERGÍA PARA HACER",
+      "title2": "IDEAS REALES.",
+      "description": "En Gran Eventos y SETIE estamos listos para escuchar tus ideas y acompañarte en cada etapa de tu proyecto.",
+      "alt": "Producción de eventos y soluciones energéticas",
+      "side": {
+        "events": "EVENTOS",
+        "industry": "INDUSTRIA",
+        "communities": "COMUNIDADES",
+        "future": "UN FUTURO REAL"
+      }
+    },
+    "form": {
+      "kicker": "ESCRÍBENOS",
+      "title1": "CUÉNTANOS",
+      "title2": "TU PROYECTO.",
+      "namePlaceholder": "Nombre completo",
+      "emailPlaceholder": "Correo electrónico",
+      "companyPlaceholder": "Empresa / Organización",
+      "projectTypePlaceholder": "Tipo de proyecto",
+      "messagePlaceholder": "Cuéntanos más sobre tu proyecto...",
+      "privacyText": "Acepto el tratamiento de mis datos personales.",
+      "submitBtn": "ENVIAR MENSAJE",
+      "privacyError": "Debes aceptar el tratamiento de tus datos.",
+      "successMessage": "Mensaje preparado correctamente.",
+      "projectTypes": {
+        "festival": "Festival",
+        "concert": "Concierto",
+        "corporate": "Evento corporativo",
+        "energy": "Soluciones energéticas",
+        "other": "Otro"
+      }
+    },
+    "channels": {
+      "kicker": "OTROS CANALES",
+      "whatsappTitle": "Hablemos por WhatsApp",
+      "whatsappDesc": "Respuestas más rápidas.",
+      "emailTitle": "Envíanos un correo",
+      "emailDesc": "Te responderemos lo antes posible.",
+      "callTitle": "Llámanos"
+    },
+    "location": {
+      "kicker": "NUESTRA UBICACIÓN",
+      "title1": "BASE EN COLOMBIA,",
+      "title2": "EXPERIENCIAS",
+      "title3": "SIN FRONTERAS.",
+      "desc": "Desde nuestra sede en Cota, operamos en todo el país y llevamos la experiencia de Gran Eventos más allá de las fronteras, con soluciones energéticas de SETIE para eventos en la región.",
+      "mainHeadquarters": "SEDE PRINCIPAL",
+      "addressLine1": "Autopista Medellín Km 2.5 Vía Parcelas",
+      "addressLine2": "Ciem oiks occidente bodega 169-170,",
+      "addressLine3": "Cota, Cundinamarca",
+      "operatesNationwide": "(Operamos en todo el país)",
+      "scheduleTitle": "ESTAMOS PARA TI",
+      "scheduleDays": "Lunes a viernes",
+      "scheduleHours": "8:00 a.m. - 6:00 p.m.",
+      "scheduleSaturday": "Sábados 8:00 a.m. - 12:00 m."
+    },
+    "features": {
+      "feat1": {
+        "title": "COBERTURA",
+        "sub": "NACIONAL",
+        "detailLine1": "EN TODAS",
+        "detailLine2": "LAS REGIONES"
+      },
+      "feat2": {
+        "title": "PRESENCIA",
+        "sub": "INTERNACIONAL",
+        "detailLine1": "LATAM Y",
+        "detailLine2": "OTROS PAÍSES"
+      },
+      "feat3": {
+        "title": "SOLUCIONES",
+        "sub": "MÓVILES",
+        "detailLine1": "NOS ADAPTAMOS",
+        "detailLine2": "A CUALQUIER LUGAR"
+      },
+      "feat4": {
+        "title": "EVENTOS",
+        "sub": "MÁS SOSTENIBLES",
+        "detailLine1": "EN CUALQUIER",
+        "detailLine2": "DESTINO"
+      }
+    },
+    "international": {
+      "kicker": "ALCANCE INTERNACIONAL",
+      "title1": "LLEVAMOS",
+      "title2": "NUESTRA ENERGÍA",
+      "title3": "MÁS LEJOS.",
+      "desc": "Hoy operamos en toda Colombia y contamos con capacidad para desarrollar proyectos en Latinoamérica y otros países, acompañando eventos que conectan personas en todo el mundo."
+    },
+    "possibilities": {
+      "sub": "UN MUNDO DE POSIBILIDADES",
+      "title1": "TU EVENTO,",
+      "title2": " EN CUALQUIER LUGAR."
+    },
+    "talent": {
+      "kicker": "TALENTO",
+      "title1": "TRABAJA",
+      "title2": "CON NOSOTROS.",
+      "desc": "Creemos en el talento que impulsa experiencias y un futuro más sostenible.",
+      "btn": "ENVIAR MI HOJA DE VIDA",
+      "side": {
+        "talent": "TALENTO",
+        "ideas": "IDEAS",
+        "energy": "ENERGÍA",
+        "impact": "IMPACTO"
+      }
+    },
+    "banner": {
+      "title1": "GRANDES EXPERIENCIAS",
+      "title2": "TAMBIÉN DEJAN",
+      "title3": "UN MUNDO MEJOR.",
+      "right": {
+        "energy": "ENERGÍA",
+        "people": "PERSONAS",
+        "experiences": "EXPERIENCIAS",
+        "planet": "PLANETA"
+      }
+    }
+  },
+  "festival": {
+    "hero": {
+      "eyebrow": "FESTIVALES",
+      "title1": "FESTIVALES",
+      "title2": "QUE HACEN",
+      "title3": "HISTORIA.",
+      "description": "Creamos experiencias inolvidables a través de la producción logística y técnica de gran formato.",
+      "discoverBtn": "DESCUBRE NUESTROS PROYECTOS"
+    },
+    "projects": {
+      "eyebrow": "FESTIVALES EN ACCIÓN",
+      "title1": "NUESTROS",
+      "title2": " PROYECTOS.",
+      "intro": "Hemos sido parte de los festivales más importantes del país, llevando nuestra experiencia y compromiso a cada escenario.",
+      "viewAll": "VER TODOS",
+      "imageAlt": "Festival {{title}}",
+      "imagePending": "Imagen pendiente de {{title}}",
+      "placeholderText": "IMAGEN",
+      "viewProjectAria": "Ver proyecto {{title}}",
+      "prevProjectAria": "Proyecto anterior",
+      "nextProjectAria": "Siguiente proyecto"
+    }
+  },
+  "concert": {
+    "hero": {
+      "eyebrow": "CONCIERTOS",
+      "title1": "MÚSICA",
+      "title2": "QUE NOS",
+      "title3": "UNE.",
+      "description": "Creamos experiencias de alto impacto a través de la producción técnica, logística y artística de conciertos de gran formato.",
+      "discoverBtn": "DESCUBRE NUESTROS PROYECTOS",
+      "bgAlt": "Fondo de escenario de concierto"
+    },
+    "services": {
+      "eyebrow": "LO QUE HACEMOS EN",
+      "title": "CONCIERTOS",
+      "description": "Nos encargamos de cada detalle para que tu concierto sea una experiencia inolvidable. Desde la producción técnica hasta la logística de artistas, equipos y público.",
+      "items": {
+        "s1": {
+          "title": "PRODUCCIÓN TÉCNICA Y ESCÉNICA",
+          "description": "Montaje, iluminación, sonido y pantallas de última generación."
+        },
+        "s2": {
+          "title": "LOGÍSTICA ARTÍSTICA",
+          "description": "Coordinación de artistas, backstage y hospitalidad."
+        },
+        "s3": {
+          "title": "SEGURIDAD INTEGRAL",
+          "description": "Planes de seguridad y control de accesos para tu tranquilidad."
+        },
+        "s4": {
+          "title": "GESTIÓN DE EQUIPOS",
+          "description": "Alquiler de equipos de audio, video, escenario y más."
+        },
+        "s5": {
+          "title": "EXPERIENCIA DEL PÚBLICO",
+          "description": "Espacios cómodos, accesos fluidos y una experiencia inolvidable."
+        }
+      }
+    },
+    "experience": {
+      "eyebrow": "EXPERIENCIAS",
+      "title1": "QUE HACEN",
+      "title2": "VIBRAR.",
+      "description": "Cada concierto es una historia diferente, y nosotros nos aseguramos de que se viva al máximo.",
+      "stats": {
+        "concerts": "CONCIERTOS",
+        "realized": "REALIZADOS",
+        "attendees": "ASISTENTES",
+        "totals": "TOTALES",
+        "years": "DE EXPERIENCIA",
+        "commitment": "COMPROMISO"
+      }
+    },
+    "projects": {
+      "eyebrow": "NUESTROS",
+      "title": "PROYECTOS",
+      "prevAria": "Proyecto anterior",
+      "nextAria": "Siguiente proyecto",
+      "imageAlt": "Proyecto {{title}}",
+      "placeholderText": "IMAGEN",
+      "viewProjectAria": "Ver {{title}}"
+    },
+    "cta": {
+      "eyebrow": "HAGAMOS REALIDAD",
+      "title1": "TU PRÓXIMO",
+      "title2": "CONCIERTO.",
+      "description": "Cuéntanos tu idea y nuestro equipo se pondrá en contacto contigo.",
+      "button": "CONTACTO"
+    }
   }
 }

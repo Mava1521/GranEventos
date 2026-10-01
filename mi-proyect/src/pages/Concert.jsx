@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../styles/Concert.css';
 
 import HeroConcert from '../assets/HeroConcert.jpg';
@@ -12,41 +13,16 @@ import FOTO5 from '../assets/FOTO5.jpg';
 
 /*
  * ============================================================
- * DATOS DE LA PÁGINA
+ * DATOS DE LA PÁGINA (ESTRUTURA BASE)
  * ============================================================
  */
 
-const services = [
-  {
-    id: 1,
-    title: 'PRODUCCIÓN TÉCNICA Y ESCÉNICA',
-    description: 'Montaje, iluminación, sonido y pantallas de última generación.',
-    icon: 'stage',
-  },
-  {
-    id: 2,
-    title: 'LOGÍSTICA ARTÍSTICA',
-    description: 'Coordinación de artistas, backstage y hospitalidad.',
-    icon: 'truck',
-  },
-  {
-    id: 3,
-    title: 'SEGURIDAD INTEGRAL',
-    description: 'Planes de seguridad y control de accesos para tu tranquilidad.',
-    icon: 'shield',
-  },
-  {
-    id: 4,
-    title: 'GESTIÓN DE EQUIPOS',
-    description: 'Alquiler de equipos de audio, video, escenario y más.',
-    icon: 'settings',
-  },
-  {
-    id: 5,
-    title: 'EXPERIENCIA DEL PÚBLICO',
-    description: 'Espacios cómodos, accesos fluidos y una experiencia inolvidable.',
-    icon: 'people',
-  },
+const serviceKeys = [
+  { id: 1, key: 's1', icon: 'stage' },
+  { id: 2, key: 's2', icon: 'truck' },
+  { id: 3, key: 's3', icon: 'shield' },
+  { id: 4, key: 's4', icon: 'settings' },
+  { id: 5, key: 's5', icon: 'people' },
 ];
 
 const projects = [
@@ -165,6 +141,7 @@ function ConcertIcon({ type }) {
  */
 
 export default function Concert() {
+  const { t } = useTranslation();
   const [projectOffset, setProjectOffset] = useState(0);
 
   const visibleProjects = projects.map((_, index) => {
@@ -188,7 +165,7 @@ export default function Concert() {
       ====================================================== */}
       <section className="concert-hero">
         <div className="concert-hero__image" aria-hidden="true">
-          <img src={HeroConcert} alt="Concert Stage background" className="concert-hero__bg-img" />
+          <img src={HeroConcert} alt={t('concert.hero.bgAlt')} className="concert-hero__bg-img" />
         </div>
 
         <div className="concert-hero__gradient" aria-hidden="true" />
@@ -197,23 +174,23 @@ export default function Concert() {
           <div className="concert-hero__text">
             <div className="concert-label">
               <span>/</span>
-              CONCIERTOS
+              {t('concert.hero.eyebrow')}
             </div>
 
             <h1 className="concert-hero__title">
-              MÚSICA
-              <span>QUE NOS</span>
-              <strong>UNE.</strong>
+              {t('concert.hero.title1')}{' '}
+              <span>{t('concert.hero.title2')}</span>{' '}
+              <strong>{t('concert.hero.title3')}</strong>
             </h1>
 
             <p className="concert-hero__description">
-              Creamos experiencias de alto impacto a través de la producción técnica, logística y artística de conciertos de gran formato.
+              {t('concert.hero.description')}
             </p>
 
             <span className="concert-yellow-line" aria-hidden="true" />
 
             <Link to="/nuevas-tecnologias" className="concert-main-link">
-              DESCUBRE NUESTROS PROYECTOS
+              {t('concert.hero.discoverBtn')}
               <span aria-hidden="true">→</span>
             </Link>
           </div>
@@ -229,28 +206,28 @@ export default function Concert() {
             <div className="concert-section-header__title">
               <div className="concert-label">
                 <span>/</span>
-                LO QUE HACEMOS EN
+                {t('concert.services.eyebrow')}
               </div>
               <h2>
-                CONCIERTOS<span>.</span>
+                {t('concert.services.title')}<span>.</span>
               </h2>
             </div>
 
             <div className="concert-section-header__description">
               <p>
-                Nos encargamos de cada detalle para que tu concierto sea una experiencia inolvidable. Desde la producción técnica hasta la logística de artistas, equipos y público.
+                {t('concert.services.description')}
               </p>
             </div>
           </header>
 
           <div className="concert-services-grid">
-            {services.map((service) => (
-              <article className="concert-service-card" key={service.id}>
+            {serviceKeys.map((item) => (
+              <article className="concert-service-card" key={item.id}>
                 <div className="concert-service-card__icon">
-                  <ConcertIcon type={service.icon} />
+                  <ConcertIcon type={item.icon} />
                 </div>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
+                <h3>{t(`concert.services.items.${item.key}.title`)}</h3>
+                <p>{t(`concert.services.items.${item.key}.description`)}</p>
               </article>
             ))}
           </div>
@@ -269,13 +246,13 @@ export default function Concert() {
           <div className="concert-experience__content">
             <div className="concert-label">
               <span>/</span>
-              EXPERIENCIAS
+              {t('concert.experience.eyebrow')}
             </div>
             <h2>
-              QUE HACEN <span>VIBRAR.</span>
+              {t('concert.experience.title1')} <span>{t('concert.experience.title2')}</span>
             </h2>
             <p>
-              Cada concierto es una historia diferente, y nosotros nos aseguramos de que se viva al máximo.
+              {t('concert.experience.description')}
             </p>
           </div>
 
@@ -283,22 +260,22 @@ export default function Concert() {
             <div className="concert-stat">
               <strong>+100</strong>
               <span>
-                CONCIERTOS <br /> REALIZADOS
+                {t('concert.experience.stats.concerts')} <br /> {t('concert.experience.stats.realized')}
               </span>
             </div>
             <div className="concert-stat">
               <strong>+500K</strong>
               <span>
-                ASISTENTES <br /> TOTALES
+                {t('concert.experience.stats.attendees')} <br /> {t('concert.experience.stats.totals')}
               </span>
             </div>
             <div className="concert-stat">
               <strong>+10 AÑOS</strong>
-              <span>DE EXPERIENCIA</span>
+              <span>{t('concert.experience.stats.years')}</span>
             </div>
             <div className="concert-stat">
               <strong>100%</strong>
-              <span>COMPROMISO</span>
+              <span>{t('concert.experience.stats.commitment')}</span>
             </div>
           </div>
         </div>
@@ -313,19 +290,19 @@ export default function Concert() {
             <div>
               <div className="concert-label">
                 <span>/</span>
-                NUESTROS
+                {t('concert.projects.eyebrow')}
               </div>
               <h2>
-                PROYECTOS<span>.</span>
+                {t('concert.projects.title')}<span>.</span>
               </h2>
             </div>
 
             <div className="concert-projects__controls">
-              <button type="button" onClick={handlePrevious} aria-label="Proyecto anterior">
+              <button type="button" onClick={handlePrevious} aria-label={t('concert.projects.prevAria')}>
                 ←
               </button>
               <span>01 / 04</span>
-              <button type="button" onClick={handleNext} aria-label="Siguiente proyecto">
+              <button type="button" onClick={handleNext} aria-label={t('concert.projects.nextAria')}>
                 →
               </button>
             </div>
@@ -336,10 +313,10 @@ export default function Concert() {
               <article className="concert-project-card" key={project.id}>
                 <div className="concert-project-card__image">
                   {project.image ? (
-                    <img src={project.image} alt={`Proyecto ${project.title}`} />
+                    <img src={project.image} alt={t('concert.projects.imageAlt', { title: project.title })} />
                   ) : (
                     <div className="concert-project-placeholder">
-                      <span>IMAGEN</span>
+                      <span>{t('concert.projects.placeholderText')}</span>
                     </div>
                   )}
                 </div>
@@ -349,7 +326,7 @@ export default function Concert() {
                     <h3>{project.title}</h3>
                     <span>{project.location}</span>
                   </div>
-                  <button type="button" className="concert-project-card__arrow" aria-label={`Ver ${project.title}`}>
+                  <button type="button" className="concert-project-card__arrow" aria-label={t('concert.projects.viewProjectAria', { title: project.title })}>
                     →
                   </button>
                 </div>
@@ -373,17 +350,17 @@ export default function Concert() {
           <div className="concert-cta__title">
             <div className="concert-label">
               <span>/</span>
-              HAGAMOS REALIDAD
+              {t('concert.cta.eyebrow')}
             </div>
             <h2>
-              TU PRÓXIMO <span>CONCIERTO.</span>
+              {t('concert.cta.title1')} <span>{t('concert.cta.title2')}</span>
             </h2>
           </div>
 
           <div className="concert-cta__content">
-            <p>Cuéntanos tu idea y nuestro equipo se pondrá en contacto contigo.</p>
+            <p>{t('concert.cta.description')}</p>
             <Link to="/contacto" className="concert-cta__button">
-              CONTACTO <span>→</span>
+              {t('concert.cta.button')} <span>→</span>
             </Link>
           </div>
         </div>

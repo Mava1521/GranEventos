@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../styles/Festival.css';
 import festival from '../assets/festival.jpg';
 import camion from '../assets/camion.png';
@@ -29,6 +30,8 @@ const projects = [
 ];
 
 export default function Festival() {
+  const { t } = useTranslation();
+
   return (
     <main className="festival-page">
 
@@ -38,11 +41,10 @@ export default function Festival() {
       <section className="festival-hero">
 
         <div className="festival-hero__background" aria-hidden="true">
-            <img
-              src={festival}
-              alt=""
-            />
-          
+          <img
+            src={festival}
+            alt=""
+          />
         </div>
 
         <div className="festival-hero__overlay" aria-hidden="true" />
@@ -53,19 +55,17 @@ export default function Festival() {
 
             <span className="festival-eyebrow">
               <span className="festival-slash">/</span>
-              FESTIVALES
+              {t('festival.hero.eyebrow')}
             </span>
 
             <h1>
-              FESTIVALES
-              <span>QUE HACEN</span>
-              HISTORIA.
+              {t('festival.hero.title1')}{' '}
+              <span>{t('festival.hero.title2')}</span>{' '}
+              {t('festival.hero.title3')}
             </h1>
 
             <p>
-              Creamos experiencias inolvidables a través
-              de la producción logística y técnica de
-              gran formato.
+              {t('festival.hero.description')}
             </p>
 
             <span className="festival-line" />
@@ -74,7 +74,7 @@ export default function Festival() {
               to="/nuevas-tecnologias"
               className="festival-hero__link"
             >
-              DESCUBRE NUESTROS PROYECTOS
+              {t('festival.hero.discoverBtn')}
               <span aria-hidden="true">→</span>
             </Link>
 
@@ -97,21 +97,19 @@ export default function Festival() {
 
               <span className="festival-eyebrow">
                 <span className="festival-slash">/</span>
-                FESTIVALES EN ACCIÓN
+                {t('festival.projects.eyebrow')}
               </span>
 
               <h2>
-                NUESTROS
-                <strong> PROYECTOS.</strong>
+                {t('festival.projects.title1')}
+                <strong>{t('festival.projects.title2')}</strong>
               </h2>
 
             </div>
 
             <div className="festival-projects__intro">
               <p>
-                Hemos sido parte de los festivales más importantes
-                del país, llevando nuestra experiencia y compromiso
-                a cada escenario.
+                {t('festival.projects.intro')}
               </p>
             </div>
 
@@ -119,7 +117,7 @@ export default function Festival() {
               to="/nuevas-tecnologias"
               className="festival-projects__all"
             >
-              VER TODOS
+              {t('festival.projects.viewAll')}
               <span aria-hidden="true">→</span>
             </Link>
 
@@ -139,15 +137,15 @@ export default function Festival() {
                   {project.image ? (
                     <img
                       src={project.image}
-                      alt={`Festival ${project.title}`}
+                      alt={t('festival.projects.imageAlt', { title: project.title })}
                     />
                   ) : (
                     <div
                       className="festival-image-placeholder"
                       role="img"
-                      aria-label={`Imagen pendiente de ${project.title}`}
+                      aria-label={t('festival.projects.imagePending', { title: project.title })}
                     >
-                      <span>IMAGEN</span>
+                      <span>{t('festival.projects.placeholderText')}</span>
                     </div>
                   )}
 
@@ -163,7 +161,7 @@ export default function Festival() {
                   <button
                     type="button"
                     className="festival-project-card__arrow"
-                    aria-label={`Ver proyecto ${project.title}`}
+                    aria-label={t('festival.projects.viewProjectAria', { title: project.title })}
                   >
                     →
                   </button>
@@ -180,7 +178,7 @@ export default function Festival() {
 
             <button
               type="button"
-              aria-label="Proyecto anterior"
+              aria-label={t('festival.projects.prevProjectAria')}
               className="festival-slider-button"
             >
               ←
@@ -188,7 +186,7 @@ export default function Festival() {
 
             <button
               type="button"
-              aria-label="Siguiente proyecto"
+              aria-label={t('festival.projects.nextProjectAria')}
               className="festival-slider-button"
             >
               →

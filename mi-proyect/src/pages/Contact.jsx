@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/Contact.css';
+
 import LogoGE from '../assets/LOGOGE.png';
 import IconWhatsApp from '../assets/whatsapp.png';
 import ImageHero from '../assets/HeroContact.jpg';
@@ -26,15 +28,8 @@ const initialForm = {
   privacy: false,
 };
 
-const projectTypes = [
-  'Festival',
-  'Concierto',
-  'Evento corporativo',
-  'Soluciones energéticas',
-  'Otro',
-];
-
-function Contact() {
+export default function Contact() {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState(initialForm);
   const [status, setStatus] = useState('');
 
@@ -51,18 +46,11 @@ function Contact() {
     event.preventDefault();
 
     if (!formData.privacy) {
-      setStatus('Debes aceptar el tratamiento de tus datos.');
+      setStatus(t('contact.form.privacyError'));
       return;
     }
 
-    setStatus('Mensaje preparado correctamente.');
-
-    // Aquí posteriormente puedes conectar:
-    // - una API
-    // - EmailJS
-    // - Formspree
-    // - backend propio
-
+    setStatus(t('contact.form.successMessage'));
     setFormData(initialForm);
   };
 
@@ -73,47 +61,37 @@ function Contact() {
           HERO
       ========================================== */}
       <section className="contact-hero">
-
         <div className="contact-hero-content">
-
           <div className="contact-kicker">
             <span />
-            CONTACTO
+            {t('contact.hero.kicker')}
           </div>
 
           <h1>
-            ENERGÍA PARA HACER
-            <strong>IDEAS REALES.</strong>
+            {t('contact.hero.title1')}{' '}
+            <strong>{t('contact.hero.title2')}</strong>
           </h1>
 
           <div className="contact-yellow-line" />
 
-          <p>
-            En Gran Eventos y SETIE estamos listos para
-            escuchar tus ideas y acompañarte en cada etapa
-            de tu proyecto.
-          </p>
-
+          <p>{t('contact.hero.description')}</p>
         </div>
 
         <div className="contact-hero-image">
           <img
             src={ImageHero}
-            alt="Producción de eventos y soluciones energéticas"
+            alt={t('contact.hero.alt')}
           />
-
           <div className="contact-lightning" />
         </div>
 
         <div className="contact-hero-side">
-          <span>EVENTOS</span>
-          <span>INDUSTRIA</span>
-          <span>COMUNIDADES</span>
-          <span>UN FUTURO REAL</span>
-
+          <span>{t('contact.hero.side.events')}</span>
+          <span>{t('contact.hero.side.industry')}</span>
+          <span>{t('contact.hero.side.communities')}</span>
+          <span>{t('contact.hero.side.future')}</span>
           <div />
         </div>
-
       </section>
 
       {/* =========================================
@@ -121,71 +99,62 @@ function Contact() {
       ========================================= */}
       <section className="contact-main">
 
-        {/* =====================================
-            CONTACT FORM
-        ====================================== */}
+        {/* FORMULARIO */}
         <div className="contact-form-column">
-
           <div className="contact-kicker dark">
             <span />
-            ESCRÍBENOS
+            {t('contact.form.kicker')}
           </div>
 
           <h2>
-            CUÉNTANOS
-            <small>TU PROYECTO.</small>
+            {t('contact.form.title1')} <small>{t('contact.form.title2')}</small>
           </h2>
 
           <form
             className="contact-form"
             onSubmit={handleSubmit}
           >
-
             <label htmlFor="name" className="sr-only">
-              Nombre completo
+              {t('contact.form.namePlaceholder')}
             </label>
-
             <input
               id="name"
               name="name"
               type="text"
-              placeholder="Nombre completo"
+              placeholder={t('contact.form.namePlaceholder')}
               value={formData.name}
               onChange={handleChange}
               required
             />
 
             <label htmlFor="email" className="sr-only">
-              Correo electrónico
+              {t('contact.form.emailPlaceholder')}
             </label>
-
             <input
               id="email"
               name="email"
               type="email"
-              placeholder="Correo electrónico"
+              placeholder={t('contact.form.emailPlaceholder')}
               value={formData.email}
               onChange={handleChange}
               required
             />
 
             <label htmlFor="company" className="sr-only">
-              Empresa u organización
+              {t('contact.form.companyPlaceholder')}
             </label>
-
             <input
               id="company"
               name="company"
               type="text"
-              placeholder="Empresa / Organización"
+              placeholder={t('contact.form.companyPlaceholder')}
               value={formData.company}
               onChange={handleChange}
             />
 
             <label htmlFor="projectType" className="sr-only">
-              Tipo de proyecto
+              {t('contact.form.projectTypePlaceholder')}
             </label>
-
             <select
               id="projectType"
               name="projectType"
@@ -194,85 +163,64 @@ function Contact() {
               required
             >
               <option value="">
-                Tipo de proyecto
+                {t('contact.form.projectTypePlaceholder')}
               </option>
-
-              {projectTypes.map((type) => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
+              <option value="festival">{t('contact.form.projectTypes.festival')}</option>
+              <option value="concert">{t('contact.form.projectTypes.concert')}</option>
+              <option value="corporate">{t('contact.form.projectTypes.corporate')}</option>
+              <option value="energy">{t('contact.form.projectTypes.energy')}</option>
+              <option value="other">{t('contact.form.projectTypes.other')}</option>
             </select>
 
             <label htmlFor="message" className="sr-only">
-              Descripción del proyecto
+              {t('contact.form.messagePlaceholder')}
             </label>
-
             <textarea
               id="message"
               name="message"
-              placeholder="Cuéntanos más sobre tu proyecto..."
+              placeholder={t('contact.form.messagePlaceholder')}
               value={formData.message}
               onChange={handleChange}
               required
             />
 
             <label className="privacy-check">
-
               <input
                 type="checkbox"
                 name="privacy"
                 checked={formData.privacy}
                 onChange={handleChange}
               />
-
-              <span>
-                Acepto el tratamiento de mis datos personales.
-              </span>
-
+              <span>{t('contact.form.privacyText')}</span>
             </label>
 
             <button
               type="submit"
               className="contact-submit"
             >
-              <span>ENVIAR MENSAJE</span>
-
-              <svg
-                viewBox="0 0 40 20"
-                aria-hidden="true"
-              >
+              <span>{t('contact.form.submitBtn')}</span>
+              <svg viewBox="0 0 40 20" aria-hidden="true">
                 <path d="M1 10h34" />
                 <path d="M28 3l7 7-7 7" />
               </svg>
             </button>
 
             {status && (
-              <p
-                className="form-status"
-                role="status"
-              >
+              <p className="form-status" role="status">
                 {status}
               </p>
             )}
-
           </form>
-
         </div>
 
-
-        {/* =====================================
-            OTHER CHANNELS
-        ====================================== */}
+        {/* CANALES DE CONTACTO */}
         <aside className="contact-info">
-
           <div className="contact-kicker dark">
             <span />
-            OTROS CANALES
+            {t('contact.channels.kicker')}
           </div>
 
           <div className="contact-channel whatsapp">
-
             <div className="channel-icon">
               <img
                 src={IconWhatsApp}
@@ -281,216 +229,124 @@ function Contact() {
                 height={66}
               />
             </div>
-
             <div>
-              <h3>Hablemos por WhatsApp</h3>
-              <p>Respuestas más rápidas.</p>
+              <h3>{t('contact.channels.whatsappTitle')}</h3>
+              <p>{t('contact.channels.whatsappDesc')}</p>
             </div>
-
           </div>
 
           <div className="contact-channel">
-
             <div className="channel-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect
-                  x="3"
-                  y="5"
-                  width="18"
-                  height="14"
-                  rx="1"
-                />
+                <rect x="3" y="5" width="18" height="14" rx="1" />
                 <path d="m3 7 9 6 9-6" />
               </svg>
             </div>
-
             <div>
-              <h3>Envíanos un correo</h3>
-
+              <h3>{t('contact.channels.emailTitle')}</h3>
               <p>
                 info@graneventos.com
                 <br />
-                Te responderemos lo antes posible.
+                {t('contact.channels.emailDesc')}
               </p>
             </div>
-
           </div>
 
           <div className="contact-channel">
-
             <div className="channel-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6 3h4l2 5-3 2a14 14 0 0 0 5 5l2-3 5 2v4c0 1-1 2-2 2C11 20 4 13 4 5c0-1 1-2 2-2Z" />
               </svg>
             </div>
-
             <div>
-              <h3>Llámanos</h3>
-
-              <p>
-                +57 350 500 3388
-              </p>
+              <h3>{t('contact.channels.callTitle')}</h3>
+              <p>+57 350 500 3388</p>
             </div>
-
           </div>
-
         </aside>
-
       </section>
-
 
       {/* =========================================
           LOCATION
       ========================================= */}
       <section className="contact-location-section">
-
-        {/* =====================================
-            LOCATION INTRO
-        ====================================== */}
         <div className="location-header">
-
           <div className="contact-kicker dark">
-            NUESTRA UBICACIÓN
+            {t('contact.location.kicker')}
           </div>
 
           <div className="location-yellow-line" />
 
           <h2>
-            BASE EN COLOMBIA,
+            {t('contact.location.title1')}
             <br />
-            EXPERIENCIAS
+            {t('contact.location.title2')}
             <br />
-            <strong>SIN FRONTERAS.</strong>
+            <strong>{t('contact.location.title3')}</strong>
           </h2>
 
-          <p>
-            Desde nuestra sede en Cota, operamos en todo el país y
-            llevamos la experiencia de Gran Eventos más allá de las
-            fronteras, con soluciones energéticas de SETIE para
-            eventos en la región.
-          </p>
-
+          <p>{t('contact.location.desc')}</p>
         </div>
-
-
-        {/* =====================================
-            MAP AREA
-        ====================================== */}
 
         <div className="location-map-area">
-
           <div className="location-map-placeholder">
             <img src={ColombiaContact} alt="" />
-
           </div>
-
         </div>
-
-
-        {/* =====================================
-            LOCATION DETAILS
-        ====================================== */}
 
         <div className="location-details">
-
           {/* SEDE PRINCIPAL */}
-
           <article className="location-detail">
-
             <div className="location-detail-icon">
-
-              <img
-                src={location}
-                alt=""
-                width={25}
-                height={25}
-              />
-
+              <img src={location} alt="" width={25} height={25} />
             </div>
-
-
             <div className="location-detail-content">
-
-              <h3>
-                SEDE PRINCIPAL
-              </h3>
-
+              <h3>{t('contact.location.mainHeadquarters')}</h3>
               <p>
-                Autopista Medellín Km 2.5 Vía Parcelas
+                {t('contact.location.addressLine1')}
                 <br />
-                Ciem oiks occidente bodega 169-170,
+                {t('contact.location.addressLine2')}
                 <br />
-                Cota, Cundinamarca
+                {t('contact.location.addressLine3')}
                 <br />
-                <strong>
-                  (Operamos en todo el país)
-                </strong>
+                <strong>{t('contact.location.operatesNationwide')}</strong>
               </p>
-
             </div>
-
           </article>
 
-
-          {/* DIVIDER */}
-
-          <div
-            className="location-details-divider"
-            aria-hidden="true"
-          />
-
-
+          <div className="location-details-divider" aria-hidden="true" />
 
           {/* HORARIO */}
-
           <article className="location-detail">
-
             <div className="location-detail-icon">
-
-              <img
-                src={clock}
-                alt=""
-                width={22}
-                height={22}
-              />
-
+              <img src={clock} alt="" width={22} height={22} />
             </div>
-
-
             <div className="location-detail-content">
-
-              <h3>
-                ESTAMOS PARA TI
-              </h3>
-
+              <h3>{t('contact.location.scheduleTitle')}</h3>
               <p>
-                Lunes a viernes
+                {t('contact.location.scheduleDays')}
                 <br />
-                8:00 a.m. - 6:00 p.m.
+                {t('contact.location.scheduleHours')}
                 <br />
-                Sábados 8:00 a.m. - 12:00 m.
+                {t('contact.location.scheduleSaturday')}
               </p>
-
             </div>
-
           </article>
-
         </div>
 
-        {/* =====================================
-            COVERAGE FEATURES
-        ====================================== */}
+        {/* COBERTURA */}
         <div className="location-features">
-
           <div className="location-feature">
             <div className="feature-symbol">
               <img src={mapa} alt="" />
             </div>
-
             <div>
-              <strong>COBERTURA</strong>
-              <span>NACIONAL</span>
-              <small>EN TODAS<br />LAS REGIONES</small>
+              <strong>{t('contact.features.feat1.title')}</strong>
+              <span>{t('contact.features.feat1.sub')}</span>
+              <small>
+                {t('contact.features.feat1.detailLine1')}<br />
+                {t('contact.features.feat1.detailLine2')}
+              </small>
             </div>
           </div>
 
@@ -498,11 +354,13 @@ function Contact() {
             <div className="feature-symbol">
               <img src={mundo} alt="" width={60} height={60} />
             </div>
-
             <div>
-              <strong>PRESENCIA</strong>
-              <span>INTERNACIONAL</span>
-              <small>LATAM Y<br />OTROS PAÍSES</small>
+              <strong>{t('contact.features.feat2.title')}</strong>
+              <span>{t('contact.features.feat2.sub')}</span>
+              <small>
+                {t('contact.features.feat2.detailLine1')}<br />
+                {t('contact.features.feat2.detailLine2')}
+              </small>
             </div>
           </div>
 
@@ -510,11 +368,13 @@ function Contact() {
             <div className="feature-symbol">
               <img src={soluciones} alt="" width={70} height={70}/>
             </div>
-
             <div>
-              <strong>SOLUCIONES</strong>
-              <span>MÓVILES</span>
-              <small>NOS ADAPTAMOS<br />A CUALQUIER LUGAR</small>
+              <strong>{t('contact.features.feat3.title')}</strong>
+              <span>{t('contact.features.feat3.sub')}</span>
+              <small>
+                {t('contact.features.feat3.detailLine1')}<br />
+                {t('contact.features.feat3.detailLine2')}
+              </small>
             </div>
           </div>
 
@@ -522,171 +382,98 @@ function Contact() {
             <div className="feature-symbol">
               <img src={hoja} alt="" width={50} height={50}/>
             </div>
-
             <div>
-              <strong>EVENTOS</strong>
-              <span>MÁS SOSTENIBLES</span>
-              <small>EN CUALQUIER<br />DESTINO</small>
+              <strong>{t('contact.features.feat4.title')}</strong>
+              <span>{t('contact.features.feat4.sub')}</span>
+              <small>
+                {t('contact.features.feat4.detailLine1')}<br />
+                {t('contact.features.feat4.detailLine2')}
+              </small>
             </div>
           </div>
-
         </div>
 
-
-        {/* =====================================
-            INTERNATIONAL REACH
-        ====================================== */}
+        {/* ALCANCE INTERNACIONAL */}
         <div className="location-international">
-
           <div className="international-copy">
-
             <div className="contact-kicker dark">
               <span />
-              ALCANCE INTERNACIONAL
+              {t('contact.international.kicker')}
             </div>
 
             <h2>
-              LLEVAMOS
+              {t('contact.international.title1')}
               <br />
-              NUESTRA ENERGÍA
+              {t('contact.international.title2')}
               <br />
-              MÁS LEJOS.
+              {t('contact.international.title3')}
             </h2>
 
             <div className="location-yellow-line" />
 
-            <p>
-              Hoy operamos en toda Colombia y contamos con
-              capacidad para desarrollar proyectos en
-              Latinoamérica y otros países, acompañando
-              eventos que conectan personas en todo el mundo.
-            </p>
-
+            <p>{t('contact.international.desc')}</p>
           </div>
 
           <div className="world-map">
             <img src={MundialMap} alt="" width={900} height={600}/>
-
           </div>
-
         </div>
 
-
-         {/* =====================================
-            WORLD POSSIBILITIES CTA
-        ====================================== */}
-
+        {/* CTA POSIBILIDADES */}
         <div className="possibilities-card">
-
-          {/* ICON */}
-
           <div className="possibilities-icon">
-
-            <svg
-              viewBox="0 0 64 64"
-              aria-hidden="true"
-            >
-
-              <circle
-                cx="32"
-                cy="32"
-                r="27"
-              />
-
-              <ellipse
-                cx="32"
-                cy="32"
-                rx="13"
-                ry="27"
-              />
-
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="27" />
+              <ellipse cx="32" cy="32" rx="13" ry="27" />
               <path d="M5 32h54" />
-
               <path d="M9 20h46" />
-
               <path d="M9 44h46" />
-
             </svg>
-
           </div>
 
-
-          {/* DIVIDER */}
-
-          <div
-            className="possibilities-divider"
-            aria-hidden="true"
-          />
-
-
-          {/* TEXT */}
+          <div className="possibilities-divider" aria-hidden="true" />
 
           <div className="possibilities-text">
-
-            <span>
-              UN MUNDO DE POSIBILIDADES
-            </span>
-
+            <span>{t('contact.possibilities.sub')}</span>
             <h3>
-              TU EVENTO,
-              <strong> EN CUALQUIER LUGAR.</strong>
+              {t('contact.possibilities.title1')}
+              <strong>{t('contact.possibilities.title2')}</strong>
             </h3>
-
           </div>
-
-
-          {/* ARROW */}
 
           <div className="possibilities-arrow">
-
-            <svg
-              viewBox="0 0 40 20"
-              aria-hidden="true"
-            >
-
+            <svg viewBox="0 0 40 20" aria-hidden="true">
               <path d="M1 10h34" />
-
               <path d="M28 3l7 7-7 7" />
-
             </svg>
-
           </div>
-
         </div>
-
       </section>
 
       {/* =========================================
           TALENT
       ========================================== */}
       <section className="contact-talent">
-
         <div className="talent-content">
-
           <div className="contact-kicker dark">
             <span />
-            TALENTO
+            {t('contact.talent.kicker')}
           </div>
 
           <h2>
-            TRABAJA
-            <strong>CON NOSOTROS.</strong>
+            {t('contact.talent.title1')}{' '}
+            <strong>{t('contact.talent.title2')}</strong>
           </h2>
 
-          <p>
-            Creemos en el talento que impulsa experiencias
-            y un futuro más sostenible.
-          </p>
+          <p>{t('contact.talent.desc')}</p>
 
           <button className="outline-button">
-            ENVIAR MI HOJA DE VIDA
-
+            {t('contact.talent.btn')}
             <svg viewBox="0 0 40 20">
               <path d="M1 10h34" />
               <path d="M28 3l7 7-7 7" />
             </svg>
           </button>
-
         </div>
 
         <div className="talent-image">
@@ -697,54 +484,42 @@ function Contact() {
         </div>
 
         <div className="talent-side">
-          <span>TALENTO</span>
-          <span>IDEAS</span>
-          <span>ENERGÍA</span>
-          <span>IMPACTO</span>
-
+          <span>{t('contact.talent.side.talent')}</span>
+          <span>{t('contact.talent.side.ideas')}</span>
+          <span>{t('contact.talent.side.energy')}</span>
+          <span>{t('contact.talent.side.impact')}</span>
           <div />
         </div>
-
       </section>
 
       {/* =========================================
           FOOTER BANNER
       ========================================== */}
       <section className="contact-banner">
-
         <div className="banner-overlay" />
 
         <div className="banner-content">
-
           <div className="contact-yellow-line" />
-
           <h2>
-            GRANDES EXPERIENCIAS
+            {t('contact.banner.title1')}
             <br />
-            TAMBIÉN DEJAN
+            {t('contact.banner.title2')}
             <br />
-            UN MUNDO MEJOR.
+            {t('contact.banner.title3')}
           </h2>
-
         </div>
+
         <div className="banner-content">
           <img src={Foto4} alt="" width={600} height={400}/>
-
         </div>
 
         <div className="banner-right">
-          <span>ENERGÍA</span>
-          <span>PERSONAS</span>
-          <span>EXPERIENCIAS</span>
-          <span>PLANETA</span>
+          <span>{t('contact.banner.right.energy')}</span>
+          <span>{t('contact.banner.right.people')}</span>
+          <span>{t('contact.banner.right.experiences')}</span>
+          <span>{t('contact.banner.right.planet')}</span>
         </div>
-
       </section>
-
-     
-
     </main>
   );
 }
-
-export default Contact;

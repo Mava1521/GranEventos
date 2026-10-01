@@ -1,10 +1,13 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function TimelineItem({
   event,
   isActive,
   onSelect,
 }) {
+  const { t } = useTranslation();
+
   const handleClick = (e) => {
     e.stopPropagation();
 
@@ -26,7 +29,7 @@ export default function TimelineItem({
         className="timeline-year-button"
         onClick={handleClick}
         aria-selected={isActive}
-        aria-label={`Ver información del año ${event.year}`}
+        aria-label={t('history.timeline.aria.viewYear', { year: event.year })}
       >
         <span className="timeline-dot" aria-hidden="true">
           <span />
@@ -43,7 +46,7 @@ export default function TimelineItem({
         type="button"
         className="timeline-card"
         onClick={handleClick}
-        aria-label={`Abrir información de ${event.title}`}
+        aria-label={t('history.timeline.aria.openTitle', { title: event.title })}
       >
 
         {/* Imagen utilizada únicamente en el diseño responsive */}
@@ -57,7 +60,7 @@ export default function TimelineItem({
 
         <div className="timeline-card__content">
 
-         <div className="timeline-card__year">
+          <div className="timeline-card__year">
             {event.year}
           </div>
 

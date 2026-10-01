@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // 1. Importar Link
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../styles/Projects.css';
 
 import festivalImg from '../assets/Festival.png';
@@ -9,6 +10,8 @@ import teamImg from '../assets/FooterProyect.jpg';
 import HeroProyect from '../assets/HeroProyect.jpg';
 
 export default function Proyects() {
+  const { t } = useTranslation();
+
   return (
     <main className="projects-page">
 
@@ -21,34 +24,30 @@ export default function Proyects() {
         <div className="projects-hero-content">
 
           <div className="section-label">
-            <span>PROYECTOS</span>
+            <span>{t('projects.hero.sectionLabel')}</span>
             <span className="gold-line"></span>
           </div>
 
           <h1>
-            ESCENARIOS
+            {t('projects.hero.titlePart1')}
             <br />
-            QUE INSPIRAN
+            {t('projects.hero.titlePart2')}
             <br />
-            <span>UN MUNDO MEJOR.</span>
+            <span>{t('projects.hero.titlePart3')}</span>
           </h1>
 
           <p>
-            Diseñamos, producimos y montamos experiencias
-            <br className="desktop-only" />
-            que conectan personas a través de la energía,
-            <br className="desktop-only" />
-            la tecnología y la creatividad.
+            {t('projects.hero.description')}
           </p>
 
         </div>
 
         <div className="hero-keywords">
-          <span>IDEAS</span>
-          <span>ENERGÍA</span>
-          <span>PERSONAS</span>
-          <span>EXPERIENCIAS</span>
-          <span>REALES</span>
+          <span>{t('projects.hero.keywords.ideas')}</span>
+          <span>{t('projects.hero.keywords.energy')}</span>
+          <span>{t('projects.hero.keywords.people')}</span>
+          <span>{t('projects.hero.keywords.experiences')}</span>
+          <span>{t('projects.hero.keywords.real')}</span>
 
           <div className="hero-small-line"></div>
         </div>
@@ -56,12 +55,12 @@ export default function Proyects() {
         <div className="projects-hero-image">
           <img
             src={HeroProyect}
-            alt="Gran Eventos Logo"
+            alt="Gran Eventos Hero"
           />
 
           <div className="hero-image-overlay">
-            <strong>MÁS QUE EVENTOS.</strong>
-            <span>UN FUTURO COMPARTIDO.</span>
+            <strong>{t('projects.hero.overlayTitle')}</strong>
+            <span>{t('projects.hero.overlaySubtitle')}</span>
           </div>
         </div>
 
@@ -76,27 +75,27 @@ export default function Proyects() {
 
         <ProjectCard
           number="01"
-          title="FESTIVALES"
-          subtitle="Grandes ideas para audiencias extraordinarias."
-          description="Montaje, energía, producción y tecnología para festivales que dejan huella."
+          title={t('projects.categories.festivals.title')}
+          subtitle={t('projects.categories.festivals.subtitle')}
+          description={t('projects.categories.festivals.description')}
           image={festivalImg}
-           link="/nuevas-tecnologias/festivales" 
+          link="/nuevas-tecnologias/festivales" 
         />
 
         <ProjectCard
           number="02"
-          title="CONCIERTOS"
-          subtitle="La música nos mueve."
-          description="Soluciones integrales en infraestructura, energía y tecnología para conciertos de todos los formatos."
+          title={t('projects.categories.concerts.title')}
+          subtitle={t('projects.categories.concerts.subtitle')}
+          description={t('projects.categories.concerts.description')}
           image={conciertosImg}
           link="/nuevas-tecnologias/conciertos" 
         />
 
         <ProjectCard
           number="03"
-          title="CORPORATIVOS"
-          subtitle="Experiencias que impulsan negocios."
-          description="Eventos corporativos, lanzamientos, ferias y activaciones con soluciones a la medida."
+          title={t('projects.categories.corporate.title')}
+          subtitle={t('projects.categories.corporate.subtitle')}
+          description={t('projects.categories.corporate.description')}
           image={corporativosImg}
           link="/nuevas-tecnologias/corporativos"
         />
@@ -113,30 +112,29 @@ export default function Proyects() {
         <div className="team-image">
           <img
             src={teamImg}
-            alt="Equipo de Gran Eventos trabajando"
+            alt={t('projects.team.imgAlt')}
           />
         </div>
 
         <div className="team-content">
 
           <div className="section-label1">
-            <span>DETRÁS DE CADA EVENTO</span>
+            <span>{t('projects.team.label')}</span>
             <span className="gold-line"></span>
           </div>
 
           <h2>
-            HAY UN EQUIPO
+            {t('projects.team.titlePart1')}
             <br />
-            QUE LO HACE POSIBLE.
+            {t('projects.team.titlePart2')}
           </h2>
 
           <p>
-            Planeación, talento, tecnología y compromiso
-            para llevar cada idea a la realidad.
+            {t('projects.team.description')}
           </p>
 
           <Link to="/contacto" className="project-button">
-            <span>HABLEMOS DE TU PROYECTO</span>
+            <span>{t('projects.team.ctaButton')}</span>
             <span className="button-arrow">→</span>
           </Link>
 
@@ -152,30 +150,30 @@ export default function Proyects() {
       <section className="projects-stats">
 
         <div className="stats-intro">
-          <span>EXPERIENCIAS</span>
-          <span>EN NÚMEROS</span>
+          <span>{t('projects.stats.introLabel1')}</span>
+          <span>{t('projects.stats.introLabel2')}</span>
 
           <div className="gold-line"></div>
         </div>
 
         <Stat
           number="+300"
-          text="EVENTOS REALIZADOS"
+          text={t('projects.stats.eventsDone')}
         />
 
         <Stat
           number="+4M"
-          text="PERSONAS CONECTADAS"
+          text={t('projects.stats.peopleConnected')}
         />
 
         <Stat
           number="+12"
-          text="DE EXPERIENCIA"
+          text={t('projects.stats.yearsExperience')}
         />
 
         <Stat
-          number="UN SOLO PROPÓSITO"
-          text="UN PLANETA MÁS VIVO"
+          number={t('projects.stats.purposeNumber')}
+          text={t('projects.stats.purposeText')}
         />
 
       </section>
@@ -197,6 +195,8 @@ function ProjectCard({
   image,
   link,
 }) {
+  const { t } = useTranslation();
+
   return (
     <article className="project-card">
 
@@ -207,8 +207,7 @@ function ProjectCard({
           <span className="gold-line"></span>
         </div>
 
-        {/* 2. Convertido a Link para la flecha superior */}
-        <Link to={link} className="circle-arrow">
+        <Link to={link} className="circle-arrow" aria-label={title}>
           →
         </Link>
 
@@ -229,9 +228,8 @@ function ProjectCard({
 
       <div className="card-bottom-line"></div>
 
-      {/* 3. Convertido a Link apuntando a {link} */}
       <Link to={link} className="view-project">
-        <span>VER PROYECTOS</span>
+        <span>{t('projects.categories.viewProjects')}</span>
         <span>→</span>
       </Link>
 
