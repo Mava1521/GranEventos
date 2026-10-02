@@ -95,7 +95,7 @@ export default function Navbar() {
               <Link to="/sostenibilidad" className="nav-item nav-item-green" onClick={closeMenu}>
                 {t('navbar.nav.sustainability')}
               </Link>
-              {isSustainability && <div className="active-indicator active-indicator-green" />}
+              {isSustainability && <div className="active-indicator-green active-indicator-green" />}
             </li>
 
             <li className="nav-item-wrapper">

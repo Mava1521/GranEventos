@@ -301,22 +301,16 @@
 .privacy-check {
   display: flex;
   align-items: center;
-
   gap: 8px;
-
   margin: 3px 0 10px;
-
-  color: #fdd000;
-
   font-size: 10px;
-
   cursor: pointer;
 }
 
 .privacy-check input {
   width: 14px;
   height: 14px;
-  accent-color: #fdd000;
+  accent-color: hsl(49.33deg 100% 49.61% / 74%);
   margin: 0;
   cursor: pointer;
 }
@@ -1593,43 +1587,51 @@
 }
 
 .international-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-right: 40px;
+  position: relative;
+  z-index: 2; /* Asegura que el texto esté visible si hay fondos */
+  width: 100%;
+  max-width: 100%;
 }
 
 .international-copy h2 {
-  margin: 0 0 25px;
+  margin: 0 0 12px 0;
   font-family: 'Oswald', Impact, sans-serif;
-  font-size: clamp(38px, 3.6vw, 58px);
-  line-height: 0.95;
-  letter-spacing: 1px;
+  font-size: clamp(26px, 6vw, 42px);
+  line-height: 1.05;
+  color: #111111;
+  word-break: break-word; /* Previene desbordamiento de palabras largas */
 }
 
 .international-copy p {
-  max-width: 330px;
   margin: 0;
   font-size: 13px;
-  line-height: 1.6;
-  color: #555;
+  line-height: 1.5;
+  color: #555555;
+  max-width: 480px;
 }
 
-
-/* World map visual */
-
+/* 3. Contenedor de la Imagen del Mapa */
 .world-map {
   position: relative;
-  min-height: 360px;
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(139, 197, 63, 0.25),
-      transparent 55%
-    );
-  opacity: 0.95;
+  z-index: 1;
+  width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+/* 4. Imagen Ajustable que NO se Superpone */
+.world-map img {
+  position: relative !important; /* Desactiva superposiciones absolutas si existían */
+  top: auto !important;
+  left: auto !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .world-map::before {
@@ -1768,6 +1770,152 @@
   fill: none;
   stroke: #ffffff;
   stroke-width: 1.5;
+}
+
+/* =========================================================
+   MEDIA QUERIES (TABLETS & DESKTOPS)
+   ========================================================= */
+
+/* Tablets (≥ 768px) */
+@media (min-width: 768px) {
+  .contact-page {
+    --page-gutter: 40px;
+  }
+
+  /* Form & Channels side-by-side on tablet/desktop */
+  .contact-main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-info {
+    border-top: none;
+    border-left: 1px solid #e0e0e0;
+    background: transparent;
+  }
+
+  /* Details Grid */
+  .location-details {
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+
+  .location-details-divider {
+    display: block;
+    width: 1px;
+    height: 100%;
+    min-height: 80px;
+    background: #ccc;
+  }
+
+  /* Features Grid */
+  .location-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Talent Grid */
+  .contact-talent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .talent-side {
+    top: 40px;
+    bottom: auto;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+  }
+
+  /* Possibilities Card */
+  .possibilities-card {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 30px 40px;
+  }
+
+  .possibilities-divider {
+    width: 1px;
+    height: 40px;
+  }
+
+  /* Banner */
+  .contact-banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px var(--page-gutter);
+  }
+
+  .banner-content img {
+    max-width: 320px;
+  }
+
+  .banner-right {
+    flex-direction: column;
+    gap: 0;
+    padding-left: 25px;
+    padding-top: 0;
+    border-top: none;
+    border-left: 1px solid #ffffff;
+  }
+}
+
+/* Desktops (≥ 1024px) */
+@media (min-width: 1024px) {
+  .contact-page {
+    --page-gutter: 60px;
+  }
+
+  /* Hero Desktop Layout */
+  .contact-hero {
+    grid-template-columns: 43% 57%;
+    min-height: 480px;
+  }
+
+  .contact-hero-content {
+    padding: 180px 60px 80px var(--page-gutter);
+  }
+
+  .contact-hero-side {
+    top: auto;
+    bottom: 30px;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+  }
+
+  /* Location Section Desktop */
+  .contact-location-section {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    row-gap: 30px;
+  }
+
+  .location-map-area {
+    margin: 0;
+  }
+
+  .location-details,
+  .location-features,
+  .possibilities-card {
+    grid-column: 1 / -1;
+  }
+
+  .location-features {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+ .location-international {
+    display: grid;
+    grid-template-columns: 38% 62%; /* Texto a la izquierda, mapa a la derecha */
+    align-items: center;
+    gap: 30px;
+  }
+
+  .world-map {
+    margin-top: 0;
+  }
 }
 
 

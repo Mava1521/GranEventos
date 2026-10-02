@@ -159,6 +159,14 @@
   background-color: var(--accent-gold, #efbd00);
 }
 
+.active-indicator-green {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #9dc425;
+}
+
 /* =========================================================
    SELECTOR DE IDIOMA (PC)
    ========================================================= */
