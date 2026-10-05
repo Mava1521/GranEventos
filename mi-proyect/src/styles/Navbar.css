@@ -347,32 +347,38 @@
         }
 
         /* =========================================================
-            NAVBAR - TECNOLOGÍA
-            El navbar deja de superponerse al hero únicamente
-            en la página de Tecnología.
-            ========================================================= */
+          NAVBAR - TECNOLOGÍA
+          ========================================================= */
 
-          .navbar.navbar-tecnology {
-            position: relative;
-            top: auto;
-            left: auto;
-            width: 100%;
-            background-color: #ffffff;
-            z-index: 100;
-          }
+        .navbar.navbar-technology,
+        .navbar.navbar-tecnology {
+          position: relative;
+          top: auto;
+          left: auto;
+          width: 100%;
+          background-color: #ffffff;
+          z-index: 100;
+          border-bottom: 1px solid #e2e4e6;
+        }
 
-          .navbar.navbar-tecnology .nav-item {
-            color: #4a4a4a;
-          }
+        .navbar.navbar-technology .nav-item,
+        .navbar.navbar-tecnology .nav-item {
+          color: #222222;
+        }
 
-          .navbar.navbar-tecnology .nav-item:hover {
-            color: var(--accent-gold);
-          }
+        .navbar.navbar-technology .nav-item:hover,
+        .navbar.navbar-tecnology .nav-item:hover {
+          color: var(--accent-gold, #efbd00);
+        }
 
-          .navbar.navbar-tecnology .lang-selector button {
-            color: #4a4a4a;
-          }
+        .navbar.navbar-technology .lang-selector button,
+        .navbar.navbar-tecnology .lang-selector button {
+          color: #222222;
+        }
 
-          .navbar.navbar-tecnology .lang-selector button.active {
-            color: var(--accent-gold);
-          }
+        .navbar.navbar-technology .lang-selector button.active,
+        .navbar.navbar-tecnology .lang-selector button.active {
+          color: var(--accent-gold, #efbd00);
+        }
+
+          

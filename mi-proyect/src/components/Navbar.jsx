@@ -21,9 +21,9 @@ export default function Navbar() {
   const isServices = location.pathname === '/servicios';
   const isExperiences = location.pathname === '/experiencias';
   const isEnergy = location.pathname === '/energia';
-  const isTecnology = location.pathname === '/tecnologia';
+  const isTechnology = location.pathname === '/tecnologia';
 
-  const currentLogo = (isHistory || isServices || isExperiences || isEnergy || isTecnology) ? LogoHistory : LogoGE;
+  const currentLogo = (isHistory || isServices || isExperiences || isEnergy || isTechnology) ? LogoHistory : LogoGE;
 
   let navbarVariant = 'navbar-inner';
   if (isHome || isSustainability) {
@@ -37,26 +37,25 @@ export default function Navbar() {
   } else if (isServices) {
     navbarVariant = 'navbar-services';
   } else if (isExperiences) {
-  navbarVariant = 'navbar-experiences';
-  }else if (isEnergy) {
+    navbarVariant = 'navbar-experiences';
+  } else if (isEnergy) {
     navbarVariant = 'navbar-energy'; 
-  }else if (isTecnology){
-    navbarVariant = 'navbar-tecnology';
+  } else if (isTechnology) {
+    navbarVariant = 'navbar-technology';
   }
 
   // Determinar si la página tiene fondo claro en la cabecera
-  const isLightBg = isHistory || isServices || isTecnology;
+  const isLightBg = isHistory || isServices || isExperiences || isEnergy || isTechnology;
 
-  // El color del icono será negro solo si la página es de fondo claro Y el menú móvil no está abierto
+  // Color del icono del menú hamburguesa
   const toggleIconColor = (isLightBg && !menuOpen) ? '#000000' : '#ffffff';
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
-  // Cambio de idioma controlado
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    document.documentElement.lang = lng; // Buena práctica WCAG / ISO para accesibilidad HTML
+    document.documentElement.lang = lng;
   };
 
   const currentLanguage = i18n.language ? i18n.language.split('-')[0] : 'es';
@@ -103,7 +102,7 @@ export default function Navbar() {
               <Link to="/sostenibilidad" className="nav-item nav-item-green" onClick={closeMenu}>
                 {t('navbar.nav.sustainability')}
               </Link>
-              {isSustainability && <div className="active-indicator-green active-indicator-green" />}
+              {isSustainability && <div className="active-indicator-green" />}
             </li>
 
             <li className="nav-item-wrapper">
