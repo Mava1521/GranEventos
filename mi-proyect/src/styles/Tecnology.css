@@ -1,0 +1,1231 @@
+/* ============================================================
+   TECHNOLOGY PAGE
+   Todos los estilos están encapsulados bajo .technology-page
+   para evitar conflictos con Navbar, Footer y otras vistas.
+   ============================================================ */
+
+.technology-page {
+  --tech-yellow: #f5c400;
+  --tech-yellow-dark: #e5b700;
+  --tech-dark: #171b20;
+  --tech-text: #20262d;
+  --tech-muted: #606871;
+  --tech-border: #e2e4e6;
+  --tech-light: #f6f7f8;
+  --tech-container: 1440px;
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: var(--tech-text);
+  font-family: var(--font-body, "Inter", sans-serif);
+   min-width: 100%;
+   margin: 0;
+   padding: 0;
+}
+.technology-hero {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+
+/* ============================================================
+   CONTENEDOR
+   ============================================================ */
+
+.technology-page .technology-container {
+  width: min(100% - 88px, var(--tech-container));
+  margin-inline: auto;
+}
+
+
+/* ============================================================
+   TIPOGRAFÍA CONDENSADA
+   ============================================================ */
+
+.technology-page .technology-hero-title,
+.technology-page .technology-section-title,
+.technology-page .technology-cta h2 {
+  font-family: var(
+    --font-condensed,
+    "Oswald",
+    sans-serif
+  );
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.technology-page .technology-hero {
+  position: relative;
+
+  min-height: 530px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff 0%,
+      #ffffff 34%,
+      #f8f8f8 50%,
+      #edf0f2 67%,
+      #ffffff 100%
+    );
+
+  border-bottom: 1px solid var(--tech-border);
+}
+
+
+.technology-page .technology-hero-grid {
+  min-height: 530px;
+
+  display: grid;
+  grid-template-columns: 43% 57%;
+
+  align-items: stretch;
+}
+
+.technology-hero-content {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+
+  display: grid;
+  grid-template-columns: 44% 56%;
+
+  margin: 0;
+  padding: 0;
+}
+
+.technology-hero-copy {
+  position: relative;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /*
+   * Este valor debe coincidir con el espacio
+   * izquierdo del logo del navbar.
+   */
+  padding-left: 68px;
+
+  padding-top: 30px;
+  padding-right: 60px;
+}
+
+/* ============================================================
+   HERO — TEXTO
+   ============================================================ */
+
+.technology-page .technology-hero-content {
+  position: relative;
+
+  z-index: 4;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 55px 25px 55px 0;
+}
+
+
+.technology-page .technology-eyebrow,
+.technology-page .technology-section-eyebrow {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  color: #596474;
+
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  letter-spacing: 0.6px;
+
+  text-transform: uppercase;
+}
+
+
+.technology-page .technology-eyebrow-mark,
+.technology-page .technology-section-eyebrow span {
+  display: block;
+
+  width: 8px;
+  height: 24px;
+
+  background: var(--tech-yellow);
+
+  transform: skew(-25deg);
+}
+
+
+.technology-page .technology-hero-title {
+  margin: 14px 0 12px;
+
+  color: var(--tech-text);
+
+  font-size: clamp(3rem, 4.25vw, 4.75rem);
+
+  font-weight: 700;
+
+  line-height: 0.95;
+
+  letter-spacing: -1px;
+
+  text-transform: uppercase;
+}
+
+
+.technology-page .technology-hero-title span {
+  color: var(--tech-yellow);
+}
+
+
+.technology-page .technology-hero-description {
+  max-width: 420px;
+
+  margin: 0;
+
+  color: var(--tech-muted);
+
+  font-size: 0.91rem;
+
+  line-height: 1.6;
+}
+
+
+.technology-page .technology-yellow-line {
+  width: 35px;
+  height: 3px;
+
+  margin: 12px 0 18px;
+
+  background: var(--tech-yellow);
+}
+
+
+/* ============================================================
+   BENEFICIOS
+   ============================================================ */
+
+.technology-page .technology-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  max-width: 450px;
+}
+
+
+.technology-page .technology-benefit {
+  min-height: 55px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0 13px;
+
+  border-right: 1px solid #d8dadd;
+}
+
+
+.technology-page .technology-benefit:first-child {
+  padding-left: 0;
+}
+
+
+.technology-page .technology-benefit:last-child {
+  border-right: 0;
+}
+
+
+.technology-page .technology-benefit span {
+  color: #4e565e;
+
+  font-size: 0.65rem;
+
+  line-height: 1.35;
+}
+
+
+.technology-page .technology-benefit-icon {
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #1f252b;
+}
+
+
+/* ============================================================
+   HERO — IMAGEN
+   ============================================================ */
+
+.technology-page .technology-hero-media {
+  position: relative;
+
+  min-height: 530px;
+}
+
+
+.technology-page .technology-image {
+  width: 100%;
+  height: 100%;
+
+  background-color: #dfe2e4;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/*
+  Estas imágenes son placeholders visuales.
+  Cuando tengas las imágenes reales, puedes reemplazar
+  únicamente estas reglas.
+*/
+
+.technology-page .technology-hero-image {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,1) 0%,
+      rgba(255,255,255,0) 28%
+    ),
+    linear-gradient(
+      135deg,
+      #d8dcde,
+      #9da4a9 45%,
+      #52595e
+    );
+}
+
+
+.technology-page .technology-hero-shape {
+  position: absolute;
+
+  top: 0;
+  left: 11%;
+
+  width: 65px;
+  height: 88px;
+
+  background: var(--tech-yellow);
+
+  clip-path: polygon(
+    30% 0,
+    100% 0,
+    55% 100%,
+    0 100%
+  );
+
+  z-index: 5;
+}
+
+
+.technology-page .technology-hero-message {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  width: 270px;
+  min-height: 100px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 20px 20px 20px 38px;
+
+  background: #ffffff;
+
+  clip-path: polygon(
+    16% 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+}
+
+
+.technology-page .technology-message-line {
+  position: absolute;
+
+  left: 25px;
+  top: 40px;
+
+  width: 1px;
+  height: 43px;
+
+  background: var(--tech-yellow);
+
+  transform: rotate(28deg);
+}
+
+
+.technology-page .technology-hero-message p {
+  margin: 0;
+
+  color: #68717a;
+
+  font-size: 0.67rem;
+
+  line-height: 1.7;
+
+  letter-spacing: 1.2px;
+}
+
+
+/* ============================================================
+   SECCIONES GENERALES
+   ============================================================ */
+
+.technology-page .technology-section {
+  border-bottom: 1px solid var(--tech-border);
+}
+
+
+.technology-page .technology-generation {
+  padding: 42px 0 30px;
+}
+
+
+.technology-page .technology-solar {
+  padding: 32px 0;
+}
+
+
+.technology-page .technology-infrastructure {
+  padding: 32px 0;
+}
+
+
+/* ============================================================
+   BLOQUES DE INFORMACIÓN
+   ============================================================ */
+
+.technology-page .technology-info-block {
+  min-width: 0;
+}
+
+
+.technology-page .technology-section-eyebrow {
+  margin-bottom: 7px;
+
+  font-size: 0.68rem;
+}
+
+
+.technology-page .technology-section-eyebrow span {
+  width: 7px;
+  height: 20px;
+}
+
+
+.technology-page .technology-section-title {
+  margin: 0 0 12px;
+
+  color: #242a31;
+
+  font-size: clamp(1.75rem, 2.1vw, 2.55rem);
+
+  font-weight: 700;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.3px;
+
+  text-transform: uppercase;
+}
+
+
+.technology-page .technology-section-title strong {
+  color: var(--tech-yellow);
+
+  font-weight: 700;
+}
+
+
+.technology-page .technology-info-block > p {
+  max-width: 430px;
+
+  margin: 0;
+
+  color: #697179;
+
+  font-size: 0.75rem;
+
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   GENERATION GRID
+   ============================================================ */
+
+.technology-page .technology-generation-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(250px, 1fr)
+    minmax(350px, 1.3fr)
+    minmax(250px, 0.9fr);
+
+  gap: 30px;
+
+  align-items: center;
+}
+
+
+.technology-page .technology-image-wrap {
+  height: 275px;
+
+  overflow: hidden;
+
+  border-radius: 4px;
+}
+
+
+.technology-page .technology-generator-image {
+  background:
+    linear-gradient(
+      135deg,
+      #bfc5c8,
+      #72797e 45%,
+      #363b3f
+    );
+}
+
+
+/* ============================================================
+   FEATURES
+   ============================================================ */
+
+.technology-page .technology-feature-list {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: 20px;
+}
+
+
+.technology-page .technology-feature {
+  min-height: 55px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+
+  padding: 0 14px;
+
+  border-right: 1px solid #dfe1e3;
+}
+
+
+.technology-page .technology-feature:first-child {
+  padding-left: 0;
+}
+
+
+.technology-page .technology-feature:last-child {
+  border-right: 0;
+}
+
+
+.technology-page .technology-feature-icon {
+  color: var(--tech-yellow);
+}
+
+
+.technology-page .technology-feature span {
+  color: #646c74;
+
+  font-size: 0.63rem;
+
+  line-height: 1.4;
+}
+
+
+/* ============================================================
+   BOTÓN
+   ============================================================ */
+
+.technology-page .technology-button {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 25px;
+
+  margin-top: 20px;
+
+  padding: 10px 13px;
+
+  color: #171717;
+
+  background: var(--tech-yellow);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.technology-page .technology-button:hover {
+  background: var(--tech-yellow-dark);
+
+  transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   ENERGÍA LIMPIA
+   ============================================================ */
+
+.technology-page .technology-clean-energy {
+  padding-left: 5px;
+}
+
+
+/* ============================================================
+   SOLAR GRID
+   ============================================================ */
+
+.technology-page .technology-solar-grid {
+  display: grid;
+
+  grid-template-columns:
+    0.85fr
+    1fr
+    1.2fr;
+
+  gap: 30px;
+
+  align-items: center;
+}
+
+
+.technology-page .technology-solar-media {
+  height: 240px;
+
+  overflow: hidden;
+
+  border-radius: 4px;
+}
+
+
+.technology-page .technology-solar-image {
+  background:
+    linear-gradient(
+      135deg,
+      #ccd3d5,
+      #879195 45%,
+      #d7c28d
+    );
+}
+
+
+/* ============================================================
+   SISTEMA DE ENERGÍA
+   ============================================================ */
+
+.technology-page .technology-system-card {
+  min-height: 230px;
+
+  padding: 22px;
+
+  background: #f5f6f7;
+
+  border-radius: 6px;
+}
+
+
+.technology-page .technology-system-description {
+  max-width: 430px;
+
+  margin: 10px 0 22px;
+
+  color: #687078;
+
+  font-size: 0.72rem;
+
+  line-height: 1.55;
+}
+
+
+.technology-page .technology-system-flow {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto
+    1fr
+    auto
+    1fr;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+.technology-page .technology-system-item {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 4px;
+}
+
+
+.technology-page .technology-system-icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 5px;
+
+  color: #242b32;
+
+  border: 1px solid #2d343a;
+
+  border-radius: 5px;
+}
+
+
+.technology-page .technology-system-item strong {
+  color: #313840;
+
+  font-size: 0.65rem;
+}
+
+
+.technology-page .technology-system-item span {
+  color: #747b82;
+
+  font-size: 0.57rem;
+
+  line-height: 1.4;
+}
+
+
+.technology-page .technology-system-arrow {
+  color: var(--tech-yellow);
+}
+
+
+/* ============================================================
+   INFRAESTRUCTURA
+   ============================================================ */
+
+.technology-page .technology-infrastructure-grid {
+  display: grid;
+
+  grid-template-columns:
+    1.05fr
+    1.1fr
+    0.82fr;
+
+  gap: 30px;
+
+  align-items: center;
+}
+
+
+.technology-page .technology-infrastructure-image {
+  height: 230px;
+
+  overflow: hidden;
+
+  border-radius: 4px;
+}
+
+
+.technology-page .technology-event-cables-image {
+  background:
+    linear-gradient(
+      135deg,
+      #777d81,
+      #34393e 50%,
+      #15181b
+    );
+}
+
+
+.technology-page .technology-connections-image {
+  background:
+    linear-gradient(
+      135deg,
+      #34383c,
+      #17191b 55%,
+      #73777a
+    );
+}
+
+
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
+
+.technology-page .technology-cta {
+  position: relative;
+
+  min-height: 150px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  background:
+    linear-gradient(
+      rgba(12, 16, 19, 0.92),
+      rgba(12, 16, 19, 0.92)
+    ),
+    linear-gradient(
+      135deg,
+      #343a3e,
+      #101214
+    );
+}
+
+
+.technology-page .technology-cta-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 75% 50%,
+      rgba(255, 255, 255, 0.08),
+      transparent 35%
+    );
+
+  pointer-events: none;
+}
+
+
+.technology-page .technology-cta-grid {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    1.15fr
+    0.8fr
+    1fr;
+
+  gap: 40px;
+
+  align-items: center;
+}
+
+
+.technology-page .technology-cta .technology-section-eyebrow {
+  color: #ffffff;
+
+  margin-bottom: 5px;
+}
+
+
+.technology-page .technology-cta h2 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(2rem, 3vw, 3rem);
+
+  line-height: 0.95;
+
+  text-transform: uppercase;
+}
+
+
+.technology-page .technology-cta h2 strong {
+  color: var(--tech-yellow);
+}
+
+
+.technology-page .technology-cta-description p {
+  max-width: 330px;
+
+  margin: 0;
+
+  color: #d2d5d7;
+
+  font-size: 0.72rem;
+
+  line-height: 1.55;
+}
+
+
+.technology-page .technology-cta-description .technology-button {
+  margin-top: 12px;
+}
+
+
+.technology-page .technology-cta-services {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 28px;
+}
+
+
+.technology-page .technology-cta-services > div {
+  min-width: 90px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding-left: 20px;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+.technology-page .technology-cta-services svg {
+  color: #ffffff;
+}
+
+
+.technology-page .technology-cta-services span {
+  color: #ffffff;
+
+  font-size: 0.55rem;
+
+  line-height: 1.35;
+
+  text-align: center;
+
+  letter-spacing: 0.7px;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+  .technology-page .technology-container {
+    width: min(100% - 48px, var(--tech-container));
+  }
+
+
+  .technology-page .technology-hero-title {
+    font-size: 3.3rem;
+  }
+
+
+  .technology-page .technology-generation-grid {
+    grid-template-columns: 1fr 1.2fr;
+  }
+
+
+  .technology-page .technology-clean-energy {
+    grid-column: 1 / -1;
+  }
+
+
+  .technology-page .technology-solar-grid {
+    grid-template-columns: 0.8fr 1fr;
+  }
+
+
+  .technology-page .technology-system-card {
+    grid-column: 1 / -1;
+  }
+
+
+  .technology-page .technology-infrastructure-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .technology-page .technology-infrastructure-grid
+    .technology-info-block {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+
+  .technology-page .technology-cta-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .technology-page .technology-cta-services {
+    grid-column: 1 / -1;
+
+    justify-content: flex-start;
+  }
+
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 760px) {
+
+  .technology-page .technology-container {
+    width: min(100% - 34px, var(--tech-container));
+  }
+
+
+  /* HERO */
+
+  .technology-page .technology-hero,
+  .technology-page .technology-hero-grid {
+    min-height: auto;
+  }
+
+
+  .technology-page .technology-hero-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .technology-page .technology-hero-content {
+    padding: 45px 0 35px;
+  }
+
+
+  .technology-page .technology-hero-title {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+
+    letter-spacing: -0.5px;
+  }
+
+
+  .technology-page .technology-hero-description {
+    font-size: 0.85rem;
+  }
+
+
+  .technology-page .technology-benefits {
+    max-width: none;
+  }
+
+
+  .technology-page .technology-benefit {
+    padding: 0 8px;
+
+    gap: 5px;
+  }
+
+
+  .technology-page .technology-benefit span {
+    font-size: 0.55rem;
+  }
+
+
+  .technology-page .technology-hero-media {
+    min-height: 330px;
+  }
+
+
+  .technology-page .technology-hero-message {
+    width: 225px;
+
+    min-height: 85px;
+  }
+
+
+  .technology-page .technology-hero-shape {
+    left: auto;
+    right: 30%;
+
+    width: 45px;
+    height: 65px;
+  }
+
+
+  /* SECCIONES */
+
+  .technology-page .technology-generation,
+  .technology-page .technology-solar,
+  .technology-page .technology-infrastructure {
+    padding: 45px 0;
+  }
+
+
+  .technology-page .technology-generation-grid,
+  .technology-page .technology-solar-grid,
+  .technology-page .technology-infrastructure-grid {
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+  }
+
+
+  .technology-page .technology-image-wrap,
+  .technology-page .technology-solar-media,
+  .technology-page .technology-infrastructure-image {
+    width: 100%;
+    height: 260px;
+  }
+
+
+  .technology-page .technology-clean-energy,
+  .technology-page .technology-system-card,
+  .technology-page .technology-infrastructure-grid
+    .technology-info-block {
+    width: 100%;
+  }
+
+
+  .technology-page .technology-section-title {
+    font-size: 2rem;
+  }
+
+
+  .technology-page .technology-info-block > p {
+    font-size: 0.78rem;
+  }
+
+
+  /* FEATURES */
+
+  .technology-page .technology-feature-list {
+    gap: 0;
+  }
+
+
+  .technology-page .technology-feature {
+    padding: 0 8px;
+  }
+
+
+  .technology-page .technology-feature:first-child {
+    padding-left: 0;
+  }
+
+
+  .technology-page .technology-feature span {
+    font-size: 0.57rem;
+  }
+
+
+  /* SYSTEM */
+
+  .technology-page .technology-system-card {
+    padding: 20px 15px;
+  }
+
+
+  .technology-page .technology-system-flow {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+
+  .technology-page .technology-system-arrow {
+    transform: rotate(90deg);
+
+    justify-self: center;
+  }
+
+
+  .technology-page .technology-system-item {
+    align-items: center;
+
+    text-align: center;
+  }
+
+
+  /* CTA */
+
+  .technology-page .technology-cta {
+    padding: 40px 0;
+  }
+
+
+  .technology-page .technology-cta-grid {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 25px;
+  }
+
+
+  .technology-page .technology-cta-services {
+    width: 100%;
+
+    justify-content: space-between;
+
+    gap: 10px;
+  }
+
+
+  .technology-page .technology-cta-services > div {
+    min-width: 0;
+
+    flex: 1;
+
+    padding-left: 10px;
+  }
+
+}
+
+
+/* ============================================================
+   REDUCCIÓN DE MOVIMIENTO
+   Accesibilidad / UX
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .technology-page *,
+  .technology-page *::before,
+  .technology-page *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+}

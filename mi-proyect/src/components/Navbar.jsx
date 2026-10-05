@@ -19,10 +19,12 @@ export default function Navbar() {
   const isContact = location.pathname === '/contacto';
   const isSustainability = location.pathname === '/sostenibilidad';
   const isServices = location.pathname === '/servicios';
+  const isExperiences = location.pathname === '/experiencias';
+  const isEnergy = location.pathname === '/energia';
+  const isTecnology = location.pathname === '/tecnologia';
 
-  const currentLogo = (isHistory || isServices) ? LogoHistory : LogoGE;
+  const currentLogo = (isHistory || isServices || isExperiences || isEnergy || isTecnology) ? LogoHistory : LogoGE;
 
-  // Asignación de variantes de estilo
   let navbarVariant = 'navbar-inner';
   if (isHome || isSustainability) {
     navbarVariant = 'navbar-transparent';
@@ -34,10 +36,16 @@ export default function Navbar() {
     navbarVariant = 'navbar-contact';
   } else if (isServices) {
     navbarVariant = 'navbar-services';
+  } else if (isExperiences) {
+  navbarVariant = 'navbar-experiences';
+  }else if (isEnergy) {
+    navbarVariant = 'navbar-energy'; 
+  }else if (isTecnology){
+    navbarVariant = 'navbar-tecnology';
   }
 
   // Determinar si la página tiene fondo claro en la cabecera
-  const isLightBg = isHistory || isServices;
+  const isLightBg = isHistory || isServices || isTecnology;
 
   // El color del icono será negro solo si la página es de fondo claro Y el menú móvil no está abierto
   const toggleIconColor = (isLightBg && !menuOpen) ? '#000000' : '#ffffff';

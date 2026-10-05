@@ -305,3 +305,74 @@
     .navbar-services .lang-selector button.active {
       color: #efbd00;
     }
+
+    /* =========================================================
+      EXPERIENCES NAVBAR
+      ========================================================= */
+      .navbar-experiences {
+        position: relative;
+        background-color: #ffffff; /* O el color de fondo de la cabecera */
+      }
+
+      .navbar-experiences .nav-item {
+        color: #222222;
+      }
+
+      .navbar-experiences .lang-selector button {
+        color: #222222;
+      }
+
+      .navbar-experiences .lang-selector button.active {
+        color: #efbd00;
+      }
+
+       /* =========================================================
+        ENERGY NAVBAR
+        ========================================================= */
+        .navbar-energy {
+          position: relative;
+          background-color: #ffffff; 
+        }
+
+        .navbar-energy .nav-item {
+          color: #222222;
+        }
+
+        .navbar-energy .lang-selector button {
+          color: #222222;
+        }
+
+        .navbar-energy .lang-selector button.active {
+          color: #efbd00;
+        }
+
+        /* =========================================================
+            NAVBAR - TECNOLOGÍA
+            El navbar deja de superponerse al hero únicamente
+            en la página de Tecnología.
+            ========================================================= */
+
+          .navbar.navbar-tecnology {
+            position: relative;
+            top: auto;
+            left: auto;
+            width: 100%;
+            background-color: #ffffff;
+            z-index: 100;
+          }
+
+          .navbar.navbar-tecnology .nav-item {
+            color: #4a4a4a;
+          }
+
+          .navbar.navbar-tecnology .nav-item:hover {
+            color: var(--accent-gold);
+          }
+
+          .navbar.navbar-tecnology .lang-selector button {
+            color: #4a4a4a;
+          }
+
+          .navbar.navbar-tecnology .lang-selector button.active {
+            color: var(--accent-gold);
+          }

@@ -1,0 +1,1233 @@
+/* =========================================================
+   ENERGY PAGE
+========================================================= */
+
+.energy-page {
+  --energy-yellow: #f5c400;
+  --energy-green: #9dc425;
+  --energy-black: #111111;
+  --energy-dark: #080808;
+  --energy-gray: #626262;
+  --energy-light: #f5f5f3;
+  --energy-border: #dddddd;
+  --energy-white: #ffffff;
+  width: 100%;
+  overflow-x: hidden;
+  color: var(--energy-black);
+  background: var(--energy-white);
+  box-sizing: border-box;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+.energy-page a {
+  color: #000000;
+}
+
+.energy-page button,
+.energy-page a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   KICKER
+========================================================= */
+
+.energy-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 14px;
+
+  color: #536079;
+
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.energy-kicker > span {
+  width: 7px;
+  height: 2px;
+
+  display: block;
+
+  background: var(--energy-yellow);
+
+  transform: skewX(-25deg);
+}
+
+.energy-kicker--light {
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   GENERIC LINE
+========================================================= */
+
+.energy-yellow-line {
+  width: 43px;
+  height: 3px;
+
+  margin-top: 18px;
+
+  background: var(--energy-yellow);
+}
+
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.energy-page h1,
+.energy-page h2,
+.energy-page h3 {
+  font-family: 'Oswald', Impact, sans-serif;
+}
+
+
+/* =========================================================
+   MEDIA PLACEHOLDER
+========================================================= */
+
+.energy-media-placeholder {
+  width: 100%;
+  height: 100%;
+
+  min-height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eeeeee,
+      #d9d9d9
+    );
+
+  color: #888;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.energy-media-placeholder::before,
+.energy-media-placeholder::after {
+  content: '';
+
+  position: absolute;
+
+  background: rgba(255, 255, 255, 0.55);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.energy-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 100%;
+  min-height: calc(100vh - 300px);
+  padding: 40px 4.8vw;
+  gap: 40px;
+  box-sizing: border-box;
+}
+
+.energy-hero-content {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.energy-hero h1 {
+  margin: 0;
+  max-width: 540px;
+  color: #171b21;
+  font-size: clamp(40px, 4vw, 62px);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -1px;
+}
+
+.energy-hero h1 strong {
+  display: block;
+  color: var(--energy-yellow);
+}
+
+.energy-hero-content > p {
+  max-width: 480px;
+  margin: 18px 0 0;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.energy-hero-media {
+  flex: 1;
+  max-width: 50%;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.energy-hero-media .energy-media-placeholder,
+.energy-hero-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+}
+
+.energy-hero-caption {
+  position: absolute;
+  right: 5%;
+  bottom: 20px;
+  color: #555;
+  font-size: 9px;
+  line-height: 1.5;
+  text-align: right;
+  z-index: 2;
+}
+
+/* =========================================================
+   TECHNOLOGIES
+========================================================= */
+
+.energy-technologies {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  border-bottom: 1px solid var(--energy-border);
+}
+
+
+.technology-card {
+  display: grid;
+  grid-template-columns: 1fr 190px;
+  gap: 28px;
+
+  min-height: 310px;
+
+  padding:
+    28px
+    4.8vw
+    34px;
+
+  box-sizing: border-box;
+}
+
+
+.technology-card + .technology-card {
+  border-left: 1px solid var(--energy-border);
+}
+
+
+.technology-copy h3 {
+  margin: 0;
+
+  max-width: 300px;
+
+  color: #171b21;
+
+  font-size: 25px;
+  line-height: 0.98;
+  font-weight: 700;
+}
+
+
+.technology-copy h3 strong {
+  display: block;
+
+  color: var(--energy-yellow);
+
+  font-weight: 700;
+}
+
+
+.technology-copy > p {
+  max-width: 330px;
+
+  margin: 14px 0 18px;
+
+  color: #626262;
+
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+
+
+.technology-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 9px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+
+.technology-list li {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: #5c5c5c;
+
+  font-size: 10.5px;
+}
+
+
+.energy-check-icon {
+  width: 20px;
+  height: 20px;
+
+  flex: 0 0 20px;
+
+  fill: none;
+
+  stroke: var(--energy-yellow);
+  stroke-width: 1.5;
+}
+
+
+.technology-image {
+  position: relative;
+
+  min-height: 250px;
+
+  overflow: hidden;
+
+  border-radius: 5px;
+}
+
+
+.technology-image .energy-media-placeholder {
+  min-height: 250px;
+}
+
+
+.technology-icon {
+  position: absolute;
+
+  z-index: 2;
+
+  top: 0;
+  left: 0;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--energy-yellow);
+}
+
+
+.technology-icon svg {
+  width: 27px;
+  height: 27px;
+
+  fill: none;
+
+  stroke: #111;
+  stroke-width: 1.5;
+}
+
+
+/* =========================================================
+   HYBRID SYSTEM
+========================================================= */
+
+.energy-hybrid {
+  display: grid;
+  grid-template-columns: 29% 71%;
+
+  min-height: 310px;
+
+  padding:
+    35px
+    4.8vw;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid var(--energy-border);
+}
+
+
+.energy-hybrid-copy {
+  padding-right: 35px;
+}
+
+
+.energy-hybrid-copy h2 {
+  margin: 0;
+
+  font-size: 31px;
+  line-height: 0.96;
+}
+
+
+.energy-hybrid-copy h2 strong {
+  display: block;
+
+  color: var(--energy-yellow);
+}
+
+
+.energy-hybrid-copy > p {
+  max-width: 310px;
+
+  margin: 17px 0 0;
+
+  color: #606060;
+
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+
+
+.energy-system {
+  min-height: 235px;
+
+  padding: 28px;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  border-radius: 7px;
+
+  background: #f7f7f7;
+}
+
+
+.system-flow {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  align-items: start;
+}
+
+
+.system-node {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-width: 0;
+}
+
+
+.system-node > .energy-media-placeholder {
+  width: 125px;
+  height: 80px;
+
+  min-height: 80px;
+
+  border-radius: 4px;
+}
+
+
+.system-arrow {
+  position: absolute;
+
+  top: 35px;
+
+  color: var(--energy-yellow);
+
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+.system-arrow--right {
+  right: -17px;
+}
+
+
+.system-arrow--both {
+  right: -17px;
+}
+
+
+.system-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 13px;
+
+  text-align: center;
+}
+
+
+.system-label svg {
+  width: 29px;
+  height: 29px;
+
+  margin-bottom: 7px;
+
+  fill: none;
+
+  stroke: var(--energy-yellow);
+  stroke-width: 1.5;
+}
+
+
+.system-label strong {
+  max-width: 150px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+
+.system-label span {
+  max-width: 145px;
+
+  margin-top: 4px;
+
+  color: #666;
+
+  font-size: 8.5px;
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   BENEFITS
+========================================================= */
+
+.energy-benefits {
+  display: grid;
+  grid-template-columns: 29% 71%;
+
+  padding:
+    30px
+    4.8vw;
+
+  box-sizing: border-box;
+
+  border-bottom: 1px solid var(--energy-border);
+}
+
+
+.benefits-title {
+  padding-right: 30px;
+}
+
+
+.benefits-title h2 {
+  margin: 0;
+
+  font-size: 30px;
+  line-height: 0.97;
+}
+
+
+.benefits-title h2 strong {
+  display: block;
+
+  color: var(--energy-yellow);
+}
+
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+
+.benefit {
+  min-height: 100px;
+
+  padding:
+    0
+    25px;
+
+  box-sizing: border-box;
+}
+
+
+.benefit + .benefit {
+  border-left: 1px solid #d0d0d0;
+}
+
+
+.benefit-icon {
+  width: 38px;
+  height: 38px;
+
+  margin-bottom: 8px;
+}
+
+
+.benefit-icon svg {
+  width: 100%;
+  height: 100%;
+
+  fill: none;
+
+  stroke: #161b21;
+  stroke-width: 1.5;
+}
+
+
+.benefit h3 {
+  margin: 0 0 6px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+
+.benefit p {
+  max-width: 140px;
+
+  margin: 0;
+
+  color: #666;
+
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.energy-cta {
+  position: relative;
+
+  min-height: 220px;
+
+  display: grid;
+  grid-template-columns: 45% 55%;
+
+  overflow: hidden;
+
+  background: #090909;
+
+  color: #ffffff;
+}
+
+
+.energy-cta-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.92),
+      rgba(0, 0, 0, 0.65) 50%,
+      rgba(0, 0, 0, 0.15)
+    );
+}
+
+
+.energy-cta-content {
+  position: relative;
+
+  z-index: 3;
+
+  padding:
+    30px
+    4.8vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.energy-cta-content h2 {
+  margin: 0;
+
+  font-size: clamp(27px, 3vw, 42px);
+  line-height: 0.95;
+}
+
+
+.energy-cta-content h2 strong {
+  color: var(--energy-yellow);
+}
+
+
+.energy-cta-content > p {
+  max-width: 360px;
+
+  margin: 11px 0 15px;
+
+  color: #e0e0e0;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+
+.energy-cta-button {
+  width: 118px;
+  min-height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 10px;
+
+  box-sizing: border-box;
+
+  text-decoration: none;
+
+  background: var(--energy-yellow);
+
+  color: #111;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.energy-cta-button:hover {
+  transform: translateY(-2px);
+
+  background: #ffd42c;
+}
+
+
+.energy-arrow {
+  width: 25px;
+  height: 13px;
+
+  fill: none;
+
+  stroke: #111;
+  stroke-width: 1.5;
+}
+
+
+.energy-cta-media {
+  position: relative;
+
+  z-index: 0;
+
+  min-height: 220px;
+}
+
+
+.energy-cta-media .energy-media-placeholder {
+  min-height: 220px;
+
+  background:
+    linear-gradient(
+      120deg,
+      #333,
+      #161616
+    );
+
+  color: #777;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .energy-hero {
+    grid-template-columns: 42% 58%;
+  }
+
+
+  .energy-hero-content {
+    padding-left: 4vw;
+  }
+
+
+  .energy-hero h1 {
+    font-size: clamp(40px, 4.8vw, 58px);
+  }
+
+
+  .technology-card {
+    grid-template-columns: 1fr 150px;
+
+    gap: 18px;
+
+    padding:
+      28px
+      3vw;
+  }
+
+
+  .technology-copy h3 {
+    font-size: 22px;
+  }
+
+
+  .energy-hybrid,
+  .energy-benefits {
+    grid-template-columns: 32% 68%;
+  }
+
+
+  .benefit {
+    padding: 0 16px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .energy-hero {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+  }
+
+
+  .energy-hero-content {
+    padding:
+      45px
+      7%;
+  }
+
+
+  .energy-hero h1 {
+    max-width: 650px;
+
+    font-size: clamp(48px, 7vw, 70px);
+  }
+
+
+  .energy-hero-content > p {
+    max-width: 620px;
+
+    font-size: 13px;
+  }
+
+
+  .energy-hero-media {
+    min-height: 380px;
+
+    border-radius: 0;
+  }
+
+
+  .energy-hero-media .energy-media-placeholder {
+    min-height: 380px;
+  }
+
+
+  /* Technologies */
+
+  .energy-technologies {
+    grid-template-columns: 1fr;
+  }
+
+
+  .technology-card {
+    grid-template-columns: 1fr 260px;
+
+    padding:
+      35px
+      7%;
+  }
+
+
+  .technology-card + .technology-card {
+    border-left: none;
+
+    border-top: 1px solid var(--energy-border);
+  }
+
+
+  /* Hybrid */
+
+  .energy-hybrid {
+    grid-template-columns: 1fr;
+
+    gap: 25px;
+
+    padding:
+      40px
+      7%;
+  }
+
+
+  .energy-hybrid-copy {
+    padding-right: 0;
+  }
+
+
+  .energy-hybrid-copy > p {
+    max-width: 650px;
+  }
+
+
+  /* Benefits */
+
+  .energy-benefits {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
+    padding:
+      35px
+      7%;
+  }
+
+
+  .benefits-title {
+    padding-right: 0;
+  }
+
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+
+  .benefit {
+    min-height: 120px;
+
+    padding: 15px 25px;
+  }
+
+
+  .benefit:nth-child(3) {
+    border-left: none;
+
+    border-top: 1px solid #d0d0d0;
+  }
+
+
+  .benefit:nth-child(4) {
+    border-top: 1px solid #d0d0d0;
+  }
+
+
+  /* CTA */
+
+  .energy-cta {
+    grid-template-columns: 1fr;
+  }
+
+
+  .energy-cta-content {
+    min-height: 260px;
+
+    padding:
+      45px
+      7%;
+  }
+
+
+  .energy-cta-media {
+    min-height: 280px;
+  }
+
+}
+
+@media (max-width: 991px) {
+  .energy-hero {
+    flex-direction: column;
+    padding: 20px;
+    min-height: auto;
+  }
+
+  .energy-hero-content,
+  .energy-hero-media {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .energy-hero-media {
+    min-height: 300px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .energy-page {
+    width: 100%;
+  }
+
+
+  /* =====================================================
+     HERO
+  ===================================================== */
+
+  .energy-hero-content {
+    padding:
+      42px
+      7%
+      45px;
+  }
+
+
+  .energy-kicker {
+    margin-bottom: 12px;
+
+    font-size: 10px;
+  }
+
+
+  .energy-hero h1 {
+    font-size: clamp(40px, 12vw, 53px);
+
+    line-height: 0.95;
+
+    letter-spacing: -0.5px;
+  }
+
+
+  .energy-hero-content > p {
+    margin-top: 16px;
+
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+
+  .energy-hero-media,
+  .energy-hero-media .energy-media-placeholder {
+    min-height: 260px;
+  }
+
+
+  .energy-hero-caption {
+    right: 7%;
+
+    bottom: 15px;
+
+    font-size: 8px;
+  }
+
+
+  /* =====================================================
+     TECHNOLOGIES
+  ===================================================== */
+
+  .technology-card {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    padding:
+      35px
+      7%;
+  }
+
+
+  .technology-copy h3 {
+    font-size: 27px;
+  }
+
+
+  .technology-copy > p {
+    max-width: none;
+
+    font-size: 11.5px;
+  }
+
+
+  .technology-list li {
+    font-size: 10.5px;
+  }
+
+
+  .technology-image {
+    min-height: 240px;
+  }
+
+
+  .technology-image .energy-media-placeholder {
+    min-height: 240px;
+  }
+
+
+  /* =====================================================
+     HYBRID
+  ===================================================== */
+
+  .energy-hybrid {
+    padding:
+      38px
+      7%;
+  }
+
+
+  .energy-hybrid-copy h2 {
+    font-size: 31px;
+  }
+
+
+  .energy-hybrid-copy > p {
+    font-size: 11.5px;
+  }
+
+
+  .energy-system {
+    padding: 20px 10px;
+
+    overflow-x: auto;
+  }
+
+
+  .system-flow {
+    min-width: 540px;
+  }
+
+
+  .system-node > .energy-media-placeholder {
+    width: 110px;
+    height: 70px;
+
+    min-height: 70px;
+  }
+
+
+  /* =====================================================
+     BENEFITS
+  ===================================================== */
+
+  .energy-benefits {
+    padding:
+      38px
+      7%;
+  }
+
+
+  .benefits-title h2 {
+    font-size: 29px;
+  }
+
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .benefit {
+    min-height: auto;
+
+    padding:
+      20px
+      0;
+  }
+
+
+  .benefit + .benefit {
+    border-left: none;
+
+    border-top: 1px solid #d0d0d0;
+  }
+
+
+  .benefit:nth-child(3),
+  .benefit:nth-child(4) {
+    border-top: 1px solid #d0d0d0;
+  }
+
+
+  .benefit p {
+    max-width: 260px;
+
+    font-size: 9.5px;
+  }
+
+
+  /* =====================================================
+     CTA
+  ===================================================== */
+
+  .energy-cta-content {
+    min-height: 290px;
+
+    padding:
+      38px
+      7%;
+  }
+
+
+  .energy-cta-content h2 {
+    font-size: 30px;
+  }
+
+
+  .energy-cta-content > p {
+    max-width: 290px;
+
+    font-size: 10px;
+  }
+
+
+  .energy-cta-media,
+  .energy-cta-media .energy-media-placeholder {
+    min-height: 230px;
+  }
+
+}
