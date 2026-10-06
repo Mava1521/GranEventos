@@ -112,17 +112,21 @@
    HERO — TEXTO
    ============================================================ */
 
-.technology-page .technology-hero-content {
-  position: relative;
+    .technology-page .technology-hero-content {
+      position: relative;
+      z-index: 4;
 
-  z-index: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding: 55px 25px 55px 0;
-}
+      /*
+      * El contenido comienza en el mismo eje visual
+      * utilizado por el logo del Navbar.
+      */
+      padding: 55px 25px 55px 68px;
+      box-sizing: border-box;
+    }
 
 
 .technology-page .technology-eyebrow,
@@ -943,7 +947,7 @@
   }
 
   .technology-page .technology-hero-content {
-    padding: 30px 0;
+    padding: 30px 20px 30px 32px;
   }
 
   .technology-page .technology-hero-title {
