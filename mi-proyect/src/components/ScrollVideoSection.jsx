@@ -18,6 +18,14 @@ const TEXT =
 const WORDS = TEXT.split(' ');
 
 /*
+ * Palabra donde ocurre el cambio de color: todo lo anterior
+ * sale amarillo, esta palabra lleva el degradado interno
+ * amarillo→verde, y todo lo posterior sale verde.
+ */
+const SPLIT_WORD = 'EXPERIENCIAS';
+const SPLIT_INDEX = WORDS.indexOf(SPLIT_WORD);
+
+/*
  * Cuánta distancia extra de scroll (en % de la altura de
  * pantalla) dura el "candado" del texto. Súbelo para que la
  * animación se sienta más larga/lenta.
@@ -173,17 +181,23 @@ export default function ScrollVideoSection({ videoSrc }) {
           <span className="scroll-eyebrow">EL IMPACTO</span>
 
           <h2 className="scroll-reveal-text">
-            {WORDS.map((word, index) => (
-              <span
-                key={`${word}-${index}`}
-                ref={(el) => {
-                  wordRefs.current[index] = el;
-                }}
-                className="word"
-              >
-                {word}{' '}
-              </span>
-            ))}
+            {WORDS.map((word, index) => {
+              let colorClass = 'word-yellow';
+              if (index === SPLIT_INDEX) colorClass = 'word-split';
+              else if (index > SPLIT_INDEX) colorClass = 'word-green';
+
+              return (
+                <span
+                  key={`${word}-${index}`}
+                  ref={(el) => {
+                    wordRefs.current[index] = el;
+                  }}
+                  className={`word ${colorClass}`}
+                >
+                  {word}{' '}
+                </span>
+              );
+            })}
           </h2>
         </div>
       </section>

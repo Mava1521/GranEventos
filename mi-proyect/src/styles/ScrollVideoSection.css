@@ -65,12 +65,14 @@ body {
 .scroll-text-content {
   position: relative;
   z-index: 2;
+
   width: 100%;
   max-width: 1000px;
+
   padding: 80px 24px;
   box-sizing: border-box;
+
   text-align: center;
-  bottom: 130px;
 }
 
 .scroll-eyebrow {
@@ -90,8 +92,6 @@ body {
 .scroll-reveal-text {
   margin: 0;
 
-  color: #ffffff;
-
   font-family: 'Oswald', sans-serif;
   font-size: clamp(36px, 5vw, 68px);
   font-weight: 700;
@@ -107,6 +107,37 @@ body {
   opacity: 0.14;
 
   will-change: opacity;
+}
+
+
+/* ---------------------------------------------------------
+   COLORES DE LA FRASE
+   Antes de "EXPERIENCIAS": amarillo.
+   "EXPERIENCIAS": degradado amarillo → verde dentro de la
+   misma palabra (igual que .ge-home-story-title-split).
+   Después: verde.
+   --------------------------------------------------------- */
+
+.scroll-reveal-text .word-yellow {
+  color: #f4c400;
+}
+
+.scroll-reveal-text .word-green {
+  color: #92bd20;
+}
+
+.scroll-reveal-text .word-split {
+  background: linear-gradient(
+    102deg,
+    #f4c400 0%,
+    #f4c400 42%,
+    #92bd20 58%,
+    #92bd20 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 
