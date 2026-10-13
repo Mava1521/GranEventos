@@ -1,5 +1,5 @@
-import React from 'react';
-import { Leaf, Zap, Users, Globe } from 'lucide-react';
+import { useState } from 'react';
+import { Leaf, Zap, Users, Globe, CalendarDays, ArrowLeft, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import '../styles/Sustainability.css';
 
@@ -12,9 +12,60 @@ import EventsBg from '../assets/Card1.jpg';
 import IndustryBg from '../assets/card2.jpg';
 import ScenarioBg from '../assets/card3.jpg';
 import CommitmentBg from '../assets/Lush.png';
+import NewsSolarBg from '../assets/Lush.png';
 
 export default function Sustainability() {
   const { t } = useTranslation();
+  const [activeNews, setActiveNews] = useState(0);
+
+  
+const newsItems = [
+    {
+      id: 'solar-energy',
+      category: t('sustainability.news.solar.category'),
+      date: t('sustainability.news.solar.date'),
+      title: t('sustainability.news.solar.title'),
+      description: t('sustainability.news.solar.description'),
+      image: NewsSolarBg,
+      imageAlt: t('sustainability.news.solar.imageAlt'),
+      href: '/sostenibilidad/noticias/energia-solar',
+    },
+    {
+      id: 'battery-storage',
+      category: t('sustainability.news.batteries.category'),
+      date: t('sustainability.news.batteries.date'),
+      title: t('sustainability.news.batteries.title'),
+      description: t('sustainability.news.batteries.description'),
+      image: NewsSolarBg,
+      imageAlt: t('sustainability.news.batteries.imageAlt'),
+      href: '/sostenibilidad/noticias/almacenamiento-baterias',
+    },
+    {
+      id: 'clean-energy-trends-2026',
+      category: t('sustainability.news.trends.category'),
+      date: t('sustainability.news.trends.date'),
+      title: t('sustainability.news.trends.title'),
+      description: t('sustainability.news.trends.description'),
+      image: NewsSolarBg,
+      imageAlt: t('sustainability.news.trends.imageAlt'),
+      href: '/sostenibilidad/noticias/tendencias-energia-limpia-2026',
+    },
+  ];
+
+
+  const currentNews = newsItems[activeNews];
+
+  const showPreviousNews = () => {
+    setActiveNews((current) =>
+      (current - 1 + newsItems.length) % newsItems.length
+    );
+  };
+
+  const showNextNews = () => {
+    setActiveNews((current) =>
+      (current + 1) % newsItems.length
+    );
+  };
 
   return (
     <main className="sustainability-page">
@@ -190,6 +241,143 @@ export default function Sustainability() {
 
         </div>
       </section>
+
+      
+      {/* =========================
+          NOTICIAS DE SOSTENIBILIDAD
+      ========================== */}
+      <section
+        className="sust-news-wrapper"
+        aria-labelledby="sust-news-title"
+      >
+        <div className="sust-section-inner sust-news">
+
+          <header className="sust-news-heading">
+            <div className="sust-news-heading-main">
+              <span className="sust-news-eyebrow">
+                <span className="sust-news-slash" aria-hidden="true" />
+                {t('sustainability.news.eyebrow')}
+              </span>
+
+              <h2 id="sust-news-title">
+                {t('sustainability.news.headingLine1')}
+                <span>
+                  {t('sustainability.news.headingLine2')}
+                </span>
+              </h2>
+
+              <p>
+                {t('sustainability.news.intro')}
+              </p>
+
+              <span
+                className="sust-news-green-line"
+                aria-hidden="true"
+              />
+            </div>
+
+            <p className="sust-news-side-note">
+              {t('sustainability.news.sideNote')}
+              <span aria-hidden="true" />
+            </p>
+          </header>
+
+          <article
+            className="sust-news-banner"
+            aria-label={currentNews.title}
+          >
+            <div className="sust-news-info" key={currentNews.id}>
+              <span className="sust-news-category">
+                <Leaf size={19} aria-hidden="true" />
+                {currentNews.category}
+              </span>
+
+              <span className="sust-news-date">
+                <CalendarDays size={18} aria-hidden="true" />
+                <time>{currentNews.date}</time>
+              </span>
+
+              <h3>{currentNews.title}</h3>
+
+              <p className="sust-news-description">
+                {currentNews.description}
+              </p>
+
+              <a
+                className="sust-news-link"
+                href={currentNews.href}
+              >
+                {t('sustainability.news.readMore')}
+                <ArrowRight size={21} aria-hidden="true" />
+              </a>
+            </div>
+
+            <div className="sust-news-visual">
+              <img
+                src={currentNews.image}
+                alt={currentNews.imageAlt}
+                loading="lazy"
+                decoding="async"
+              />
+
+              <div
+                className="sust-news-image-shade"
+                aria-hidden="true"
+              />
+
+              <div
+                className="sust-news-accent"
+                aria-hidden="true"
+              />
+            </div>
+          </article>
+
+          <div className="sust-news-controls">
+            <div
+              className="sust-news-indicators"
+              role="group"
+              aria-label={t('sustainability.news.navigation')}
+            >
+              {newsItems.map((news, index) => (
+                <button
+                  key={news.id}
+                  type="button"
+                  className={`sust-news-indicator ${
+                    index === activeNews ? 'is-active' : ''
+                  }`}
+                  aria-label={`${t('sustainability.news.goTo')} ${index + 1}`}
+                  aria-current={
+                    index === activeNews ? 'true' : undefined
+                  }
+                  onClick={() => setActiveNews(index)}
+                />
+              ))}
+            </div>
+
+            <div className="sust-news-arrows">
+              <button
+                type="button"
+                onClick={showPreviousNews}
+                disabled={newsItems.length < 2}
+                aria-label={t('sustainability.news.previous')}
+              >
+                <ArrowLeft size={20} aria-hidden="true" />
+              </button>
+
+              <button
+                type="button"
+                onClick={showNextNews}
+                disabled={newsItems.length < 2}
+                aria-label={t('sustainability.news.next')}
+              >
+                <ArrowRight size={20} aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
 
 
       {/* =========================

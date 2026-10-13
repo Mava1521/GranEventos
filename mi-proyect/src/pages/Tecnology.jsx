@@ -104,11 +104,9 @@ export default function Tecnology() {
           {/* IMAGEN HERO */}
           <div className="technology-hero-media">
 
-            <div className="technology-image technology-hero-image"
-              role="img"
-              aria-label="Planta eléctrica Gran Eventos durante un evento">
+            <div className="technology-image technology-hero-image">
 
-                <img src={TecnologyHero} alt="" width={900} height={520}/>
+                <img src={TecnologyHero} alt="Planta eléctrica Gran Eventos alimentando el escenario de un evento" width={900} height={520} fetchPriority="high"/>
 
             </div>
             
@@ -208,9 +206,8 @@ export default function Tecnology() {
 
           {/* IMAGEN CENTRAL */}
           <div className="technology-image-wrap">
-            <div className="technology-image technology-generator-image"
-              aria-label="Generador eléctrico Gran Eventos">
-                <img src={PlantasY} alt=""  width={560} height={275}/>
+            <div className="technology-image technology-generator-image">
+                <img src={PlantasY} alt="Generador eléctrico Gran Eventos instalado junto al escenario" width={560} height={275} loading="lazy"/>
 
             </div>
           </div>
@@ -288,9 +285,8 @@ export default function Tecnology() {
 
           {/* IMAGEN */}
           <div className="technology-solar-media">
-            <div className="technology-image technology-solar-image"
-              aria-label="Paneles solares junto a infraestructura de eventos">
-                <img src={PanelSol} alt="" width={386} height={240} />
+            <div className="technology-image technology-solar-image">
+                <img src={PanelSol} alt="Paneles solares junto a un escenario al atardecer" width={386} height={240} loading="lazy" />
 
             </div>
           </div>
@@ -424,9 +420,8 @@ export default function Tecnology() {
 
           {/* IMAGEN IZQUIERDA */}
           <div className="technology-infrastructure-image">
-            <div className="technology-image technology-event-cables-image"
-              aria-label="Cableado y distribución eléctrica en un evento">
-                <img src={Conectividad} alt="" width={487} height={230}/>
+            <div className="technology-image technology-event-cables-image">
+                <img src={Conectividad} alt="Cableado eléctrico distribuido en un evento en vivo" width={487} height={230} loading="lazy"/>
             </div>
           </div>
 
@@ -493,9 +488,8 @@ export default function Tecnology() {
 
           {/* IMAGEN DERECHA */}
           <div className="technology-infrastructure-image">
-            <div className="technology-image technology-connections-image"
-              aria-label="Conexiones eléctricas de un generador">
-                <img src={Distribucion} alt="" width={390} height={230}/>
+            <div className="technology-image technology-connections-image">
+                <img src={Distribucion} alt="Conexiones eléctricas de una planta generadora" width={390} height={230} loading="lazy"/>
             </div>
           </div>
 
@@ -509,7 +503,7 @@ export default function Tecnology() {
       <section className="technology-cta">
 
         <div className="technology-cta-overlay">
-            <img src={Concert2} alt=""  width={1900} height={400}/>
+            <img src={Concert2} alt="" aria-hidden="true" width={1900} height={400} loading="lazy"/>
         </div>
 
         <div className="technology-container technology-cta-grid">

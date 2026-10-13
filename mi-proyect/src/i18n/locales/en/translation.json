@@ -502,6 +502,39 @@
         "experiences": "EXPERIENCES",
         "planet": "PLANET"
       }
+    },
+    "news": {
+      "eyebrow": "News",
+      "headingLine1": "News in",
+      "headingLine2": "sustainability",
+      "intro": "Discover the latest initiatives, progress and news about our commitment to a cleaner, more efficient and responsible future.",
+      "sideNote": "Clean energy. More sustainable events.",
+      "navigation": "News navigation",
+      "goTo": "Go to news item",
+      "previous": "Previous news item",
+      "next": "Next news item",
+      "readMore": "Read more",
+      "solar": {
+        "category": "Sustainability",
+        "date": "Octuber 08, 2026",
+        "title": "Solar panels: investing in clean energy for our events.",
+        "description": "We implement solar energy systems in our projects, reducing diesel consumption and lowering the carbon footprint of every event.",
+        "imageAlt": "Solar panels alongside event infrastructure"
+      },
+       "batteries": {
+        "category": "Energy Innovation",
+        "date": "Octuber 13, 2026",
+        "title": "Battery Storage: The Next Step in Renewable Energy",
+        "description": "ACEN is advancing energy storage projects in the Philippines, Australia and Vietnam to make better use of renewable energy, meet peak demand and help stabilize electricity grids.",
+        "imageAlt": "Renewable energy facilities and energy storage infrastructure"
+      },
+      "trends": {
+        "category": "Energy Trends",
+        "date": "2026",
+        "title": "Clean Energy Trends Shaping the Future in 2026",
+        "description": "Falling renewable energy costs, green hydrogen, electric mobility, battery storage and smart grids are creating new opportunities for a more sustainable energy system.",
+        "imageAlt": "Clean energy infrastructure and renewable energy technologies"
+      }
     }
   },
   "contact": {

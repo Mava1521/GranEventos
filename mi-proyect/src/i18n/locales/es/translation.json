@@ -502,6 +502,39 @@
           "experiences": "EXPERIENCIAS",
           "planet": "PLANETA"
         }
+      },
+       "news": {
+        "eyebrow": "Noticias",
+        "headingLine1": "Novedades en",
+        "headingLine2": "sostenibilidad",
+        "intro": "Conoce las últimas iniciativas, avances y noticias de nuestro compromiso con un futuro más limpio, eficiente y responsable.",
+        "sideNote": "Energía limpia. Eventos más sostenibles.",
+        "navigation": "Navegación de noticias",
+        "goTo": "Ir a la noticia",
+        "previous": "Noticia anterior",
+        "next": "Noticia siguiente",
+        "readMore": "Leer más",
+        "solar": {
+          "category": "Sostenibilidad",
+          "date": "08 Octubre 2026",
+          "title": "Paneles solares: una apuesta por la energía limpia en nuestros eventos.",
+          "description": "Implementamos sistemas de energía solar en nuestros proyectos, reduciendo el consumo de diésel y disminuyendo la huella de carbono en cada evento.",
+          "imageAlt": "Paneles solares junto a infraestructura para eventos"
+        },
+        "batteries": {
+          "category": "Innovación energética",
+          "date": "13 Octubre 2026",
+          "title": "Almacenamiento en baterías: el siguiente paso de las energías renovables",
+          "description": "ACEN impulsa proyectos de almacenamiento en Filipinas, Australia y Vietnam para aprovechar mejor la energía renovable, responder a los picos de demanda y contribuir a la estabilidad de las redes eléctricas.",
+          "imageAlt": "Instalaciones de energía renovable y almacenamiento energético"
+        },
+        "trends": {
+          "category": "Tendencias energéticas",
+          "date": "2026",
+          "title": "Tendencias en energías limpias que están transformando 2026",
+          "description": "La reducción de costos renovables, el hidrógeno verde, la movilidad eléctrica, las baterías y las redes inteligentes están marcando nuevas oportunidades para avanzar hacia un sistema energético más sostenible.",
+          "imageAlt": "Infraestructura de energía limpia y tecnologías renovables"
+        }
       }
     },
     "contact": {
