@@ -12,7 +12,9 @@ import EventsBg from '../assets/Card1.jpg';
 import IndustryBg from '../assets/card2.jpg';
 import ScenarioBg from '../assets/card3.jpg';
 import CommitmentBg from '../assets/Lush.png';
-import NewsSolarBg from '../assets/Lush.png';
+import PanelSolar from '../assets/Nature.png';
+import Renobable from '../assets/Renobable.png';
+import Carga from '../assets/Carga.jpg';
 
 export default function Sustainability() {
   const { t } = useTranslation();
@@ -26,7 +28,7 @@ const newsItems = [
       date: t('sustainability.news.solar.date'),
       title: t('sustainability.news.solar.title'),
       description: t('sustainability.news.solar.description'),
-      image: NewsSolarBg,
+      image: PanelSolar,
       imageAlt: t('sustainability.news.solar.imageAlt'),
       href: '/sostenibilidad/noticias/energia-solar',
     },
@@ -36,7 +38,7 @@ const newsItems = [
       date: t('sustainability.news.batteries.date'),
       title: t('sustainability.news.batteries.title'),
       description: t('sustainability.news.batteries.description'),
-      image: NewsSolarBg,
+      image: Carga,
       imageAlt: t('sustainability.news.batteries.imageAlt'),
       href: '/sostenibilidad/noticias/almacenamiento-baterias',
     },
@@ -46,7 +48,7 @@ const newsItems = [
       date: t('sustainability.news.trends.date'),
       title: t('sustainability.news.trends.title'),
       description: t('sustainability.news.trends.description'),
-      image: NewsSolarBg,
+      image: Renobable,
       imageAlt: t('sustainability.news.trends.imageAlt'),
       href: '/sostenibilidad/noticias/tendencias-energia-limpia-2026',
     },
