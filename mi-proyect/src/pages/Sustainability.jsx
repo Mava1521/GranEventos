@@ -21,38 +21,38 @@ export default function Sustainability() {
   const [activeNews, setActiveNews] = useState(0);
 
   
-const newsItems = [
-    {
-      id: 'solar-energy',
-      category: t('sustainability.news.solar.category'),
-      date: t('sustainability.news.solar.date'),
-      title: t('sustainability.news.solar.title'),
-      description: t('sustainability.news.solar.description'),
-      image: PanelSolar,
-      imageAlt: t('sustainability.news.solar.imageAlt'),
-      href: '/sostenibilidad/noticias/energia-solar',
-    },
-    {
-      id: 'battery-storage',
-      category: t('sustainability.news.batteries.category'),
-      date: t('sustainability.news.batteries.date'),
-      title: t('sustainability.news.batteries.title'),
-      description: t('sustainability.news.batteries.description'),
-      image: Carga,
-      imageAlt: t('sustainability.news.batteries.imageAlt'),
-      href: '/sostenibilidad/noticias/almacenamiento-baterias',
-    },
-    {
-      id: 'clean-energy-trends-2026',
-      category: t('sustainability.news.trends.category'),
-      date: t('sustainability.news.trends.date'),
-      title: t('sustainability.news.trends.title'),
-      description: t('sustainability.news.trends.description'),
-      image: Renobable,
-      imageAlt: t('sustainability.news.trends.imageAlt'),
-      href: '/sostenibilidad/noticias/tendencias-energia-limpia-2026',
-    },
-  ];
+  const newsItems = [
+      {
+        id: 'solar-energy',
+        category: t('sustainability.news.solar.category'),
+        date: t('sustainability.news.solar.date'),
+        title: t('sustainability.news.solar.title'),
+        description: t('sustainability.news.solar.description'),
+        image: PanelSolar,
+        imageAlt: t('sustainability.news.solar.imageAlt'),
+        href: '/sostenibilidad/noticias/energia-solar',
+      },
+      {
+        id: 'battery-storage',
+        category: t('sustainability.news.batteries.category'),
+        date: t('sustainability.news.batteries.date'),
+        title: t('sustainability.news.batteries.title'),
+        description: t('sustainability.news.batteries.description'),
+        image: Carga,
+        imageAlt: t('sustainability.news.batteries.imageAlt'),
+        href: '/sostenibilidad/noticias/almacenamiento-baterias',
+      },
+      {
+        id: 'clean-energy-trends-2026',
+        category: t('sustainability.news.trends.category'),
+        date: t('sustainability.news.trends.date'),
+        title: t('sustainability.news.trends.title'),
+        description: t('sustainability.news.trends.description'),
+        image: Renobable,
+        imageAlt: t('sustainability.news.trends.imageAlt'),
+        href: '/sostenibilidad/noticias/tendencias-energia-limpia-2026',
+      },
+    ];
 
 
   const currentNews = newsItems[activeNews];

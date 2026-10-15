@@ -275,13 +275,14 @@
       }
     },
     "scrollVideo": {
-        "eyebrow": "EL IMPACTO",
-        "text": "¿QUÉ ES GRAN EVENTOS? MÁS DE 30 AÑOS CREANDO EXPERIENCIAS INMENSAS BAJO LA ENERGÍA DE NUESTRO EQUIPO",
-        "ariaProgress": "Progreso de la animación",
-        "soundActivate": "Activar sonido",
-        "soundMute": "Silenciar",
-        "brandLabel": "GRAN EVENTOS"
-      },
+      "eyebrow": "EL IMPACTO",
+      "text": "¿QUÉ ES GRAN EVENTOS? MÁS DE 30 AÑOS CREANDO EXPERIENCIAS INMENSAS BAJO LA ENERGÍA DE NUESTRO EQUIPO",
+      "splitWord": "EXPERIENCIAS",
+      "ariaProgress": "Progreso de la animación",
+      "soundActivate": "Activar sonido",
+      "soundMute": "Silenciar",
+      "brandLabel": "GRAN EVENTOS"
+    },
     "footer": {
       "brand": "GRAN EVENTOS",
       "loc1": "COLOMBIA",

@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next'; // O el hook de traducción que utilices en tu proyecto
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../styles/ScrollVideoSection.css';
@@ -12,19 +13,6 @@ gsap.registerPlugin(ScrollTrigger);
  */
 ScrollTrigger.config({ ignoreMobileResize: true });
 
-const TEXT =
-  '¿QUÉ ES GRAN EVENTOS? MÁS DE 30 AÑOS CREANDO EXPERIENCIAS INMENSAS BAJO LA ENERGÍA DE NUESTRO EQUIPO';
-
-const WORDS = TEXT.split(' ');
-
-/*
- * Palabra donde ocurre el cambio de color: todo lo anterior
- * sale amarillo, esta palabra lleva el degradado interno
- * amarillo→verde, y todo lo posterior sale verde.
- */
-const SPLIT_WORD = 'EXPERIENCIAS';
-const SPLIT_INDEX = WORDS.indexOf(SPLIT_WORD);
-
 /*
  * Cuánta distancia extra de scroll (en % de la altura de
  * pantalla) dura el "candado" del texto. Súbelo para que la
@@ -33,6 +21,8 @@ const SPLIT_INDEX = WORDS.indexOf(SPLIT_WORD);
 const PIN_DISTANCE_VH = 140;
 
 export default function ScrollVideoSection({ videoSrc }) {
+  const { t } = useTranslation();
+
   const textSectionRef = useRef(null);
   const progressFillRef = useRef(null);
   const wordRefs = useRef([]);
@@ -42,6 +32,22 @@ export default function ScrollVideoSection({ videoSrc }) {
   const videoRef = useRef(null);
 
   const [isMuted, setIsMuted] = useState(true);
+
+  // Obtenemos el texto traducido desde el archivo JSON (ej: history.scrollVideo.text)
+  const translatedText = t('history.scrollVideo.text', {
+    defaultValue: 'WHAT IS GRAN EVENTOS? MORE THAN 30 YEARS CREATING IMMENSE EXPERIENCES DRIVEN BY THE ENERGY OF OUR TEAM'
+  });
+
+  const WORDS = translatedText.split(' ');
+
+  /*
+   * Palabra clave para el cambio de color adaptada al idioma:
+   * En español busca 'EXPERIENCIAS', en inglés 'EXPERIENCES'.
+   */
+  const SPLIT_WORD = t('history.scrollVideo.splitWord', { defaultValue: 'EXPERIENCES' });
+  const SPLIT_INDEX = WORDS.findIndex(
+    (word) => word.replace(/[^a-zA-ZáéíóúÁÉÍÓÚ]/g, '').toUpperCase() === SPLIT_WORD
+  );
 
   useLayoutEffect(() => {
     const mediaQuery = window.matchMedia(
@@ -71,8 +77,7 @@ export default function ScrollVideoSection({ videoSrc }) {
     /*
      * gsap.context() agrupa todo lo creado dentro para poder
      * revertirlo de un solo golpe al desmontar el componente
-     * (esencial en una SPA con React Router: si no limpiamos,
-     * quedan ScrollTriggers "fantasma" afectando otras páginas).
+     * (esencial en una SPA con React Router).
      */
     const ctx = gsap.context(() => {
       /* =====================================================
@@ -104,8 +109,7 @@ export default function ScrollVideoSection({ videoSrc }) {
       /* =====================================================
          VIDEO — NO se bloquea: simplemente crece hasta
          ocupar toda la pantalla mientras scrolleas con
-         normalidad a través de él. Así nunca se "corta" a
-         medias ni se ve junto al footer.
+         normalidad a través de él.
          ===================================================== */
       gsap.set(videoCardRef.current, {
         width: '72%',
@@ -144,7 +148,7 @@ export default function ScrollVideoSection({ videoSrc }) {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [translatedText]); // Se vuelve a recalcular si cambia el idioma
 
   const toggleSound = () => {
     if (!videoRef.current) return;
@@ -159,7 +163,6 @@ export default function ScrollVideoSection({ videoSrc }) {
       {/* =========================================
           TEXTO (se pinea mientras revela)
       ========================================== */}
-
       <section
         ref={textSectionRef}
         className="scroll-reveal-section"
@@ -167,7 +170,7 @@ export default function ScrollVideoSection({ videoSrc }) {
         <div
           className="scroll-progress-track"
           role="progressbar"
-          aria-label="Progreso de la animación"
+          aria-label={t('history.scrollVideo.ariaProgress', 'Progreso de la animación')}
           aria-valuemin={0}
           aria-valuemax={100}
         >
@@ -178,13 +181,15 @@ export default function ScrollVideoSection({ videoSrc }) {
         </div>
 
         <div className="scroll-text-content">
-          <span className="scroll-eyebrow">EL IMPACTO</span>
+          <span className="scroll-eyebrow">
+            {t('history.scrollVideo.eyebrow', 'EL IMPACTO')}
+          </span>
 
           <h2 className="scroll-reveal-text">
             {WORDS.map((word, index) => {
               let colorClass = 'word-yellow';
               if (index === SPLIT_INDEX) colorClass = 'word-split';
-              else if (index > SPLIT_INDEX) colorClass = 'word-green';
+              else if (index > SPLIT_INDEX && SPLIT_INDEX !== -1) colorClass = 'word-green';
 
               return (
                 <span
@@ -205,11 +210,10 @@ export default function ScrollVideoSection({ videoSrc }) {
       {/* =========================================
           VIDEO (crece hasta pantalla completa)
       ========================================== */}
-
       <section
         ref={videoSectionRef}
         className="scroll-video-section"
-        aria-label="Video institucional de Gran Eventos"
+        aria-label={t('history.scrollVideo.ariaVideo', 'Video institucional de Gran Eventos')}
       >
         <div ref={videoCardRef} className="scroll-video-card">
           <video
@@ -230,11 +234,13 @@ export default function ScrollVideoSection({ videoSrc }) {
             onClick={toggleSound}
             aria-pressed={!isMuted}
           >
-            {isMuted ? '🔇 Activar sonido' : '🔊 Silenciar'}
+            {isMuted 
+              ? `🔇 ${t('history.scrollVideo.soundActivate', 'Activar sonido')}` 
+              : `🔊 ${t('history.scrollVideo.soundMute', 'Silenciar')}`}
           </button>
 
           <span className="scroll-video-label">
-            GRAN EVENTOS
+            {t('history.scrollVideo.brandLabel', 'GRAN EVENTOS')}
           </span>
         </div>
       </section>
