@@ -9,7 +9,8 @@ import Timeline from '../components/line/Timeline';
 import timelineData from '../data/timelineData';
 import ScrollVideoSection from '../components/ScrollVideoSection';
 import LetrasGE from '../assets/LetrasGE.png';
-import SampleVideo from '../assets/History.mp4';
+import SampleVideo from '../assets/History2.mp4';
+
 
 export default function History() {
   const { t } = useTranslation();

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import '../styles/Energy.css';
 import EnergyFooter from '../assets/EnergyFooter.jpg';
 import EnergyHero from '../assets/EnergyHero.jpg';
@@ -345,10 +346,10 @@ export default function Energy() {
 
           <p>{t('energy.cta.description')}</p>
 
-          <a href="/contacto" className="energy-cta-button">
+          <Link to="/contacto#cuentanos-tu-proyecto" className='energy-cta-button'>
             <span>{t('energy.cta.button')}</span>
-            <ArrowIcon />
-          </a>
+              <ArrowIcon />
+          </Link>
         </div>
 
         <div className="energy-cta-media">

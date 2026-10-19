@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import '../styles/Experiences.css';
 import Video from '../assets/graneventos(2).mov';
 import FooterExperience from '../assets/FooterProyect.jpg';
@@ -318,10 +319,13 @@ function Experiences() {
         <div className="cta-action">
           <p>{t('experiences.cta.description')}</p>
 
-          <button type="button">
-            {t('experiences.cta.button')}
-            <span aria-hidden="true"> →</span>
-          </button>
+          <Link to="/contacto#cuentanos-tu-proyecto">
+            <button type="button">
+              {t('experiences.cta.button')}
+              <span aria-hidden="true"> →</span>
+            </button>
+          </Link>
+
         </div>
 
         <div className="cta-decoration" aria-hidden="true" />

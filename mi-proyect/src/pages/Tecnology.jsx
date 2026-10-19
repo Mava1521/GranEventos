@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import TecnologyHero from "../assets/TecnologyHero.jpg";
 import PlantasY from "../assets/PlantasY.jpg";
@@ -174,10 +175,10 @@ export default function Tecnology() {
               />
             </div>
 
-            <a href="#contacto" className="technology-button">
+            <Link to="/contacto#cuentanos-tu-proyecto" className="technology-button">
               {t("technology.generation.button")}
-              <ArrowRight size={17} />
-            </a>
+                <ArrowRight size={17} />
+            </Link>
           </div>
 
           {/* IMAGEN CENTRAL */}
