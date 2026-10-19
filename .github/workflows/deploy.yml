@@ -43,8 +43,8 @@ jobs:
           echo "Proyecto encontrado en: $TARGET_DIR"
           cd "$TARGET_DIR"
           
-          npm install
-          npm install vite --no-save
+          # Solo dejamos npm ci (es perfecto y seguro para GitHub Actions)
+          npm ci
           npm run build
           
           mkdir -p $GITHUB_WORKSPACE/output_dist
