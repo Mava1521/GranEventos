@@ -105,10 +105,8 @@ export default function Proyects() {
 
       {/* =====================================================
           EQUIPO
-          ===================================================== */}
-
+      ===================================================== */}
       <section className="projects-team">
-
         <div className="team-image">
           <img
             src={teamImg}
@@ -117,7 +115,6 @@ export default function Proyects() {
         </div>
 
         <div className="team-content">
-
           <div className="section-label1">
             <span>{t('projects.team.label')}</span>
             <span className="gold-line"></span>
@@ -133,13 +130,13 @@ export default function Proyects() {
             {t('projects.team.description')}
           </p>
 
-          <Link to="/contacto" className="project-button">
+          {/* SE AÑADE EL HASH #cuentanos-tu-proyecto AL ENLACE */}
+          <Link to="/contacto#cuentanos-tu-proyecto" className="project-button">
             <span>{t('projects.team.ctaButton')}</span>
             <span className="button-arrow">→</span>
           </Link>
 
         </div>
-
       </section>
 
 

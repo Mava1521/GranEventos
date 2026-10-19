@@ -173,7 +173,7 @@ export default function Services() {
                 </p>
 
                 <Link
-                  to="/contacto"
+                  to="/contacto#cuentanos-tu-proyecto"
                   className="service-card__link"
                   aria-label={`${t('services.seeMore')} ${service.title}`}
                 >
@@ -210,7 +210,8 @@ export default function Services() {
             {t('services.cta.titleLine2')}
           </h2>
 
-          <Link to="/contacto" className="services-cta__button">
+          {/* ENLACE MODIFICADO CON EL HASH PARA SECCIÓN ESPECÍFICA */}
+          <Link to="/contacto#cuentanos-tu-proyecto" className="services-cta__button">
             <span>{t('services.cta.button')}</span>
 
             <span className="services-cta__button-arrow" aria-hidden="true">

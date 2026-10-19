@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/Energy.css';
 import EnergyFooter from '../assets/EnergyFooter.jpg';
 import EnergyHero from '../assets/EnergyHero.jpg';
@@ -89,7 +90,6 @@ const ArrowIcon = () => (
   </svg>
 );
 
-
 /* =========================================================
    COMPONENTES REUTILIZABLES
 ========================================================= */
@@ -103,7 +103,6 @@ function SectionKicker({ children, light = false }) {
   );
 }
 
-
 function MediaPlaceholder({
   label = 'IMAGEN',
   className = '',
@@ -114,7 +113,6 @@ function MediaPlaceholder({
     </div>
   );
 }
-
 
 function TechnologyCard({
   kicker,
@@ -127,21 +125,15 @@ function TechnologyCard({
 }) {
   return (
     <article className="technology-card">
-
       <div className="technology-copy">
-
-        <SectionKicker>
-          {kicker}
-        </SectionKicker>
+        <SectionKicker>{kicker}</SectionKicker>
 
         <h3>
-          {title}
+          {title}{' '}
           <strong>{highlight}</strong>
         </h3>
 
-        <p>
-          {description}
-        </p>
+        <p>{description}</p>
 
         <ul className="technology-list">
           {items.map((item) => (
@@ -151,321 +143,218 @@ function TechnologyCard({
             </li>
           ))}
         </ul>
-
       </div>
 
       <div className="technology-image">
-
-        <div className="technology-icon">
-          {icon}
-        </div>
-
+        <div className="technology-icon">{icon}</div>
         <MediaPlaceholder label={imageLabel} />
-
       </div>
-
     </article>
   );
 }
 
-
-function Benefit({
-  icon,
-  title,
-  description,
-}) {
+function Benefit({ icon, title, description }) {
   return (
     <article className="benefit">
-
-      <div className="benefit-icon">
-        {icon}
-      </div>
-
+      <div className="benefit-icon">{icon}</div>
       <h3>{title}</h3>
-
       <p>{description}</p>
-
     </article>
   );
 }
-
 
 /* =========================================================
    PAGE
 ========================================================= */
 
 export default function Energy() {
+  const { t } = useTranslation();
+
+  const solarItems = t('energy.technologies.solar.items', { returnObjects: true }) || [];
+  const dieselItems = t('energy.technologies.diesel.items', { returnObjects: true }) || [];
+
   return (
     <main className="energy-page">
-
       {/* =====================================================
           HERO
       ===================================================== */}
-
       <section className="energy-hero">
-
         <div className="energy-hero-content">
-
-          <SectionKicker>
-            ENERGÍA
-          </SectionKicker>
+          <SectionKicker>{t('energy.hero.kicker')}</SectionKicker>
 
           <h1>
-            SOLUCIONES
+            {t('energy.hero.title_line1')}
             <br />
-            ENERGÉTICAS PARA
+            {t('energy.hero.title_line2')}
             <br />
-            <strong>GRANDES EVENTOS.</strong>
+            <strong>{t('energy.hero.title_line3')}</strong>
           </h1>
 
-          <p>
-            Combinamos energía solar y plantas generadoras
-            diésel para ofrecer soluciones confiables,
-            eficientes y sostenibles en cualquier lugar
-            y momento.
-          </p>
+          <p>{t('energy.hero.description')}</p>
 
           <div className="energy-yellow-line" />
-
         </div>
 
-
         <div className="energy-hero-media">
-
           <img src={EnergyHero} alt="" />
 
           <div className="energy-hero-caption">
-            ENERGÍA QUE IMPULSA
+            {t('energy.hero.caption_line1')}
             <br />
-            TUS EVENTOS.
+            {t('energy.hero.caption_line2')}
           </div>
-
         </div>
-
       </section>
-
 
       {/* =====================================================
           TECNOLOGÍAS
       ===================================================== */}
-
       <section className="energy-technologies">
-
         <TechnologyCard
-          kicker="TECNOLOGÍA SOLAR"
-          title="ENERGÍA LIMPIA,"
-          highlight="EFICIENTE Y SILENCIOSA."
-          description="Utilizamos paneles solares de alta eficiencia para aprovechar la energía del sol y convertirla en electricidad, reduciendo el consumo de combustible y el impacto ambiental."
-          imageLabel= {<img src={Panel} alt="" width={187} height={259}/>}
+          kicker={t('energy.technologies.solar.kicker')}
+          title={t('energy.technologies.solar.title')}
+          highlight={t('energy.technologies.solar.highlight')}
+          description={t('energy.technologies.solar.description')}
+          imageLabel={<img src={Panel} alt="" width={187} height={259} />}
           icon={<SunIcon />}
-          items={[
-            'Energía renovable y sostenible.',
-            'Bajo impacto ambiental.',
-            'Funcionamiento silencioso.',
-          ]}
+          items={solarItems}
         />
 
         <TechnologyCard
-          kicker="PLANTAS GENERADORAS DIÉSEL"
-          title="POTENCIA Y CONFIABILIDAD"
-          highlight="CUANDO LA NECESITAS."
-          description="Contamos con plantas generadoras diésel de última tecnología, que garantizan un suministro estable y continuo de energía, incluso en condiciones de alta demanda o en lugares remotos."
-          imageLabel={<img src={Planta} alt="" width={187} height={259}/>}
+          kicker={t('energy.technologies.diesel.kicker')}
+          title={t('energy.technologies.diesel.title')}
+          highlight={t('energy.technologies.diesel.highlight')}
+          description={t('energy.technologies.diesel.description')}
+          imageLabel={<img src={Planta} alt="" width={187} height={259} />}
           icon={<GeneratorIcon />}
-          items={[
-            'Alta capacidad de carga.',
-            'Operación continua y segura.',
-            'Equipos modernos y eficientes.',
-          ]}
+          items={dieselItems}
         />
-
       </section>
-
 
       {/* =====================================================
           SISTEMA HÍBRIDO
       ===================================================== */}
-
       <section className="energy-hybrid">
-
         <div className="energy-hybrid-copy">
-
-          <SectionKicker>
-            CÓMO TRABAJAN JUNTAS
-          </SectionKicker>
+          <SectionKicker>{t('energy.hybrid.kicker')}</SectionKicker>
 
           <h2>
-            UNA COMBINACIÓN
-            <strong>INTELIGENTE.</strong>
+            {t('energy.hybrid.title_line1')}{' '}
+            <strong>{t('energy.hybrid.title_line2')}</strong>
           </h2>
 
-          <p>
-            La energía solar genera electricidad durante
-            el día, alimentando el evento y cargando el
-            sistema. Cuando la demanda aumenta o la
-            radiación solar es baja, las plantas diésel
-            entran en funcionamiento de forma automática,
-            garantizando un suministro continuo y estable.
-          </p>
-
+          <p>{t('energy.hybrid.description')}</p>
         </div>
 
-
         <div className="energy-system">
-
           <div className="system-flow">
-
             <div className="system-node">
+              <img src={Paneles2} alt="" width={120} height={80} />
 
-              <img src={Paneles2} alt="" width={120} height={80}/>  
-
-              <div className="system-arrow system-arrow--right">
-                →
-              </div>
+              <div className="system-arrow system-arrow--right">→</div>
 
               <div className="system-label">
                 <SunIcon />
-                <strong>PANELES SOLARES</strong>
-                <span>Generación y carga</span>
+                <strong>{t('energy.hybrid.solar_panels.title')}</strong>
+                <span>{t('energy.hybrid.solar_panels.subtitle')}</span>
               </div>
-
             </div>
 
-
             <div className="system-node system-node--center">
+              <img src={Generador} alt="" width={170} height={80} />
 
-              <img src={Generador} alt="" width={170} height={80}/>
-
-              <div className="system-arrow system-arrow--both">
-                ↔
-              </div>
+              <div className="system-arrow system-arrow--both">↔</div>
 
               <div className="system-label">
                 <ManagementIcon />
-                <strong>SISTEMA DE GESTIÓN</strong>
-                <span>Distribuye la energía de forma automática</span>
+                <strong>{t('energy.hybrid.management.title')}</strong>
+                <span>{t('energy.hybrid.management.subtitle')}</span>
               </div>
-
             </div>
 
-
             <div className="system-node">
-
-              <img src={Generador2} alt="" width={170} height={80}/>
+              <img src={Generador2} alt="" width={170} height={80} />
 
               <div className="system-label">
                 <GeneratorIcon />
-                <strong>PLANTAS DIÉSEL</strong>
-                <span>Respaldo y continuidad</span>
+                <strong>{t('energy.hybrid.diesel_plants.title')}</strong>
+                <span>{t('energy.hybrid.diesel_plants.subtitle')}</span>
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
-
 
       {/* =====================================================
           BENEFICIOS
       ===================================================== */}
-
       <section className="energy-benefits">
-
         <div className="benefits-title">
-
-          <SectionKicker>
-            BENEFICIOS
-          </SectionKicker>
+          <SectionKicker>{t('energy.benefits.kicker')}</SectionKicker>
 
           <h2>
-            ENERGÍA EFICIENTE,
-            <strong>EVENTOS MÁS GRANDES.</strong>
+            {t('energy.benefits.title_line1')}{' '}
+            <strong>{t('energy.benefits.title_line2')}</strong>
           </h2>
-
         </div>
 
-
         <div className="benefits-grid">
-
           <Benefit
             icon={<LeafIcon />}
-            title="SOSTENIBILIDAD"
-            description="Reducimos la huella de carbono de cada evento."
+            title={t('energy.benefits.sustainability.title')}
+            description={t('energy.benefits.sustainability.description')}
           />
 
           <Benefit
             icon={<ShieldIcon />}
-            title="CONFIABILIDAD"
-            description="Energía estable en todo momento."
+            title={t('energy.benefits.reliability.title')}
+            description={t('energy.benefits.reliability.description')}
           />
 
           <Benefit
             icon={<EfficiencyIcon />}
-            title="EFICIENCIA"
-            description="Uso inteligente de los recursos."
+            title={t('energy.benefits.efficiency.title')}
+            description={t('energy.benefits.efficiency.description')}
           />
 
           <Benefit
             icon={<LocationIcon />}
-            title="VERSATILIDAD"
-            description="Opera en cualquier lugar del país."
+            title={t('energy.benefits.versatility.title')}
+            description={t('energy.benefits.versatility.description')}
           />
-
         </div>
-
       </section>
-
 
       {/* =====================================================
           CTA
       ===================================================== */}
-
       <section className="energy-cta">
-
         <div className="energy-cta-overlay" />
 
         <div className="energy-cta-content">
-
           <SectionKicker light>
-            TU EVENTO, NUESTRA ENERGÍA
+            {t('energy.cta.kicker')}
           </SectionKicker>
 
           <h2>
-            ¿LISTO PARA UN EVENTO
+            {t('energy.cta.title_line1')}
             <br />
-            CON ENERGÍA <strong>SIN LÍMITES?</strong>
+            {t('energy.cta.title_line2')}{' '}
+            <strong>{t('energy.cta.title_line3')}</strong>
           </h2>
 
-          <p>
-            Hablemos de tu proyecto y diseñemos juntos
-            la mejor solución energética.
-          </p>
+          <p>{t('energy.cta.description')}</p>
 
-          <a
-            href="/contacto"
-            className="energy-cta-button"
-          >
-            <span>CONTÁCTANOS</span>
+          <a href="/contacto" className="energy-cta-button">
+            <span>{t('energy.cta.button')}</span>
             <ArrowIcon />
           </a>
-
         </div>
 
         <div className="energy-cta-media">
-          <img src={EnergyFooter} alt="" width={1080} height={350}/>
+          <img src={EnergyFooter} alt="" width={1080} height={350} />
         </div>
-
       </section>
-
-
-      {/* =====================================================
-          NOTA:
-          NO SE AGREGA FOOTER
-      ===================================================== */}
-
     </main>
   );
 }

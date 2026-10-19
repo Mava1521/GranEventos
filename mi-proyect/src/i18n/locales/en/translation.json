@@ -750,5 +750,243 @@
       "description": "Tell us your idea and our team will get in touch with you.",
       "button": "CONTACT"
     }
+  },"experiences": {
+    "hero": {
+      "kicker": "EXPERIENCES",
+      "title_line1": "BEHIND",
+      "title_line2": "EVERY EVENT,",
+      "title_line3": "THERE IS A GREAT",
+      "title_line4": "PROCESS.",
+      "description": "Learn how we bring every project to life through planning, setup, and the teamwork that drives us.",
+      "video_placeholder": "EXPERIENCES",
+      "play_video": "WATCH VIDEO",
+      "pause_video": "PAUSE VIDEO",
+      "aria_play": "Play video",
+      "aria_pause": "Pause video"
+    },
+    "process": {
+      "kicker": "THE PROCESS",
+      "title_line1": "FROM IDEA",
+      "title_line2": "TO STAGE.",
+      "description": "Every event is the result of meticulous planning, a committed team, and logistics that leave nothing to chance.",
+      "steps": {
+        "step1": {
+          "title": "PLANNING",
+          "description": "We analyze every detail to create the best experience."
+        },
+        "step2": {
+          "title": "SETUP",
+          "description": "Our technical team brings the production to life with precision and safety."
+        },
+        "step3": {
+          "title": "TESTING",
+          "description": "We check sound, lights, video, and all systems for a flawless result."
+        },
+        "step4": {
+          "title": "EVENT",
+          "description": "Everything comes alive with a dedicated team present every step of the way."
+        },
+        "step5": {
+          "title": "RESULTS",
+          "description": "The best reward is the smiles of those who experience it."
+        }
+      }
+    },
+    "gallery": {
+      "kicker": "OUR EXPERIENCES",
+      "title_line1": "TAKE A LOOK BEHIND",
+      "title_line2": "THE SCENES.",
+      "description": "Explore some of our setup and production processes across different types of events.",
+      "aria_prev": "Previous experience",
+      "aria_next": "Next experience",
+      "aria_view": "View {{title}}",
+      "items": {
+        "item1": "GENERAL SETUP",
+        "item2": "STRUCTURE INSTALLATION",
+        "item3": "SOUND CHECKS",
+        "item4": "LIVE SHOW"
+      }
+    },
+    "cta": {
+      "kicker": "READY TO EXPERIENCE",
+      "title": "IT ALL?",
+      "description": "Tell us your idea and our team will get in touch with you.",
+      "button": "CONTACT US"
+    }
+  },
+  "energy": {
+    "hero": {
+      "kicker": "ENERGY",
+      "title_line1": "ENERGY",
+      "title_line2": "SOLUTIONS FOR",
+      "title_line3": "MAJOR EVENTS.",
+      "description": "We combine solar energy and diesel power generators to offer reliable, efficient, and sustainable solutions anywhere, anytime.",
+      "caption_line1": "ENERGY THAT DRIVES",
+      "caption_line2": "YOUR EVENTS."
+    },
+    "technologies": {
+      "solar": {
+        "kicker": "SOLAR TECHNOLOGY",
+        "title": "CLEAN, EFFICIENT",
+        "highlight": "AND SILENT ENERGY.",
+        "description": "We use high-efficiency solar panels to harness solar energy and convert it into electricity, reducing fuel consumption and environmental impact.",
+        "items": [
+          "Renewable and sustainable energy.",
+          "Low environmental impact.",
+          "Silent operation."
+        ]
+      },
+      "diesel": {
+        "kicker": "DIESEL POWER GENERATORS",
+        "title": "POWER AND RELIABILITY",
+        "highlight": "WHEN YOU NEED IT.",
+        "description": "We have state-of-the-art diesel generator plants that guarantee a stable and continuous power supply, even under high demand or in remote locations.",
+        "items": [
+          "High load capacity.",
+          "Continuous and safe operation.",
+          "Modern and efficient equipment."
+        ]
+      }
+    },
+    "hybrid": {
+      "kicker": "HOW THEY WORK TOGETHER",
+      "title_line1": "A SMART",
+      "title_line2": "COMBINATION.",
+      "description": "Solar power generates electricity during the day, powering the event and charging the system. When demand increases or solar radiation is low, diesel plants start up automatically, ensuring a continuous and stable supply.",
+      "solar_panels": {
+        "title": "SOLAR PANELS",
+        "subtitle": "Generation and charging"
+      },
+      "management": {
+        "title": "MANAGEMENT SYSTEM",
+        "subtitle": "Automatically distributes power"
+      },
+      "diesel_plants": {
+        "title": "DIESEL PLANTS",
+        "subtitle": "Backup and continuity"
+      }
+    },
+    "benefits": {
+      "kicker": "BENEFITS",
+      "title_line1": "EFFICIENT ENERGY,",
+      "title_line2": "BIGGER EVENTS.",
+      "sustainability": {
+        "title": "SUSTAINABILITY",
+        "description": "We reduce the carbon footprint of every event."
+      },
+      "reliability": {
+        "title": "RELIABILITY",
+        "description": "Stable power at all times."
+      },
+      "efficiency": {
+        "title": "EFFICIENCY",
+        "description": "Smart use of resources."
+      },
+      "versatility": {
+        "title": "VERSATILITY",
+        "description": "Operates anywhere in the country."
+      }
+    },
+    "cta": {
+      "kicker": "YOUR EVENT, OUR ENERGY",
+      "title_line1": "READY FOR AN EVENT",
+      "title_line2": "WITH UNLIMITED",
+      "title_line3": "ENERGY?",
+      "description": "Let's talk about your project and design the best energy solution together.",
+      "button": "CONTACT US"
+    }
+  },
+  "technology": {
+    "hero": {
+      "eyebrow": "TECHNOLOGY",
+      "title_line1": "TECHNOLOGY THAT",
+      "title_line2": "DRIVES MAJOR",
+      "title_line3": "EVENTS.",
+      "description": "At Gran Eventos we combine state-of-the-art equipment with smart energy solutions to guarantee a reliable, safe, and efficient supply for every event.",
+      "benefit1_line1": "Reliable power",
+      "benefit1_line2": "at all times",
+      "benefit2_line1": "State-of-the-art",
+      "benefit2_line2": "equipment",
+      "benefit3_line1": "Specialized technical",
+      "benefit3_line2": "support",
+      "alt_hero_img": "Gran Eventos power generator powering an event stage",
+      "message_line1": "TECHNOLOGY",
+      "message_line2": "+ EXPERIENCE",
+      "message_line3": "= UNLIMITED EVENTS."
+    },
+    "generation": {
+      "eyebrow": "OUR TECHNOLOGIES",
+      "title_line1": "STATE-OF-THE-ART",
+      "title_line2": "PLANTS AND GENERATORS.",
+      "description": "We have high-capacity power plants and diesel generators designed to provide optimal performance, low fuel consumption, and maximum safety, even under high demand.",
+      "feature1_line1": "High power",
+      "feature1_line2": "and performance",
+      "feature2_line1": "Real-time monitoring",
+      "feature2_line2": "systems",
+      "feature3_line1": "Low fuel",
+      "feature3_line2": "consumption",
+      "button": "LEARN MORE",
+      "alt_gen_img": "Gran Eventos power generator installed next to the stage"
+    },
+    "clean_energy": {
+      "eyebrow": "CLEAN ENERGY",
+      "title_line1": "CLEAN AND EFFICIENT",
+      "title_line2": "ENERGY",
+      "description": "Our equipment is engineered to be more efficient and lower environmental impact without compromising power or safety.",
+      "feature1_line1": "Lower gas",
+      "feature1_line2": "emissions",
+      "feature2_line1": "Responsible fuel",
+      "feature2_line2": "usage",
+      "feature3_line1": "Proper waste",
+      "feature3_line2": "management"
+    },
+    "solar": {
+      "alt_solar_img": "Solar panels next to a stage at sunset",
+      "eyebrow": "SOLAR ENERGY",
+      "title_line1": "THE POWER OF THE SUN",
+      "title_line2": "IS ALSO PART OF",
+      "title_line3": "THE SHOW.",
+      "description": "We use solar panels to supplement the power supply at events, reducing fuel consumption and environmental impact.",
+      "feature1": "Renewable energy",
+      "feature2_line1": "Silent",
+      "feature2_line2": "operation",
+      "feature3_line1": "Ideal for outdoor",
+      "feature3_line2": "events",
+      "system": {
+        "eyebrow": "HOW DO THEY WORK TOGETHER?",
+        "description": "Solar energy and diesel generators work together to guarantee a continuous, stable, and efficient supply.",
+        "panels_title": "Solar panels",
+        "panels_sub": "Generation and charging",
+        "management_title": "Management system",
+        "management_sub": "Distributes energy automatically",
+        "diesel_title": "Diesel plants",
+        "diesel_sub": "Backup and continuity"
+      }
+    },
+    "infrastructure": {
+      "alt_cables_img": "Electrical wiring distributed at a live event",
+      "alt_conn_img": "Electrical connections of a generator plant",
+      "eyebrow": "SMART INFRASTRUCTURE",
+      "title_line1": "CONNECTIVITY AND POWER",
+      "title_line2": "DISTRIBUTION",
+      "description": "We install and manage the entire electrical cabling system, ensuring safe and efficient power distribution at every point of the event.",
+      "feature1_line1": "Operational",
+      "feature1_line2": "safety",
+      "feature2_line1": "Strategic",
+      "feature2_line2": "distribution",
+      "feature3_line1": "Fast and professional",
+      "feature3_line2": "assembly"
+    },
+    "cta": {
+      "eyebrow": "TECHNOLOGY THAT GIVES YOU PEACE OF MIND",
+      "title_line1": "YOUR EVENT,",
+      "title_line2": "OUR ENERGY.",
+      "description": "Technology is the engine that allows us to connect big ideas with the energy that makes them happen.",
+      "button": "CONTACT US",
+      "service1": "DIESEL PLANTS",
+      "service2": "SOLAR ENERGY",
+      "service3_line1": "WIRING AND",
+      "service3_line2": "DISTRIBUTION"
+    }
   }
 }

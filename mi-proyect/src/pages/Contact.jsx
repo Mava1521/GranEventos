@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import '../styles/Contact.css';
 
@@ -6,7 +7,7 @@ import LogoGE from '../assets/LOGOGE.png';
 import IconWhatsApp from '../assets/whatsapp.png';
 import ImageHero from '../assets/HeroContact.jpg';
 import instagram from '../assets/instagram.png';
-import location from '../assets/location.png';
+import locationIcon from '../assets/location.png';
 import youtube from '../assets/youtube.png';
 import clock from '../assets/clock.png';
 import FooterProyect from '../assets/FooterProyect.jpg';
@@ -30,8 +31,24 @@ const initialForm = {
 
 export default function Contact() {
   const { t } = useTranslation();
+  const location = useLocation();
   const [formData, setFormData] = useState(initialForm);
   const [status, setStatus] = useState('');
+
+  // Efecto para desplazar suavemente al elemento con el ID especificado en el hash
+  useEffect(() => {
+    if (location.hash) {
+      const targetElement = document.querySelector(location.hash);
+      if (targetElement) {
+        // Un leve retraso garantiza que el DOM esté completamente montado antes del scroll
+        setTimeout(() => {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
 
   const handleChange = (event) => {
     const { name, value, type, checked } = event.target;
@@ -99,8 +116,8 @@ export default function Contact() {
       ========================================= */}
       <section className="contact-main">
 
-        {/* FORMULARIO */}
-        <div className="contact-form-column">
+        {/* FORMULARIO DE CONTACTO CON EL ID PARA NAVEGACIÓN DIRECTA */}
+        <div id="cuentanos-tu-proyecto" className="contact-form-column">
           <div className="contact-kicker dark">
             <span />
             {t('contact.form.kicker')}
@@ -298,7 +315,7 @@ export default function Contact() {
           {/* SEDE PRINCIPAL */}
           <article className="location-detail">
             <div className="location-detail-icon">
-              <img src={location} alt="" width={25} height={25} />
+              <img src={locationIcon} alt="" width={25} height={25} />
             </div>
             <div className="location-detail-content">
               <h3>{t('contact.location.mainHeadquarters')}</h3>

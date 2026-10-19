@@ -11,11 +11,11 @@ import ScrollVideoSection from '../components/ScrollVideoSection';
 import LetrasGE from '../assets/LetrasGE.png';
 import SampleVideo from '../assets/History.mp4';
 
-
 export default function History() {
   const { t } = useTranslation();
   const [selectedEvent, setSelectedEvent] = useState(null);
 
+  // Datos localizados y estructurados correctamente para la UI/Modal
   const localizedTimelineData = useLocalizedTimeline(timelineData);
 
   useEffect(() => {
@@ -37,7 +37,6 @@ export default function History() {
   }, [selectedEvent]);
 
   const handleOpenModal = (eventData) => {
-    console.log("1. History recibió clic para abrir modal con el evento:", eventData);
     setSelectedEvent(eventData);
   };
 
@@ -82,13 +81,11 @@ export default function History() {
 
         {/* COLLAGE + TÍTULO DE LÍNEA DE TIEMPO */}
         <section className="history-collage-wrapper">
-
           {/* TÍTULO SOLO PARA ESCRITORIO */}
           <div className="history-timeline-title-desktop">
             <span className="timeline-eyebrow">
               {t('history.timeline.eyebrow')}
             </span>
-
             <h2>{t('history.timeline.title')}</h2>
           </div>
 
@@ -97,7 +94,7 @@ export default function History() {
             className="history-collage"
             aria-label={t('history.collage.ariaLabel')}
           >
-            {timelineData.map((item, index) => (
+            {localizedTimelineData.map((item, index) => (
               <button
                 type="button"
                 key={item.id}
@@ -123,18 +120,15 @@ export default function History() {
 
         {/* TIMELINE */}
         <section className="history-timeline-section">
-
           {/* TÍTULO SOLO PARA MÓVIL */}
           <div className="history-timeline-title-mobile">
             <span className="timeline-eyebrow">
               {t('history.timeline.eyebrow')}
             </span>
-
             <h2>{t('history.timeline.title')}</h2>
           </div>
 
           <Timeline onOpenModal={handleOpenModal} />
-
         </section>
 
         {/* VIDEO */}
@@ -170,7 +164,6 @@ export default function History() {
               aria-labelledby="history-modal-title"
               onClick={(event) => event.stopPropagation()}
             >
-
               {/* BOTÓN CERRAR */}
               <button
                 type="button"
@@ -183,9 +176,11 @@ export default function History() {
 
               {/* HEADER */}
               <header className="ge-modal-header">
-                <span className="ge-modal-badge">
-                  {selectedEvent.tag}
-                </span>
+                {selectedEvent.tag && (
+                  <span className="ge-modal-badge">
+                    {selectedEvent.tag}
+                  </span>
+                )}
 
                 <h2
                   id="history-modal-title"
@@ -201,7 +196,6 @@ export default function History() {
 
               {/* CONTENIDO */}
               <div className="ge-modal-grid">
-
                 {/* IMAGEN */}
                 <div className="ge-modal-media">
                   <img
@@ -261,10 +255,8 @@ export default function History() {
                   {t('history.modal.footerTagline')}
                 </span>
               </footer>
-
             </article>
           </div>,
-
           document.body
         )}
     </div>
