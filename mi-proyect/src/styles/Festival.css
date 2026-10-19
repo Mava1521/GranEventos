@@ -11,13 +11,10 @@
   --festival-text: #d6d6d6;
   --festival-muted: #9b9b9b;
   --festival-border: rgba(255, 255, 255, 0.22);
-
   min-height: 100vh;
   background: var(--festival-black);
   color: var(--festival-white);
-
   font-family: 'Montserrat', sans-serif;
-
   overflow: hidden;
 }
 
@@ -65,12 +62,9 @@
 .festival-hero__background img {
   position: absolute;
   inset: 0;
-
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
   object-position: center center;
 }
@@ -84,7 +78,6 @@
   content: '';
   position: absolute;
   inset: 0;
-
   background:
     linear-gradient(
       90deg,
