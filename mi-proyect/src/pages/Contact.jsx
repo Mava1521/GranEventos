@@ -99,6 +99,17 @@ export default function Contact() {
             src={ImageHero}
             alt={t('contact.hero.alt')}
           />
+          {/* Capa de opacidad negra para mejorar la legibilidad */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.4)',
+              pointerEvents: 'none',
+              zIndex: 2,
+            }}
+            aria-hidden="true"
+          />
           <div className="contact-lightning" />
         </div>
 
@@ -469,7 +480,7 @@ export default function Contact() {
 
       {/* =========================================
           TALENT
-      ========================================== */}
+      ========================================= */}
       <section className="contact-talent">
         <div className="talent-content">
           <div className="contact-kicker dark">
@@ -498,6 +509,17 @@ export default function Contact() {
             src={FooterProyect}
             alt="Equipo de Gran Eventos"
           />
+          {/* Capa de opacidad negra para mejorar la legibilidad */}
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.2)',
+              pointerEvents: 'none',
+              zIndex: 2,
+            }}
+            aria-hidden="true"
+          />
         </div>
 
         <div className="talent-side">
@@ -511,7 +533,7 @@ export default function Contact() {
 
       {/* =========================================
           FOOTER BANNER
-      ========================================== */}
+      ========================================= */}
       <section className="contact-banner">
         <div className="banner-overlay" />
 

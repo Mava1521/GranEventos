@@ -142,26 +142,19 @@
   display: flex;
   align-items: center;
   gap: 8px;
-
   margin-bottom: 12px;
-
   color: var(--festival-white);
-
   font-size: 11px;
   font-weight: 500;
-
   letter-spacing: 0.8px;
 }
 
 
 .festival-slash {
   color: var(--festival-yellow);
-
   font-size: 22px;
   font-weight: 700;
-
   line-height: 0.7;
-
   transform: rotate(15deg);
 }
 
@@ -183,7 +176,6 @@
 
 .festival-hero h1 span {
   display: block;
-
   color: var(--festival-yellow);
 }
 
@@ -199,14 +191,10 @@
 
 .festival-hero__text > p {
   max-width: 355px;
-
   margin: 22px 0 0;
-
   color: #dddddd;
-
   font-size: 13px;
   font-weight: 400;
-
   line-height: 1.65;
 }
 
@@ -217,12 +205,9 @@
 
 .festival-line {
   display: block;
-
   width: 42px;
   height: 3px;
-
   margin-top: 18px;
-
   background: var(--festival-yellow);
 }
 
@@ -235,18 +220,12 @@
   display: inline-flex;
   align-items: center;
   gap: 14px;
-
   margin-top: 17px;
-
   color: var(--festival-white);
-
   font-size: 10px;
   font-weight: 600;
-
   letter-spacing: 0.4px;
-
   text-decoration: none;
-
   transition:
     color 0.25s ease,
     gap 0.25s ease;
@@ -255,10 +234,8 @@
 
 .festival-hero__link span {
   color: var(--festival-yellow);
-
   font-size: 22px;
   font-weight: 300;
-
   line-height: 0;
 }
 
@@ -275,11 +252,8 @@
 
 .festival-services {
   position: relative;
-
   padding: 34px 0 36px;
-
   background: var(--festival-black-soft);
-
   border-top: 1px solid var(--festival-border);
   border-bottom: 1px solid var(--festival-border);
 }
@@ -292,11 +266,8 @@
 .festival-section-heading {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   align-items: center;
-
   gap: 70px;
-
   margin-bottom: 32px;
 }
 
@@ -304,12 +275,9 @@
 .festival-section-heading__title h2,
 .festival-projects__header h2 {
   margin: 0;
-
   font-family: 'Montserrat', sans-serif;
-
   font-size: clamp(32px, 3.4vw, 45px);
   font-weight: 800;
-
   line-height: 0.95;
   letter-spacing: -1.5px;
 }
@@ -324,18 +292,14 @@
 
 .festival-section-heading__description {
   padding-left: 36px;
-
   border-left: 1px solid rgba(255, 255, 255, 0.45);
 }
 
 
 .festival-section-heading__description p {
   max-width: 430px;
-
   margin: 0;
-
   color: var(--festival-text);
-
   font-size: 11px;
   line-height: 1.55;
 }
@@ -348,16 +312,13 @@
 .festival-services__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-
   margin-top: 15px;
 }
 
 
 .festival-service-card {
   min-height: 120px;
-
   padding: 0 25px;
-
   border-right: 1px solid rgba(255, 255, 255, 0.25);
 }
 
@@ -375,42 +336,32 @@
 .festival-service-card__icon {
   display: flex;
   align-items: center;
-
   width: 48px;
   height: 48px;
-
   margin-bottom: 16px;
 }
 
 .festival-service-card__icon img {
   display: block;
-
   width: 42px;
   height: 42px;
-
   object-fit: contain;
 }
 
 
 .festival-service-card h3 {
   margin: 0 0 9px;
-
   color: var(--festival-white);
-
   font-size: 10px;
   font-weight: 700;
-
   line-height: 1.25;
 }
 
 
 .festival-service-card p {
   max-width: 190px;
-
   margin: 0;
-
   color: #b6b6b6;
-
   font-size: 9px;
   line-height: 1.55;
 }
@@ -422,9 +373,7 @@
 
 .festival-projects {
   position: relative;
-
   padding: 36px 0 48px;
-
   background: var(--festival-black);
 }
 
@@ -432,29 +381,22 @@
 .festival-projects__header {
   display: grid;
   grid-template-columns: 0.9fr 1fr auto;
-
   align-items: center;
-
   gap: 45px;
-
   margin-bottom: 25px;
 }
 
 
 .festival-projects__intro {
   padding-left: 28px;
-
   border-left: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 
 .festival-projects__intro p {
   max-width: 310px;
-
   margin: 0;
-
   color: var(--festival-text);
-
   font-size: 9px;
   line-height: 1.55;
 }
@@ -464,22 +406,17 @@
   display: flex;
   align-items: center;
   gap: 12px;
-
   color: var(--festival-white);
-
   font-size: 8px;
   font-weight: 600;
-
   text-decoration: none;
   white-space: nowrap;
-
   transition: color 0.25s ease;
 }
 
 
 .festival-projects__all span {
   color: var(--festival-yellow);
-
   font-size: 18px;
 }
 
@@ -496,20 +433,15 @@
 .festival-projects__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
   gap: 15px;
 }
 
 
 .festival-project-card {
   position: relative;
-
   overflow: hidden;
-
   background: #090e10;
-
   border: 1px solid rgba(255, 255, 255, 0.25);
-
   transition:
     transform 0.3s ease,
     border-color 0.3s ease;
@@ -518,19 +450,15 @@
 
 .festival-project-card:hover {
   transform: translateY(-4px);
-
   border-color: var(--festival-yellow);
 }
 
 
 .festival-project-card__image {
   position: relative;
-
   width: 100%;
   height: 145px;
-
   overflow: hidden;
-
   background:
     linear-gradient(
       135deg,
@@ -543,11 +471,8 @@
 .festival-project-card__image img {
   width: 100%;
   height: 100%;
-
   display: block;
-
   object-fit: cover;
-
   transition: transform 0.45s ease;
 }
 
@@ -564,23 +489,18 @@
 .festival-image-placeholder {
   width: 100%;
   height: 100%;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background:
     linear-gradient(
       135deg,
       #182023,
       #080b0c
     );
-
   color: rgba(255, 255, 255, 0.3);
-
   font-size: 10px;
   font-weight: 600;
-
   letter-spacing: 2px;
 }
 
@@ -589,18 +509,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   min-height: 54px;
-
   padding: 8px 13px;
 }
 
 
 .festival-project-card__content h3 {
   margin: 0 0 3px;
-
   color: var(--festival-white);
-
   font-size: 9px;
   font-weight: 700;
 }
@@ -616,20 +532,13 @@
 .festival-project-card__arrow {
   width: 30px;
   height: 30px;
-
   padding: 0;
-
   border: none;
-
   background: transparent;
-
   color: var(--festival-yellow);
-
   font-size: 20px;
   font-weight: 300;
-
   cursor: pointer;
-
   transition:
     transform 0.25s ease,
     color 0.25s ease;
@@ -649,9 +558,7 @@
 .festival-projects__controls {
   display: flex;
   justify-content: flex-end;
-
   gap: 10px;
-
   margin-top: 17px;
 }
 
@@ -659,22 +566,15 @@
 .festival-slider-button {
   width: 27px;
   height: 27px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 50%;
-
   background: transparent;
-
   color: var(--festival-white);
-
   font-size: 12px;
-
   cursor: pointer;
-
   transition:
     background 0.25s ease,
     border-color 0.25s ease,
@@ -684,9 +584,7 @@
 
 .festival-slider-button:hover {
   background: var(--festival-yellow);
-
   border-color: var(--festival-yellow);
-
   color: #111111;
 }
 
