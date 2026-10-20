@@ -31,10 +31,13 @@
    CONTAINER
    ============================================================ */
 
-.concert-container {
-  width: min(100% - 104px, 1210px);
-  margin: 0 auto;
-}
+    .concert-container {
+      width: 100%;
+      max-width: 100%;
+      padding-left: 65px;
+      padding-right: 40px;
+      margin: 0 auto;
+    }
 
 /* ============================================================
    HERO & BG IMAGE FIX
@@ -612,7 +615,8 @@
 
 @media (max-width: 1000px) {
   .concert-container {
-    width: min(100% - 60px, 850px);
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .concert-services-grid {
@@ -639,7 +643,8 @@
   }
 
   .concert-container {
-    width: min(100% - 34px, 500px);
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .concert-hero {

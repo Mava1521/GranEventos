@@ -549,7 +549,7 @@ export default function Contact() {
         </div>
 
         <div className="banner-content">
-          <img src={Foto4} alt="" width={600} height={400}/>
+          <img src={Foto4} alt="" width={600} height={200}/>
         </div>
 
         <div className="banner-right">

@@ -29,11 +29,14 @@
    CONTAINER
    ========================================================= */
 
-.festival-container {
-  width: min(100% - 96px, 1180px);
-  margin: 0 auto;
-}
-
+    .festival-container {
+      width: 100%;
+      max-width: 100%;
+      padding-left: 71px;
+      padding-right: 40px;
+      margin: 0 auto;
+    }
+s
 /* =========================================================
    HERO
    ========================================================= */
@@ -596,7 +599,8 @@
 @media (max-width: 900px) {
 
   .festival-container {
-    width: min(100% - 50px, 760px);
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
 
@@ -662,7 +666,8 @@
 @media (max-width: 600px) {
 
   .festival-container {
-    width: min(100% - 34px, 500px);
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
 
