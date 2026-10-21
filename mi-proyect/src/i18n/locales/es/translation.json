@@ -30,7 +30,6 @@
       "titleYellow": "UNA",
       "titleSplit": "MISMA",
       "titleGreen": "ENERGÍA",
-      "titleLight2": "QUE LO HACE TODO POSIBLE.",
       "description": "La unión de nuestra pasión por crear experiencias y nuestra ingeniería energética nos permite ir más lejos, ser más eficientes y generar un impacto positivo en cada proyecto.",
       "sideList": {
         "events": "EVENTOS",
@@ -50,23 +49,17 @@
       "description": "Integramos experiencia, energía y tecnología para diseñar eventos extraordinarios, más eficientes, sostenibles y con un impacto real.",
       "cards": {
         "01": {
-          "tagBlue": "EVENTOS",
-          "tagText": "QUE CONECTAN",
-          "title": "EXPERIENCIAS",
+          "title": "SOLUCIONES",
           "description": "Producción integral de eventos que inspiran y generan un impacto duradero.",
           "cta": "CONOCE MÁS"
         },
         "02": {
-          "tagGold": "ENERGÍA",
-          "tagText": "SIN LÍMITES",
           "title": "ENERGÍA",
           "description": "Soluciones energéticas confiables y escalables para todo tipo de proyecto.",
           "cta": "CONOCE MÁS"
         },
         "03": {
-          "tagGreen": "TECNOLOGÍA",
-          "tagText": "QUE IMPULSA",
-          "title": "TECNOLOGÍA",
+          "title": "ZERO",
           "description": "Innovación en soluciones temporales para un futuro más sostenible.",
           "cta": "CONOCE MÁS"
         }

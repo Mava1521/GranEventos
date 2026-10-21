@@ -446,36 +446,6 @@ export default function Contact() {
             <img src={MundialMap} alt="" width={900} height={600}/>
           </div>
         </div>
-
-        {/* CTA POSIBILIDADES */}
-        <div className="possibilities-card">
-          <div className="possibilities-icon">
-            <svg viewBox="0 0 64 64" aria-hidden="true">
-              <circle cx="32" cy="32" r="27" />
-              <ellipse cx="32" cy="32" rx="13" ry="27" />
-              <path d="M5 32h54" />
-              <path d="M9 20h46" />
-              <path d="M9 44h46" />
-            </svg>
-          </div>
-
-          <div className="possibilities-divider" aria-hidden="true" />
-
-          <div className="possibilities-text">
-            <span>{t('contact.possibilities.sub')}</span>
-            <h3>
-              {t('contact.possibilities.title1')}
-              <strong>{t('contact.possibilities.title2')}</strong>
-            </h3>
-          </div>
-
-          <div className="possibilities-arrow">
-            <svg viewBox="0 0 40 20" aria-hidden="true">
-              <path d="M1 10h34" />
-              <path d="M28 3l7 7-7 7" />
-            </svg>
-          </div>
-        </div>
       </section>
 
       {/* =========================================
@@ -531,34 +501,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* =========================================
-          FOOTER BANNER
-      ========================================= */}
-      <section className="contact-banner">
-        <div className="banner-overlay" />
-
-        <div className="banner-content">
-          <div className="contact-yellow-line" />
-          <h2>
-            {t('contact.banner.title1')}
-            <br />
-            {t('contact.banner.title2')}
-            <br />
-            {t('contact.banner.title3')}
-          </h2>
-        </div>
-
-        <div className="banner-content">
-          <img src={Foto4} alt="" width={600} height={200}/>
-        </div>
-
-        <div className="banner-right">
-          <span>{t('contact.banner.right.energy')}</span>
-          <span>{t('contact.banner.right.people')}</span>
-          <span>{t('contact.banner.right.experiences')}</span>
-          <span>{t('contact.banner.right.planet')}</span>
-        </div>
-      </section>
+    
     </main>
   );
 }

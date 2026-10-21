@@ -30,7 +30,6 @@
       "titleYellow": "ONE",
       "titleSplit": "SAME",
       "titleGreen": "ENERGY",
-      "titleLight2": "THAT MAKES IT ALL POSSIBLE.",
       "description": "Combining our passion for creating experiences with energy engineering allows us to go further, be more efficient, and create a positive impact in every project.",
       "sideList": {
         "events": "EVENTS",
@@ -50,23 +49,17 @@
       "description": "We blend expertise, energy, and technology to design extraordinary events that are more efficient, sustainable, and truly impactful.",
       "cards": {
         "01": {
-          "tagBlue": "EVENTS",
-          "tagText": "THAT CONNECT",
-          "title": "EXPERIENCES",
+          "title": "SOLUTIONS",
           "description": "Comprehensive event production that inspires and creates a lasting impact.",
           "cta": "LEARN MORE"
         },
         "02": {
-          "tagGold": "ENERGY",
-          "tagText": "WITHOUT LIMITS",
           "title": "ENERGY",
           "description": "Reliable and scalable energy solutions for all types of projects.",
           "cta": "LEARN MORE"
         },
         "03": {
-          "tagGreen": "TECHNOLOGY",
-          "tagText": "THAT DRIVES",
-          "title": "TECHNOLOGY",
+          "title": "ZERO",
           "description": "Innovation in temporary solutions for a more sustainable future.",
           "cta": "LEARN MORE"
         }

@@ -38,6 +38,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* SECCIÓN DE MÉTRICAS / IMPACTO */}
+      <section className="metrics-section">
+        <div className="container metrics-container">
+          
+          {/* Métrica 1: Eventos */}
+          <div className="metric-item">
+            <div className="metric-content">
+              <span className="metric-number text-gold">65</span>
+              <span className="metric-label">Eventos realizados en 2026</span>
+            </div>
+          </div>
+
+          <div className="metric-divider" aria-hidden="true"></div>
+
+          {/* Métrica 2: Asistencia */}
+          <div className="metric-item">
+            <div className="metric-content">
+              <span className="metric-number text-light">+2.000</span>
+              <span className="metric-label">Asistencia de personas</span>
+            </div>
+          </div>
+
+          <div className="metric-divider" aria-hidden="true"></div>
+
+          {/* Métrica 3: Impacto / Baterías */}
+          <div className="metric-item">
+            <div className="metric-content">
+              <span className="metric-number text-green">20%</span>
+              <span className="metric-label">Impacto de emisión reducido gracias a las baterías</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
       {/* MIDDLE SECTION: GRAN EVENTOS + SETIE */}
       <section
         className="ge-home-story"
@@ -71,21 +107,16 @@ export default function Home() {
           >
             <span className="ge-home-story-title-light">
               {t('home.story.titleLight1')}
-            </span>{' '}
-
-            <span className="ge-home-story-title-yellow">
-              {t('home.story.titleYellow')}{' '}
-              <span className="ge-home-story-title-split">
-                {t('home.story.titleSplit')}
-              </span>{' '}
             </span>
 
-            <span className="ge-home-story-title-green">
-              {t('home.story.titleGreen')}
-            </span>{' '}
+            <span className="ge-home-story-title-gradient">
+              <span className="ge-home-story-title-line">
+                {t('home.story.titleYellow')} {t('home.story.titleSplit')}
+              </span>
 
-            <span className="ge-home-story-title-light ge-home-story-title-last">
-              {t('home.story.titleLight2')}
+              <span className="ge-home-story-title-line">
+                {t('home.story.titleGreen')}
+              </span>
             </span>
           </h2>
 
@@ -161,46 +192,6 @@ export default function Home() {
             <div className="strengths-grid">
 
               {/* CARD 01 */}
-              <article className="strength-card strengths-card-gold">
-                <div className="strength-card-media">
-                  <img src={Experiencias} alt="" width={500} height={300} />
-                </div>
-
-                <div className="strength-card-gradient"></div>
-
-                <div className="strength-card-content">
-                  <div className="strength-card-top">
-                    <div className="strength-number">
-                      <span>01</span>
-                      <span className="strength-number-line"></span>
-                    </div>
-
-                    <span className="strength-card-tag">
-                      <span className="text-blue">{t('home.strengths.cards.01.tagBlue')}</span>
-                      <br />
-                      {t('home.strengths.cards.01.tagText')}
-                    </span>
-                  </div>
-
-                  <div className="strength-card-bottom">
-                    <h3><span className="text-blue">{t('home.strengths.cards.01.title')}</span></h3>
-
-                    <p>
-                      {t('home.strengths.cards.01.description')}
-                    </p>
-
-                    <Link to="/experiencias" className="strength-card-link">
-                      <span>{t('home.strengths.cards.01.cta')}</span>
-
-                      <span className="strength-arrow">
-                        <ArrowRight size={20} strokeWidth={1.8} />
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-              </article>
-
-              {/* CARD 02 */}
               <article className="strength-card strengths-card-green">
                 <div className="strength-card-media">
                   <img src={Energia} alt="" width={500} height={300} />
@@ -210,16 +201,7 @@ export default function Home() {
 
                 <div className="strength-card-content">
                   <div className="strength-card-top">
-                    <div className="strength-number">
-                      <span>02</span>
-                      <span className="strength-number-line2"></span>
-                    </div>
-
-                    <span className="strength-card-tag">
-                      <span className="text-gold">{t('home.strengths.cards.02.tagGold')}</span>
-                      <br />
-                      {t('home.strengths.cards.02.tagText')}
-                    </span>
+                    
                   </div>
 
                   <div className="strength-card-bottom">
@@ -240,7 +222,7 @@ export default function Home() {
                 </div>
               </article>
 
-              {/* CARD 03 */}
+              {/* CARD 02 */}
               <article className="strength-card strengths-card-green">
                 <div className="strength-card-media">
                   <img src={Tecnologia} alt="" width={500} height={300} />
@@ -250,16 +232,7 @@ export default function Home() {
 
                 <div className="strength-card-content">
                   <div className="strength-card-top">
-                    <div className="strength-number">
-                      <span>03</span>
-                      <span className="strength-number-line"></span>
-                    </div>
-
-                    <span className="strength-card-tag">
-                      <span className="green-point">{t('home.strengths.cards.03.tagGreen')}</span>
-                      <br />
-                      {t('home.strengths.cards.03.tagText')}
-                    </span>
+                    
                   </div>
 
                   <div className="strength-card-bottom">
@@ -271,6 +244,37 @@ export default function Home() {
 
                     <Link to="/tecnologia" className="strength-card-link">
                       <span>{t('home.strengths.cards.03.cta')}</span>
+
+                      <span className="strength-arrow">
+                        <ArrowRight size={20} strokeWidth={1.8} />
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+              </article>
+
+              {/* CARD 03 */}
+              <article className="strength-card strengths-card-gold">
+                <div className="strength-card-media">
+                  <img src={Experiencias} alt="" width={500} height={300} />
+                </div>
+
+                <div className="strength-card-gradient"></div>
+
+                <div className="strength-card-content">
+                  <div className="strength-card-top">
+                    
+                  </div>
+                 
+                  <div className="strength-card-bottom">
+                    <h3><span className="text-blue">{t('home.strengths.cards.01.title')}</span></h3>
+
+                    <p>
+                      {t('home.strengths.cards.01.description')}
+                    </p>
+
+                    <Link to="/experiencias" className="strength-card-link">
+                      <span>{t('home.strengths.cards.01.cta')}</span>
 
                       <span className="strength-arrow">
                         <ArrowRight size={20} strokeWidth={1.8} />
