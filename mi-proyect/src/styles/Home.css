@@ -1,4 +1,9 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap');
+
+/* =========================================================
+   1. VARIABLES GLOBALES Y RESETEO
+   ========================================================= */
 
 :root {
   --bg-dark: #070707;
@@ -27,7 +32,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* CONTENEDOR FLUIDO MULTIPLATAFORMA */
+/* =========================================================
+   2. ESTRUCTURA GENERAL
+   ========================================================= */
+
 .wrapper {
   width: 100%;
   min-height: 100vh;
@@ -43,7 +51,10 @@ body {
   padding: 0 40px;
 }
 
-/* NAVBAR (Superpuesto encima del video) */
+/* =========================================================
+   3. NAVBAR
+   ========================================================= */
+
 .navbar {
   position: absolute;
   top: 0;
@@ -114,7 +125,10 @@ body {
   color: var(--accent-gold);
 }
 
-/* HERO SECTION CENTRADO */
+/* =========================================================
+   4. HERO PRINCIPAL
+   ========================================================= */
+
 .hero-section {
   position: relative;
   width: 100vw;
@@ -128,7 +142,7 @@ body {
   justify-content: flex-start;
   overflow: hidden;
   background-color: #000000;
-  padding: 0; /* Cambiar a 0 para no sumar desfase */
+  padding: 0;
 }
 
 .hero-video-bg {
@@ -154,7 +168,7 @@ body {
 
 .hero-center-content {
   position: relative;
-  z-index: 5; /* Nivel alto para asegurar visibilidad */
+  z-index: 5;
   text-align: center;
   max-width: 900px;
   padding: 0 20px;
@@ -201,9 +215,6 @@ body {
   color: #000000;
 }
 
-/* ==========================================
-   TIPOGRAFÍA Y ESTILO FIEL A LA IMAGEN
-   ========================================== */
 .hero-content-left {
   position: relative;
   z-index: 5;
@@ -214,138 +225,899 @@ body {
   margin-left: 0;
 }
 
+.hero-title-oswald {
+  font-family: var(--font-condensed);
+  font-size: 3.8rem;
+  font-weight: 700;
+  line-height: 1.05;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.hero-subtext-left {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+
+.text-gold {
+  color: var(--accent-gold);
+}
+
+.text-blue {
+  color: #2e3182;
+}
+
+.gold-line {
+  width: 44px;
+  height: 4px;
+  background-color: var(--accent-gold);
+  border-radius: 1px;
+  margin-bottom: 20px;
+}
+
+.btn-cta-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--accent-gold);
+  color: #000000;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  min-height: 48px;
+}
+
+.btn-cta-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(253, 208, 0, 0.3);
+}
+
 /* =========================================================
-   SECCIÓN DE MÉTRICAS / IMPACTO
+   5. PLACEHOLDERS DE IMAGEN
    ========================================================= */
 
-    .metrics-section {
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      background-color: var(--bg-dark); /* Fondo oscuro general #070707 */
-      padding: 80px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
+.image-placeholder {
+  width: 100%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.5);
+}
 
-    .metrics-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      width: 100%;
-      max-width: 1440px;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
+.hero-media {
+  background-color: #1a1a1a;
+}
 
-    .metric-item {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 0 15px;
-    }
+/* =========================================================
+   6. MÉTRICAS / IMPACTO
+   ========================================================= */
 
-    .metric-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
+.metrics-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: var(--bg-dark);
+  padding: 70px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-    /* Numeraciones grandes con fuente Oswald */
-    .metric-number {
-      font-family: var(--font-condensed);
-      font-size: clamp(3rem, 4.5vw, 4.8rem);
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
+.metrics-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
 
-    /* Clases de colores basadas en tus variables corporativas */
-    .metric-number.text-gold {
-      color: var(--accent-gold);
-    }
+.metric-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 15px;
+}
 
-    .metric-number.text-green {
-      color: var(--accent-green);
-    }
+.metric-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 
-    .metric-number.text-light {
-      color: var(--text-dark-theme);
-    }
+.metric-number {
+  font-family: var(--font-condensed);
+  font-size: clamp(3rem, 4.5vw, 4.8rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
 
+.metric-number.text-gold {
+  color: var(--accent-gold);
+}
 
-    .metric-label {
-      font-family: var(--font-body);
-      font-size: 0.8rem;
-      font-weight: 500;
-      line-height: 1.4;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.7);
-      max-width: 240px;
-    }
+.metric-number.text-green {
+  color: var(--accent-green);
+}
 
+.metric-number.text-light {
+  color: var(--text-dark-theme);
+}
 
-    .metric-divider {
-      width: 1px;
-      height: 70px;
-      background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0.2),
-        rgba(255, 255, 255, 0)
-      );
-      flex-shrink: 0;
-    }
+.metric-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 240px;
+}
 
-/* En móvil se conserva el desplazamiento original para no alterar el diseño actual. */
-@media (max-width: 768px) {
+.metric-divider {
+  width: 1px;
+  height: 70px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0)
+  );
+  flex-shrink: 0;
+}
 
-  /* =========================================
-     CONTENEDOR MÓVIL
-     ========================================= */
+/* =========================================================
+   7. GRID DE TARJETAS PRINCIPAL
+   ========================================================= */
+
+.cards-section-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: var(--bg-dark);
+  padding: 80px 0 120px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.card-item {
+  position: relative;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  padding: 28px;
+  display: flex;
+  align-items: flex-end;
+  z-index: 2;
+}
+
+.card-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-title {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+}
+
+/* =========================================================
+   8. NUESTRAS FORTALEZAS
+   ========================================================= */
+
+.strengths-section-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #0b0b0b;
+}
+
+.strengths-section {
+  width: 100%;
+  padding: 92px 0 110px;
+  background-color: #ffffff;
+}
+
+.strengths-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.8fr);
+  align-items: end;
+  gap: 80px;
+  margin-bottom: 58px;
+}
+
+.strengths-label {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+  color: #111111;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.green-point {
+  color: #9dc425;
+}
+
+.strengths-label-line {
+  width: 68px;
+  height: 5px;
+  display: block;
+  background-color: var(--accent-gold);
+  border-radius: 2px;
+}
+
+.strengths-title {
+  margin: 0;
+  font-family: var(--font-condensed);
+  font-size: clamp(3.3rem, 5vw, 5.15rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: 0.2px;
+  color: #111111;
+  text-transform: uppercase;
+}
+
+.strengths-title span {
+  color: var(--accent-gold);
+}
+
+.strengths-header-description {
+  align-self: center;
+  max-width: 470px;
+  padding-top: 25px;
+}
+
+.strengths-header-description p {
+  margin: 0;
+  color: #111111;
+  font-family: var(--font-body);
+  font-size: 1.30rem;
+  font-weight: 700;
+  line-height: 1.65;
+  text-align: justify;
+}
+
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+}
+
+.strength-card {
+  position: relative;
+  height: 540px;
+  overflow: hidden;
+  border: 1px solid hsl(0, 0%, 100%);
+  border-radius: 12px;
+  transform: translateY(-5px);
+  border-color: rgba(56, 56, 56, 0.26);
+  isolation: isolate;
+  cursor: pointer;
+  transition: transform 0.35s ease, border-color 0.35s ease;
+}
+
+.strength-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.strength-card-media {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-color: rgba(241, 241, 241, 0.96);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.strength-card:nth-child(1) .strength-card-media,
+.strength-card:nth-child(2) .strength-card-media,
+.strength-card:nth-child(3) .strength-card-media {
+  background-image: linear-gradient(
+    rgba(10, 10, 10, 0.1),
+    rgba(10, 10, 10, 0.1)
+  );
+}
+
+.strength-card-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(
+    to bottom,
+    rgba(0 0 0 / 68%) 0%,
+    rgb(0 0 0 / 6%) 28%,
+    rgba(0 0 0 / 0%) 50%,
+    rgba(241, 241, 241, 0.96) 100%
+  );
+  transition: background 0.35s ease;
+}
+
+.strength-card:hover .strength-card-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(0, 0, 0, 0.18) 28%,
+    rgba(0, 0, 0, 0.45) 52%,
+    rgba(241, 241, 241, 0.96) 100%
+  );
+}
+
+.strength-card-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 30px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: inset 5px 100px 400px rgb(0 0 0 / 64%);
+}
+
+.strength-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.strength-number {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.strength-number-line,
+.strength-number-line2 {
+  width: 32px;
+  height: 3px;
+  display: block;
+  border-radius: 1px;
+}
+
+.strength-number-line {
+  background-color: #2e3182;
+}
+
+.strength-number-line2 {
+  background-color: #fdd000;
+}
+
+.strengths-card-green .strength-number-line {
+  background-color: var(--accent-green);
+}
+
+.strength-card-tag {
+  text-align: right;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.strength-card-bottom {
+  width: 100%;
+}
+
+.strength-card-bottom h3 {
+  margin: 0 0 8px;
+  font-family: var(--font-condensed);
+  color: #ffffff;
+  font-size: 2.55rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.strength-card-bottom p {
+  max-width: 410px;
+  margin: 0 0 25px;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.91rem;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.strength-card-link,
+.strength-card-link2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 0.83rem;
+  font-weight: 600;
+  letter-spacing: 1.1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: gap 0.25s ease;
+}
+
+.strength-card-link {
+  color: #2e3182;
+}
+
+.strengths-card-green .strength-card-link {
+  color: var(--accent-green);
+}
+
+.strength-card-link2 {
+  color: #fdd000;
+}
+
+.strength-card-link:hover,
+.strength-card-link2:hover {
+  gap: 16px;
+}
+
+.strength-arrow {
+  width: 43px;
+  height: 43px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.strength-card-link:hover .strength-arrow,
+.strength-card-link2:hover .strength-arrow {
+  background-color: currentColor;
+  transform: translateX(2px);
+}
+
+.strength-card-link:hover .strength-arrow svg,
+.strength-card-link2:hover .strength-arrow svg {
+  color: #0b0b0b;
+}
+
+/* =========================================================
+   9. HOME — STORY / GRAN EVENTOS + SETIE
+   ========================================================= */
+
+.ge-home-story {
+  position: relative;
+  width: 100%;
+  height: 100dvh;;
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  background: #050607;
+}
+
+.ge-home-story-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  z-index: -3;
+}
+
+.ge-home-story-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.62) 27%,
+    rgba(0, 0, 0, 0.25) 55%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
+}
+
+.ge-home-story-content {
+  position: relative;
+  z-index: 2;
+  width: min(620px, 48vw);
+  margin-left: clamp(36px, 5vw, 80px);
+  padding: 60px 0;
+}
+
+.ge-home-story-kicker {
+  margin: 0 0 28px;
+  font-family: "Montserrat", "Arial", sans-serif;
+  font-size: clamp(10px, 0.75vw, 14px);
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.82);
+  text-transform: uppercase;
+}
+
+.ge-home-story-kicker span {
+  display: inline-block;
+  margin: 0 10px;
+  color: #f4c400;
+  font-weight: 700;
+}
+
+.ge-home-story-title {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: "Oswald", "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(48px, 5.2vw, 88px);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.ge-home-story-title-gradient {
+  --ge-gradient-yellow: var(--accent-gold);
+  --ge-gradient-green: var(--accent-green);
+
+  display: block;
+  align-self: flex-start;
+  width: fit-content;
+  padding: 0.12em 0.04em 0.04em 0;
+  margin: -0.12em 0 -0.04em;
+  color: var(--ge-gradient-yellow);
+}
+
+.ge-home-story-title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .ge-home-story-title-gradient {
+    background-image: linear-gradient(
+      135deg,
+      var(--ge-gradient-yellow) 0%,
+      var(--ge-gradient-yellow) 49%,
+      var(--ge-gradient-green) 75%,
+      var(--ge-gradient-green) 100%
+    );
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+.ge-home-story-title-light {
+  color: #f4f4f4;
+}
+
+.ge-home-story-title-yellow {
+  color: #f4c400;
+  font-weight: 600;
+}
+
+.ge-home-story-title-last {
+  margin-top: 12px;
+  font-size: 0.42em;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.ge-home-story-line {
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-top: 30px;
+  margin-bottom: 24px;
+  background: #f4c400;
+}
+
+.ge-home-story-description {
+  max-width: 390px;
+  margin: 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(14px, 1vw, 18px);
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.ge-home-story-side {
+  position: absolute;
+  top: 0;
+  right: clamp(28px, 4vw, 70px);
+  width: 100px;
+  height: 100%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.ge-home-story-side-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(8px, 0.62vw, 12px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.82);
+  text-transform: uppercase;
+}
+
+.ge-home-story-side-list span:nth-child(even) {
+  color: #f4c400;
+  opacity: 0.9;
+}
+
+.ge-home-story-side-line {
+  display: block;
+  width: 1px;
+  height: 58px;
+  margin: 26px 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.15)
+  );
+}
+
+.ge-home-story-side-message {
+  margin: 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(7px, 0.58vw, 11px);
+  font-weight: 500;
+  line-height: 1.65;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   10. RESPONSIVE
+   Se mantienen las reglas específicas por componente.
+   ========================================================= */
+
+/* TABLET Y PANTALLAS MEDIANAS */
+@media (max-width: 1200px) {
+  .section-title-light {
+    font-size: 2.6rem;
+  }
+
+  .strengths-header {
+    gap: 45px;
+  }
+
+  .strengths-title {
+    font-size: 4rem;
+  }
+
+  .strength-card {
+    height: 510px;
+  }
+
+  .strength-card-content {
+    padding: 26px;
+  }
+
+  .strength-card-bottom h3 {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ge-home-story {
+    min-height: 100svh;
+  }
+
+  .ge-home-story-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.48) 60%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+  }
+
+  .ge-home-story-content {
+    width: min(560px, 60vw);
+    margin-left: 6vw;
+  }
+
+  .ge-home-story-side {
+    right: 3vw;
+  }
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+  .navbar {
+    position: absolute;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
 
   .container {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 0 24px;
   }
 
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
 
-  /* =========================================
-     HERO MÓVIL
-     ========================================= */
+  .hero-center-content {
+    margin-top: 100px;
+  }
 
+  .hero-title-centered {
+    font-size: 2rem;
+  }
+
+  .hero-subtext-centered {
+    font-size: 0.9rem;
+  }
+
+  .middle-section {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .middle-media {
+    height: 300px;
+  }
+
+  .strengths-section {
+    padding: 75px 0 90px;
+  }
+
+  .strengths-header {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 45px;
+  }
+
+  .strengths-header-description {
+    padding-top: 0;
+    max-width: 600px;
+  }
+
+  .strengths-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strength-card {
+    height: 500px;
+  }
+
+  .metrics-section {
+    padding: 50px 0;
+  }
+
+  .metrics-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .metric-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 255, 255, 0)
+    );
+  }
+
+  .metric-item {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* MÓVIL Y TABLET PEQUEÑA */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  /* Hero principal */
   .hero-section {
     min-height: 100dvh;
-    padding: 60px 0 0;
+    padding: 60px 20px 0;
   }
-
-
-  /* =========================================
-     CONTENIDO DEL HERO
-     ========================================= */
 
   .hero-content-left {
-    margin-left: 0;
     padding: 40px 0;
-    max-width: 100%;
   }
-
-
-  /* =========================================
-     TÍTULO
-     ========================================= */
 
   .hero-title-oswald {
     font-size: clamp(2.4rem, 9vw, 3.2rem);
@@ -353,21 +1125,11 @@ body {
     margin-bottom: 16px;
   }
 
-
-  /* =========================================
-     LÍNEA
-     ========================================= */
-
   .gold-line {
     width: 40px;
     height: 3px;
     margin-bottom: 16px;
   }
-
-
-  /* =========================================
-     DESCRIPCIÓN
-     ========================================= */
 
   .hero-subtext-left {
     font-size: 0.9rem;
@@ -376,12 +1138,7 @@ body {
     color: rgba(255, 255, 255, 0.9);
   }
 
-
-
-  /* =========================================
-     MIDDLE SECTION
-     ========================================= */
-
+  /* Sección intermedia */
   .middle-section-wrapper {
     padding: 60px 0;
   }
@@ -407,11 +1164,7 @@ body {
     object-fit: cover;
   }
 
-
-  /* =========================================
-     STRENGTHS (AJUSTADO PARA MÓVIL)
-     ========================================= */
-
+  /* Fortalezas */
   .strengths-section {
     padding: 60px 0;
   }
@@ -432,711 +1185,238 @@ body {
     gap: 24px;
   }
 
-  /* Ajustes claves para que las cards mantengan la jerarquía vertical correcta */
   .strength-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     height: auto;
-    min-height: 480px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    background-color: #e6e6e6;
+    border-radius: 16px;
+    overflow: hidden;
   }
 
-  .strength-card-content {
-    padding: 28px 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    box-sizing: border-box;
-  }
-
-  .strength-card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 40px;
-  }
-
-  .strength-card-bottom {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .strength-card-bottom h3 {
-    font-size: 1.8rem;
-    margin: 0;
-  }
-
-  .strength-card-bottom p {
-    font-size: 0.85rem;
-    line-height: 1.45;
-    margin: 0 0 8px 0;
-  }
-}
-
-/* Título con fuente condensada Oswald */
-.hero-title-oswald {
-  font-family: var(--font-condensed);
-  font-size: 3.8rem;
-  font-weight: 700;
-  line-height: 1.05;
-  color: #ffffff;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  /* Asegurar que no tenga sangría */
-  margin-left: 0;
-  padding-left: 0;
-}
-
-/* Color dorado idéntico */
-.text-gold {
-  color: var(--accent-gold);
-}
-
-.text-blue {
-  color: #2e3182;
-}
-
-.gold-line {
-  width: 44px;
-  height: 4px;
-  background-color: var(--accent-gold);
-  border-radius: 1px;
-  margin-bottom: 20px;
-}
-
-/* Párrafo con fuente Inter */
-.hero-subtext-left {
-  font-family: var(--font-body); /* Inter */
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-  margin-bottom: 32px;
-  font-weight: 400;
-}
-
-/* Botón dorado con flecha */
-.btn-cta-gold {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background-color: var(--accent-gold);
-  color: #000000;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.85rem;
-  text-decoration: none;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 14px 28px;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  min-height: 48px;
-}
-
-.btn-cta-gold:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(253, 208, 0, 0.3);
-}
-
-/* PLACEHOLDERS DE IMÁGENES Y MEDIA */
-.image-placeholder {
-  width: 100%;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
-  background-color: #1a1a1a;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-
-/* CARDS GRID (DARK) */
-.cards-section-wrapper {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  background-color: var(--bg-dark);
-  padding: 80px 0 120px 0;
-}
-
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  width: 100%;
-}
-
-
-.card-item {
-  position: relative;
-  height: 320px;
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.hero-media {
-  background-color: #1a1a1a;
-}
-
-.card-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.2) 100%);
-  padding: 28px;
-  display: flex;
-  align-items: flex-end;
-  z-index: 2;
-}
-
-.card-title-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.card-title {
-  font-family: var(--font-condensed);
-  font-weight: 700;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #ffffff;
-}
-
-/* ============================================================
-   NUESTRAS FORTALEZAS
-   Sección independiente para evitar conflictos con el resto
-   del Home.
-   ============================================================ */
-
-.strengths-section-wrapper {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  background-color: #0b0b0b;
-}
-
-.strengths-section {
-  width: 100%;
-  padding: 92px 0 110px;
-  background-color: #ffffff;
-}
-
-
-/* ============================================================
-   HEADER
-   ============================================================ */
-
-.strengths-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.8fr);
-  align-items: end;
-  gap: 80px;
-  margin-bottom: 58px;
-}
-
-
-/* Etiqueta superior */
-
-.strengths-label {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 18px;
-  color: #111111;
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-}
-
-.green-point{
-  color: #9dc425;
-}
-
-.strengths-label-line {
-  width: 68px;
-  height: 5px;
-  display: block;
-  background-color: var(--accent-gold);
-  border-radius: 2px;
-}
-
-
-/* Título */
-
-.strengths-title {
-  margin: 0;
-  font-family: var(--font-condensed);
-  font-size: clamp(3.3rem, 5vw, 5.15rem);
-  font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: 0.2px;
-  color: #111111;
-  text-transform: uppercase;
-}
-
-.strengths-title span {
-  color: var(--accent-gold);
-}
-
-
-/* Texto derecho */
-
-.strengths-header-description {
-  align-self: center;
-  max-width: 470px;
-  padding-top: 25px;
-}
-
-.strengths-header-description p {
-  margin: 0;
-  color: #111111;
-  font-family: var(--font-body);
-  font-size: 1.30rem;
-  font-weight: 700;
-  line-height: 1.65;
-  text-align: justify;
-}
-
-
-/* ============================================================
-   GRID DE CARDS
-   ============================================================ */
-
-.strengths-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
-  width: 100%;
-}
-
-
-/* ============================================================
-   CARD
-   ============================================================ */
-
-.strength-card {
-  position: relative;
-  height: 540px;
-  overflow: hidden;
-  border: 1px solid hsl(0, 0%, 100%);
-  border-radius: 12px;
-  transform: translateY(-5px);
-  border-color: rgba(56, 56, 56, 0.26);
-  isolation: isolate;
-  cursor: pointer;
-  transition:
-    transform 0.35s ease,
-    border-color 0.35s ease;
-}
-
-.strength-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, 0.22);
-}
-
-
-/* ============================================================
-   ÁREA DE IMAGEN
-   ============================================================ */
-
-.strength-card-media {
-  position: absolute;
-  inset: 0;
-  z-index: -3;
-  background-color: rgba(241, 241, 241, 0.96);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-
-/*
-   Cuando tengas las imágenes reales puedes reemplazar
-   estos backgrounds por tus archivos locales.
-*/
-
-.strength-card:nth-child(1) .strength-card-media {
-  background-image:
-    linear-gradient(
-      rgba(10, 10, 10, 0.1),
-      rgba(10, 10, 10, 0.1)
-    );
-}
-
-.strength-card:nth-child(2) .strength-card-media {
-  background-image:
-    linear-gradient(
-      rgba(10, 10, 10, 0.1),
-      rgba(10, 10, 10, 0.1)
-    );
-}
-
-.strength-card:nth-child(3) .strength-card-media {
-  background-image:
-    linear-gradient(
-      rgba(10, 10, 10, 0.1),
-      rgba(10, 10, 10, 0.1)
-    );
-}
-
-
-/* ============================================================
-   DEGRADADO
-   ============================================================ */
-
-.strength-card-gradient {
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0 0 0 / 68%) 0%,
-      rgb(0 0 0 / 6%) 28%,
-      rgba(0 0 0 / 0%) 50%,
-      rgba(241, 241, 241, 0.96) 100%
-    );
-  transition: background 0.35s ease;
-}
-
-.strength-card:hover .strength-card-gradient {
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.12) 0%,
-      rgba(0, 0, 0, 0.18) 28%,
-      rgba(0, 0, 0, 0.45) 52%,
-      rgba(241, 241, 241, 0.96) 100%
-    );
-}
-
-
-/* ============================================================
-   CONTENIDO INTERNO
-   ============================================================ */
-
-.strength-card-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  padding: 30px 32px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: inset 5px 100px 400px rgb(0 0 0 / 64%);
-}
-
-
-/* ============================================================
-   PARTE SUPERIOR
-   ============================================================ */
-
-.strength-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-}
-
-
-/* Número */
-
-.strength-number {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #ffffff;
-  font-family: var(--font-body);
-  font-size: 1.55rem;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.strength-number-line {
-  width: 32px;
-  height: 3px;
-  display: block;
-  background-color: #2e3182;
-  border-radius: 1px;
-}
-
-.strength-number-line2{
-  width: 32px;
-  height: 3px;
-  display: block;
-  background-color: #fdd000;
-  border-radius: 1px;
-}
-
-.strength-card-link2{
-  color: #fdd000;
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-body);
-  font-size: 0.83rem;
-  font-weight: 600;
-  letter-spacing: 1.1px;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: gap 0.25s ease;
-}
-
-.strength-card-link2:hover {
-  gap: 16px;
-}
-
-.strength-card-link2:hover .strength-arrow {
-  background-color: currentColor;
-  transform: translateX(2px);
-}
-
-.strength-card-link2:hover .strength-arrow svg {
-  color: #0b0b0b;
-}
-
-/* Verde para cards 2 y 3 */
-
-.strengths-card-green .strength-number-line {
-  background-color: var(--accent-green);
-}
-
-
-/* Texto superior derecho */
-
-.strength-card-tag {
-  text-align: right;
-
-  color: rgba(255, 255, 255, 0.78);
-
-  font-family: var(--font-body);
-
-  font-size: 0.78rem;
-  font-weight: 500;
-
-  line-height: 1.35;
-
-  letter-spacing: 1.2px;
-
-  text-transform: uppercase;
-}
-
-
-/* ============================================================
-   PARTE INFERIOR
-   ============================================================ */
-
-.strength-card-bottom {
-  width: 100%;
-}
-
-
-/* Título */
-
-.strength-card-bottom h3 {
-  margin: 0 0 8px;
-
-  font-family: var(--font-condensed);
-
-  color: #ffffff;
-
-  font-size: 2.55rem;
-  font-weight: 700;
-
-  line-height: 1;
-
-  letter-spacing: 0.5px;
-
-  text-transform: uppercase;
-}
-
-
-/* Descripción */
-
-.strength-card-bottom p {
-  max-width: 410px;
-
-  margin: 0 0 25px;
-
-  color: #ffffff;
-
-  font-family: var(--font-body);
-
-  font-size: 0.91rem;
-  font-weight: 400;
-
-  line-height: 1.55;
-}
-
-
-/* ============================================================
-   BOTÓN CONOCE MÁS
-   ============================================================ */
-
-.strength-card-link {
-  display: inline-flex;
-  align-items: center;
-
-  gap: 12px;
-
-  color: #2e3182;
-
-  font-family: var(--font-body);
-
-  font-size: 0.83rem;
-  font-weight: 600;
-
-  letter-spacing: 1.1px;
-
-  text-decoration: none;
-  text-transform: uppercase;
-
-  transition: gap 0.25s ease;
-}
-
-.strengths-card-green .strength-card-link {
-  color: var(--accent-green);
-}
-
-.strength-card-link:hover {
-  gap: 16px;
-}
-
-
-/* Círculo de flecha */
-
-.strength-arrow {
-  width: 43px;
-  height: 43px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid currentColor;
-  border-radius: 50%;
-
-  transition:
-    background-color 0.25s ease,
-    transform 0.25s ease;
-}
-
-.strength-card-link:hover .strength-arrow {
-  background-color: currentColor;
-  transform: translateX(2px);
-}
-
-.strength-card-link:hover .strength-arrow svg {
-  color: #0b0b0b;
-}
-
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
-@media (max-width: 1200px) {
-
-  .strengths-header {
-    gap: 45px;
-  }
-
-  .strengths-title {
-    font-size: 4rem;
-  }
-
-  .strength-card {
-    height: 510px;
-  }
-
-  .strength-card-content {
-    padding: 26px;
-  }
-
-  .strength-card-bottom h3 {
-    font-size: 2.25rem;
-  }
-
-}
-
-
-@media (max-width: 900px) {
-
-  .strengths-section {
-    padding: 75px 0 90px;
-  }
-
-  .strengths-header {
-    grid-template-columns: 1fr;
-    gap: 30px;
-
-    margin-bottom: 45px;
-  }
-
-  .strengths-header-description {
-    padding-top: 0;
-    max-width: 600px;
-  }
-
-  .strengths-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .strength-card {
-    height: 500px;
-  }
-
-  .metrics-section{
-    padding: 60px 0;
-  }
-
-  .metrics-container{
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .metric-divider{
-    width: 60px;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      rgba(255,255,255,0),
-      rgba(255,255,255,0.2),
-      rgba(255,255,255,0)
-    );
-  }
-
-  .metric-item{
+  .strength-card-media {
+    position: relative;
+    z-index: 5;
     width: 100%;
+    height: 220px;
+    overflow: hidden;
+  }
+
+  .strength-card-media img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .strength-card-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.65) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+
+  .strength-card-content {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    height: auto;
     padding: 0;
   }
 
+  .strength-card-top {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .strength-card-top .strength-num {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .strength-card-top .strength-tag {
+    text-align: right;
+    max-width: 60%;
+    word-wrap: break-word;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+
+  .strength-card-top .strength-tag span:first-child,
+  .strength-card-top .strength-tag {
+    color: #ffffff;
+  }
+
+  .strength-card-bottom {
+    position: relative;
+    z-index: 4;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .strength-card-bottom h3 {
+    margin: 0 0 10px;
+    font-size: 1.9rem;
+  }
+
+  .strength-card-bottom p {
+    color: #444444;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    margin: 0 0 20px;
+  }
+
+  /* -------------------------------------------------------
+     Story de Gran Eventos + SETIE (Móvil con Estructura Vertical Original)
+     ------------------------------------------------------- */
+  .ge-home-story {
+    height: 100dvh;
+    min-height: 100dvh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .ge-home-story-image {
+    object-position: 63% center;
+    object-fit: cover;
+  }
+
+  .ge-home-story-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.62) 50%,
+      rgba(0, 0, 0, 0.42) 100%
+    );
+  }
+
+  .ge-home-story-content {
+    width: 100%;
+    margin: 0;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ge-home-story-kicker {
+    margin-bottom: 18px;
+    font-size: 9px;
+    letter-spacing: 0.25em;
+  }
+
+  .ge-home-story-kicker span {
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+
+  .ge-home-story-title {
+    font-size: clamp(38px, 11vw, 58px);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+  }
+
+  .ge-home-story-line {
+    width: 42px;
+    height: 3px;
+    margin-top: 20px;
+    margin-bottom: 16px;
+  }
+
+  .ge-home-story-description {
+    max-width: 100%;
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 30px; /* Margen elegante antes del bloque inferior */
+  }
+
+  /* -------------------------------------------------------
+     BLOQUE LATERAL / INFERIOR: Alineado perfectamente al eje del texto
+     ------------------------------------------------------- */
+ /* -------------------------------------------------------
+     BLOQUE LATERAL / INFERIOR: Alineado perfectamente al eje del texto
+     ------------------------------------------------------- */
+  section.ge-home-story .ge-home-story-side {
+    position: relative !important;
+    top: unset !important;
+    right: unset !important;
+    bottom: unset !important;
+    left: unset !important;
+    width: 100% !important;
+    height: auto !important;
+    
+    /* Le aplicamos el mismo padding izquierdo exacto (24px) que tiene el contenido de arriba 
+       para que la línea y las palabras inicien exactamente en el mismo margen vertical */
+    padding: 0 0 0 24px !important; 
+    margin: 25px 0 0 2px !important; /* Espacio superior separado de la descripción */
+    
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
+
+  .ge-home-story-side-list span:nth-child(even) {
+    color: #f4c400;
+    opacity: 0.9;
+  }
+
+  .ge-home-story-side-line {
+    display: block;
+    width: 1px;
+    height: 45px; /* Línea vertical característica del diseño original */
+    margin: 16px 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.15)
+    );
+  }
+
+  .ge-home-story-side-message {
+    margin: 0;
+    font-size: 7.5px;
+    line-height: 1.6;
+    letter-spacing: 0.14em;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+  }
+
+  /* Métricas */
+  .metric-number {
+    font-size: 3.2rem;
+  }
+
+  .metric-label {
+    font-size: 0.75rem;
+  }
 }
 
-
+/* MÓVILES PEQUEÑOS */
 @media (max-width: 600px) {
-
   .strengths-section {
     padding: 60px 0 70px;
   }
@@ -1196,933 +1476,10 @@ body {
     font-size: 0.84rem;
     margin-bottom: 20px;
   }
-
 }
 
-/* ADAPTABILIDAD RESPONSIVE */
-@media (max-width: 1200px) {
-  .section-title-light {
-    font-size: 2.6rem;
-  }
-}
-
-@media (max-width: 900px) {
-  .navbar {
-    position: absolute;
-    flex-direction: column;
-    gap: 16px;
-    padding: 20px;
-  }
-  .container {
-  padding: 0 24px;
-}
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  .hero-center-content {
-    margin-top: 100px;
-  }
-  .hero-title-centered {
-    font-size: 2rem;
-  }
-  .hero-subtext-centered {
-    font-size: 0.9rem;
-  }
-  .middle-section {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-  .middle-media {
-    height: 300px;
-  }
-}
-
-/* =========================================================
-   ADAPTACIONES PARA DISPOSITIVOS MÓVILES
-   ========================================================= */
-
-@media (max-width: 768px) {
-  .container {
-    padding: 0 20px;
-  }
-
-  /* Hero Adjustments */
-  .hero-section {
-    min-height: 100dvh;
-    padding: 60px 20px 0 20px;
-  }
-
-  .hero-content-left {
-    padding: 40px 0;
-  }
-
-  .hero-title-oswald {
-    font-size: clamp(2.4rem, 9vw, 3.2rem);
-    line-height: 1.05;
-    margin-bottom: 16px;
-  }
-
-  .gold-line {
-    width: 40px;
-    height: 3px;
-    margin-bottom: 16px;
-  }
-
-  .hero-subtext-left {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 28px;
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  /* Middle Section Adjustments */
-  .middle-section-wrapper {
-    padding: 60px 0;
-  }
-
-  .middle-section {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .section-title-light {
-    font-size: 2.1rem;
-    line-height: 1.1;
-  }
-
-  .middle-media {
-    height: auto;
-    aspect-ratio: 16 / 10;
-  }
-
-  .middle-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Strengths Section Adjustments */
-  .strengths-section {
-    padding: 60px 0;
-  }
-
-  .strengths-header {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin-bottom: 36px;
-  }
-
-  .strengths-title {
-    font-size: clamp(2.2rem, 8vw, 3rem);
-    line-height: 1.02;
-  }
-
-  .strengths-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .strength-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    background-color: #e6e6e6; /* Fondo gris claro unificado */
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  /* 1. SECCIÓN DE LA IMAGEN (Por delante del fondo gris) */
-  .strength-card-media {
-    position: relative;
-    z-index: 5; /* Asegura que la imagen esté totalmente por delante */
-    width: 100%;
-    height: 220px;
-    overflow: hidden;
-  }
-
-  .strength-card-media img {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  /* Capa de sombra sólo superior para los textos blancos */
-  .strength-card-gradient {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.65) 0%,
-      transparent 60%
-    );
-    pointer-events: none;
-  }
-
-  /* 2. REESTRUCTURACIÓN DEL CONTENIDO */
-  .strength-card-content {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    padding: 0;
-  }
-
-  /* Bloque superior con número y tag (flotando sobre la imagen) */
-  .strength-card-top {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    right: 16px;
-    z-index: 3;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-
-  .strength-card-top .strength-num {
-    color: #ffffff;
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-
-.strength-card-top .strength-tag {
-    text-align: right;
-    max-width: 60%; /* Evita que el texto se salga */
-    word-wrap: break-word;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
-  }
-
-  .strength-card-top .strength-tag span:first-child,
-  .strength-card-top .strength-tag {
-    color: #ffffff; /* O color claro para máxima visibilidad */
-  }
-
-  /* SECCIÓN INFERIOR CON TEXTOS */
-  .strength-card-bottom {
-    position: relative;
-    z-index: 4;
-    padding: 24px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .strength-card-bottom h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.9rem;
-  }
-
-  .strength-card-bottom p {
-    color: #444444;
-    font-size: 0.88rem;
-    line-height: 1.45;
-    margin: 0 0 20px 0;
-  }
-
- 
-}
-
-/* =========================================================
-   GRAN EVENTOS — HOME
-   SEGUNDA SECCIÓN
-   STORY / GRAN EVENTOS + SETIE
-   ========================================================= */
-
-
-/* ---------------------------------------------------------
-   CONTENEDOR PRINCIPAL
-   --------------------------------------------------------- */
-
-.ge-home-story {
-  position: relative;
-  width: 100%;
-  min-height: 100svh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  isolation: isolate;
-  display: flex;
-  align-items: center;
-  background: #050607;
-}
-
-
-/* ---------------------------------------------------------
-   IMAGEN
-   --------------------------------------------------------- */
-
-.ge-home-story-image {
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-  object-position: center center;
-
-  z-index: -3;
-}
-
-
-/* ---------------------------------------------------------
-   OVERLAY
-   --------------------------------------------------------- */
-
-.ge-home-story-overlay {
-  position: absolute;
-
-  inset: 0;
-
-  z-index: -2;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.78) 0%,
-      rgba(0, 0, 0, 0.62) 27%,
-      rgba(0, 0, 0, 0.25) 55%,
-      rgba(0, 0, 0, 0.12) 100%
-    );
-}
-
-
-/* ---------------------------------------------------------
-   CONTENIDO PRINCIPAL
-   --------------------------------------------------------- */
-
-.ge-home-story-content {
-  position: relative;
-
-  z-index: 2;
-
-  width: min(620px, 48vw);
-
-  margin-left: clamp(36px, 5vw, 80px);
-
-  padding: 60px 0;
-}
-
-
-/* ---------------------------------------------------------
-   KICKER
-   --------------------------------------------------------- */
-
-.ge-home-story-kicker {
-  margin: 0 0 28px;
-
-  font-family:
-    "Montserrat",
-    "Arial",
-    sans-serif;
-
-  font-size: clamp(10px, 0.75vw, 14px);
-
-  font-weight: 500;
-
-  letter-spacing: 0.32em;
-
-  line-height: 1.2;
-
-  color: rgba(255, 255, 255, 0.82);
-
-  text-transform: uppercase;
-}
-
-
-.ge-home-story-kicker span {
-  display: inline-block;
-
-  margin: 0 10px;
-
-  color: #f4c400;
-
-  font-weight: 700;
-}
-
-
-/* ---------------------------------------------------------
-   TITULAR
-   --------------------------------------------------------- */
-
-.ge-home-story-title {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  font-family: "Oswald", "Arial Narrow", Arial, sans-serif;
-  font-size: clamp(48px, 5.2vw, 88px);
-  font-weight: 700; /* Mantiene tu grosor original exacto */
-  line-height: 0.98;
-  letter-spacing: -0.025em;
-  text-transform: uppercase;
-}
-
-/* MISMA: transición centrada en la segunda S */
-/* Contenedor que comparte UN solo degradado entre "MISMA" y "ENERGÍA".
-   Al ser el mismo fondo, la transición queda sincronizada entre ambas líneas. */
-.ge-home-story-title-gradient {
-  --ge-gradient-yellow: var(--accent-gold);
-  --ge-gradient-green: var(--accent-green);
-
-  display: block;
-  align-self: flex-start;
-  width: fit-content;
-
-  /* Espacio extra para que el degradado cubra la tilde de la Í
-     sin alterar la altura visual del título */
-  padding: 0.12em 0.04em 0.04em 0;
-  margin: -0.12em 0 -0.04em;
-
-  /* Fallback si el navegador no soporta background-clip: text */
-  color: var(--ge-gradient-yellow);
-}
-
-.ge-home-story-title-line {
-  display: block;
-  white-space: nowrap;
-}
-
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .ge-home-story-title-gradient {
-    /* 135deg = línea divisoria diagonal que atraviesa las dos palabras */
-    background-image: linear-gradient(
-      135deg,
-      var(--ge-gradient-yellow) 0%,
-      var(--ge-gradient-yellow) 49%,
-      var(--ge-gradient-green) 75%,
-      var(--ge-gradient-green) 100%
-    );
-    background-repeat: no-repeat;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
-}
-
-/* ---------------------------------------------------------
-   COLORES DEL TITULAR
-   --------------------------------------------------------- */
-
-  .ge-home-story-title-light {
-    color: #f4f4f4;
-  }
-
-
-.ge-home-story-title-yellow {
-  color: #f4c400;
-  font-weight: 600;
-}
-
-
-.ge-home-story-title-last {
-  margin-top: 12px;
-
-  font-size: 0.42em;
-
-  font-weight: 300;
-
-  line-height: 1.2;
-
-  letter-spacing: 0.08em;
-
-  color: rgba(255, 255, 255, 0.78);
-}
-
-
-/* ---------------------------------------------------------
-   LÍNEA
-   --------------------------------------------------------- */
-
-.ge-home-story-line {
-  display: block;
-
-  width: 48px;
-  height: 3px;
-
-  margin-top: 30px;
-  margin-bottom: 24px;
-
-  background: #f4c400;
-}
-
-
-/* ---------------------------------------------------------
-   DESCRIPCIÓN
-   --------------------------------------------------------- */
-
-.ge-home-story-description {
-  max-width: 390px;
-
-  margin: 0;
-
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
-
-  font-size: clamp(14px, 1vw, 18px);
-
-  font-weight: 400;
-
-  line-height: 1.55;
-
-  letter-spacing: 0.01em;
-
-  color: rgba(255, 255, 255, 0.78);
-}
-
-
-/* ---------------------------------------------------------
-   INFORMACIÓN LATERAL DERECHA
-   --------------------------------------------------------- */
-
-.ge-home-story-side {
-  position: absolute;
-
-  top: 0;
-  right: clamp(28px, 4vw, 70px);
-
-  width: 100px;
-  height: 100%;
-
-  z-index: 3;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: flex-start;
-
-  justify-content: center;
-
-  padding: 40px 0;
-}
-
-
-/* ---------------------------------------------------------
-   LISTA LATERAL
-   --------------------------------------------------------- */
-
-.ge-home-story-side-list {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 4px;
-
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
-
-  font-size: clamp(8px, 0.62vw, 12px);
-
-  font-weight: 500;
-
-  line-height: 1.25;
-
-  letter-spacing: 0.2em;
-
-  color: rgba(255, 255, 255, 0.82);
-
-  text-transform: uppercase;
-}
-
-
-.ge-home-story-side-list span:nth-child(even) {
-  color: #f4c400;
-
-  opacity: 0.9;
-}
-
-
-/* ---------------------------------------------------------
-   LÍNEA VERTICAL
-   --------------------------------------------------------- */
-
-.ge-home-story-side-line {
-  display: block;
-
-  width: 1px;
-  height: 58px;
-
-  margin: 26px 0;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.9),
-      rgba(255, 255, 255, 0.15)
-    );
-}
-
-
-/* ---------------------------------------------------------
-   MENSAJE LATERAL
-   --------------------------------------------------------- */
-
-.ge-home-story-side-message {
-  margin: 0;
-
-  font-family:
-    "Montserrat",
-    Arial,
-    sans-serif;
-
-  font-size: clamp(7px, 0.58vw, 11px);
-
-  font-weight: 500;
-
-  line-height: 1.65;
-
-  letter-spacing: 0.16em;
-
-  color: rgba(255, 255, 255, 0.65);
-
-  text-transform: uppercase;
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (max-width: 1024px) {
-
-  .ge-home-story {
-    min-height: 100svh;
-  }
-
-
-  .ge-home-story-overlay {
-    background:
-      linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0.78) 0%,
-        rgba(0, 0, 0, 0.48) 60%,
-        rgba(0, 0, 0, 0.2) 100%
-      );
-  }
-
-
-  .ge-home-story-content {
-    width: min(560px, 60vw);
-
-    margin-left: 6vw;
-  }
-
-
-  .ge-home-story-side {
-    right: 3vw;
-  }
-}
-
-
-/* =========================================================
-   MÓVIL
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-  .ge-home-story {
-
-    /*
-     * svh evita problemas con las barras
-     * dinámicas de Safari/Chrome móvil.
-     */
-    min-height: 100svh;
-
-    height: 100svh;
-
-    align-items: flex-start;
-  }
-
-
-  /* -------------------------------------------------------
-     IMAGEN MÓVIL
-     ------------------------------------------------------- */
-
-  .ge-home-story-image {
-
-    object-position: 63% center;
-
-    /*
-     * Mantiene la proporción de la fotografía.
-     * Nunca se estira.
-     */
-    object-fit: cover;
-  }
-
-
-  /* -------------------------------------------------------
-     OVERLAY MÓVIL
-     * Más oscuro a la izquierda para asegurar
-     * contraste del texto.
-     * ------------------------------------------------------- */
-
-  .ge-home-story-overlay {
-
-    background:
-      linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.62) 0%,
-        rgba(0, 0, 0, 0.48) 40%,
-        rgba(0, 0, 0, 0.22) 100%
-      );
-
-  }
-
-
-  /* -------------------------------------------------------
-     CONTENIDO MÓVIL
-     ------------------------------------------------------- */
-
-  .ge-home-story-content {
-
-    width: calc(100% - 48px);
-
-    margin: 0;
-
-    padding:
-      100px
-      24px
-      50px;
-  }
-
-
-  /* -------------------------------------------------------
-     KICKER
-     ------------------------------------------------------- */
-
-  .ge-home-story-kicker {
-
-    margin-bottom: 22px;
-
-    font-size: 9px;
-
-    letter-spacing: 0.25em;
-  }
-
-
-  .ge-home-story-kicker span {
-
-    margin-left: 7px;
-    margin-right: 7px;
-  }
-
-
-  /* -------------------------------------------------------
-     TITULAR MÓVIL
-     ------------------------------------------------------- */
-
-  .ge-home-story-title {
-
-    font-size:
-      clamp(
-        42px,
-        11.5vw,
-        66px
-      );
-
-    line-height: 0.95;
-
-    letter-spacing: -0.025em;
-  }
-
-
-  .ge-home-story-title-last {
-
-    margin-top: 10px;
-
-    font-size: 0.36em;
-
-    line-height: 1.3;
-
-    letter-spacing: 0.07em;
-  }
-
-
-  /* -------------------------------------------------------
-     LÍNEA
-     ------------------------------------------------------- */
-
-  .ge-home-story-line {
-
-    width: 42px;
-
-    height: 3px;
-
-    margin-top: 25px;
-    margin-bottom: 20px;
-  }
-
-
-  /* -------------------------------------------------------
-     DESCRIPCIÓN
-     ------------------------------------------------------- */
-
-  .ge-home-story-description {
-
-    max-width: 300px;
-
-    font-size: 13px;
-
-    line-height: 1.55;
-  }
-
-
-  /* -------------------------------------------------------
-     ELEMENTO LATERAL
-     ------------------------------------------------------- */
-
-  .ge-home-story-side {
-
-    top: auto;
-    right: 20px;
-    bottom: 34px;
-
-    width: 62px;
-    height: auto;
-
-    padding: 0;
-
-    align-items: flex-start;
-
-    justify-content: flex-end;
-  }
-
-
-  .ge-home-story-side-list {
-
-    gap: 2px;
-
-    font-size: 7px;
-
-    letter-spacing: 0.15em;
-  }
-
-
-  .ge-home-story-side-line {
-
-    height: 38px;
-
-    margin:
-      14px
-      0;
-  }
-
-
-  .ge-home-story-side-message {
-
-    font-size: 6px;
-
-    line-height: 1.5;
-
-    letter-spacing: 0.11em;
-  }
-
-}
-
-
-/* =========================================================
-   MÓVILES PEQUEÑOS
-   ========================================================= */
-
-@media (max-width: 390px) {
-
-  .ge-home-story-content {
-
-    padding:
-      90px
-      20px
-      40px;
-  }
-
-
-  .ge-home-story-title {
-
-    font-size: 39px;
-  }
-
-
-  .ge-home-story-description {
-
-    max-width: 250px;
-
-    font-size: 12px;
-  }
-
-
-  .ge-home-story-side {
-
-    right: 14px;
-
-    bottom: 24px;
-  }
-
-
-  .ge-home-story-side-list {
-
-    font-size: 6px;
-  }
-
-
-  .ge-home-story-side-message {
-
-    font-size: 5.5px;
-  }
-
-}
-
-
-/* =========================================================
-   REDUCCIÓN DE MOVIMIENTO
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .ge-home-story *,
-  .ge-home-story *::before,
-  .ge-home-story *::after {
-
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-}
-
-/* =========================================================
-   ALINEACIÓN DEL HERO CON EL NAVBAR
-   Solo escritorio
-   ========================================================= */
-
+/* ALINEACIÓN DEL HERO CON EL NAVBAR: SOLO ESCRITORIO */
 @media (min-width: 769px) {
-
-  /* El Hero utiliza todo el ancho de la pantalla */
   .hero-section .hero-container {
     width: 100%;
     max-width: none;
@@ -2131,22 +1488,52 @@ body {
     padding-right: 40px;
   }
 
-  /* El contenido comienza en el mismo eje visual
-     que el logo del Navbar */
   .hero-section .hero-content-left {
     margin-left: 0;
     padding-left: 0;
   }
-
 }
 
-
-@media (max-width : 480px){
-  .metric-number{
-    font-size: 3.2rem;
+/* MÓVILES PEQUEÑOS: STORY */
+@media (max-width: 390px) {
+  .ge-home-story-content {
+    padding: 90px 20px 40px;
   }
 
-  .metric-label{
-    font-size: 0.75rem;
+  .ge-home-story-title {
+    font-size: 39px;
+  }
+
+  .ge-home-story-description {
+    max-width: 250px;
+    font-size: 12px;
+  }
+
+  .ge-home-story-side {
+    right: 14px;
+    bottom: 24px;
+  }
+
+  .ge-home-story-side-list {
+    font-size: 6px;
+  }
+
+  .ge-home-story-side-message {
+    font-size: 5.5px;
+  }
+}
+
+/* =========================================================
+   11. ACCESIBILIDAD
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ge-home-story *,
+  .ge-home-story *::before,
+  .ge-home-story *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
