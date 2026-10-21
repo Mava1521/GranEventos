@@ -191,8 +191,8 @@ export default function Home() {
             {/* CARDS */}
             <div className="strengths-grid">
 
-              {/* CARD 01 */}
-              <article className="strength-card strengths-card-green">
+              {/* CARD 01 (Energía) */}
+              <Link to="/energia" className="strength-card strengths-card-green" style={{ textDecoration: 'none' }}>
                 <div className="strength-card-media">
                   <img src={Energia} alt="" width={500} height={300} />
                 </div>
@@ -200,9 +200,7 @@ export default function Home() {
                 <div className="strength-card-gradient"></div>
 
                 <div className="strength-card-content">
-                  <div className="strength-card-top">
-                    
-                  </div>
+                  <div className="strength-card-top"></div>
 
                   <div className="strength-card-bottom">
                     <h3><span className="text-gold">{t('home.strengths.cards.02.title')}</span></h3>
@@ -211,19 +209,18 @@ export default function Home() {
                       {t('home.strengths.cards.02.description')}
                     </p>
 
-                    <Link to="/energia" className="strength-card-link2">
+                    <span className="strength-card-link2">
                       <span>{t('home.strengths.cards.02.cta')}</span>
-
                       <span className="strength-arrow">
                         <ArrowRight size={20} strokeWidth={1.8} />
                       </span>
-                    </Link>
+                    </span>
                   </div>
                 </div>
-              </article>
+              </Link>
 
-              {/* CARD 02 */}
-              <article className="strength-card strengths-card-green">
+              {/* CARD 02 (Tecnología) */}
+              <Link to="/tecnologia" className="strength-card strengths-card-green" style={{ textDecoration: 'none' }}>
                 <div className="strength-card-media">
                   <img src={Tecnologia} alt="" width={500} height={300} />
                 </div>
@@ -231,9 +228,7 @@ export default function Home() {
                 <div className="strength-card-gradient"></div>
 
                 <div className="strength-card-content">
-                  <div className="strength-card-top">
-                    
-                  </div>
+                  <div className="strength-card-top"></div>
 
                   <div className="strength-card-bottom">
                     <h3><span className="green-point">{t('home.strengths.cards.03.title')}</span></h3>
@@ -242,19 +237,18 @@ export default function Home() {
                       {t('home.strengths.cards.03.description')}
                     </p>
 
-                    <Link to="/tecnologia" className="strength-card-link">
+                    <span className="strength-card-link">
                       <span>{t('home.strengths.cards.03.cta')}</span>
-
                       <span className="strength-arrow">
                         <ArrowRight size={20} strokeWidth={1.8} />
                       </span>
-                    </Link>
+                    </span>
                   </div>
                 </div>
-              </article>
+              </Link>
 
-              {/* CARD 03 */}
-              <article className="strength-card strengths-card-gold">
+              {/* CARD 03 (Experiencias) */}
+              <Link to="/experiencias" className="strength-card strengths-card-gold" style={{ textDecoration: 'none' }}>
                 <div className="strength-card-media">
                   <img src={Experiencias} alt="" width={500} height={300} />
                 </div>
@@ -262,9 +256,7 @@ export default function Home() {
                 <div className="strength-card-gradient"></div>
 
                 <div className="strength-card-content">
-                  <div className="strength-card-top">
-                    
-                  </div>
+                  <div className="strength-card-top"></div>
                  
                   <div className="strength-card-bottom">
                     <h3><span className="text-blue">{t('home.strengths.cards.01.title')}</span></h3>
@@ -273,16 +265,15 @@ export default function Home() {
                       {t('home.strengths.cards.01.description')}
                     </p>
 
-                    <Link to="/experiencias" className="strength-card-link">
+                    <span className="strength-card-link">
                       <span>{t('home.strengths.cards.01.cta')}</span>
-
                       <span className="strength-arrow">
                         <ArrowRight size={20} strokeWidth={1.8} />
                       </span>
-                    </Link>
+                    </span>
                   </div>
                 </div>
-              </article>
+              </Link>
 
             </div>
           </div>
