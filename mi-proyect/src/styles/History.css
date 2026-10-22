@@ -1646,10 +1646,8 @@
 
   .ge-modal-badge {
     padding: 5px 10px;
-
     background: #f5d65c;
     color: #111111;
-
     font-size: 7px;
     font-weight: 800;
     letter-spacing: 1px;
@@ -1944,10 +1942,6 @@
     border-color 250ms ease,
     background-color 250ms ease,
     box-shadow 250ms ease;
-}
-
-.history-page .timeline-item--active .timeline-dot {
-  background-color: #f4c400;
 }
 
 .history-page .timeline-item--active .timeline-dot > span {
