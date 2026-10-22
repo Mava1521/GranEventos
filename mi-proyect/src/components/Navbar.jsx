@@ -23,7 +23,7 @@ export default function Navbar() {
   const isEnergy = location.pathname === '/energia';
   const isTechnology = location.pathname === '/tecnologia';
 
-  const currentLogo = (isHistory || isServices || isExperiences || isEnergy || isTechnology) ? LogoHistory : LogoGE;
+  const currentLogo = ( isServices || isExperiences || isEnergy || isTechnology) ? LogoHistory : LogoGE;
 
   let navbarVariant = 'navbar-inner';
   if (isHome || isSustainability) {
@@ -45,7 +45,7 @@ export default function Navbar() {
   }
 
   // Determinar si la página tiene fondo claro en la cabecera
-  const isLightBg = isHistory || isServices || isExperiences || isEnergy || isTechnology;
+  const isLightBg = isServices || isExperiences || isEnergy || isTechnology;
 
   // Color del icono del menú hamburguesa
   const toggleIconColor = (isLightBg && !menuOpen) ? '#000000' : '#ffffff';

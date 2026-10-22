@@ -49,7 +49,8 @@
 
 .navbar-inner .nav-item,
 .navbar-contact .nav-item,
-.navbar-projects .nav-item {
+.navbar-projects .nav-item,
+.navbar-history .nav-item {
   color: #ffffff;
 }
 
@@ -63,14 +64,16 @@
   top: 0;
   left: 0;
   background: transparent;
+  color: #9dc425;
 }
 
-.navbar-history .nav-item,
 .navbar-services .nav-item {
   color: #222222;
 }
 
-.navbar-history .lang-selector button,
+.navbar-history .lang-selector button{
+  color: #ffffff;
+}
 .navbar-services .lang-selector button {
   color: #222222;
 }
