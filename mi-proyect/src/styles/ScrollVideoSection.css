@@ -12,18 +12,14 @@ body {
 
 .scroll-reveal-section {
   position: relative;
-
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
-
   width: 100%;
   height: 100vh;
   height: 100dvh;
-
   box-sizing: border-box;
   overflow: hidden;
-
   background: #0d0d0d;
   color: #ffffff;
 }

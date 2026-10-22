@@ -114,7 +114,6 @@
       "buttonAria": "View history of {{year}}: {{title}}"
     },
     "timeline": {
-      "eyebrow": "OUR HISTORY",
       "title": "TIMELINE",
       "aria": {
         "viewYear": "View information for year {{year}}",

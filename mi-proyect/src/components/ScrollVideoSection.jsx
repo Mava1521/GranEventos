@@ -181,9 +181,6 @@ export default function ScrollVideoSection({ videoSrc }) {
         </div>
 
         <div className="scroll-text-content">
-          <span className="scroll-eyebrow">
-            {t('history.scrollVideo.eyebrow', 'EL IMPACTO')}
-          </span>
 
           <h2 className="scroll-reveal-text">
             {WORDS.map((word, index) => {

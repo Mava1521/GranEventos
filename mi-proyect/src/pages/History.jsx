@@ -76,7 +76,7 @@ export default function History() {
           </div>
 
           <div className="history-center-logo">
-            <img src={LetrasGE} alt="" width={370} height={290} />
+            <img src={LetrasGE} alt="" width={620} height={485} />
           </div>
         </section>
 
