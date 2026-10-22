@@ -67,7 +67,7 @@
   padding: 125px var(--history-desktop-right) 30px
     var(--history-desktop-left);
   overflow: hidden;
-  background: #111111;
+  background: black;
 }
 
 
@@ -190,24 +190,25 @@
 /* ==========================================================
    05. LOGO GE CENTRAL
    ========================================================== */
+    .history-center-logo {
+      position: absolute;
+      top: 10px;              /* Ubicado en la parte superior del bloque de imágenes */
+      left: 50%;              /* Centrado horizontal exacto */
+      transform: translateX(-50%); /* Corrección matemática para un centrado perfecto */
+      z-index: 25;            /* ¡Clave! Se coloca por ENCIMA de las fotos del collage (z-index menor) */
+      width: 680px;           /* Mantiene el tamaño grande e imponente de las letras */
+      max-width: 90%;
+      opacity: 0.38;          /* Opacidad translúcida para lograr el efecto de marca de agua/superposición */
+      mix-blend-mode: screen; /* Mezcla visual avanzada para que resalte elegantemente sobre las fotos oscuras */
+      pointer-events: none;   /* Permite que los clics del usuarioatraviesen el logo y toquen las fotos */
+    }
 
-.history-center-logo {
-  position: absolute;
-  top: 90px;          
-  left: 36%;          
-  z-index: 2;
-  width: 600px;      
-  opacity: 0.95;
-  pointer-events: none; 
-}
-
-.history-center-logo img {
-  display: block;
-  width: 100%;
-  height: auto;  
-  object-fit: contain;
-}
-
+    .history-center-logo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
 
 /* ==========================================================
    06. TÍTULO + COLLAGE
@@ -218,11 +219,13 @@
    CONTENEDOR GENERAL
    ---------------------------------------------------------- */
 
-.history-collage-wrapper {
-  width: 100%;
-  padding: 20px 42px 0;
-  background: black;
-}
+    .history-collage-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 180px; /* Crea el espacio negro arriba para ubicar el logo sin apretar nada */
+      background: black;
+      overflow: visible;
+    }
 
 
 /* ----------------------------------------------------------
@@ -1264,33 +1267,25 @@
      LOGO GE
      -------------------------------------------------------- */
 
-  .history-center-logo {
-    position: absolute;
+      .history-center-logo {
+        position: absolute;
+        top: -120px;            /* ¡AQUÍ ESTÁ EL CAMBIO! Sube el logo bastante hacia arriba */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        width: 650px;           /* Mantiene el tamaño proporcional de las letras */
+        max-width: 90%;
+        opacity: 0.55;          /* Opacidad gris translúcida */
+        filter: grayscale(100%) brightness(0.7);
+        pointer-events: none;
+      }
 
-    top: auto;
-    left: auto;
-
-    right: 18px;
-    bottom: 42px;
-
-    width: 105px;
-
-    margin: 0;
-
-    font-size: 0;
-    letter-spacing: normal;
-
-    opacity: 1;
-  }
-
-  .history-center-logo img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    object-fit: contain;
-  }
+      .history-center-logo img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
 
 
   /* --------------------------------------------------------
@@ -1881,17 +1876,186 @@
 }
 
 
+/* =========================================================
+   HISTORY — CONEXIÓN VISUAL ENTRE COLLAGE Y LÍNEA DE TIEMPO
+   Los estilos se limitan a la página de Historia.
+   ========================================================= */
+
+/* Transiciones suaves para las fotografías */
+.history-page .history-collage .collage-item {
+  position: relative;
+  isolation: isolate;
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease,
+    outline-color 300ms ease;
+}
+
+/* La imagen mantiene su composición original */
+.history-page .history-collage .collage-image {
+  transition:
+    transform 450ms ease,
+    filter 450ms ease;
+}
+
+/* El evento activo se destaca sin alterar el tamaño del collage */
+.history-page .history-collage .collage-item--active {
+  z-index: 2;
+  outline: 2px solid #f4c400;
+  outline-offset: -2px;
+  box-shadow: 0 0 22px rgb(244 196 0 / 22%);
+}
+
+/* La fotografía activa recupera protagonismo */
+.history-page .history-collage .collage-item--active .collage-image {
+  filter: brightness(1.08) saturate(1.08);
+  transform: scale(1.025);
+}
+
+/* Realce del año y título de la fotografía activa */
+.history-page .history-collage .collage-item--active .collage-year {
+  color: #f4c400;
+}
+
+.history-page .history-collage .collage-item--active .collage-title {
+  color: #ffffff;
+}
+
+/* Foco visible para navegación mediante teclado */
+.history-page .history-collage .collage-item:focus-visible {
+  outline: 3px solid #f4c400;
+  outline-offset: 4px;
+  z-index: 3;
+}
+
+/* =========================================================
+   TIMELINE — EL AÑO ACTIVO SE VINCULA CON EL COLLAGE
+   ========================================================= */
+
+.history-page .timeline-item {
+  transition:
+    opacity 250ms ease,
+    transform 250ms ease;
+}
+
+.history-page .timeline-item .timeline-year-button,
+.history-page .timeline-item .timeline-card {
+  transition:
+    border-color 250ms ease,
+    background-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.history-page .timeline-item--active .timeline-dot {
+  background-color: #f4c400;
+}
+
+.history-page .timeline-item--active .timeline-dot > span {
+  background-color: #f4c400;
+  transform: scale(1.25);
+}
+
+.history-page .timeline-item--active .timeline-year {
+  color: #f4c400;
+}
+
+.history-page .timeline-item--active .timeline-card {
+  border-color: #f4c400;
+  box-shadow: 0 8px 26px rgb(244 196 0 / 12%);
+}
+
+/* Realce de la fotografía dentro de las tarjetas responsive */
+.history-page .timeline-item--active .timeline-card__image img {
+  filter: saturate(1.08);
+}
+
+/* Accesibilidad: foco visible en los controles */
+.history-page .timeline-year-button:focus-visible,
+.history-page .timeline-card:focus-visible {
+  outline: 2px solid #f4c400;
+  outline-offset: 4px;
+}
+
+/* Hover únicamente en dispositivos que realmente lo admiten */
+@media (hover: hover) and (pointer: fine) {
+  .history-page .history-collage .collage-item:hover {
+    z-index: 2;
+  }
+
+  .history-page .timeline-item:not(.timeline-item--active)
+    .timeline-card:hover {
+    border-color: rgb(244 196 0 / 55%);
+  }
+}
+
+/* Evita animaciones innecesarias cuando el usuario lo solicita */
+@media (prefers-reduced-motion: reduce) {
+  .history-page .history-collage .collage-item,
+  .history-page .history-collage .collage-image,
+  .history-page .timeline-item,
+  .history-page .timeline-item .timeline-year-button,
+  .history-page .timeline-item .timeline-card {
+    transition: none !important;
+  }
+
+  .history-page .history-collage .collage-item--active .collage-image {
+    transform: none;
+  }
+}
+
+
 /* ---------------------------------------------------------
    COMPORTAMIENTO ESCRITORIO (Pantallas mayores a 768px)
    --------------------------------------------------------- */
 @media (min-width: 769px) {
   .history-timeline-title-desktop {
     display: block;
+    width: 100%;
     padding: 25px 42px 15px;
+    text-align: left;
+  }
+
+  .history-timeline-title-desktop .timeline-eyebrow{
+    color: #ffffff;
   }
 
   .history-timeline-title-mobile {
     display: none;
+  }
+
+   .history-collage .collage-item {
+    position: relative;
+    z-index: 1;
+  }
+
+  .history-collage {
+    align-items: flex-end; /* Alinea las fotos abajo para que su base sea uniforme y su parte superior varíe */
+  }
+
+  /* Las tarjetas centrales se ajustan en altura para simular el relieve del logo GE */
+  .history-collage .collage-item-3 {
+    height: 140px;
+    transform: translateY(15px);
+  }
+  .history-collage .collage-item-4 {
+    height: 110px; /* Más baja para encajar bajo la curva interna de la G/E */
+    transform: translateY(25px);
+  }
+  .history-collage .collage-item-5 {
+    height: 155px;
+    transform: translateY(5px);
+  }
+  .history-collage .collage-item-6 {
+    height: 125px;
+    transform: translateY(20px);
+  }
+  
+  .history-collage .collage-item-3:hover,
+  .history-collage .collage-item-4:hover,
+  .history-collage .collage-item-5:hover,
+  .history-collage .collage-item-6:hover {
+    transform: translateY(-12px) scale(1.15);
+    z-index: 5;
   }
 }
 

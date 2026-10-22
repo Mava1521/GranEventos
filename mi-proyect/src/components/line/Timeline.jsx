@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import TimelineItem from './TimelineItem';
 import timelineData from '../../data/timelineData';
 import { useLocalizedTimeline } from '../../hooks/useLocalizedTimeline';
 
-export default function Timeline({ onOpenModal }) {
+export default function Timeline({
+  onOpenModal,
+  activeId,
+  onActiveChange,
+}) {
   const { t } = useTranslation();
-  const [activeId, setActiveId] = useState('1987');
 
-  // Mapeamos los eventos para sobreescribir los títulos y descripciones desde i18n
   const localizedTimelineData = useLocalizedTimeline(timelineData);
 
   const activeEvent =
-    localizedTimelineData.find(
-      (event) => event.id === activeId
-    ) || localizedTimelineData[0];
+    localizedTimelineData.find((event) => event.id === activeId) ||
+    localizedTimelineData[0];
 
   const handleSelectEvent = (event) => {
-    setActiveId(event.id);
+    onActiveChange?.(event);
     onOpenModal?.(event);
   };
 
@@ -37,36 +38,34 @@ export default function Timeline({ onOpenModal }) {
       </div>
 
       <div className="timeline-track">
-        <div
-          className="timeline-line"
-          aria-hidden="true"
-        />
+        <div className="timeline-line" aria-hidden="true" />
 
         {localizedTimelineData.map((item) => (
           <TimelineItem
             key={item.id}
             event={item}
             isActive={item.id === activeId}
+            onActivate={onActiveChange}
             onSelect={handleSelectEvent}
           />
         ))}
       </div>
 
-      <div className="timeline-detail">
-        <div className="timeline-detail-year">
-          {activeEvent.year}
-        </div>
+      {activeEvent && (
+        <div className="timeline-detail" aria-live="polite">
+          <div className="timeline-detail-year">
+            {activeEvent.year}
+          </div>
 
-        <div className="timeline-detail-content">
-          <span className="timeline-detail-label">
-            {activeEvent.title}
-          </span>
+          <div className="timeline-detail-content">
+            <span className="timeline-detail-label">
+              {activeEvent.title}
+            </span>
 
-          <p>
-            {activeEvent.description}
-          </p>
+            <p>{activeEvent.description}</p>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 }

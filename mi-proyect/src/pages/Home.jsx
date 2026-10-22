@@ -66,7 +66,7 @@ export default function Home() {
           <div className="metric-item">
             <div className="metric-content">
               <span className="metric-number text-green">20%</span>
-              <span className="metric-label">Impacto de emisión reducido gracias a las baterías</span>
+              <span className="metric-label">Impacto de emisión reducido gracias às las baterías</span>
             </div>
           </div>
 
@@ -74,7 +74,7 @@ export default function Home() {
       </section>
 
 
-      {/* MIDDLE SECTION: GRAN EVENTOS + SETIE */}
+      {/* MIDDLE SECTION: SECCIÓN 3 (GRAN EVENTOS + SETIE) */}
       <section
         className="ge-home-story"
         aria-labelledby="ge-home-story-title"
@@ -130,36 +130,18 @@ export default function Home() {
           <p className="ge-home-story-description">
             {t('home.story.description')}
           </p>
+
+          {/* MENSAJE ADICIONAL DUPLICADO (ALINEADO Y DEBAJO DEL PÁRRAFO) */}
+          <div className="ge-home-story-extra-message">
+            <div className="gold-line"></div>
+            <p>{t('home.story.extraMessage.line1', 'LA ENERGÍA')}</p>
+            <p>{t('home.story.extraMessage.line2', 'TAMBIÉN')}</p>
+            <p>{t('home.story.extraMessage.line3', 'DEJA')}</p>
+            <p>{t('home.story.extraMessage.line4', 'HUELLA')}</p>
+            <p>{t('home.story.extraMessage.line5', 'POSITIVA')}</p>
+          </div>
         </div>
 
-        {/* MENSAJE LATERAL */}
-        <aside
-          className="ge-home-story-side"
-          aria-label={t('home.story.sideMessagePart1')}
-        >
-          <div className="ge-home-story-side-list">
-            <span>{t('home.story.sideList.events')}</span>
-            <span aria-hidden="true">+</span>
-            <span>{t('home.story.sideList.energy')}</span>
-            <span aria-hidden="true">+</span>
-            <span>{t('home.story.sideList.people')}</span>
-            <span aria-hidden="true">+</span>
-            <span>{t('home.story.sideList.planet')}</span>
-          </div>
-
-          <span
-            className="ge-home-story-side-line"
-            aria-hidden="true"
-          />
-
-          <p className="ge-home-story-side-message">
-            {t('home.story.sideMessagePart1')}
-            <br />
-            {t('home.story.sideMessagePart2')}
-            <br />
-            {t('home.story.sideMessagePart3')}
-          </p>
-        </aside>
       </section>
 
       {/* NUESTRAS FORTALEZAS */}

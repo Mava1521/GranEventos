@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { lazy, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { useLocalizedTimeline } from '../hooks/useLocalizedTimeline';
@@ -8,15 +8,15 @@ import Navbar from '../components/Navbar';
 import Timeline from '../components/line/Timeline';
 import timelineData from '../data/timelineData';
 import ScrollVideoSection from '../components/ScrollVideoSection';
-import LetrasGE from '../assets/LetrasGE.png';
+import LetrasGE from '../assets/BlancoGE.png';
 import SampleVideo from '../assets/History2.mp4';
 
 
 export default function History() {
   const { t } = useTranslation();
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [activeTimelineId, setActiveTimelineId] = useState('1987');
 
-  // Datos localizados y estructurados correctamente para la UI/Modal
   const localizedTimelineData = useLocalizedTimeline(timelineData);
 
   useEffect(() => {
@@ -37,7 +37,12 @@ export default function History() {
     };
   }, [selectedEvent]);
 
+  const handleActivateEvent = (eventData) => {
+    setActiveTimelineId(eventData.id);
+  };
+
   const handleOpenModal = (eventData) => {
+    setActiveTimelineId(eventData.id);
     setSelectedEvent(eventData);
   };
 
@@ -74,14 +79,16 @@ export default function History() {
             <p>{t('history.topMessage.line4')}</p>
             <p>{t('history.topMessage.line5')}</p>
           </div>
-
-          <div className="history-center-logo">
-            <img src={LetrasGE} alt="" width={620} height={485} />
-          </div>
         </section>
 
-        {/* COLLAGE + TÍTULO DE LÍNEA DE TIEMPO */}
+        {/* COLLAGE + TÍTULO DE LÍNEA DE TIEMPO CON LOGO SUPERPUESTO */}
+        {/* COLLAGE + LOGO GE SUPERPUESTO (ESTILO MOCKUP) */}
         <section className="history-collage-wrapper">
+          {/* Logo GE central completo, con opacidad y tono gris del mockup */}
+          <div className="history-center-logo" aria-hidden="true">
+            <img src={LetrasGE} alt="" width={620} height={485} />
+          </div>
+
           {/* TÍTULO SOLO PARA ESCRITORIO */}
           <div className="history-timeline-title-desktop">
             <span className="timeline-eyebrow">
@@ -99,14 +106,24 @@ export default function History() {
               <button
                 type="button"
                 key={item.id}
-                className={`collage-item collage-item-${index + 1}`}
+                className={[
+                  'collage-item',
+                  `collage-item-${index + 1}`,
+                  item.id === activeTimelineId ? 'collage-item--active' : '',
+                ].filter(Boolean).join(' ')}
+                onMouseEnter={() => handleActivateEvent(item)}
+                onFocus={() => handleActivateEvent(item)}
                 onClick={() => handleOpenModal(item)}
-                aria-label={t('history.collage.buttonAria', { year: item.year, title: item.title })}
+                aria-label={t('history.collage.buttonAria', {
+                  year: item.year,
+                  title: item.title,
+                })}
+                aria-pressed={item.id === activeTimelineId}
               >
-                <img
-                  src={item.image}
-                  alt={`${item.year} - ${item.title}`}
-                  className="collage-image"
+                <img 
+                  src={item.image} 
+                  alt={`${item.year} ${item.title}`} 
+                  className="collage-image" 
                   loading={index < 3 ? 'eager' : 'lazy'}
                 />
 
@@ -121,7 +138,6 @@ export default function History() {
 
         {/* TIMELINE */}
         <section className="history-timeline-section">
-          {/* TÍTULO SOLO PARA MÓVIL */}
           <div className="history-timeline-title-mobile">
             <span className="timeline-eyebrow">
               {t('history.timeline.eyebrow')}
@@ -129,7 +145,11 @@ export default function History() {
             <h2>{t('history.timeline.title')}</h2>
           </div>
 
-          <Timeline onOpenModal={handleOpenModal} />
+          <Timeline
+            onOpenModal={handleOpenModal}
+            activeId={activeTimelineId}
+            onActiveChange={handleActivateEvent}
+          />
         </section>
 
         {/* VIDEO */}
@@ -165,7 +185,6 @@ export default function History() {
               aria-labelledby="history-modal-title"
               onClick={(event) => event.stopPropagation()}
             >
-              {/* BOTÓN CERRAR */}
               <button
                 type="button"
                 className="ge-modal-close"
@@ -175,7 +194,6 @@ export default function History() {
                 ×
               </button>
 
-              {/* HEADER */}
               <header className="ge-modal-header">
                 {selectedEvent.tag && (
                   <span className="ge-modal-badge">
@@ -195,18 +213,15 @@ export default function History() {
                 </p>
               </header>
 
-              {/* CONTENIDO */}
               <div className="ge-modal-grid">
-                {/* IMAGEN */}
                 <div className="ge-modal-media">
                   <img
                     src={selectedEvent.image}
-                    alt={`${selectedEvent.title} - ${selectedEvent.year}`}
+                    alt={`${selectedEvent.title} ${selectedEvent.year}`}
                     className="ge-modal-img"
                   />
                 </div>
 
-                {/* INFORMACIÓN */}
                 <div className="ge-modal-info">
                   <span className="ge-modal-section-title">
                     {t('history.modal.sectionMilestone')}
@@ -216,7 +231,6 @@ export default function History() {
                     {selectedEvent.fullDesc || selectedEvent.description}
                   </p>
 
-                  {/* ESTADÍSTICAS */}
                   {selectedEvent.stats?.length > 0 && (
                     <div className="ge-modal-stats-wrapper">
                       <span className="ge-modal-section-title">
@@ -246,12 +260,10 @@ export default function History() {
                 </div>
               </div>
 
-              {/* FOOTER */}
               <footer className="ge-modal-footer">
                 <span className="ge-modal-footer-icon">
                   ◌
                 </span>
-
                 <span>
                   {t('history.modal.footerTagline')}
                 </span>

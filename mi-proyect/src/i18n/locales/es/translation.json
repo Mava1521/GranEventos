@@ -30,23 +30,14 @@
       "titleYellow": "UNA",
       "titleSplit": "MISMA",
       "titleGreen": "ENERGÍA",
-      "description": "La unión de nuestra pasión por crear experiencias y nuestra ingeniería energética nos permite ir más lejos, ser más eficientes y generar un impacto positivo en cada proyecto.",
-      "sideList": {
-        "events": "EVENTOS",
-        "energy": "ENERGÍA",
-        "people": "PERSONAS",
-        "planet": "PLANETA"
-      },
-      "sideMessagePart1": "UN FUTURO",
-      "sideMessagePart2": "MÁS GRANDE",
-      "sideMessagePart3": "ES POSIBLE."
+      "description": "La unión de nuestra pasión por crear experiencias y nuestra ingeniería energética nos permite ir más lejos, ser más eficientes y generar un impacto positivo en cada proyecto."
     },
     "strengths": {
       "label": "NUESTRAS FORTALEZAS",
       "titleMain": "SOLUCIONES",
       "titleSpan": "DIFERENCIA.",
       "titlePreSpan": "QUE HACEN LA ",
-      "description": "Integramos experiencia, energía y tecnología para diseñar eventos extraordinarios, más eficientes, sostenibles y con un impacto real.",
+      "description": "INTEGRAMOS EXPERIENCIAS, ENERGÍA Y TECNOLOGÍA PARA DISEÑAR EVENTOS EXTRAORDINARIOS, MÁS EFICIENTES,SOSTENIBLES Y CON UN IMPACTO REAL.",
       "cards": {
         "01": {
           "title": "SOLUCIONES",
@@ -268,7 +259,6 @@
       }
     },
     "scrollVideo": {
-      "eyebrow": "EL IMPACTO",
       "text": "¿QUÉ ES GRAN EVENTOS? MÁS DE 30 AÑOS CREANDO EXPERIENCIAS INMENSAS BAJO LA ENERGÍA DE NUESTRO EQUIPO",
       "splitWord": "EXPERIENCIAS",
       "ariaProgress": "Progreso de la animación",

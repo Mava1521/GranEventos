@@ -533,7 +533,7 @@ body {
   margin: 0;
   color: #111111;
   font-family: var(--font-body);
-  font-size: 1.30rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.65;
   text-align: justify;
@@ -953,6 +953,33 @@ body {
   color: rgba(255, 255, 255, 0.65);
   text-transform: uppercase;
 }
+
+/* =========================================================
+   ESTILOS PARA EL MENSAJE ADICIONAL EN LA SECCIÓN 3 (HOME)
+   ========================================================= */
+
+    .ge-home-story-extra-message {
+      margin-top: 200px; 
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 8px;
+      line-height: 1.35;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .ge-home-story-extra-message .gold-line {
+      width: 34px;
+      height: 3px;
+      margin: 0 0 14px 0;
+      background-color: var(--accent-gold);
+    }
+
+    .ge-home-story-extra-message p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+    }
 
 /* =========================================================
    10. RESPONSIVE
