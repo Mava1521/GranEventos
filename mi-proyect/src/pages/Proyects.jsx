@@ -16,13 +16,23 @@ export default function Proyects() {
     <main className="projects-page">
 
       {/* =====================================================
-          HERO
+          HERO INMERSIVO A PANTALLA COMPLETA
           ===================================================== */}
 
       <section className="projects-hero">
 
-        <div className="projects-hero-content">
+        {/* IMAGEN DE FONDO Y OVERLAY OSCURO */}
+        <div className="projects-hero-bg-wrapper" aria-hidden="true">
+          <img
+            src={HeroProyect}
+            alt=""
+            className="projects-hero-bg-image"
+          />
+          <div className="projects-hero-overlay"></div>
+        </div>
 
+        {/* CONTENIDO PRINCIPAL ALINEADO CON EL NAVBAR */}
+        <div className="projects-hero-content">
           <div className="section-label">
             <span>{t('projects.hero.sectionLabel')}</span>
             <span className="gold-line"></span>
@@ -39,29 +49,22 @@ export default function Proyects() {
           <p>
             {t('projects.hero.description')}
           </p>
-
         </div>
 
+        {/* KEYWORDS FLOTANDO EN LA PARTE SUPERIOR DERECHA */}
         <div className="hero-keywords">
           <span>{t('projects.hero.keywords.ideas')}</span>
           <span>{t('projects.hero.keywords.energy')}</span>
           <span>{t('projects.hero.keywords.people')}</span>
           <span>{t('projects.hero.keywords.experiences')}</span>
           <span>{t('projects.hero.keywords.real')}</span>
-
           <div className="hero-small-line"></div>
         </div>
 
-        <div className="projects-hero-image">
-          <img
-            src={HeroProyect}
-            alt="Gran Eventos Hero"
-          />
-
-          <div className="hero-image-overlay">
-            <strong>{t('projects.hero.overlayTitle')}</strong>
-            <span>{t('projects.hero.overlaySubtitle')}</span>
-          </div>
+        {/* MENSAGE EN LA PARTE INFERIOR DERECHA */}
+        <div className="hero-image-overlay">
+          <strong>{t('projects.hero.overlayTitle')}</strong>
+          <span>{t('projects.hero.overlaySubtitle')}</span>
         </div>
 
       </section>
@@ -105,7 +108,7 @@ export default function Proyects() {
 
       {/* =====================================================
           EQUIPO
-      ===================================================== */}
+          ===================================================== */}
       <section className="projects-team">
         <div className="team-image">
           <img
@@ -130,7 +133,6 @@ export default function Proyects() {
             {t('projects.team.description')}
           </p>
 
-          {/* SE AÑADE EL HASH #cuentanos-tu-proyecto AL ENLACE */}
           <Link to="/contacto#cuentanos-tu-proyecto" className="project-button">
             <span>{t('projects.team.ctaButton')}</span>
             <span className="button-arrow">→</span>
@@ -210,14 +212,18 @@ function ProjectCard({
 
       </div>
 
-      <h2>{title}</h2>
+      <Link to={link} className="project-card-title-link">
+        <h2>{title}</h2>
+      </Link>
 
-      <div className="project-card-image">
-        <img
-          src={image}
-          alt={title}
-        />
-      </div>
+      <Link to={link} className="project-card-image-link" aria-label={title}>
+        <div className="project-card-image">
+          <img
+            src={image}
+            alt={title}
+          />
+        </div>
+      </Link>
 
       <h3>{subtitle}</h3>
 

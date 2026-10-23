@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import Footer from './components/footer/Footer';
+import ScrollToTop from './components/ScrollToTop'; // 1. Importas el componente
 import Home from './pages/Home';
 import Historia from './pages/History';
 import Sostenibilidad from './pages/Sustainability';
@@ -19,7 +20,9 @@ import Tecnology from './pages/Tecnology';
 export default function App() {
   return (
     <Router basename={import.meta.env.BASE_URL}>
-
+      
+      <ScrollToTop /> {/* 2. Lo colocas aquí dentro, justo al inicio del Router */}
+      
       <Navbar />
 
       <main>

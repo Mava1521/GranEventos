@@ -60,7 +60,7 @@ export default function History() {
             <h1>
               {t('history.hero.titlePart1')} <span className="text-yellow">{t('history.hero.titleYellow')}</span> <br />
               {t('history.hero.titlePart2')} <br />
-              <span className="text-green">{t('history.hero.titleGreen')}</span> <br />
+              <span>{t('history.hero.titleGreen')}</span> <br />
               {t('history.hero.titlePart3')}
             </h1>
             <div className="history-gold-line" />
