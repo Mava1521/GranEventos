@@ -43,22 +43,25 @@
    HERO & BG IMAGE FIX
    ============================================================ */
 
-.concert-hero {
-  position: relative;
-  min-height: 480px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: #070b0d;
-  border-bottom: 1px solid var(--concert-border);
-}
+    .concert-hero {
+      position: relative;
+      width: 100%;
+      min-height: 580px;
+      display: flex;
+      align-items: center;
+      margin-top: -95px;   /* Sube la sección para que la foto tome el espacio del Navbar */
+      padding-top: 180px;  /* Empuja el contenido hacia abajo para que respire debajo del menú */
+      padding-bottom: 60px;
+      background: #070b0d;
+      border-bottom: 1px solid var(--concert-border);
+      overflow: hidden;
+    }
 
 .concert-hero__image {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 70%; /* Mantiene la imagen cubriendo la derecha hasta el centro */
+  inset: 0; /* Ocupa todo el espacio del hero (top, right, bottom, left) */
+  width: 100%;
+  height: 100%;
   z-index: 0;
   overflow: hidden;
 }
@@ -67,22 +70,21 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: right center; /* Asegura la vista del escenario al estilo Foto1 */
+  object-position: center; /* Muestra la imagen completa y bien centrada */
   display: block;
 }
 
-/* Degradado horizontal para integración perfecta con el texto */
+/* Graduamos el degradado para que proteja el texto de la izquierda pero deje lucir la foto */
 .concert-hero__gradient {
   position: absolute;
   inset: 0;
   z-index: 1;
   background: linear-gradient(
     90deg,
-    rgba(5, 9, 10, 1) 0%,
-    rgba(5, 9, 10, 0.95) 28%,
-    rgba(5, 9, 10, 0.65) 45%,
-    rgba(5, 9, 10, 0.2) 70%,
-    rgba(5, 9, 10, 0) 100%
+    rgba(5, 9, 10, 0.95) 0%,
+    rgba(5, 9, 10, 0.75) 40%,
+    rgba(5, 9, 10, 0.35) 70%,
+    rgba(5, 9, 10, 0.1) 100%
   );
 }
 

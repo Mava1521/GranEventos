@@ -235,53 +235,6 @@ export default function Concert() {
       </section>
 
       {/* ======================================================
-          EXPERIENCIAS
-      ====================================================== */}
-      <section className="concert-experience">
-        <div className="concert-experience__image">
-          <img src={Concert2} alt="" className="concert-experience__bg-img" />
-        </div>
-
-        <div className="concert-container concert-experience__container">
-          <div className="concert-experience__content">
-            <div className="concert-label">
-              <span>/</span>
-              {t('concert.experience.eyebrow')}
-            </div>
-            <h2>
-              {t('concert.experience.title1')} <span>{t('concert.experience.title2')}</span>
-            </h2>
-            <p>
-              {t('concert.experience.description')}
-            </p>
-          </div>
-
-          <div className="concert-stats">
-            <div className="concert-stat">
-              <strong>+100</strong>
-              <span>
-                {t('concert.experience.stats.concerts')} <br /> {t('concert.experience.stats.realized')}
-              </span>
-            </div>
-            <div className="concert-stat">
-              <strong>+500K</strong>
-              <span>
-                {t('concert.experience.stats.attendees')} <br /> {t('concert.experience.stats.totals')}
-              </span>
-            </div>
-            <div className="concert-stat">
-              <strong>+10 AÑOS</strong>
-              <span>{t('concert.experience.stats.years')}</span>
-            </div>
-            <div className="concert-stat">
-              <strong>100%</strong>
-              <span>{t('concert.experience.stats.commitment')}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ======================================================
           PROYECTOS
       ====================================================== */}
       <section className="concert-projects">
@@ -326,9 +279,6 @@ export default function Concert() {
                     <h3>{project.title}</h3>
                     <span>{project.location}</span>
                   </div>
-                  <button type="button" className="concert-project-card__arrow" aria-label={t('concert.projects.viewProjectAria', { title: project.title })}>
-                    →
-                  </button>
                 </div>
               </article>
             ))}
