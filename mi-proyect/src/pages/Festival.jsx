@@ -85,11 +85,6 @@ export default function Festival() {
             <div className="festival-projects__intro">
               <p>{t('festival.projects.intro')}</p>
             </div>
-
-            <Link to="/nuevas-tecnologias" className="festival-projects__all">
-              {t('festival.projects.viewAll')}
-              <span aria-hidden="true">→</span>
-            </Link>
           </div>
 
           <div className="festival-projects__grid">
@@ -103,9 +98,6 @@ export default function Festival() {
                     <h3>{project.title}</h3>
                     <span>{project.location}</span>
                   </div>
-                  <button type="button" className="festival-project-card__arrow" aria-label={t('festival.projects.viewProjectAria', { title: project.title })}>
-                    →
-                  </button>
                 </div>
               </article>
             ))}
