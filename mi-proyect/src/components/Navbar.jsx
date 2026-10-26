@@ -45,7 +45,7 @@ export default function Navbar() {
   }
 
   // Determinar si la página tiene fondo claro en la cabecera
-  const isLightBg = isServices || isExperiences || isEnergy || isTechnology;
+  const isLightBg = isExperiences || isEnergy || isTechnology;
 
   // Color del icono del menú hamburguesa
   const toggleIconColor = (isLightBg && !menuOpen) ? '#000000' : '#ffffff';

@@ -7,8 +7,6 @@ import ServiceHero from '../assets/ServiceHero.jpg';
 import plantas from '../assets/Plantas.jpg';
 import diseño from '../assets/Diseño.jpg';
 import transformadores from '../assets/Transformadores.jpg';
-import distribucion from '../assets/Distribuicion.jpg';
-import iluminacion from '../assets/Iluminacion.jpg';
 import ventas from '../assets/Ventas.jpg';
 import ServiceSeccion3 from '../assets/ServicesSeccion3.jpg';
 
@@ -40,6 +38,7 @@ function ServiceImage({ image, alt, number }) {
 export default function Services() {
   const { t } = useTranslation();
 
+  // Se reduce la lista a 4 tarjetas principales
   const services = [
     {
       number: '01',
@@ -51,7 +50,7 @@ export default function Services() {
     },
     {
       number: '02',
-      title: t('services.items.sales.title'),
+      title: 'VENTA DE GENERADORES', // Nombre actualizado
       subtitle: t('services.items.sales.subtitle'),
       description: t('services.items.sales.description'),
       image: ventas,
@@ -67,36 +66,25 @@ export default function Services() {
     },
     {
       number: '04',
-      title: t('services.items.transformers.title'),
+      title: 'TRANSFORMADORES, DISTRIBUCIÓN Y CABLEADO', // Nombre unificado (Card 4 + Card 5)
       subtitle: t('services.items.transformers.subtitle'),
       description: t('services.items.transformers.description'),
       image: transformadores,
       alt: t('services.items.transformers.alt'),
-    },
-    {
-      number: '05',
-      title: t('services.items.distribution.title'),
-      subtitle: t('services.items.distribution.subtitle'),
-      description: t('services.items.distribution.description'),
-      image: distribucion,
-      alt: t('services.items.distribution.alt'),
-    },
-    {
-      number: '06',
-      title: t('services.items.lighting.title'),
-      subtitle: t('services.items.lighting.subtitle'),
-      description: t('services.items.lighting.description'),
-      image: iluminacion,
-      alt: t('services.items.lighting.alt'),
     },
   ];
 
   return (
     <main className="services-page">
       {/* =====================================================
-          HERO
-      ====================================================== */}
+          HERO INMERSIVO A PANTALLA COMPLETA
+      ===================================================== */}
       <section className="services-hero" aria-labelledby="services-title">
+        <div className="services-hero__bg-wrapper" aria-hidden="true">
+          <img src={ServiceHero} alt="" className="services-hero__bg-img" />
+          <div className="services-hero__overlay"></div>
+        </div>
+
         <div className="services-hero__content">
           <p className="services-eyebrow">{t('services.hero.eyebrow')}</p>
 
@@ -113,32 +101,24 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="services-hero__visual">
-          <div className="services-hero__image-placeholder">
-            <span>
-              <img src={ServiceHero} alt="" width={1700} height={625} />
-            </span>
-          </div>
+        <div className="services-hero__message">
+          <p>
+            {t('services.hero.message.line1')}
+            <br />
+            {t('services.hero.message.line2')}
+            <br />
+            {t('services.hero.message.line3')}
+            <br />
+            {t('services.hero.message.line4')}
+          </p>
 
-          <div className="services-hero__message">
-            <p>
-              {t('services.hero.message.line1')}
-              <br />
-              {t('services.hero.message.line2')}
-              <br />
-              {t('services.hero.message.line3')}
-              <br />
-              {t('services.hero.message.line4')}
-            </p>
-
-            <span className="yellow-line" aria-hidden="true" />
-          </div>
+          <span className="yellow-line" aria-hidden="true" />
         </div>
       </section>
 
       {/* =====================================================
-          SERVICIOS
-      ====================================================== */}
+          SERVICIOS (GRID DE 4 CARDS)
+      ===================================================== */}
       <section
         className="services-grid-section"
         aria-labelledby="services-grid-title"
@@ -191,7 +171,7 @@ export default function Services() {
 
       {/* =====================================================
           CTA FINAL
-      ====================================================== */}
+      ===================================================== */}
       <section className="services-cta" aria-labelledby="services-cta-title">
         <div className="services-cta__background">
           <span>
@@ -210,7 +190,6 @@ export default function Services() {
             {t('services.cta.titleLine2')}
           </h2>
 
-          {/* ENLACE MODIFICADO CON EL HASH PARA SECCIÓN ESPECÍFICA */}
           <Link to="/contacto#cuentanos-tu-proyecto" className="services-cta__button">
             <span>{t('services.cta.button')}</span>
 
