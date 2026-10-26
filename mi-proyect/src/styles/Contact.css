@@ -70,54 +70,94 @@
    HERO
    ========================================================= */
 
-.contact-hero {
-  position: relative;
-  min-height: 420px;
-  display: grid;
-  grid-template-columns: 43% 57%;
-  overflow: hidden;
-}
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #111;
+    }
 
+    .contact-hero {
+      position: relative;
+      width: 100%;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      margin-top: -95px; /* Sube para pasar por detrás del Navbar fijo */
+      padding: 210px var(--page-gutter) 80px; /* Usa el margen estándar del layout de la página */
+      background: #111111;
+      color: #ffffff;
+      overflow: hidden;
+    }
 
-/* Text */
+    .contact-hero-bg-wrapper {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+    }
 
-.contact-hero-content {
-  position: relative;
-  z-index: 5;
-  padding: 200px 100px 80px var(--page-gutter);
-  background: #111111;
-}
+    .contact-hero-bg-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: saturate(0.9);
+    }
 
-.contact-hero h1 {
-  margin: 0;
-  max-width: 470px;
-  font-family: 'Oswald', Impact, sans-serif;
-  font-size: clamp(44px, 4.5vw, 68px);
-  font-weight: 300;
-  line-height: 0.98;
-  letter-spacing: -1.5px;
-  color: #ffffff;
-}
+    /* Gradiente lateral oscuro para mantener la legibilidad impecable de los textos */
+    .contact-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(17, 17, 17, 0.95) 0%,
+        rgba(17, 17, 17, 0.78) 45%,
+        rgba(17, 17, 17, 0.4) 100%
+      );
+      z-index: 2;
+    }
 
-.contact-hero h1 strong {
-  display: block;
-  font-weight: 700;
-}
+    /* Texto del Hero alineado perfectamente con el logo del Navbar */
+    .contact-hero-content {
+      position: relative;
+      z-index: 3;
+      padding-left: 0; /* Ya se alinea de manera óptima con el padding general del hero */
+      max-width: 520px;
+      background: transparent;
+    }
 
-.contact-yellow-line {
-  width: 42px;
-  height: 3px;
-  margin: 28px 0;
-  background: var(--contact-yellow);
-}
+    .contact-hero h1 {
+      margin: 0;
+      max-width: 470px;
+      font-family: 'Oswald', Impact, sans-serif;
+      font-size: clamp(44px, 4.5vw, 68px);
+      font-weight: 300;
+      line-height: 0.98;
+      letter-spacing: -1.5px;
+      color: #ffffff;
+    }
 
-.contact-hero-content > p {
-  max-width: 420px;
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.5;
-  color: #ffffff;
-}
+    .contact-hero h1 strong {
+      display: block;
+      font-weight: 700;
+    }
+
+    .contact-yellow-line {
+      width: 42px;
+      height: 3px;
+      margin: 28px 0;
+      background: var(--contact-yellow);
+    }
+
+    .contact-hero-content > p {
+      max-width: 420px;
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.5;
+      color: #ffffff;
+    }
 
 
 /* Hero image */
@@ -171,10 +211,9 @@
 
 .contact-hero-side {
   position: absolute;
-  z-index: 10;
+  z-index: 5;
   right: var(--page-gutter);
-  top: auto;
-  bottom: 25px;
+  bottom: 30px;
   display: flex;
   flex-direction: column;
   color: #ffffff;
@@ -186,9 +225,7 @@
 .contact-hero-side div {
   width: 30px;
   height: 3px;
-
   margin-top: 12px;
-
   background: var(--contact-yellow);
 }
 
@@ -1864,7 +1901,7 @@
 /* Desktops (≥ 1024px) */
 @media (min-width: 1024px) {
   .contact-page {
-    --page-gutter: 60px;
+    --page-gutter: 32px;
   }
 
   /* Hero Desktop Layout */

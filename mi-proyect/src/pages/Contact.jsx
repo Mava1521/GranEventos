@@ -75,9 +75,19 @@ export default function Contact() {
     <main className="contact-page">
 
       {/* =========================================
-          HERO
+          HERO INMERSIVO A PANTALLA COMPLETA
       ========================================== */}
       <section className="contact-hero">
+        {/* IMAGEN DE FONDO QUE CUBRE TODO EL HERO */}
+        <div className="contact-hero-bg-wrapper" aria-hidden="true">
+          <img
+            src={ImageHero}
+            alt={t('contact.hero.alt')}
+            className="contact-hero-bg-image"
+          />
+          <div className="contact-hero-overlay" />
+        </div>
+
         <div className="contact-hero-content">
           <div className="contact-kicker">
             <span />
@@ -92,25 +102,6 @@ export default function Contact() {
           <div className="contact-yellow-line" />
 
           <p>{t('contact.hero.description')}</p>
-        </div>
-
-        <div className="contact-hero-image">
-          <img
-            src={ImageHero}
-            alt={t('contact.hero.alt')}
-          />
-          {/* Capa de opacidad negra para mejorar la legibilidad */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundColor: 'rgba(0, 0, 0, 0.4)',
-              pointerEvents: 'none',
-              zIndex: 2,
-            }}
-            aria-hidden="true"
-          />
-          <div className="contact-lightning" />
         </div>
 
         {/* LADO DERECHO DEL HERO CON LA FRASE / SELLO DE MARCA */}
