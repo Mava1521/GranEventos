@@ -113,11 +113,19 @@ export default function Contact() {
           <div className="contact-lightning" />
         </div>
 
+        {/* LADO DERECHO DEL HERO CON LA FRASE / SELLO DE MARCA */}
         <div className="contact-hero-side">
-          <span>{t('contact.hero.side.events')}</span>
-          <span>{t('contact.hero.side.industry')}</span>
-          <span>{t('contact.hero.side.communities')}</span>
-          <span>{t('contact.hero.side.future')}</span>
+          <p style={{ margin: 0, lineHeight: '1.4'}}>
+            LA ENERGÍA
+            <br />
+            TAMBIÉN
+            <br />
+            DEJA
+            <br />
+            HUELLA
+            <br />
+            POSITIVA
+          </p>
           <div />
         </div>
       </section>
@@ -492,16 +500,24 @@ export default function Contact() {
           />
         </div>
 
+        {/* PARTE INFERIOR / LADO DERECHO DE TALENT CON EL MISMO SELLO DE MARCA */}
         <div className="talent-side">
-          <span>{t('contact.talent.side.talent')}</span>
-          <span>{t('contact.talent.side.ideas')}</span>
-          <span>{t('contact.talent.side.energy')}</span>
-          <span>{t('contact.talent.side.impact')}</span>
+          <span className="yellow-line" aria-hidden="true" style={{ display: 'block', width: '40px', height: '4px', backgroundColor: '#e5af12', marginBottom: '15px' }} />
+          <p style={{ margin: 0, lineHeight: '1.4', fontWeight: 'bold', fontSize: '0.85rem' }}>
+            LA ENERGÍA
+            <br />
+            TAMBIÉN
+            <br />
+            DEJA
+            <br />
+            HUELLA
+            <br />
+            POSITIVA
+          </p>
           <div />
         </div>
       </section>
 
-    
     </main>
   );
 }

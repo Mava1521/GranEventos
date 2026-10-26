@@ -50,7 +50,7 @@ export default function Services() {
     },
     {
       number: '02',
-      title: 'VENTA DE GENERADORES', // Nombre actualizado
+      title: 'VENTA DE GENERADORES',
       subtitle: t('services.items.sales.subtitle'),
       description: t('services.items.sales.description'),
       image: ventas,
@@ -66,7 +66,7 @@ export default function Services() {
     },
     {
       number: '04',
-      title: 'TRANSFORMADORES, DISTRIBUCIÓN Y CABLEADO', // Nombre unificado (Card 4 + Card 5)
+      title: 'TRANSFORMADORES, DISTRIBUCIÓN Y CABLEADO',
       subtitle: t('services.items.transformers.subtitle'),
       description: t('services.items.transformers.description'),
       image: transformadores,
@@ -101,18 +101,20 @@ export default function Services() {
           </p>
         </div>
 
+        {/* MENSAJE FLOTANTE ACTUALIZADO (SELLO DE MARCA) */}
         <div className="services-hero__message">
-          <p>
-            {t('services.hero.message.line1')}
-            <br />
-            {t('services.hero.message.line2')}
-            <br />
-            {t('services.hero.message.line3')}
-            <br />
-            {t('services.hero.message.line4')}
-          </p>
-
           <span className="yellow-line" aria-hidden="true" />
+          <p>
+            LA ENERGÍA
+            <br />
+            TAMBIÉN
+            <br />
+            DEJA
+            <br />
+            HUELLA
+            <br />
+            POSITIVA
+          </p>
         </div>
       </section>
 
