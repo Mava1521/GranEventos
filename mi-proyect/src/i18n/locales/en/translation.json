@@ -403,10 +403,6 @@
   "sustainability": {
     "hero": {
       "ariaLabel": "SETIE Sustainability Introduction",
-      "topRight": {
-        "line1": "MORE THAN EVENTS",
-        "line2": "A CLEANER FUTURE"
-      },
       "bottomLeft": {
         "title": "ENERGY",
         "pLine1": "FOR A WORLD OF",
@@ -455,24 +451,6 @@
       "planet": {
         "title": "A REAL PLANET",
         "description": "Building a cleaner future today for coming generations."
-      }
-    },
-    "useCases": {
-      "events": {
-        "category": "/ FOR EVENTS",
-        "titleLine1": "The same excitement,",
-        "titleLine2": "with a lower impact."
-      },
-      "industry": {
-        "category": "/ FOR INDUSTRY",
-        "titleLine1": "Productivity",
-        "titleLine2": "and sustainability",
-        "titleLine3": "on the move."
-      },
-      "scenarios": {
-        "category": "/ FOR ANY SCENARIO",
-        "titleLine1": "Temporary solutions",
-        "titleLine2": "for a permanent future."
       }
     },
     "commitment": {

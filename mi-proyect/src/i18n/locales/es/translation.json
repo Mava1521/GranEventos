@@ -403,10 +403,6 @@
       "sustainability": {
       "hero": {
         "ariaLabel": "Introducción a la sostenibilidad SETIE",
-        "topRight": {
-          "line1": "MÁS QUE EVENTOS",
-          "line2": "UN FUTURO MÁS LIMPIO"
-        },
         "bottomLeft": {
           "title": "ENERGÍA",
           "pLine1": "PARA UN MUNDO",
@@ -455,24 +451,6 @@
         "planet": {
           "title": "UN PLANETA REAL",
           "description": "Hoy hacemos posible un futuro más limpio para las próximas generaciones."
-        }
-      },
-      "useCases": {
-        "events": {
-          "category": "/ PARA EVENTOS",
-          "titleLine1": "La misma emoción,",
-          "titleLine2": "con un menor impacto."
-        },
-        "industry": {
-          "category": "/ PARA LA INDUSTRIA",
-          "titleLine1": "Productividad",
-          "titleLine2": "y sostenibilidad",
-          "titleLine3": "en movimiento."
-        },
-        "scenarios": {
-          "category": "/ PARA CUALQUIER ESCENARIO",
-          "titleLine1": "Soluciones temporales",
-          "titleLine2": "para un futuro permanente."
         }
       },
       "commitment": {

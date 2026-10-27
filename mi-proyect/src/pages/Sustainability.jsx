@@ -20,40 +20,39 @@ export default function Sustainability() {
   const { t } = useTranslation();
   const [activeNews, setActiveNews] = useState(0);
 
-  
+  // Arreglo de noticias con su respectivo enlace (href) individual y externo
   const newsItems = [
-      {
-        id: 'solar-energy',
-        category: t('sustainability.news.solar.category'),
-        date: t('sustainability.news.solar.date'),
-        title: t('sustainability.news.solar.title'),
-        description: t('sustainability.news.solar.description'),
-        image: PanelSolar,
-        imageAlt: t('sustainability.news.solar.imageAlt'),
-        href: '/sostenibilidad/noticias/energia-solar',
-      },
-      {
-        id: 'battery-storage',
-        category: t('sustainability.news.batteries.category'),
-        date: t('sustainability.news.batteries.date'),
-        title: t('sustainability.news.batteries.title'),
-        description: t('sustainability.news.batteries.description'),
-        image: Carga,
-        imageAlt: t('sustainability.news.batteries.imageAlt'),
-        href: '/sostenibilidad/noticias/almacenamiento-baterias',
-      },
-      {
-        id: 'clean-energy-trends-2026',
-        category: t('sustainability.news.trends.category'),
-        date: t('sustainability.news.trends.date'),
-        title: t('sustainability.news.trends.title'),
-        description: t('sustainability.news.trends.description'),
-        image: Renobable,
-        imageAlt: t('sustainability.news.trends.imageAlt'),
-        href: '/sostenibilidad/noticias/tendencias-energia-limpia-2026',
-      },
-    ];
-
+    {
+      id: 'solar-energy',
+      category: t('sustainability.news.solar.category'),
+      date: t('sustainability.news.solar.date'),
+      title: t('sustainability.news.solar.title'),
+      description: t('sustainability.news.solar.description'),
+      image: PanelSolar,
+      imageAlt: t('sustainability.news.solar.imageAlt'),
+      href: 'https://ambientesolar.com.co/reducir-la-huella-de-carbono-empresarial/', 
+    },
+    {
+      id: 'battery-storage',
+      category: t('sustainability.news.batteries.category'),
+      date: t('sustainability.news.batteries.date'),
+      title: t('sustainability.news.batteries.title'),
+      description: t('sustainability.news.batteries.description'),
+      image: Carga,
+      imageAlt: t('sustainability.news.batteries.imageAlt'),
+      href: 'https://www.acenrenewables.com/2025/08/renewable-energy-technology-and-innovation/', // Enlace específico de almacenamiento en baterías (puedes ajustarlo por tu fuente real)
+    },
+    {
+      id: 'clean-energy-trends-2026',
+      category: t('sustainability.news.trends.category'),
+      date: t('sustainability.news.trends.date'),
+      title: t('sustainability.news.trends.title'),
+      description: t('sustainability.news.trends.description'),
+      image: Renobable,
+      imageAlt: t('sustainability.news.trends.imageAlt'),
+      href: 'https://www.tatapower.com/blogs/renewable-energy-trends-in-2026-what-is-ahead-and-beyond', // Enlace específico de tendencias de energía limpia (puedes ajustarlo por tu fuente real)
+    },
+  ];
 
   const currentNews = newsItems[activeNews];
 
@@ -85,11 +84,6 @@ export default function Sustainability() {
         <div className="sust-hero-overlay"></div>
 
         <div className="sust-hero-content">
-          <div className="hero-top-right">
-            <span>{t('sustainability.hero.topRight.line1')}</span>
-            <span>{t('sustainability.hero.topRight.line2')}</span>
-            <span className="hero-green-line"></span>
-          </div>
 
           <div className="hero-main-brand">
             <img
@@ -305,9 +299,12 @@ export default function Sustainability() {
                 {currentNews.description}
               </p>
 
+              {/* Enlace dinámico e individual con apertura en pestaña nueva (target="_blank" y rel="noopener noreferrer") */}
               <a
                 className="sust-news-link"
                 href={currentNews.href}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 {t('sustainability.news.readMore')}
                 <ArrowRight size={21} aria-hidden="true" />
@@ -379,64 +376,6 @@ export default function Sustainability() {
 
         </div>
       </section>
-
-
-
-      {/* =========================
-          CASOS DE USO
-      ========================== */}
-      <section className="sust-usecases-wrapper">
-        <div className="sust-section-inner sust-usecases">
-
-          <article
-            className="usecase-card"
-            style={{ backgroundImage: `url(${EventsBg})` }}
-          >
-            <div className="usecase-overlay"></div>
-            <div className="usecase-content">
-              <span className="tag-category">{t('sustainability.useCases.events.category')}</span>
-              <span className="hero-green-line"></span>
-              <p className="usecase-title">
-                {t('sustainability.useCases.events.titleLine1')}<br />
-                {t('sustainability.useCases.events.titleLine2')}
-              </p>
-            </div>
-          </article>
-
-          <article
-            className="usecase-card"
-            style={{ backgroundImage: `url(${IndustryBg})` }}
-          >
-            <div className="usecase-overlay"></div>
-            <div className="usecase-content">
-              <span className="tag-category">{t('sustainability.useCases.industry.category')}</span>
-              <span className="hero-green-line"></span>
-              <p className="usecase-title">
-                {t('sustainability.useCases.industry.titleLine1')}<br />
-                {t('sustainability.useCases.industry.titleLine2')}<br />
-                {t('sustainability.useCases.industry.titleLine3')}
-              </p>
-            </div>
-          </article>
-
-          <article
-            className="usecase-card"
-            style={{ backgroundImage: `url(${ScenarioBg})` }}
-          >
-            <div className="usecase-overlay"></div>
-            <div className="usecase-content">
-              <span className="tag-category">{t('sustainability.useCases.scenarios.category')}</span>
-              <span className="hero-green-line"></span>
-              <p className="usecase-title">
-                {t('sustainability.useCases.scenarios.titleLine1')}<br />
-                {t('sustainability.useCases.scenarios.titleLine2')}
-              </p>
-            </div>
-          </article>
-
-        </div>
-      </section>
-
 
       {/* =========================
           COMPROMISO
