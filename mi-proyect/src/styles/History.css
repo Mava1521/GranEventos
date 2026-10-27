@@ -78,11 +78,9 @@
 .history-hero-content {
   position: relative;
   z-index: 5;
-
   width: 100%;
   max-width: 380px;
-
-  margin: 0;
+  margin: 70px 0px 10px 0px;
   padding: 0;
 }
 
