@@ -1,5 +1,11 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next'; // O el hook de traducción que utilices en tu proyecto
+import React, {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
+import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../styles/ScrollVideoSection.css';
@@ -14,233 +20,429 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ ignoreMobileResize: true });
 
 /*
- * Cuánta distancia extra de scroll (en % de la altura de
- * pantalla) dura el "candado" del texto. Súbelo para que la
- * animación se sienta más larga/lenta.
+ * =========================================================
+ * DURACIÓN DE CADA FASE DEL "CANDADO"
+ * =========================================================
+ * Valores en % de la altura de pantalla (vh) de scroll.
+ * Toda la escena queda fija mientras se recorre la suma.
+ *
+ *   text    → letras translúcidas → rellenas (barra 0 → 100%)
+ *   hold    → pausa breve con el texto completo legible
+ *   swap    → las letras desaparecen y entra el video
+ *   preview → el video queda en pantalla (el "preview")
  */
-const PIN_DISTANCE_VH = 140;
+const PHASE_VH = {
+  text: 120,
+  hold: 12,
+  swap: 30,
+  preview: 50,
+};
+
+const TOTAL_VH =
+  PHASE_VH.text + PHASE_VH.hold + PHASE_VH.swap + PHASE_VH.preview;
+
+/* El video empieza a reproducirse cuando ya se asoma (35% del swap) */
+const VIDEO_START_PROGRESS =
+  (PHASE_VH.text + PHASE_VH.hold + PHASE_VH.swap * 0.35) / TOTAL_VH;
+
+/* El video se revela como una "card" que crece hasta pantalla completa */
+const CLIP_HIDDEN = 'inset(22% 14% 22% 14% round 28px)';
+const CLIP_FULL = 'inset(0% 0% 0% 0% round 0px)';
+
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
+
+/* Compara palabras ignorando puntuación, acentos de apertura, etc. */
+function normalizeWord(word) {
+  return word.replace(/[^\p{L}\p{N}]/gu, '').toUpperCase();
+}
 
 export default function ScrollVideoSection({ videoSrc }) {
   const { t } = useTranslation();
 
-  const textSectionRef = useRef(null);
+  const stageRef = useRef(null);
+  const textRef = useRef(null);
+  const progressTrackRef = useRef(null);
   const progressFillRef = useRef(null);
   const wordRefs = useRef([]);
-
-  const videoSectionRef = useRef(null);
-  const videoCardRef = useRef(null);
+  const videoLayerRef = useRef(null);
   const videoRef = useRef(null);
 
   const [isMuted, setIsMuted] = useState(true);
-
-  // Obtenemos el texto traducido desde el archivo JSON (ej: history.scrollVideo.text)
-  const translatedText = t('history.scrollVideo.text', {
-    defaultValue: 'WHAT IS GRAN EVENTOS? MORE THAN 30 YEARS CREATING IMMENSE EXPERIENCES DRIVEN BY THE ENERGY OF OUR TEAM'
-  });
-
-  const WORDS = translatedText.split(' ');
-
-  /*
-   * Palabra clave para el cambio de color adaptada al idioma:
-   * En español busca 'EXPERIENCIAS', en inglés 'EXPERIENCES'.
-   */
-  const SPLIT_WORD = t('history.scrollVideo.splitWord', { defaultValue: 'EXPERIENCES' });
-  const SPLIT_INDEX = WORDS.findIndex(
-    (word) => word.replace(/[^a-zA-ZáéíóúÁÉÍÓÚ]/g, '').toUpperCase() === SPLIT_WORD
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
 
-  useLayoutEffect(() => {
+  /*
+   * Estado de reproducción en un ref (no en state): se lee y
+   * escribe desde callbacks de scroll / IntersectionObserver
+   * y no debe provocar re-renders.
+   */
+  const playbackRef = useRef({
+    inVideoPhase: false,
+    stageVisible: false,
+    userPaused: false,
+  });
+
+  /* ---------------------------------------------------------
+     TEXTO TRADUCIDO
+     --------------------------------------------------------- */
+  const translatedText = t('history.scrollVideo.text', {
+    defaultValue:
+      'WHAT IS GRAN EVENTOS? MORE THAN 30 YEARS CREATING IMMENSE EXPERIENCES DRIVEN BY THE ENERGY OF OUR TEAM',
+  });
+
+  const words = translatedText.split(' ');
+
+  /*
+   * Palabra donde ocurre el cambio de color según el idioma
+   * (ES: 'EXPERIENCIAS', EN: 'EXPERIENCES').
+   */
+  const splitWord = t('history.scrollVideo.splitWord', {
+    defaultValue: 'EXPERIENCES',
+  }).toUpperCase();
+
+  const splitIndex = words.findIndex(
+    (word) => normalizeWord(word) === splitWord
+  );
+
+  /* ---------------------------------------------------------
+     ACCESIBILIDAD: escuchar cambios de prefers-reduced-motion
+     --------------------------------------------------------- */
+  useEffect(() => {
     const mediaQuery = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
     );
 
-    /*
-     * Con reduced-motion no creamos ningún ScrollTrigger: se
-     * muestra todo listo desde el principio, sin pin ni
-     * animación de scroll.
-     */
-    if (mediaQuery.matches) {
-      wordRefs.current.forEach((el) => {
-        if (el) el.style.opacity = '1';
+    const handleChange = (event) => setReducedMotion(event.matches);
+
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () =>
+      mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  /* ---------------------------------------------------------
+     REPRODUCCIÓN: una sola función decide si el video suena
+     o se pausa, combinando fase + visibilidad + preferencia.
+     --------------------------------------------------------- */
+  const syncPlayback = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const { inVideoPhase, stageVisible, userPaused } =
+      playbackRef.current;
+
+    const shouldPlay =
+      !reducedMotion && inVideoPhase && stageVisible && !userPaused;
+
+    if (shouldPlay && video.paused) {
+      video.play().catch(() => {
+        /* El navegador puede bloquear la reproducción; se ignora. */
       });
-      if (progressFillRef.current) {
-        progressFillRef.current.style.transform = 'scaleX(1)';
-      }
-      if (videoCardRef.current) {
-        videoCardRef.current.style.width = '100%';
-        videoCardRef.current.style.height = '100%';
-        videoCardRef.current.style.borderRadius = '0px';
-      }
+    } else if (!shouldPlay && !video.paused) {
+      video.pause();
+    }
+  }, [reducedMotion]);
+
+  /* Pausar el video cuando la escena sale de pantalla (ahorro) */
+  useEffect(() => {
+    const stage = stageRef.current;
+    if (!stage) return undefined;
+
+    if (!('IntersectionObserver' in window)) {
+      playbackRef.current.stageVisible = true;
       return undefined;
     }
 
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        playbackRef.current.stageVisible = entry.isIntersecting;
+        syncPlayback();
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(stage);
+
+    return () => observer.disconnect();
+  }, [syncPlayback]);
+
+  /* ---------------------------------------------------------
+     ANIMACIÓN PRINCIPAL (GSAP ScrollTrigger)
+     --------------------------------------------------------- */
+  useLayoutEffect(() => {
     /*
-     * gsap.context() agrupa todo lo creado dentro para poder
-     * revertirlo de un solo golpe al desmontar el componente
-     * (esencial en una SPA con React Router).
+     * Con reduced-motion no se crea ningún ScrollTrigger: las
+     * letras quedan completas y el video aparece debajo, sin
+     * pin ni animaciones de scroll (ver CSS .is-reduced).
+     */
+    if (reducedMotion) return undefined;
+
+    /*
+     * gsap.context() agrupa todo lo creado para revertirlo de
+     * un solo golpe al desmontar (esencial en una SPA).
      */
     const ctx = gsap.context(() => {
-      /* =====================================================
-         TEXTO — se "clava" en pantalla mientras revela
-         las palabras, sincronizado con la barra de progreso.
-         ===================================================== */
-      gsap.timeline({
+      const wordEls = wordRefs.current.filter(Boolean);
+
+      /* Estado inicial del video: oculto y recortado como card */
+      gsap.set(videoLayerRef.current, {
+        autoAlpha: 0,
+        scale: 1.08,
+        clipPath: CLIP_HIDDEN,
+      });
+
+      const swapStart = PHASE_VH.text + PHASE_VH.hold;
+      const swapEnd = swapStart + PHASE_VH.swap;
+
+      /*
+       * Línea de tiempo maestra. Sus duraciones están en "vh":
+       * ScrollTrigger las reparte linealmente sobre la distancia
+       * total de scroll (scrub), en ambos sentidos.
+       */
+      const tl = gsap.timeline({
+        defaults: { ease: 'none' },
         scrollTrigger: {
-          trigger: textSectionRef.current,
+          trigger: stageRef.current,
           start: 'top top',
-          end: () =>
-            '+=' + (PIN_DISTANCE_VH / 100) * window.innerHeight,
+          end: () => '+=' + (TOTAL_VH / 100) * window.innerHeight,
           scrub: 0.6,
           pin: true,
           anticipatePin: 1,
+          invalidateOnRefresh: true,
           onUpdate: (self) => {
-            if (progressFillRef.current) {
-              progressFillRef.current.style.transform =
-                `scaleX(${self.progress})`;
+            /* Barra: refleja solo la fase de letras (0 → 100%) */
+            const textProgress = clamp(
+              (self.progress * TOTAL_VH) / PHASE_VH.text,
+              0,
+              1
+            );
+
+            if (progressTrackRef.current) {
+              progressTrackRef.current.setAttribute(
+                'aria-valuenow',
+                String(Math.round(textProgress * 100))
+              );
+            }
+
+            /* Cambio de fase hacia/desde el video */
+            const inPhase = self.progress >= VIDEO_START_PROGRESS;
+            const state = playbackRef.current;
+
+            if (inPhase !== state.inVideoPhase) {
+              state.inVideoPhase = inPhase;
+
+              if (inPhase) {
+                /* Cada vez que aparece, el preview arranca de cero */
+                try {
+                  if (videoRef.current) {
+                    videoRef.current.currentTime = 0;
+                  }
+                } catch (error) {
+                  /* Sin metadata todavía: se ignora. */
+                }
+              } else {
+                /* Al salir del video se olvida la pausa manual */
+                state.userPaused = false;
+              }
+
+              syncPlayback();
             }
           },
         },
-      }).to(wordRefs.current.filter(Boolean), {
-        opacity: 1,
-        stagger: 0.06,
-        ease: 'none',
       });
 
-      /* =====================================================
-         VIDEO — NO se bloquea: simplemente crece hasta
-         ocupar toda la pantalla mientras scrolleas con
-         normalidad a través de él.
-         ===================================================== */
-      gsap.set(videoCardRef.current, {
-        width: '72%',
-        height: '56%',
-        borderRadius: '28px',
-      });
+      /* 1) Barra de progreso: 0 → 100% durante las letras */
+      tl.to(
+        progressFillRef.current,
+        { scaleX: 1, duration: PHASE_VH.text },
+        0
+      );
 
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: videoSectionRef.current,
-          start: 'top 85%',
-          end: 'top 10%',
-          scrub: 0.6,
+      /* 2) Letras: translúcidas → opacas, una tras otra */
+      if (wordEls.length > 0) {
+        const perWord = PHASE_VH.text * 0.3;
+        const each =
+          wordEls.length > 1
+            ? (PHASE_VH.text - perWord) / (wordEls.length - 1)
+            : 0;
+
+        tl.to(
+          wordEls,
+          { opacity: 1, duration: perWord, stagger: { each } },
+          0
+        );
+      }
+
+      /* 3) Las letras desaparecen... */
+      tl.to(
+        textRef.current,
+        {
+          opacity: 0,
+          scale: 0.94,
+          duration: PHASE_VH.swap * 0.75,
+          ease: 'power2.in',
         },
-      }).to(videoCardRef.current, {
-        width: '100%',
-        height: '100%',
-        borderRadius: '0px',
-        ease: 'none',
-      });
+        swapStart
+      );
 
-      /* Reproducir/pausar el video solo cuando es visible */
-      ScrollTrigger.create({
-        trigger: videoSectionRef.current,
-        start: 'top bottom',
-        end: 'bottom top',
-        onToggle: (self) => {
-          if (!videoRef.current) return;
-          if (self.isActive) {
-            videoRef.current.play().catch(() => {});
-          } else {
-            videoRef.current.pause();
-          }
+      /* 4) ...y el video crece desde una card hasta pantalla completa */
+      tl.to(
+        videoLayerRef.current,
+        {
+          autoAlpha: 1,
+          scale: 1,
+          clipPath: CLIP_FULL,
+          duration: PHASE_VH.swap,
+          ease: 'power2.out',
         },
-      });
+        swapStart
+      );
+
+      /* 5) Tramo final: el video permanece (preview) */
+      tl.to({}, { duration: PHASE_VH.preview }, swapEnd);
     });
 
-    return () => ctx.revert();
-  }, [translatedText]); // Se vuelve a recalcular si cambia el idioma
+    return () => {
+      ctx.revert();
+      playbackRef.current.inVideoPhase = false;
+    };
+  }, [translatedText, reducedMotion, syncPlayback]);
 
-  const toggleSound = () => {
-    if (!videoRef.current) return;
+  /* ---------------------------------------------------------
+     CONTROLES DEL VIDEO
+     --------------------------------------------------------- */
+      const toggleSound = () => {
+        const video = videoRef.current;
+        if (!video) return;
 
-    const nextMuted = !videoRef.current.muted;
-    videoRef.current.muted = nextMuted;
-    setIsMuted(nextMuted);
-  };
+        const nextMuted = !video.muted;
+        video.muted = nextMuted;
+        setIsMuted(nextMuted);
+      };
 
-  return (
-    <>
-      {/* =========================================
-          TEXTO (se pinea mientras revela)
-      ========================================== */}
-      <section
-        ref={textSectionRef}
-        className="scroll-reveal-section"
-      >
-        <div
-          className="scroll-progress-track"
-          role="progressbar"
-          aria-label={t('history.scrollVideo.ariaProgress', 'Progreso de la animación')}
-          aria-valuemin={0}
-          aria-valuemax={100}
+      const togglePlayback = () => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        if (video.paused) {
+          playbackRef.current.userPaused = false;
+          video.play().catch(() => {});
+        } else {
+          playbackRef.current.userPaused = true;
+          video.pause();
+        }
+      };
+
+      return (
+        <section
+          ref={stageRef}
+          className={`scroll-reveal-section${
+            reducedMotion ? ' is-reduced' : ''
+          }`}
         >
-          <div
-            ref={progressFillRef}
-            className="scroll-progress-fill"
-          />
-        </div>
-
-        <div className="scroll-text-content">
-
-          <h2 className="scroll-reveal-text">
-            {WORDS.map((word, index) => {
-              let colorClass = 'word-yellow';
-              if (index === SPLIT_INDEX) colorClass = 'word-split';
-              else if (index > SPLIT_INDEX && SPLIT_INDEX !== -1) colorClass = 'word-green';
-
-              return (
-                <span
-                  key={`${word}-${index}`}
-                  ref={(el) => {
-                    wordRefs.current[index] = el;
-                  }}
-                  className={`word ${colorClass}`}
-                >
-                  {word}{' '}
-                </span>
-              );
-            })}
-          </h2>
-        </div>
-      </section>
+      {/* =========================================
+          BARRA DE PROGRESO (fase de letras)
+      ========================================== */}
+      <div
+        ref={progressTrackRef}
+        className="scroll-progress-track"
+        role="progressbar"
+        aria-label={t(
+          'history.scrollVideo.ariaProgress',
+          'Progreso de la animación'
+        )}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={0}
+      >
+        <div ref={progressFillRef} className="scroll-progress-fill" />
+      </div>
 
       {/* =========================================
-          VIDEO (crece hasta pantalla completa)
+          LETRAS
       ========================================== */}
-      <section
-        ref={videoSectionRef}
-        className="scroll-video-section"
-        aria-label={t('history.scrollVideo.ariaVideo', 'Video institucional de Gran Eventos')}
-      >
-        <div ref={videoCardRef} className="scroll-video-card">
-          <video
-            ref={videoRef}
-            src={videoSrc}
-            loop
-            muted={isMuted}
-            playsInline
-            preload="metadata"
-            className="scroll-video"
-          />
+      <div ref={textRef} className="scroll-text-content">
+        <h2 className="scroll-reveal-text">
+          {words.map((word, index) => {
+            let colorClass = 'word-yellow';
 
-          <div className="scroll-video-overlay" />
+            if (index === splitIndex) {
+              colorClass = 'word-split';
+            } else if (splitIndex !== -1 && index > splitIndex) {
+              colorClass = 'word-green';
+            }
+
+            return (
+              <span
+                key={`${word}-${index}`}
+                ref={(el) => {
+                  wordRefs.current[index] = el;
+                }}
+                className={`word ${colorClass}`}
+              >
+                {word}{' '}
+              </span>
+            );
+          })}
+        </h2>
+      </div>
+
+      {/* =========================================
+          VIDEO (misma escena, aparece tras las letras)
+      ========================================== */}
+      <div
+        ref={videoLayerRef}
+        className="scroll-video-layer"
+        role="group"
+        aria-label={t(
+          'history.scrollVideo.ariaVideo',
+          'Video institucional de Gran Eventos'
+        )}
+      >
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          loop
+          muted={isMuted}
+          playsInline
+          preload="metadata"
+          className="scroll-video"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+        />
+
+        <div className="scroll-video-overlay" />
+
+        <div className="scroll-video-controls">
+          <button
+            type="button"
+            className="scroll-video-control"
+            onClick={togglePlayback}
+          >
+            {isPlaying
+              ? `⏸ ${t('history.scrollVideo.pause', 'Pausar')}`
+              : `▶ ${t('history.scrollVideo.play', 'Reproducir')}`}
+          </button>
 
           <button
             type="button"
-            className="scroll-video-sound-toggle"
+            className="scroll-video-control"
             onClick={toggleSound}
-            aria-pressed={!isMuted}
           >
-            {isMuted 
-              ? `🔇 ${t('history.scrollVideo.soundActivate', 'Activar sonido')}` 
+            {isMuted
+              ? `🔇 ${t('history.scrollVideo.soundActivate', 'Activar sonido')}`
               : `🔊 ${t('history.scrollVideo.soundMute', 'Silenciar')}`}
           </button>
-
-          <span className="scroll-video-label">
-            {t('history.scrollVideo.brandLabel', 'GRAN EVENTOS')}
-          </span>
         </div>
-      </section>
-    </>
+
+        <span className="scroll-video-label">
+          {t('history.scrollVideo.brandLabel', 'GRAN EVENTOS')}
+        </span>
+      </div>
+    </section>
   );
 }

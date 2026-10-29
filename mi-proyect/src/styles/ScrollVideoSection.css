@@ -5,9 +5,12 @@ body {
 
 
 /* =========================================================
-   TEXTO — GSAP ScrollTrigger se encarga del pin (position:
-   fixed interno + spacer) automáticamente. Aquí solo
-   definimos cómo se ve la sección en reposo.
+   ESCENA ÚNICA — letras + video
+   =========================================================
+   GSAP ScrollTrigger "clava" (pin) esta sección mientras dura
+   la animación. Dentro hay dos capas apiladas:
+     1) las letras (flujo normal)
+     2) el video (position: absolute, encima)
    ========================================================= */
 
 .scroll-reveal-section {
@@ -69,6 +72,8 @@ body {
   box-sizing: border-box;
 
   text-align: center;
+
+  will-change: transform, opacity;
 }
 
 .scroll-eyebrow {
@@ -108,8 +113,8 @@ body {
 
 /* ---------------------------------------------------------
    COLORES DE LA FRASE
-   Antes de "EXPERIENCIAS": amarillo.
-   "EXPERIENCIAS": degradado amarillo → verde dentro de la
+   Antes de la palabra clave: amarillo.
+   Palabra clave: degradado amarillo → verde dentro de la
    misma palabra (igual que .ge-home-story-title-split).
    Después: verde.
    --------------------------------------------------------- */
@@ -138,33 +143,27 @@ body {
 
 
 /* =========================================================
-   VIDEO — crece de una card pequeña a pantalla completa
+   VIDEO — capa que aparece sobre las letras
+   =========================================================
+   Empieza oculta (opacity/visibility). GSAP la revela con un
+   recorte (clip-path) que crece desde una card hasta cubrir
+   toda la escena. `visibility: hidden` mientras está oculta
+   evita que sus botones reciban foco con el teclado.
    ========================================================= */
 
-.scroll-video-section {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
+.scroll-video-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
 
   overflow: hidden;
 
-  background: #0d0d0d;
-}
+  background: #000000;
 
-.scroll-video-card {
-  position: relative;
+  opacity: 0;
+  visibility: hidden;
 
-  overflow: hidden;
-
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-
-  will-change: width, height, border-radius;
+  will-change: transform, clip-path, opacity;
 }
 
 .scroll-video {
@@ -205,12 +204,17 @@ body {
   text-transform: uppercase;
 }
 
-.scroll-video-sound-toggle {
+.scroll-video-controls {
   position: absolute;
   right: 24px;
   bottom: 26px;
   z-index: 2;
 
+  display: flex;
+  gap: 10px;
+}
+
+.scroll-video-control {
   padding: 10px 18px;
 
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -234,12 +238,12 @@ body {
     transform 0.2s ease;
 }
 
-.scroll-video-sound-toggle:hover {
+.scroll-video-control:hover {
   background: rgba(0, 0, 0, 0.55);
   transform: translateY(-1px);
 }
 
-.scroll-video-sound-toggle:focus-visible {
+.scroll-video-control:focus-visible {
   outline: 2px solid #f4c400;
   outline-offset: 3px;
 }
@@ -274,10 +278,17 @@ body {
     font-size: 9px;
   }
 
-  .scroll-video-sound-toggle {
+  /* Botones apilados: evita que choquen con la etiqueta */
+  .scroll-video-controls {
     right: 16px;
     bottom: 14px;
 
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  .scroll-video-control {
     padding: 8px 14px;
 
     font-size: 10px;
@@ -287,9 +298,39 @@ body {
 
 /* =========================================================
    REDUCED MOTION — WCAG 2.3.3
-   (el componente ya evita crear ScrollTriggers si esto
-   está activo; aquí solo garantizamos el estado final)
+   =========================================================
+   Sin pin ni animaciones: las letras se ven completas y el
+   video aparece debajo, estático y SIN autoplay (el usuario
+   lo inicia con el botón Reproducir).
    ========================================================= */
+
+.scroll-reveal-section.is-reduced {
+  display: block;
+  height: auto;
+  overflow: visible;
+}
+
+.is-reduced .scroll-progress-track {
+  display: none;
+}
+
+.is-reduced .scroll-text-content {
+  margin: 0 auto;
+}
+
+.is-reduced .scroll-reveal-text .word {
+  opacity: 1;
+}
+
+.is-reduced .scroll-video-layer {
+  position: relative;
+  inset: auto;
+
+  height: 70vh;
+
+  opacity: 1;
+  visibility: visible;
+}
 
 @media (prefers-reduced-motion: reduce) {
 
