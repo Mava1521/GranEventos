@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import '../styles/Contact.css';
 
@@ -418,33 +418,7 @@ export default function Contact() {
               </small>
             </div>
           </div>
-        </div>
-
-        {/* ALCANCE INTERNACIONAL */}
-        <div className="location-international">
-          <div className="international-copy">
-            <div className="contact-kicker dark">
-              <span />
-              {t('contact.international.kicker')}
-            </div>
-
-            <h2>
-              {t('contact.international.title1')}
-              <br />
-              {t('contact.international.title2')}
-              <br />
-              {t('contact.international.title3')}
-            </h2>
-
-            <div className="location-yellow-line" />
-
-            <p>{t('contact.international.desc')}</p>
-          </div>
-
-          <div className="world-map">
-            <img src={MundialMap} alt="" width={900} height={600}/>
-          </div>
-        </div>
+        </div>        
       </section>
 
       {/* =========================================
@@ -460,17 +434,19 @@ export default function Contact() {
           <h2>
             {t('contact.talent.title1')}{' '}
             <strong>{t('contact.talent.title2')}</strong>
-          </h2>
+          </h2> 
 
           <p>{t('contact.talent.desc')}</p>
 
-          <button className="outline-button">
-            {t('contact.talent.btn')}
-            <svg viewBox="0 0 40 20">
-              <path d="M1 10h34" />
-              <path d="M28 3l7 7-7 7" />
-            </svg>
-          </button>
+          <Link  to='/Jobs'>
+            <button className="outline-button">
+              {t('contact.talent.btn')}
+              <svg viewBox="0 0 40 20">
+                <path d="M1 10h34" />
+                <path d="M28 3l7 7-7 7" />
+              </svg>
+            </button>
+          </Link>
         </div>
 
         <div className="talent-image">

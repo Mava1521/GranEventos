@@ -16,6 +16,7 @@ import Corporate from './pages/Corporate';
 import Experiences from './pages/Experiences';
 import Energy from './pages/Energy';
 import Tecnology from './pages/Tecnology';
+import Jobs from './pages/Jobs';
 
 export default function App() {
   return (
@@ -42,6 +43,7 @@ export default function App() {
           <Route path='/experiencias' element={<Experiences/>}/>
           <Route path='/energia' element={<Energy/>}/>
           <Route path='/tecnologia' element={<Tecnology/>}/>
+          <Route path='/Jobs' element={<Jobs/>} />
         </Routes>
       </main>
 

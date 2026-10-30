@@ -584,13 +584,6 @@
         "detailLine2": "DESTINO"
       }
     },
-    "international": {
-      "kicker": "ALCANCE INTERNACIONAL",
-      "title1": "LLEVAMOS",
-      "title2": "NUESTRA ENERGÍA",
-      "title3": "MÁS LEJOS.",
-      "desc": "Hoy operamos en toda Colombia y contamos con capacidad para desarrollar proyectos en Latinoamérica y otros países, acompañando eventos que conectan personas en todo el mundo."
-    },
     "possibilities": {
       "sub": "UN MUNDO DE POSIBILIDADES",
       "title1": "TU EVENTO,",
@@ -950,5 +943,101 @@
       "service3_line1": "CABLEADO",
       "service3_line2": "Y DISTRIBUCIÓN"
     }
-  }
+  },"jobs": {
+      "hero": {
+        "eyebrow": "TRABAJA CON NOSOTROS",
+        "titleLine1": "TU TALENTO",
+        "titleLine2": "TAMBIÉN HACE",
+        "titleHighlight": "GRANDES EVENTOS",
+        "description": "Personas apasionadas, ideas que se convierten en experiencias. ¿Te gustaría ser parte de nuestro equipo?",
+        "cta": "Explora las vacantes"
+      },
+      "vacancies": {
+        "title": "VACANTES DISPONIBLES",
+        "available": "vacantes",
+        "filtersLabel": "Filtrar vacantes por área",
+        "published": "Hace",
+        "apply": "Postularme",
+        "emptyTitle": "¡Por ahora no tenemos vacantes disponibles!",
+        "emptyDescription": "Pero siempre estamos buscando nuevos talentos. Envíanos tu hoja de vida y podremos contactarte cuando surja una oportunidad.",
+        "emptyCta": "Enviar mi hoja de vida",
+        "items": [
+          {
+            "id": 1,
+            "icon": "👥",
+            "title": "Coordinador(a) de Producción de Eventos",
+            "category": "production",
+            "location": "Bogotá / Híbrido",
+            "modality": "Indefinido",
+            "contract": "Tiempo completo",
+            "date": "2 días"
+          },
+          {
+            "id": 2,
+            "icon": "⚡",
+            "title": "Técnico(a) de Iluminación",
+            "category": "technical",
+            "location": "Bogotá / Híbrido",
+            "modality": "Obra o labor",
+            "contract": "Tiempo completo",
+            "date": "3 días"
+          },
+          {
+            "id": 3,
+            "icon": "▣",
+            "title": "Analista de Marketing Digital",
+            "category": "administration",
+            "location": "Bogotá / Híbrido",
+            "modality": "Indefinido",
+            "contract": "Tiempo completo",
+            "date": "4 días"
+          },
+          {
+            "id": 4,
+            "icon": "✿",
+            "title": "Diseñador(a) Gráfico(a)",
+            "category": "design",
+            "location": "Bogotá / Presencial",
+            "modality": "Obra o labor",
+            "contract": "Tiempo completo",
+            "date": "5 días"
+          }
+        ]
+      },
+      "categories": {
+        "all": "Todas",
+        "production": "Producción",
+        "technical": "Técnica",
+        "administration": "Administración",
+        "design": "Diseño"
+      },
+      "general": {
+        "titleLine1": "¿NO ENCUENTRAS",
+        "titleLine2": "TU VACANTE IDEAL?",
+        "description": "Envíanos tu hoja de vida y cuéntanos en qué área te gustaría desarrollarte.",
+        "highlight": "¡Nos encantaría conocerte!",
+        "cta": "Enviar mi hoja de vida"
+      },
+      "form": {
+        "name": "Nombre completo",
+        "namePlaceholder": "Escribe tu nombre",
+        "email": "Correo electrónico",
+        "emailPlaceholder": "tu@correo.com",
+        "area": "Área de interés",
+        "areaPlaceholder": "Selecciona un área",
+        "position": "Vacante de interés",
+        "positionPlaceholder": "Selecciona una opción",
+        "resume": "Adjuntar hoja de vida",
+        "fileHelp": "PDF, DOC o DOCX. Máximo 5 MB.",
+        "message": "Mensaje (opcional)",
+        "messagePlaceholder": "Cuéntanos un poco sobre ti...",
+        "submit": "Enviar",
+        "success": "¡Gracias por tu interés! El formulario está validado, pero aún necesita conectarse al servidor para enviar tu información.",
+        "errors": {
+          "file": "Por favor adjunta tu hoja de vida.",
+          "format": "El archivo debe ser PDF, DOC o DOCX.",
+          "size": "El archivo no puede superar los 5 MB."
+        }
+      }
+    }
 }

@@ -584,13 +584,6 @@
         "detailLine2": "DESTINATION"
       }
     },
-    "international": {
-      "kicker": "INTERNATIONAL REACH",
-      "title1": "WE TAKE",
-      "title2": "OUR ENERGY",
-      "title3": "FURTHER.",
-      "desc": "Today we operate across Colombia and have the capacity to deliver projects in Latin America and other countries, supporting events that connect people worldwide."
-    },
     "possibilities": {
       "sub": "A WORLD OF POSSIBILITIES",
       "title1": "YOUR EVENT,",
@@ -948,6 +941,103 @@
       "service2": "SOLAR ENERGY",
       "service3_line1": "WIRING AND",
       "service3_line2": "DISTRIBUTION"
+    }
+  },
+  "jobs": {
+    "hero": {
+      "eyebrow": "WORK WITH US",
+      "titleLine1": "YOUR TALENT",
+      "titleLine2": "ALSO CREATES",
+      "titleHighlight": "GREAT EVENTS",
+      "description": "Passionate people, ideas that become experiences. Would you like to be part of our team?",
+      "cta": "Explore vacancies"
+    },
+    "vacancies": {
+      "title": "AVAILABLE POSITIONS",
+      "available": "positions",
+      "filtersLabel": "Filter vacancies by department",
+      "published": "Posted",
+      "apply": "Apply now",
+      "emptyTitle": "There are no available positions right now!",
+      "emptyDescription": "But we are always looking for new talent. Send us your resume and we may contact you when an opportunity arises.",
+      "emptyCta": "Send my resume",
+      "items": [
+        {
+          "id": 1,
+          "icon": "👥",
+          "title": "Event Production Coordinator",
+          "category": "production",
+          "location": "Bogotá / Hybrid",
+          "modality": "Permanent",
+          "contract": "Full time",
+          "date": "2 days ago"
+        },
+        {
+          "id": 2,
+          "icon": "⚡",
+          "title": "Lighting Technician",
+          "category": "technical",
+          "location": "Bogotá / Hybrid",
+          "modality": "Project-based",
+          "contract": "Full time",
+          "date": "3 days ago"
+        },
+        {
+          "id": 3,
+          "icon": "▣",
+          "title": "Digital Marketing Analyst",
+          "category": "administration",
+          "location": "Bogotá / Hybrid",
+          "modality": "Permanent",
+          "contract": "Full time",
+          "date": "4 days ago"
+        },
+        {
+          "id": 4,
+          "icon": "✿",
+          "title": "Graphic Designer",
+          "category": "design",
+          "location": "Bogotá / On-site",
+          "modality": "Project-based",
+          "contract": "Full time",
+          "date": "5 days ago"
+        }
+      ]
+    },
+    "categories": {
+      "all": "All",
+      "production": "Production",
+      "technical": "Technical",
+      "administration": "Administration",
+      "design": "Design"
+    },
+    "general": {
+      "titleLine1": "CAN'T FIND",
+      "titleLine2": "YOUR IDEAL JOB?",
+      "description": "Send us your resume and tell us which area you would like to grow in.",
+      "highlight": "We would love to meet you!",
+      "cta": "Send my resume"
+    },
+    "form": {
+      "name": "Full name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email address",
+      "emailPlaceholder": "you@email.com",
+      "area": "Area of interest",
+      "areaPlaceholder": "Select an area",
+      "position": "Position of interest",
+      "positionPlaceholder": "Select an option",
+      "resume": "Attach your resume",
+      "fileHelp": "PDF, DOC or DOCX. Maximum 5 MB.",
+      "message": "Message (optional)",
+      "messagePlaceholder": "Tell us a little about yourself...",
+      "submit": "Submit",
+      "success": "Thank you for your interest! The form has been validated, but it still needs a server connection to send your information.",
+      "errors": {
+        "file": "Please attach your resume.",
+        "format": "The file must be PDF, DOC or DOCX.",
+        "size": "The file cannot exceed 5 MB."
+      }
     }
   }
 }
