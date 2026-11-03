@@ -438,7 +438,7 @@ export default function Contact() {
 
           <p>{t('contact.talent.desc')}</p>
 
-          <Link  to='/Jobs'>
+          <Link className='LinkJob' to='/Jobs'>
             <button className="outline-button">
               {t('contact.talent.btn')}
               <svg viewBox="0 0 40 20">

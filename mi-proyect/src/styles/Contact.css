@@ -1809,6 +1809,11 @@
   stroke-width: 1.5;
 }
 
+.LinkJob{
+  text-decoration: none;
+  color: inherit;
+}
+
 /* =========================================================
    MEDIA QUERIES (TABLETS & DESKTOPS)
    ========================================================= */

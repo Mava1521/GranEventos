@@ -148,7 +148,6 @@ export default function Jobs() {
 
           {/* FILTROS */}
           <div className="jobs-filters" role="group" aria-label={t("jobs.vacancies.filtersLabel")}>
-
             {categories.map((category) => (
               <button
                 key={category}
@@ -161,7 +160,6 @@ export default function Jobs() {
                 {t(`jobs.categories.${category}`)}
               </button>
             ))}
-
           </div>
 
           {/* LISTADO */}
@@ -243,7 +241,7 @@ export default function Jobs() {
             <h2>
               {t("jobs.general.titleLine1")}
               <br />
-              <span>{t("jobs.general.titleLine2")}</span>
+              {t("jobs.general.titleLine2")}
             </h2>
 
             <p>{t("jobs.general.description")}</p>
