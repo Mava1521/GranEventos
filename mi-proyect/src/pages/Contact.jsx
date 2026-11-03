@@ -247,7 +247,14 @@ export default function Contact() {
             {t('contact.channels.kicker')}
           </div>
 
-          <div className="contact-channel whatsapp">
+          {/* Canal WhatsApp */}
+          <a
+            href="https://wa.me/573505003388?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20servicios."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-channel whatsapp interactive-channel"
+            aria-label="Abrir chat de WhatsApp con Gran Eventos"
+          >
             <div className="channel-icon">
               <img
                 src={IconWhatsApp}
@@ -260,9 +267,16 @@ export default function Contact() {
               <h3>{t('contact.channels.whatsappTitle')}</h3>
               <p>{t('contact.channels.whatsappDesc')}</p>
             </div>
-          </div>
+          </a>
 
-          <div className="contact-channel">
+          {/* Canal Correo */}
+          <a
+            href="https://mail.google.com/mail/?view=cm&to=info@graneventos.com&su=Consulta%20desde%20la%20Web&body=Hola,%20estoy%20interesado%20en%20sus%20servicios%20para%20un%20proyecto."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-channel interactive-channel"
+            aria-label="Enviar correo electrónico a info@graneventos.com a través de Gmail"
+          >
             <div className="channel-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="3" y="5" width="18" height="14" rx="1" />
@@ -277,9 +291,14 @@ export default function Contact() {
                 {t('contact.channels.emailDesc')}
               </p>
             </div>
-          </div>
+          </a>
 
-          <div className="contact-channel">
+          {/* Canal Llamada */}
+          <a
+            href="tel:+573505003388"
+            className="contact-channel interactive-channel"
+            aria-label="Llamar al número telefónico +57 350 500 3388"
+          >
             <div className="channel-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M6 3h4l2 5-3 2a14 14 0 0 0 5 5l2-3 5 2v4c0 1-1 2-2 2C11 20 4 13 4 5c0-1 1-2 2-2Z" />
@@ -289,7 +308,7 @@ export default function Contact() {
               <h3>{t('contact.channels.callTitle')}</h3>
               <p>+57 350 500 3388</p>
             </div>
-          </div>
+          </a>
         </aside>
       </section>
 

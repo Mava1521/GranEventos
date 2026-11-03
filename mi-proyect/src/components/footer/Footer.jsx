@@ -55,14 +55,15 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* COLUMNA 2 - NAVEGACIÓN */}
+        {/* COLUMNA 2 - NAVEGACIÓN (Simétrica y tipografía unificada) */}
         <nav className="footer-navigation" aria-label={t('footer.aria.navigation')}>
           <Link to="/historia">{t('footer.nav.about')}</Link>
           <Link to="/nuevas-tecnologias">{t('footer.nav.projects')}</Link>
           <Link to="/servicios">{t('footer.nav.services')}</Link>
           <Link to="/sostenibilidad">{t('footer.nav.sustainability')}</Link>
-          <Link to="/contacto" className="footer-link-active">
-            {t('footer.nav.contact')}
+          <Link to="/contacto">{t('footer.nav.contact')}</Link>
+          <Link to="/Jobs">
+            {t('footer.nav.jobs', 'TRABAJA CON NOSOTROS')}
           </Link>
         </nav>
 

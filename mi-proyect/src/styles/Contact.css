@@ -466,6 +466,36 @@
   color: #555;
 }
 
+/* =========================================================
+   CANALES DE CONTACTO INTERACTIVOS (UX/UI)
+   ========================================================= */
+
+.contact-channel.interactive-channel {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin: 17px 0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto hover elegante para guiar al usuario */
+.contact-channel.interactive-channel:hover {
+  background-color: #f8f9fa;
+  transform: translateX(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Accesibilidad por teclado (Focus States) */
+.contact-channel.interactive-channel:focus-visible {
+  outline: 2px solid var(--contact-yellow);
+  outline-offset: 2px;
+}
+
 
 
 

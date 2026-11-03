@@ -126,9 +126,9 @@
   align-items: center;
   gap: 12px;
   width: 100%;
-  max-width: 280px; /* Limita el ancho del bloque central */
-  margin: 0 auto;   /* Centra perfectamente la columna en la celda del medio */
-  padding: 0 30px;  /* Espaciado interno simétrico entre texto y líneas divisorias */
+  max-width: 290px; /* Ligeramente ampliado para contener cómodamente el nuevo texto */
+  margin: 0 auto;   
+  padding: 0 30px;  
   border-left: 1px solid rgba(255, 255, 255, 0.25);
   border-right: 1px solid rgba(255, 255, 255, 0.25);
   box-sizing: border-box;
@@ -142,6 +142,8 @@
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 2px;
+  text-transform: uppercase; /* Fuerza el formato en mayúsculas uniforme */
+  white-space: nowrap;       /* Evita saltos de línea extraños en pantallas medianas */
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
