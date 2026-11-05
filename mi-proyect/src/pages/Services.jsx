@@ -105,15 +105,15 @@ export default function Services() {
         <div className="services-hero__message">
           <span className="yellow-line" aria-hidden="true" />
           <p>
-            LA ENERGÍA
-            <br />
-            TAMBIÉN
-            <br />
-            DEJA
+            DEJAMOS
             <br />
             HUELLA
             <br />
-            POSITIVA
+            SIN
+            <br />
+            DAÑAR EL
+            <br />
+            PLANETA
           </p>
         </div>
       </section>

@@ -107,15 +107,15 @@ export default function Contact() {
         {/* LADO DERECHO DEL HERO CON LA FRASE / SELLO DE MARCA */}
         <div className="contact-hero-side">
           <p style={{ margin: 0, lineHeight: '1.4'}}>
-            LA ENERGÍA
-            <br />
-            TAMBIÉN
-            <br />
-            DEJA
+            DEJAMOS
             <br />
             HUELLA
             <br />
-            POSITIVA
+            SIN
+            <br />
+            DAÑAR AL
+            <br />
+            PLANETA
           </p>
           <div />
         </div>
@@ -124,193 +124,220 @@ export default function Contact() {
       {/* =========================================
           CONTACT MAIN
       ========================================= */}
-      <section className="contact-main">
+        <section className="contact-main">
 
-        {/* FORMULARIO DE CONTACTO CON EL ID PARA NAVEGACIÓN DIRECTA */}
-        <div id="cuentanos-tu-proyecto" className="contact-form-column">
-          <div className="contact-kicker dark">
-            <span />
-            {t('contact.form.kicker')}
-          </div>
+          {/* 1. FORMULARIO */}
+          <div id="cuentanos-tu-proyecto" className="contact-form-column">
+            <div className="contact-kicker dark">
+              <span />
+              {t('contact.form.kicker')}
+            </div>
 
-          <h2>
-            {t('contact.form.title1')} <small>{t('contact.form.title2')}</small>
-          </h2>
+            <h2>
+              {t('contact.form.title1')} <small>{t('contact.form.title2')}</small>
+            </h2>
 
-          <form
-            className="contact-form"
-            onSubmit={handleSubmit}
-          >
-            <label htmlFor="name" className="sr-only">
-              {t('contact.form.namePlaceholder')}
-            </label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder={t('contact.form.namePlaceholder')}
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-
-            <label htmlFor="email" className="sr-only">
-              {t('contact.form.emailPlaceholder')}
-            </label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder={t('contact.form.emailPlaceholder')}
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-
-            <label htmlFor="company" className="sr-only">
-              {t('contact.form.companyPlaceholder')}
-            </label>
-            <input
-              id="company"
-              name="company"
-              type="text"
-              placeholder={t('contact.form.companyPlaceholder')}
-              value={formData.company}
-              onChange={handleChange}
-            />
-
-            <label htmlFor="projectType" className="sr-only">
-              {t('contact.form.projectTypePlaceholder')}
-            </label>
-            <select
-              id="projectType"
-              name="projectType"
-              value={formData.projectType}
-              onChange={handleChange}
-              required
-            >
-              <option value="">
-                {t('contact.form.projectTypePlaceholder')}
-              </option>
-              <option value="festival">{t('contact.form.projectTypes.festival')}</option>
-              <option value="concert">{t('contact.form.projectTypes.concert')}</option>
-              <option value="corporate">{t('contact.form.projectTypes.corporate')}</option>
-              <option value="energy">{t('contact.form.projectTypes.energy')}</option>
-              <option value="other">{t('contact.form.projectTypes.other')}</option>
-            </select>
-
-            <label htmlFor="message" className="sr-only">
-              {t('contact.form.messagePlaceholder')}
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder={t('contact.form.messagePlaceholder')}
-              value={formData.message}
-              onChange={handleChange}
-              required
-            />
-
-            <label className="privacy-check">
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <label htmlFor="name" className="sr-only">
+                {t('contact.form.namePlaceholder')}
+              </label>
               <input
-                type="checkbox"
-                name="privacy"
-                checked={formData.privacy}
+                id="name"
+                name="name"
+                type="text"
+                placeholder={t('contact.form.namePlaceholder')}
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+
+              <label htmlFor="email" className="sr-only">
+                {t('contact.form.emailPlaceholder')}
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder={t('contact.form.emailPlaceholder')}
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+
+              <label htmlFor="company" className="sr-only">
+                {t('contact.form.companyPlaceholder')}
+              </label>
+              <input
+                id="company"
+                name="company"
+                type="text"
+                placeholder={t('contact.form.companyPlaceholder')}
+                value={formData.company}
                 onChange={handleChange}
               />
-              <span>{t('contact.form.privacyText')}</span>
-            </label>
 
-            <button
-              type="submit"
-              className="contact-submit"
-            >
-              <span>{t('contact.form.submitBtn')}</span>
-              <svg viewBox="0 0 40 20" aria-hidden="true">
-                <path d="M1 10h34" />
-                <path d="M28 3l7 7-7 7" />
-              </svg>
-            </button>
+              <label htmlFor="projectType" className="sr-only">
+                {t('contact.form.projectTypePlaceholder')}
+              </label>
+              <select
+                id="projectType"
+                name="projectType"
+                value={formData.projectType}
+                onChange={handleChange}
+                required
+              >
+                <option value="">
+                  {t('contact.form.projectTypePlaceholder')}
+                </option>
+                <option value="festival">{t('contact.form.projectTypes.festival')}</option>
+                <option value="concert">{t('contact.form.projectTypes.concert')}</option>
+                <option value="corporate">{t('contact.form.projectTypes.corporate')}</option>
+                <option value="energy">{t('contact.form.projectTypes.energy')}</option>
+                <option value="other">{t('contact.form.projectTypes.other')}</option>
+              </select>
 
-            {status && (
-              <p className="form-status" role="status">
-                {status}
-              </p>
-            )}
-          </form>
-        </div>
+              <label htmlFor="message" className="sr-only">
+                {t('contact.form.messagePlaceholder')}
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder={t('contact.form.messagePlaceholder')}
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
 
-        {/* CANALES DE CONTACTO */}
-        <aside className="contact-info">
-          <div className="contact-kicker dark">
-            <span />
-            {t('contact.channels.kicker')}
+              <label className="privacy-check">
+                <input
+                  type="checkbox"
+                  name="privacy"
+                  checked={formData.privacy}
+                  onChange={handleChange}
+                />
+                <span>{t('contact.form.privacyText')}</span>
+              </label>
+
+              <button type="submit" className="contact-submit">
+                <span>{t('contact.form.submitBtn')}</span>
+                <svg viewBox="0 0 40 20" aria-hidden="true">
+                  <path d="M1 10h34" />
+                  <path d="M28 3l7 7-7 7" />
+                </svg>
+              </button>
+
+              {status && (
+                <p className="form-status" role="status">
+                  {status}
+                </p>
+              )}
+            </form>
           </div>
 
-          {/* Canal WhatsApp */}
-          <a
-            href="https://wa.me/573505003388?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20servicios."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact-channel whatsapp interactive-channel"
-            aria-label="Abrir chat de WhatsApp con Gran Eventos"
-          >
-            <div className="channel-icon">
+          {/* 2. OTROS CANALES */}
+          <aside className="contact-info">
+            <div className="contact-kicker dark">
+              <span />
+              {t('contact.channels.kicker')}
+            </div>
+
+            <a
+              href="https://wa.me/573505003388?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20sus%20servicios."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-channel whatsapp interactive-channel"
+              aria-label="Abrir chat de WhatsApp con Gran Eventos"
+            >
+              <div className="channel-icon">
+                <img src={IconWhatsApp} alt="" width={66} height={66} />
+              </div>
+              <div>
+                <h3>{t('contact.channels.whatsappTitle')}</h3>
+                <p>{t('contact.channels.whatsappDesc')}</p>
+              </div>
+            </a>
+
+            <a
+              href="https://mail.google.com/mail/?view=cm&to=info@graneventos.com&su=Consulta%20desde%20la%20Web&body=Hola,%20estoy%20interesado%20en%20sus%20servicios%20para%20un%20proyecto."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-channel interactive-channel"
+              aria-label="Enviar correo electrónico a Gran Eventos"
+            >
+              <div className="channel-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="1" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+              </div>
+              <div>
+                <h3>{t('contact.channels.emailTitle')}</h3>
+                <p>
+                  info@graneventos.com
+                  <br />
+                  {t('contact.channels.emailDesc')}
+                </p>
+              </div>
+            </a>
+
+            <a
+              href="tel:+573505003388"
+              className="contact-channel interactive-channel"
+              aria-label="Llamar al número telefónico +57 350 500 3388"
+            >
+              <div className="channel-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 3h4l2 5-3 2a14 14 0 0 0 5 5l2-3 5 2v4c0 1-1 2-2 2C11 20 4 13 4 5c0-1 1-2 2-2Z" />
+                </svg>
+              </div>
+              <div>
+                <h3>{t('contact.channels.callTitle')}</h3>
+                <p>+57 350 500 3388</p>
+              </div>
+            </a>
+          </aside>
+
+          {/* 3. TRABAJA CON NOSOTROS */}
+          <section className="contact-talent-column">
+
+            <div className="contact-kicker dark">
+              <span />
+              {t('contact.talent.kicker')}
+            </div>
+
+            <div className="talent-column-image">
               <img
-                src={IconWhatsApp}
-                alt=""
-                width={66}
-                height={66}
+                src={FooterProyect}
+                alt="Equipo de Gran Eventos"
               />
-            </div>
-            <div>
-              <h3>{t('contact.channels.whatsappTitle')}</h3>
-              <p>{t('contact.channels.whatsappDesc')}</p>
-            </div>
-          </a>
 
-          {/* Canal Correo */}
-          <a
-            href="https://mail.google.com/mail/?view=cm&to=info@graneventos.com&su=Consulta%20desde%20la%20Web&body=Hola,%20estoy%20interesado%20en%20sus%20servicios%20para%20un%20proyecto."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="contact-channel interactive-channel"
-            aria-label="Enviar correo electrónico a info@graneventos.com a través de Gmail"
-          >
-            <div className="channel-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="3" y="5" width="18" height="14" rx="1" />
-                <path d="m3 7 9 6 9-6" />
-              </svg>
+              <div className="talent-image-overlay" />
             </div>
-            <div>
-              <h3>{t('contact.channels.emailTitle')}</h3>
-              <p>
-                info@graneventos.com
-                <br />
-                {t('contact.channels.emailDesc')}
-              </p>
-            </div>
-          </a>
 
-          {/* Canal Llamada */}
-          <a
-            href="tel:+573505003388"
-            className="contact-channel interactive-channel"
-            aria-label="Llamar al número telefónico +57 350 500 3388"
-          >
-            <div className="channel-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 3h4l2 5-3 2a14 14 0 0 0 5 5l2-3 5 2v4c0 1-1 2-2 2C11 20 4 13 4 5c0-1 1-2 2-2Z" />
-              </svg>
+            <div className="talent-column-content">
+
+              <h2>
+                {t('contact.talent.title1')}{' '}
+                <strong>{t('contact.talent.title2')}</strong>
+              </h2>
+
+              <p>{t('contact.talent.desc')}</p>
+
+              <Link className="outline-button" to="/Jobs">
+                {t('contact.talent.btn')}
+
+                <svg viewBox="0 0 40 20" aria-hidden="true">
+                  <path d="M1 10h34" />
+                  <path d="M28 3l7 7-7 7" />
+                </svg>
+              </Link>
+
             </div>
-            <div>
-              <h3>{t('contact.channels.callTitle')}</h3>
-              <p>+57 350 500 3388</p>
-            </div>
-          </a>
-        </aside>
-      </section>
+
+          </section>
+
+        </section>
+
 
       {/* =========================================
           LOCATION
@@ -439,71 +466,6 @@ export default function Contact() {
           </div>
         </div>        
       </section>
-
-      {/* =========================================
-          TALENT
-      ========================================= */}
-      <section className="contact-talent">
-        <div className="talent-content">
-          <div className="contact-kicker dark">
-            <span />
-            {t('contact.talent.kicker')}
-          </div>
-
-          <h2>
-            {t('contact.talent.title1')}{' '}
-            <strong>{t('contact.talent.title2')}</strong>
-          </h2> 
-
-          <p>{t('contact.talent.desc')}</p>
-
-          <Link className='LinkJob' to='/Jobs'>
-            <button className="outline-button">
-              {t('contact.talent.btn')}
-              <svg viewBox="0 0 40 20">
-                <path d="M1 10h34" />
-                <path d="M28 3l7 7-7 7" />
-              </svg>
-            </button>
-          </Link>
-        </div>
-
-        <div className="talent-image">
-          <img
-            src={FooterProyect}
-            alt="Equipo de Gran Eventos"
-          />
-          {/* Capa de opacidad negra para mejorar la legibilidad */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundColor: 'rgba(0, 0, 0, 0.2)',
-              pointerEvents: 'none',
-              zIndex: 2,
-            }}
-            aria-hidden="true"
-          />
-        </div>
-
-        {/* PARTE INFERIOR / LADO DERECHO DE TALENT CON EL MISMO SELLO DE MARCA */}
-        <div className="talent-side">
-          <span className="yellow-line" aria-hidden="true" style={{ display: 'block', width: '40px', height: '4px', backgroundColor: '#e5af12', marginBottom: '15px' }} />
-          <p style={{ margin: 0, lineHeight: '1.4', fontWeight: 'bold', fontSize: '0.85rem' }}>
-            LA ENERGÍA
-            <br />
-            TAMBIÉN
-            <br />
-            DEJA
-            <br />
-            HUELLA
-            <br />
-            POSITIVA
-          </p>
-          <div />
-        </div>
-      </section>
-
     </main>
   );
 }

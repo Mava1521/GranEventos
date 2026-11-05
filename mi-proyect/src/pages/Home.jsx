@@ -134,11 +134,11 @@ export default function Home() {
           {/* MENSAJE ADICIONAL DUPLICADO (ALINEADO Y DEBAJO DEL PÁRRAFO) */}
           <div className="ge-home-story-extra-message">
             <div className="gold-line"></div>
-            <p>{t('home.story.extraMessage.line1', 'LA ENERGÍA')}</p>
-            <p>{t('home.story.extraMessage.line2', 'TAMBIÉN')}</p>
-            <p>{t('home.story.extraMessage.line3', 'DEJA')}</p>
-            <p>{t('home.story.extraMessage.line4', 'HUELLA')}</p>
-            <p>{t('home.story.extraMessage.line5', 'POSITIVA')}</p>
+            <p>{t('home.story.extraMessage.line1', 'DEJAMOS')}</p>
+            <p>{t('home.story.extraMessage.line2', 'HUELLA')}</p>
+            <p>{t('home.story.extraMessage.line3', 'SIN')}</p>
+            <p>{t('home.story.extraMessage.line4', 'DAÑAR AL')}</p>
+            <p>{t('home.story.extraMessage.line5', 'PLANETA')}</p>
           </div>
         </div>
 

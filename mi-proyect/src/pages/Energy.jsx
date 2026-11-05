@@ -1,361 +1,277 @@
+
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import '../styles/Energy.css';
-import EnergyFooter from '../assets/EnergyFooter.jpg';
-import EnergyHero from '../assets/EnergyHero.jpg';
-import Generador from '../assets/Generador.jpg';
-import Generador2 from '../assets/Generador2.jpg';
-import Panel from '../assets/Panel.jpg';
-import Paneles2 from '../assets/Paneles2.jpg';
-import Planta from '../assets/Planta.jpg';
 
-/* =========================================================
-   ICONOS
-========================================================= */
+const EnergyIcon = ({ type }) => {
+  const common = {
+    width: 34,
+    height: 34,
+    viewBox: '0 0 24 24',
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.7,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round',
+    'aria-hidden': true,
+  };
 
-const CheckIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-    className="energy-check-icon"
-  >
-    <circle cx="12" cy="12" r="9" />
-    <path d="M8 12l2.5 2.5L16 9" />
-  </svg>
-);
+  const paths = {
+    leaf: (
+      <>
+        <path d="M20 4C11 3 5 6 5 13a7 7 0 0 0 7 7c7 0 10-9 8-16Z" />
+        <path d="M4 21c3-6 7-9 13-12" />
+      </>
+    ),
+    lightning: (
+      <path d="M13 2 5 13h6l-1 9 9-12h-6l1-8Z" />
+    ),
+    shield: (
+      <>
+        <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z" />
+        <path d="m9 12 2 2 4-4" />
+      </>
+    ),
+    hands: (
+      <>
+        <path d="m8 12-3-3-3 3 5 5h5l4-4" />
+        <path d="m16 12 3-3 3 3-5 5h-5" />
+        <path d="m8 12 4-4 4 4" />
+        <path d="m12 8 2-2 4 4" />
+      </>
+    ),
+    solar: (
+      <>
+        <rect x="3" y="7" width="18" height="11" rx="1" />
+        <path d="M7 7v11m5-11v11m5-11v11M3 12h18M8 21h8" />
+        <circle cx="12" cy="4" r="1" />
+      </>
+    ),
+    generator: (
+      <>
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="M7 9h5v6H7zM15 10h3m-3 3h3M7 19v2m10-2v2" />
+      </>
+    ),
+    power: (
+      <path d="M13 2 4 14h7l-1 8 10-13h-7V2Z" />
+    ),
+  };
 
-const SunIcon = () => (
-  <svg viewBox="0 0 64 64" aria-hidden="true">
-    <circle cx="32" cy="32" r="9" />
-    <path d="M32 5v9M32 50v9M5 32h9M50 32h9" />
-    <path d="M13 13l6 6M45 45l6 6M51 13l-6 6M19 45l-6 6" />
-  </svg>
-);
-
-const GeneratorIcon = () => (
-  <svg viewBox="0 0 64 64" aria-hidden="true">
-    <rect x="9" y="17" width="46" height="30" rx="3" />
-    <path d="M17 24h30v16H17z" />
-    <circle cx="24" cy="32" r="4" />
-    <path d="M39 27v10M44 27v10" />
-  </svg>
-);
-
-const ManagementIcon = () => (
-  <svg viewBox="0 0 64 64" aria-hidden="true">
-    <circle cx="32" cy="32" r="9" />
-    <path d="M32 7v8M32 49v8M7 32h8M49 32h8" />
-    <path d="M14 14l6 6M44 44l6 6M50 14l-6 6M20 44l-6 6" />
-    <path d="M26 32h12" />
-  </svg>
-);
-
-const LeafIcon = () => (
-  <svg viewBox="0 0 64 64" aria-hidden="true">
-    <path d="M51 10C28 10 14 21 14 38c0 9 6 15 15 15 17 0 28-14 22-43Z" />
-    <path d="M13 54c8-14 18-24 32-32" />
-  </svg>
-);
-
-const ShieldIcon = () => (
-  <svg viewBox="0 0 64 64" aria-hidden="true">
-    <path d="M32 7l21 8v15c0 14-9 23-21 28C20 53 11 44 11 30V15l21-8Z" />
-    <path d="M23 32l6 6 12-13" />
-  </svg>
-);
-
-const EfficiencyIcon = () => (
-  <svg viewBox="0 0 64 64" aria-hidden="true">
-    <circle cx="32" cy="32" r="11" />
-    <path d="M32 7v7M32 50v7M7 32h7M50 32h7" />
-    <path d="M14 14l5 5M45 45l5 5M50 14l-5 5M19 45l-5 5" />
-  </svg>
-);
-
-const LocationIcon = () => (
-  <svg viewBox="0 0 64 64" aria-hidden="true">
-    <path d="M32 57s18-18 18-31a18 18 0 1 0-36 0c0 13 18 31 18 31Z" />
-    <circle cx="32" cy="26" r="6" />
-  </svg>
-);
-
-const ArrowIcon = () => (
-  <svg
-    viewBox="0 0 40 20"
-    aria-hidden="true"
-    className="energy-arrow"
-  >
-    <path d="M1 10h34" />
-    <path d="M28 3l7 7-7 7" />
-  </svg>
-);
-
-/* =========================================================
-   COMPONENTES REUTILIZABLES
-========================================================= */
-
-function SectionKicker({ children, light = false }) {
   return (
-    <div className={`energy-kicker ${light ? 'energy-kicker--light' : ''}`}>
-      <span />
-      {children}
-    </div>
+    <svg {...common}>
+      {paths[type] || paths.leaf}
+    </svg>
   );
-}
+};
 
-function MediaPlaceholder({
-  label = 'IMAGEN',
-  className = '',
-}) {
-  return (
-    <div className={`energy-media-placeholder ${className}`}>
-      <span>{label}</span>
-    </div>
-  );
-}
-
-function TechnologyCard({
-  kicker,
-  title,
-  highlight,
-  description,
-  items,
-  icon,
-  imageLabel,
-}) {
-  return (
-    <article className="technology-card">
-      <div className="technology-copy">
-        <SectionKicker>{kicker}</SectionKicker>
-
-        <h3>
-          {title}{' '}
-          <strong>{highlight}</strong>
-        </h3>
-
-        <p>{description}</p>
-
-        <ul className="technology-list">
-          {items.map((item) => (
-            <li key={item}>
-              <CheckIcon />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="technology-image">
-        <div className="technology-icon">{icon}</div>
-        <MediaPlaceholder label={imageLabel} />
-      </div>
-    </article>
-  );
-}
-
-function Benefit({ icon, title, description }) {
-  return (
-    <article className="benefit">
-      <div className="benefit-icon">{icon}</div>
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </article>
-  );
-}
-
-/* =========================================================
-   PAGE
-========================================================= */
-
-export default function Energy() {
+const Energy = () => {
   const { t } = useTranslation();
 
-  const solarItems = t('energy.technologies.solar.items', { returnObjects: true }) || [];
-  const dieselItems = t('energy.technologies.diesel.items', { returnObjects: true }) || [];
+  const benefits = [
+    { icon: 'leaf', key: 'carbon' },
+    { icon: 'lightning', key: 'efficiency' },
+    { icon: 'shield', key: 'continuity' },
+    { icon: 'hands', key: 'solutions' },
+  ];
 
   return (
     <main className="energy-page">
-      {/* =====================================================
-          HERO
-      ===================================================== */}
+
+      {/* 01. HERO */}
       <section className="energy-hero">
-        <div className="energy-hero-content">
-          <SectionKicker>{t('energy.hero.kicker')}</SectionKicker>
+        <div className="energy-hero__image" />
 
-          <h1>
-            {t('energy.hero.title_line1')}
-            <br />
-            {t('energy.hero.title_line2')}
-            <br />
-            <strong>{t('energy.hero.title_line3')}</strong>
-          </h1>
+        <div className="energy-hero__overlay">
+          <div className="energy-container energy-hero__content">
+            <span className="energy-eyebrow">
+              {t('energy.hero.eyebrow')}
+            </span>
 
-          <p>{t('energy.hero.description')}</p>
+            <h1>
+              {t('energy.hero.title')}
+              <span>{t('energy.hero.highlight')}</span>
+            </h1>
 
-          <div className="energy-yellow-line" />
+            <p>{t('energy.hero.description')}</p>
+
+            <Link to="/contacto" className="energy-button">
+              {t('energy.hero.button')}
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
 
-        <div className="energy-hero-media">
-          <img src={EnergyHero} alt="" />
+        <div className="energy-hero__leaf" aria-hidden="true">
+          <svg viewBox="0 0 300 220" fill="none">
+            <path
+              d="M15 190C65 60 180 10 280 8C270 110 205 200 15 190Z"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+            <path
+              d="M15 190C115 145 190 85 280 8"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
+          </svg>
+        </div>
+      </section>
 
-          <div className="energy-hero-caption">
-            {t('energy.hero.caption_line1')}
-            <br />
-            {t('energy.hero.caption_line2')}
+      {/* 02. DOS MUNDOS */}
+      <section className="energy-worlds">
+        <div className="energy-worlds__content">
+          <div className="energy-container energy-worlds__inner">
+            <div className="energy-worlds__text">
+              <span className="energy-eyebrow">
+                {t('energy.worlds.eyebrow')}
+              </span>
+
+              <h2>{t('energy.worlds.title')}</h2>
+
+              <p>{t('energy.worlds.description')}</p>
+            </div>
+
+            <div className="energy-worlds__image">
+              <img
+                src="/images/energy-generators-solar.jpg"
+                alt={t('energy.worlds.imageAlt')}
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* =====================================================
-          TECNOLOGÍAS
-      ===================================================== */}
-      <section className="energy-technologies">
-        <TechnologyCard
-          kicker={t('energy.technologies.solar.kicker')}
-          title={t('energy.technologies.solar.title')}
-          highlight={t('energy.technologies.solar.highlight')}
-          description={t('energy.technologies.solar.description')}
-          imageLabel={<img src={Panel} alt="" width={187} height={259} />}
-          icon={<SunIcon />}
-          items={solarItems}
-        />
-
-        <TechnologyCard
-          kicker={t('energy.technologies.diesel.kicker')}
-          title={t('energy.technologies.diesel.title')}
-          highlight={t('energy.technologies.diesel.highlight')}
-          description={t('energy.technologies.diesel.description')}
-          imageLabel={<img src={Planta} alt="" width={187} height={259} />}
-          icon={<GeneratorIcon />}
-          items={dieselItems}
-        />
-      </section>
-
-      {/* =====================================================
-          SISTEMA HÍBRIDO
-      ===================================================== */}
+      {/* 03. SOLUCIÓN HÍBRIDA */}
       <section className="energy-hybrid">
-        <div className="energy-hybrid-copy">
-          <SectionKicker>{t('energy.hybrid.kicker')}</SectionKicker>
+        <div className="energy-container">
+          <div className="energy-section-heading energy-section-heading--dark">
+            <span>{t('energy.hybrid.eyebrow')}</span>
+            <h2>
+              {t('energy.hybrid.title')}
+            </h2>
+          </div>
 
-          <h2>
-            {t('energy.hybrid.title_line1')}{' '}
-            <strong>{t('energy.hybrid.title_line2')}</strong>
-          </h2>
+          <div className="energy-hybrid__items">
 
-          <p>{t('energy.hybrid.description')}</p>
-        </div>
-
-        <div className="energy-system">
-          <div className="system-flow">
-            <div className="system-node">
-              <img src={Paneles2} alt="" width={120} height={80} />
-
-              <div className="system-arrow system-arrow--right">→</div>
-
-              <div className="system-label">
-                <SunIcon />
-                <strong>{t('energy.hybrid.solar_panels.title')}</strong>
-                <span>{t('energy.hybrid.solar_panels.subtitle')}</span>
+            <div className="energy-hybrid__item">
+              <div className="energy-hybrid__icon">
+                <EnergyIcon type="solar" />
               </div>
+              <h3>{t('energy.hybrid.solar.title')}</h3>
+              <p>{t('energy.hybrid.solar.description')}</p>
             </div>
 
-            <div className="system-node system-node--center">
-              <img src={Generador} alt="" width={170} height={80} />
+            <span className="energy-hybrid__operator" aria-hidden="true">
+              +
+            </span>
 
-              <div className="system-arrow system-arrow--both">↔</div>
-
-              <div className="system-label">
-                <ManagementIcon />
-                <strong>{t('energy.hybrid.management.title')}</strong>
-                <span>{t('energy.hybrid.management.subtitle')}</span>
+            <div className="energy-hybrid__item">
+              <div className="energy-hybrid__icon energy-hybrid__icon--gold">
+                <EnergyIcon type="generator" />
               </div>
+              <h3>{t('energy.hybrid.generator.title')}</h3>
+              <p>{t('energy.hybrid.generator.description')}</p>
             </div>
 
-            <div className="system-node">
-              <img src={Generador2} alt="" width={170} height={80} />
+            <span className="energy-hybrid__operator" aria-hidden="true">
+              =
+            </span>
 
-              <div className="system-label">
-                <GeneratorIcon />
-                <strong>{t('energy.hybrid.diesel_plants.title')}</strong>
-                <span>{t('energy.hybrid.diesel_plants.subtitle')}</span>
+            <div className="energy-hybrid__item">
+              <div className="energy-hybrid__icon energy-hybrid__icon--yellow">
+                <EnergyIcon type="power" />
               </div>
+              <h3>{t('energy.hybrid.result.title')}</h3>
+              <p>{t('energy.hybrid.result.description')}</p>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* =====================================================
-          BENEFICIOS
-      ===================================================== */}
+      {/* 04. BENEFICIOS */}
       <section className="energy-benefits">
-        <div className="benefits-title">
-          <SectionKicker>{t('energy.benefits.kicker')}</SectionKicker>
+        <div className="energy-container">
+          <div className="energy-section-heading">
+            <h2>{t('energy.benefits.title')}</h2>
+          </div>
 
-          <h2>
-            {t('energy.benefits.title_line1')}{' '}
-            <strong>{t('energy.benefits.title_line2')}</strong>
-          </h2>
+          <div className="energy-benefits__grid">
+            {benefits.map((benefit) => (
+              <article
+                className="energy-benefit-card"
+                key={benefit.key}
+              >
+                <div className="energy-benefit-card__icon">
+                  <EnergyIcon type={benefit.icon} />
+                </div>
+
+                <h3>
+                  {t(`energy.benefits.items.${benefit.key}`)}
+                </h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 05. GRANDES ESCENARIOS */}
+      <section className="energy-scenarios">
+        <div className="energy-scenarios__content">
+          <div className="energy-container">
+            <div className="energy-scenarios__text">
+              <span className="energy-eyebrow">
+                {t('energy.scenarios.eyebrow')}
+              </span>
+
+              <h2>{t('energy.scenarios.title')}</h2>
+
+              <p>{t('energy.scenarios.description')}</p>
+
+              <Link to="/proyectos" className="energy-button">
+                {t('energy.scenarios.button')}
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
         </div>
 
-        <div className="benefits-grid">
-          <Benefit
-            icon={<LeafIcon />}
-            title={t('energy.benefits.sustainability.title')}
-            description={t('energy.benefits.sustainability.description')}
-          />
-
-          <Benefit
-            icon={<ShieldIcon />}
-            title={t('energy.benefits.reliability.title')}
-            description={t('energy.benefits.reliability.description')}
-          />
-
-          <Benefit
-            icon={<EfficiencyIcon />}
-            title={t('energy.benefits.efficiency.title')}
-            description={t('energy.benefits.efficiency.description')}
-          />
-
-          <Benefit
-            icon={<LocationIcon />}
-            title={t('energy.benefits.versatility.title')}
-            description={t('energy.benefits.versatility.description')}
+        <div className="energy-scenarios__image">
+          <img
+            src="/images/energy-festival.jpg"
+            alt={t('energy.scenarios.imageAlt')}
+            loading="lazy"
           />
         </div>
       </section>
 
-      {/* =====================================================
-          CTA
-      ===================================================== */}
-      <section className="energy-cta">
-        <div className="energy-cta-overlay" />
+      {/* 06. SOSTENIBILIDAD */}
+      <section className="energy-sustainability">
+        <div className="energy-sustainability__image" />
 
-        <div className="energy-cta-content">
-          <SectionKicker light>
-            {t('energy.cta.kicker')}
-          </SectionKicker>
+        <div className="energy-container energy-sustainability__content">
+          <div className="energy-sustainability__symbol" aria-hidden="true">
+            <EnergyIcon type="leaf" />
+          </div>
 
-          <h2>
-            {t('energy.cta.title_line1')}
-            <br />
-            {t('energy.cta.title_line2')}{' '}
-            <strong>{t('energy.cta.title_line3')}</strong>
-          </h2>
+          <div className="energy-sustainability__text">
+            <h2>{t('energy.sustainability.title')}</h2>
 
-          <p>{t('energy.cta.description')}</p>
+            <p>{t('energy.sustainability.description')}</p>
 
-          <Link to="/contacto#cuentanos-tu-proyecto" className='energy-cta-button'>
-            <span>{t('energy.cta.button')}</span>
-              <ArrowIcon />
-          </Link>
-        </div>
-
-        <div className="energy-cta-media">
-          <img src={EnergyFooter} alt="" width={1080} height={350} />
+            <Link to="/contacto" className="energy-button">
+              {t('energy.sustainability.button')}
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </section>
+
     </main>
   );
-}
+};
+
+export default Energy;

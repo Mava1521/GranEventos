@@ -94,11 +94,11 @@
       "subtextPart3": "unforgettable experiences."
     },
     "topMessage": {
-      "line1": "ENERGY",
-      "line2": "ALSO",
-      "line3": "LEAVES A",
-      "line4": "POSITIVE",
-      "line5": "IMPACT"
+      "line1": "LEFT OUR",
+      "line2": "MARK",
+      "line3": "WITHOUT",
+      "line4": "HARMING",
+      "line5": "THE PLANET"
     },
     "collage": {
       "ariaLabel": "Moments of our history",
@@ -769,87 +769,57 @@
     }
   },
   "energy": {
-    "hero": {
-      "kicker": "ENERGY",
-      "title_line1": "ENERGY",
-      "title_line2": "SOLUTIONS FOR",
-      "title_line3": "MAJOR EVENTS.",
-      "description": "We combine solar energy and diesel power generators to offer reliable, efficient, and sustainable solutions anywhere, anytime.",
-      "caption_line1": "ENERGY THAT DRIVES",
-      "caption_line2": "YOUR EVENTS."
-    },
-    "technologies": {
-      "solar": {
-        "kicker": "SOLAR TECHNOLOGY",
-        "title": "CLEAN, EFFICIENT",
-        "highlight": "AND SILENT ENERGY.",
-        "description": "We use high-efficiency solar panels to harness solar energy and convert it into electricity, reducing fuel consumption and environmental impact.",
-        "items": [
-          "Renewable and sustainable energy.",
-          "Low environmental impact.",
-          "Silent operation."
-        ]
+      "hero": {
+        "eyebrow": "Energy for the future",
+        "title": "Sustainable energy for a",
+        "highlight": "greener future",
+        "description": "Energy solutions combining technology and sustainability for events and projects across Colombia and beyond.",
+        "button": "Discover more"
       },
-      "diesel": {
-        "kicker": "DIESEL POWER GENERATORS",
-        "title": "POWER AND RELIABILITY",
-        "highlight": "WHEN YOU NEED IT.",
-        "description": "We have state-of-the-art diesel generator plants that guarantee a stable and continuous power supply, even under high demand or in remote locations.",
-        "items": [
-          "High load capacity.",
-          "Continuous and safe operation.",
-          "Modern and efficient equipment."
-        ]
-      }
-    },
-    "hybrid": {
-      "kicker": "HOW THEY WORK TOGETHER",
-      "title_line1": "A SMART",
-      "title_line2": "COMBINATION.",
-      "description": "Solar power generates electricity during the day, powering the event and charging the system. When demand increases or solar radiation is low, diesel plants start up automatically, ensuring a continuous and stable supply.",
-      "solar_panels": {
-        "title": "SOLAR PANELS",
-        "subtitle": "Generation and charging"
+      "worlds": {
+        "eyebrow": "Technology and sustainability",
+        "title": "The power of two worlds",
+        "description": "Generators and solar panels work together to provide an efficient, reliable and responsible energy solution.",
+        "imageAlt": "Power generators and solar panels"
       },
-      "management": {
-        "title": "MANAGEMENT SYSTEM",
-        "subtitle": "Automatically distributes power"
+      "hybrid": {
+        "eyebrow": "Our hybrid solution",
+        "title": "Power when you need it, clean energy whenever possible.",
+        "solar": {
+          "title": "Solar energy",
+          "description": "Renewable and clean"
+        },
+        "generator": {
+          "title": "Generators",
+          "description": "Backup and power"
+        },
+        "result": {
+          "title": "Reliable energy",
+          "description": "24/7 availability"
+        }
       },
-      "diesel_plants": {
-        "title": "DIESEL PLANTS",
-        "subtitle": "Backup and continuity"
-      }
-    },
-    "benefits": {
-      "kicker": "BENEFITS",
-      "title_line1": "EFFICIENT ENERGY,",
-      "title_line2": "BIGGER EVENTS.",
+      "benefits": {
+        "title": "Benefits that drive us forward",
+        "items": {
+          "carbon": "Reduce your carbon footprint",
+          "efficiency": "Optimize energy consumption",
+          "continuity": "Ensure operational continuity",
+          "solutions": "Tailored solutions"
+        }
+      },
+      "scenarios": {
+        "eyebrow": "Powering large-scale events",
+        "title": "Energy for major events",
+        "description": "Concerts, festivals, corporate events and projects. Comprehensive energy solutions tailored to every challenge.",
+        "button": "Explore our projects",
+        "imageAlt": "Illuminated concert stage"
+      },
       "sustainability": {
-        "title": "SUSTAINABILITY",
-        "description": "We reduce the carbon footprint of every event."
-      },
-      "reliability": {
-        "title": "RELIABILITY",
-        "description": "Stable power at all times."
-      },
-      "efficiency": {
-        "title": "EFFICIENCY",
-        "description": "Smart use of resources."
-      },
-      "versatility": {
-        "title": "VERSATILITY",
-        "description": "Operates anywhere in the country."
+        "title": "Together for a more sustainable planet",
+        "description": "Innovation, energy and commitment to a better future.",
+        "button": "Contact us"
       }
     },
-    "cta": {
-      "kicker": "YOUR EVENT, OUR ENERGY",
-      "title_line1": "READY FOR AN EVENT",
-      "title_line2": "WITH UNLIMITED",
-      "title_line3": "ENERGY?",
-      "description": "Let's talk about your project and design the best energy solution together.",
-      "button": "CONTACT US"
-    }
-  },
   "technology": {
     "hero": {
       "eyebrow": "TECHNOLOGY",

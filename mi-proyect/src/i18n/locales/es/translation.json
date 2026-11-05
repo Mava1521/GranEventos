@@ -94,11 +94,11 @@
       "subtextPart3": "experiencias inolvidables."
     },
     "topMessage": {
-      "line1": "LA ENERGÍA",
-      "line2": "TAMBIÉN",
-      "line3": "DEJA",
-      "line4": "HUELLA",
-      "line5": "POSITIVA"
+      "line1": "DEJAMOS",
+      "line2": "HUELLA",
+      "line3": "SIN",
+      "line4": "DAÑAR AL",
+      "line5": "PLANETA"
     },
     "collage": {
       "ariaLabel": "Momentos de nuestra historia",
@@ -705,152 +705,90 @@
       "button": "CONTACTO"
     }
   },
-  "experiences": {
+  "energySolutions": {
     "hero": {
-      "kicker": "EXPERIENCIAS",
-      "title_line1": "DETRÁS DE",
-      "title_line2": "CADA EVENTO,",
-      "title_line3": "HAY UN GRAN",
-      "title_line4": "PROCESO.",
-      "description": "Conoce cómo hacemos realidad cada proyecto a través de la planificación, el montaje y el trabajo en equipo que nos impulsa.",
-      "video_placeholder": "EXPERIENCIAS",
-      "play_video": "VER VIDEO",
-      "pause_video": "PAUSAR VIDEO",
-      "aria_play": "Reproducir video",
-      "aria_pause": "Pausar video"
+      "label": "FÓRMULA",
+      "title": "SOLUCIONES QUE SE ADAPTAN A TUS NECESIDADES",
+      "description": "Diseñamos, implementamos y gestionamos soluciones energéticas a medida para que tu evento o proyecto nunca se detenga.",
+      "button": "Descubre nuestra fórmula"
     },
-    "process": {
-      "kicker": "EL PROCESO",
-      "title_line1": "DE LA IDEA",
-      "title_line2": "AL ESCENARIO.",
-      "description": "Cada evento es el resultado de una planeación minuciosa, un equipo comprometido y una logística que no deja nada al azar.",
-      "steps": {
-        "step1": {
-          "title": "PLANEACIÓN",
-          "description": "Analizamos cada detalle para crear la mejor experiencia."
-        },
-        "step2": {
-          "title": "MONTAJE",
-          "description": "Nuestro equipo técnico da vida a la producción con precisión y seguridad."
-        },
-        "step3": {
-          "title": "PRUEBAS",
-          "description": "Revisamos sonido, luces, video y todos los sistemas para un resultado perfecto."
-        },
-        "step4": {
-          "title": "EVENTO",
-          "description": "Todo cobra vida, con un equipo presente en cada momento."
-        },
-        "step5": {
-          "title": "RESULTADOS",
-          "description": "La mejor recompensa son las sonrisas de quienes lo viven."
-        }
-      }
+    "services": {
+      "title": "TU EVENTO, NUESTRA ENERGÍA",
+      "description": "Combinamos generación de energía, energía solar, almacenamiento y distribución para ofrecerte una solución integral, eficiente y sostenible.",
+      "link": "Ver tecnología",
+      "generator": "Generadores de energía",
+      "solar": "Paneles solares",
+      "battery": "Almacenamiento de baterías",
+      "distribution": "Cableado y distribución"
     },
-    "gallery": {
-      "kicker": "NUESTRAS EXPERIENCIAS",
-      "title_line1": "MIRÁ EL DETRÁS",
-      "title_line2": "DE CÁMARAS.",
-      "description": "Explora algunos de nuestros procesos de montaje y producción en diferentes tipos de eventos.",
-      "aria_prev": "Experiencia anterior",
-      "aria_next": "Siguiente experiencia",
-      "aria_view": "Ver {{title}}",
-      "items": {
-        "item1": "MONTAJE GENERAL",
-        "item2": "INSTALACIÓN DE ESTRUCTURAS",
-        "item3": "PRUEBAS DE SONIDO",
-        "item4": "SHOW EN VIVO"
-      }
+    "realSolutions": {
+      "title": "Más que equipos, soluciones reales",
+      "description": "Te acompañamos en cada etapa, desde el estudio del sitio hasta el montaje, operación y desmontaje.",
+      "link": "Conoce nuestro proceso"
     },
-    "cta": {
-      "kicker": "¿LISTO PARA VIVIR",
-      "title": "LA EXPERIENCIA?",
-      "description": "Cuéntanos tu idea y nuestro equipo se pondrá en contacto contigo.",
-      "button": "CONTACTANOS"
+    "solutions": {
+      "label": "Nuestras soluciones",
+      "title": "Tecnología que se adapta a tus necesidades",
+      "description": "Integramos diferentes fuentes de energía para ofrecerte soluciones eficientes y responsables con el medio ambiente.",
+      "button": "Explora nuestras soluciones",
+      "generator": "Generadores de energía",
+      "solar": "Paneles solares",
+      "battery": "Almacenamiento de baterías",
+      "hybrid": "Soluciones híbridas"
     }
   },
   "energy": {
-    "hero": {
-      "kicker": "ENERGÍA",
-      "title_line1": "SOLUCIONES",
-      "title_line2": "ENERGÉTICAS PARA",
-      "title_line3": "GRANDES EVENTOS.",
-      "description": "Combinamos energía solar y plantas generadoras diésel para ofrecer soluciones confiables, eficientes y sostenibles en cualquier lugar y momento.",
-      "caption_line1": "ENERGÍA QUE IMPULSA",
-      "caption_line2": "TUS EVENTOS."
-    },
-    "technologies": {
-      "solar": {
-        "kicker": "TECNOLOGÍA SOLAR",
-        "title": "ENERGÍA LIMPIA,",
-        "highlight": "EFICIENTE Y SILENCIOSA.",
-        "description": "Utilizamos paneles solares de alta eficiencia para aprovechar la energía del sol y convertirla en electricidad, reduciendo el consumo de combustible y el impacto ambiental.",
-        "items": [
-          "Energía renovable y sostenible.",
-          "Bajo impacto ambiental.",
-          "Funcionamiento silencioso."
-        ]
+      "hero": {
+        "eyebrow": "Energía para el futuro",
+        "title": "Energía sostenible para un futuro",
+        "highlight": "más verde",
+        "description": "Soluciones energéticas que combinan tecnología y sostenibilidad para eventos y proyectos en Colombia y alrededores.",
+        "button": "Conoce más"
       },
-      "diesel": {
-        "kicker": "PLANTAS GENERADORAS DIÉSEL",
-        "title": "POTENCIA Y CONFIABILIDAD",
-        "highlight": "CUANDO LA NECESITAS.",
-        "description": "Contamos con plantas generadoras diésel de última tecnología, que garantizan un suministro estable y continuo de energía, incluso en condiciones de alta demanda o en lugares remotos.",
-        "items": [
-          "Alta capacidad de carga.",
-          "Operación continua y segura.",
-          "Equipos modernos y eficientes."
-        ]
-      }
-    },
-    "hybrid": {
-      "kicker": "CÓMO TRABAJAN JUNTAS",
-      "title_line1": "UNA COMBINACIÓN",
-      "title_line2": "INTELIGENTE.",
-      "description": "La energía solar genera electricidad durante el día, alimentando el evento y cargando el sistema. Cuando la demanda aumenta o la radiación solar es baja, las plantas diésel entran en funcionamiento de forma automática, garantizando un suministro continuo y estable.",
-      "solar_panels": {
-        "title": "PANELES SOLARES",
-        "subtitle": "Generación y carga"
+      "worlds": {
+        "eyebrow": "Tecnología y sostenibilidad",
+        "title": "La fuerza de dos mundos",
+        "description": "Generadores y paneles solares trabajan juntos para ofrecerte una solución energética eficiente, confiable y responsable.",
+        "imageAlt": "Generadores eléctricos y paneles solares"
       },
-      "management": {
-        "title": "SISTEMA DE GESTIÓN",
-        "subtitle": "Distribuye la energía de forma automática"
+      "hybrid": {
+        "eyebrow": "Nuestra solución híbrida",
+        "title": "Potencia cuando la necesitas, energía limpia cuando puedes.",
+        "solar": {
+          "title": "Energía solar",
+          "description": "Renovable y limpia"
+        },
+        "generator": {
+          "title": "Generadores",
+          "description": "Respaldo y potencia"
+        },
+        "result": {
+          "title": "Energía confiable",
+          "description": "Disponibilidad 24/7"
+        }
       },
-      "diesel_plants": {
-        "title": "PLANTAS DIÉSEL",
-        "subtitle": "Respaldo y continuidad"
-      }
-    },
-    "benefits": {
-      "kicker": "BENEFICIOS",
-      "title_line1": "ENERGÍA EFICIENTE,",
-      "title_line2": "EVENTOS MÁS GRANDES.",
+      "benefits": {
+        "title": "Beneficios que impulsan",
+        "items": {
+          "carbon": "Reduce tu huella de carbono",
+          "efficiency": "Optimiza el consumo energético",
+          "continuity": "Garantiza la continuidad",
+          "solutions": "Soluciones a tu medida"
+        }
+      },
+      "scenarios": {
+        "eyebrow": "Energía para grandes escenarios",
+        "title": "Energía para grandes escenarios",
+        "description": "Conciertos, festivales, eventos corporativos y proyectos. Una solución energética integral, adaptada a cada desafío.",
+        "button": "Explora nuestros proyectos",
+        "imageAlt": "Escenario de un concierto iluminado"
+      },
       "sustainability": {
-        "title": "SOSTENIBILIDAD",
-        "description": "Reducimos la huella de carbono de cada evento."
-      },
-      "reliability": {
-        "title": "CONFIABILIDAD",
-        "description": "Energía estable en todo momento."
-      },
-      "efficiency": {
-        "title": "EFICIENCIA",
-        "description": "Uso inteligente de los recursos."
-      },
-      "versatility": {
-        "title": "VERSATILIDAD",
-        "description": "Opera en cualquier lugar del país."
+        "title": "Juntos por un planeta más sostenible",
+        "description": "Innovación, energía y compromiso para un futuro mejor.",
+        "button": "Contáctanos"
       }
     },
-    "cta": {
-      "kicker": "TU EVENTO, NUESTRA ENERGÍA",
-      "title_line1": "¿LISTO PARA UN EVENTO",
-      "title_line2": "CON ENERGÍA",
-      "title_line3": "SIN LÍMITES?",
-      "description": "Hablemos de tu proyecto y diseñemos juntos la mejor solución energética.",
-      "button": "CONTÁCTANOS"
-    }
-  },
   "technology": {
     "hero": {
       "eyebrow": "TECNOLOGÍA",

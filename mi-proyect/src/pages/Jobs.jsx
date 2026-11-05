@@ -1,4 +1,3 @@
-// src/pages/Jobs.jsx
 
 import React, { useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";

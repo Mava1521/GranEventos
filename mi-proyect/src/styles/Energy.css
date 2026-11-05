@@ -1,1340 +1,740 @@
-/* =========================================================
-   ENERGY PAGE
-========================================================= */
+
+/* ============================================================
+   ENERGY PAGE — GRAN EVENTOS
+   Diseño sostenible | Responsive | UX/UI
+   ============================================================ */
 
 .energy-page {
-  --energy-yellow: #f5c400;
+  --energy-gold: #fdd000;
   --energy-green: #9dc425;
-  --energy-black: #111111;
-  --energy-dark: #080808;
-  --energy-gray: #626262;
-  --energy-light: #f5f5f3;
-  --energy-border: #dddddd;
+  --energy-black: #080909;
   --energy-white: #ffffff;
+  --energy-light: #f1f2f2;
+  --energy-text: #171717;
+
+  /* Ajustar al mismo eje del logo visible del Navbar */
+  --energy-content-left: max(28px, calc((100vw - 1200px) / 2));
 
   width: 100%;
-  overflow-x: hidden;
-
-  box-sizing: border-box;
-
-  color: var(--energy-black);
+  overflow: hidden;
+  color: var(--energy-text);
   background: var(--energy-white);
-
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
-
-/* =========================================================
-   BOX MODEL
-========================================================= */
-
-.energy-page,
 .energy-page *,
 .energy-page *::before,
 .energy-page *::after {
   box-sizing: border-box;
 }
 
-
-/* =========================================================
-   ACCESSIBILITY / ELEMENTOS GENERALES
-========================================================= */
-
-.energy-page a {
-  color: #000000;
+.energy-container {
+  width: min(1200px, calc(100% - 56px));
+  margin-inline: auto;
 }
-
-.energy-page button,
-.energy-page a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-
-/* =========================================================
-   IMÁGENES
-========================================================= */
-
-.energy-page img {
-  display: block;
-  max-width: 100%;
-}
-
-
-/* =========================================================
-   TYPOGRAPHY
-========================================================= */
 
 .energy-page h1,
 .energy-page h2,
 .energy-page h3 {
-  font-family: 'Oswald', Impact, sans-serif;
-}
-
-
-/* =========================================================
-   KICKER
-========================================================= */
-
-.energy-kicker {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  margin-bottom: 14px;
-
-  color: #536079;
-
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.energy-kicker > span {
-  display: block;
-
-  width: 7px;
-  height: 2px;
-
-  background: var(--energy-yellow);
-
-  transform: skewX(-25deg);
-}
-
-.energy-kicker--light {
-  color: #ffffff;
-}
-
-
-/* =========================================================
-   LÍNEA AMARILLA
-========================================================= */
-
-.energy-yellow-line {
-  width: 43px;
-  height: 3px;
-
-  margin-top: 18px;
-
-  background: var(--energy-yellow);
-}
-
-
-/* =========================================================
-   MEDIA PLACEHOLDER
-========================================================= */
-
-.energy-media-placeholder {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 100%;
-  height: 100%;
-  min-height: 180px;
-
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      135deg,
-      #eeeeee,
-      #d9d9d9
-    );
-
-  color: #888;
-
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 2px;
-}
-
-.energy-media-placeholder::before,
-.energy-media-placeholder::after {
-  content: '';
-
-  position: absolute;
-
-  background: rgba(255, 255, 255, 0.55);
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.energy-hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 100%;
-  max-width: 100%;
-  min-height: calc(100vh - 300px);
-
-  gap: 40px;
-
-  padding: 40px 4.5%;
-}
-
-.energy-hero-content {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
-
-  max-width: 50%;
-  min-width: 0;
-}
-
-.energy-hero h1 {
-  max-width: 540px;
-
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
   margin: 0;
-
-  color: #171b21;
-
-  font-size: clamp(40px, 4vw, 62px);
-  font-weight: 700;
-  line-height: 0.94;
-  letter-spacing: -1px;
+  line-height: 1.05;
 }
 
-.energy-hero h1 strong {
-  display: block;
-
-  color: var(--energy-yellow);
-}
-
-.energy-hero-content > p {
-  max-width: 480px;
-
-  margin: 18px 0 0;
-
-  color: #555;
-
-  font-size: 13px;
+.energy-page p {
+  margin: 0;
   line-height: 1.55;
 }
 
-.energy-hero-media {
-  position: relative;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-
-  width: 100%;
-  max-width: 50%;
-  min-height: 420px;
-  min-width: 0;
-
-  height: auto;
-
-  align-self: stretch;
-
-  overflow: hidden;
-
-  border-radius: 10px;
-}
-
-.energy-hero-media > img {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-
-  object-fit: cover;
-  object-position: center;
-}
-
-.energy-hero-media .energy-media-placeholder {
-  width: 100%;
-  height: 100%;
-  min-height: 420px;
-
-  object-fit: cover;
-}
-
-.energy-hero-caption {
-  position: absolute;
-  right: 5%;
-  bottom: 20px;
-
-  z-index: 2;
-
-  color: #555;
-
-  font-size: 9px;
-  line-height: 1.5;
-  text-align: right;
-}
-
-
-/* =========================================================
-   TECHNOLOGIES
-========================================================= */
-
-.energy-technologies {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  border-bottom: 1px solid var(--energy-border);
-}
-
-.technology-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 190px;
-
-  gap: 28px;
-
-  min-height: 310px;
-
-  padding: 28px 4.8vw 34px;
-}
-
-.technology-card + .technology-card {
-  border-left: 1px solid var(--energy-border);
-}
-
-.technology-copy h3 {
-  max-width: 300px;
-
-  margin: 0;
-
-  color: #171b21;
-
-  font-size: 25px;
-  line-height: 0.98;
-  font-weight: 700;
-}
-
-.technology-copy h3 strong {
+.energy-eyebrow {
   display: block;
-
-  color: var(--energy-yellow);
-
-  font-weight: 700;
-}
-
-.technology-copy > p {
-  max-width: 330px;
-
-  margin: 14px 0 18px;
-
-  color: #626262;
-
-  font-size: 11.5px;
-  line-height: 1.6;
-}
-
-.technology-list {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-
-  margin: 0;
-  padding: 0;
-
-  list-style: none;
-}
-
-.technology-list li {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-
-  color: #5c5c5c;
-
-  font-size: 10.5px;
-}
-
-.energy-check-icon {
-  width: 20px;
-  height: 20px;
-  flex: 0 0 20px;
-
-  fill: none;
-
-  stroke: var(--energy-yellow);
-  stroke-width: 1.5;
-}
-
-
-/* =========================================================
-   TECHNOLOGY IMAGE
-========================================================= */
-
-.technology-image {
-  position: relative;
-
-  width: 100%;
-  min-width: 0;
-  min-height: 250px;
-
-  overflow: hidden;
-
-  border-radius: 5px;
-}
-
-.technology-image > .energy-media-placeholder {
-  position: absolute;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-}
-
-.technology-image .energy-media-placeholder > span {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-}
-
-.technology-image .energy-media-placeholder img {
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-
-  object-fit: cover;
-  object-position: center;
-}
-
-
-/* =========================================================
-   TECHNOLOGY ICON
-========================================================= */
-
-.technology-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  z-index: 2;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 48px;
-  height: 48px;
-
-  background: var(--energy-yellow);
-}
-
-.technology-icon svg {
-  width: 27px;
-  height: 27px;
-
-  fill: none;
-
-  stroke: #111;
-  stroke-width: 1.5;
-}
-
-
-/* =========================================================
-   HYBRID SYSTEM
-========================================================= */
-
-.energy-hybrid {
-  display: grid;
-  grid-template-columns: 29% 71%;
-
-  min-height: 310px;
-
-  padding: 35px 4.8vw;
-
-  border-bottom: 1px solid var(--energy-border);
-}
-
-.energy-hybrid-copy {
-  padding-right: 35px;
-}
-
-.energy-hybrid-copy h2 {
-  margin: 0;
-
-  font-size: 31px;
-  line-height: 0.96;
-}
-
-.energy-hybrid-copy h2 strong {
-  display: block;
-
-  color: var(--energy-yellow);
-}
-
-.energy-hybrid-copy > p {
-  max-width: 310px;
-
-  margin: 17px 0 0;
-
-  color: #606060;
-
-  font-size: 11.5px;
-  line-height: 1.6;
-}
-
-
-/* =========================================================
-   ENERGY SYSTEM
-========================================================= */
-
-.energy-system {
-  display: flex;
-  align-items: center;
-
-  min-height: 235px;
-
-  padding: 28px;
-
-  border-radius: 7px;
-
-  background: #f7f7f7;
-}
-
-.system-flow {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  width: 100%;
-
-  align-items: start;
-}
-
-.system-node {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  min-width: 0;
-}
-
-.system-node > img {
-  display: block;
-
-  width: 100%;
-  max-width: 170px;
-  height: 80px;
-
-  object-fit: cover;
-  object-position: center;
-
-  border-radius: 4px;
-}
-
-.system-node > .energy-media-placeholder {
-  width: 125px;
-  height: 80px;
-  min-height: 80px;
-
-  border-radius: 4px;
-}
-
-.system-arrow {
-  position: absolute;
-  top: 35px;
-
-  color: var(--energy-yellow);
-
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.system-arrow--right,
-.system-arrow--both {
-  right: -17px;
-}
-
-.system-label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  margin-top: 13px;
-
-  text-align: center;
-}
-
-.system-label svg {
-  width: 29px;
-  height: 29px;
-
-  margin-bottom: 7px;
-
-  fill: none;
-
-  stroke: var(--energy-yellow);
-  stroke-width: 1.5;
-}
-
-.system-label strong {
-  max-width: 150px;
-
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: 9px;
-  font-weight: 700;
-}
-
-.system-label span {
-  max-width: 145px;
-
-  margin-top: 4px;
-
-  color: #666;
-
-  font-size: 8.5px;
-  line-height: 1.35;
-}
-
-
-/* =========================================================
-   BENEFITS
-========================================================= */
-
-.energy-benefits {
-  display: grid;
-  grid-template-columns: 29% 71%;
-
-  padding: 30px 4.8vw;
-
-  border-bottom: 1px solid var(--energy-border);
-}
-
-.benefits-title {
-  padding-right: 30px;
-}
-
-.benefits-title h2 {
-  margin: 0;
-
-  font-size: 30px;
-  line-height: 0.97;
-}
-
-.benefits-title h2 strong {
-  display: block;
-
-  color: var(--energy-yellow);
-}
-
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
-.benefit {
-  min-height: 100px;
-
-  padding: 0 25px;
-}
-
-.benefit + .benefit {
-  border-left: 1px solid #d0d0d0;
-}
-
-.benefit-icon {
-  width: 38px;
-  height: 38px;
-
-  margin-bottom: 8px;
-}
-
-.benefit-icon svg {
-  width: 100%;
-  height: 100%;
-
-  fill: none;
-
-  stroke: #161b21;
-  stroke-width: 1.5;
-}
-
-.benefit h3 {
-  margin: 0 0 6px;
-
-  font-family: 'Montserrat', Arial, sans-serif;
-
   font-size: 10px;
   font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
 }
 
-.benefit p {
-  max-width: 140px;
+/* ============================================================
+   BUTTONS
+   ============================================================ */
 
-  margin: 0;
-
-  color: #666;
-
-  font-size: 9px;
-  line-height: 1.45;
+.energy-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: fit-content;
+  padding: 9px 17px;
+  border-radius: 30px;
+  background: var(--energy-gold);
+  color: #111;
+  font-size: 10px;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
 }
 
+.energy-button:hover {
+  background: var(--energy-green);
+  transform: translateY(-2px);
+}
 
-/* =========================================================
-   CTA
-========================================================= */
+.energy-button:focus-visible {
+  outline: 3px solid var(--energy-green);
+  outline-offset: 4px;
+}
 
-.energy-cta {
+.energy-button span {
+  font-size: 15px;
+  line-height: 1;
+}
+
+/* ============================================================
+   01. HERO
+   ============================================================ */
+
+.energy-hero {
+  min-height: 340px;
+  height: clamp(340px, 40vw, 500px);
   position: relative;
-
-  display: grid;
-  grid-template-columns: 45% 55%;
-
-  min-height: 220px;
-
-  overflow: hidden;
-
-  background: #090909;
-
-  color: #ffffff;
+  isolation: isolate;
+  background: var(--energy-black);
+  color: white;
 }
 
-.energy-cta-overlay {
+.energy-hero__image {
   position: absolute;
   inset: 0;
-
-  z-index: 1;
-
-  background:
+  z-index: -2;
+  background-image:
     linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.92),
-      rgba(0, 0, 0, 0.65) 50%,
-      rgba(0, 0, 0, 0.15)
-    );
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.53) 36%,
+      rgba(0, 0, 0, 0.05) 80%
+    ),
+    url('/images/energy-hero.jpg');
+  background-size: cover;
+  background-position: center 48%;
 }
 
-.energy-cta-content {
+.energy-hero__overlay {
   position: relative;
-
-  z-index: 3;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding: 30px 4.8vw;
-}
-
-.energy-cta-content h2 {
-  margin: 0;
-
-  font-size: clamp(27px, 3vw, 42px);
-  line-height: 0.95;
-}
-
-.energy-cta-content h2 strong {
-  color: var(--energy-yellow);
-}
-
-.energy-cta-content > p {
-  max-width: 360px;
-
-  margin: 11px 0 15px;
-
-  color: #e0e0e0;
-
-  font-size: 10px;
-  line-height: 1.5;
-}
-
-.energy-cta-button {
+  height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  width: 118px;
-  min-height: 32px;
-
-  padding: 0 10px;
-
-  text-decoration: none;
-
-  background: var(--energy-yellow);
-  color: #111;
-
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: 8px;
-  font-weight: 700;
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
 }
 
-.energy-cta-button:hover {
-  transform: translateY(-2px);
-
-  background: #ffd42c;
-}
-
-.energy-arrow {
-  width: 25px;
-  height: 13px;
-
-  fill: none;
-
-  stroke: #111;
-  stroke-width: 1.5;
-}
-
-.energy-cta-media {
+.energy-hero__content {
+  padding-left: max(
+    0px,
+    calc(var(--energy-content-left) - (100vw - min(1200px, 100vw - 56px)) / 2)
+  );
   position: relative;
+  z-index: 2;
+}
 
-  z-index: 0;
+.energy-hero__content h1 {
+  max-width: 400px;
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 10px 0 12px;
+  line-height: 0.98;
+}
 
-  min-width: 0;
-  min-height: 220px;
+.energy-hero__content h1 span {
+  display: block;
+  color: var(--energy-green);
+}
 
+.energy-hero__content p {
+  max-width: 310px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.91);
+  margin-bottom: 17px;
+}
+
+.energy-hero__leaf {
+  position: absolute;
+  width: clamp(170px, 38vw, 390px);
+  right: 7%;
+  top: 3%;
+  color: #c9ed27;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 5px rgba(190, 255, 0, 0.8));
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ============================================================
+   02. LA FUERZA DE DOS MUNDOS
+   ============================================================ */
+
+.energy-worlds {
+  background: var(--energy-light);
+}
+
+.energy-worlds__content {
+  min-height: 225px;
+  display: flex;
+  align-items: center;
+}
+
+.energy-worlds__inner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.3fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.energy-worlds__text {
+  padding-block: 30px;
+}
+
+.energy-worlds__text h2 {
+  font-size: clamp(27px, 3vw, 39px);
+  max-width: 320px;
+  margin: 8px 0 12px;
+}
+
+.energy-worlds__text p {
+  font-size: 12px;
+  max-width: 360px;
+  color: #424242;
+}
+
+.energy-worlds__image {
+  height: 225px;
   overflow: hidden;
 }
 
-.energy-cta-media > img {
-  display: block;
-
+.energy-worlds__image img {
   width: 100%;
   height: 100%;
-  min-height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
 
+.energy-worlds__image:hover img {
+  transform: scale(1.035);
+}
+
+/* ============================================================
+   03. SOLUCIÓN HÍBRIDA
+   ============================================================ */
+
+.energy-hybrid {
+  background: var(--energy-black);
+  color: white;
+  padding: 32px 0 35px;
+}
+
+.energy-section-heading {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.energy-section-heading h2 {
+  font-size: clamp(23px, 3vw, 32px);
+}
+
+.energy-section-heading--dark span {
+  display: block;
+  font-size: 10px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.energy-hybrid__items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 5vw, 75px);
+}
+
+.energy-hybrid__item {
+  flex: 1;
+  max-width: 210px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.energy-hybrid__icon {
+  width: 49px;
+  height: 49px;
+  display: grid;
+  place-items: center;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.energy-hybrid__icon--gold {
+  color: var(--energy-gold);
+}
+
+.energy-hybrid__icon--yellow {
+  color: var(--energy-green);
+}
+
+.energy-hybrid__item h3 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.energy-hybrid__item p {
+  font-size: 10px;
+  color: #c5c5c5;
+  max-width: 170px;
+}
+
+.energy-hybrid__operator {
+  color: var(--energy-gold);
+  font-size: 25px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   04. BENEFICIOS
+   ============================================================ */
+
+.energy-benefits {
+  padding: 35px 0 38px;
+  background: #f0f1f1;
+}
+
+.energy-benefits .energy-section-heading {
+  margin-bottom: 25px;
+}
+
+.energy-benefits__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.energy-benefit-card {
+  min-height: 130px;
+  padding: 20px 14px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.045);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.energy-benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 9px 22px rgba(0, 0, 0, 0.11);
+}
+
+.energy-benefit-card__icon {
+  color: #83ad13;
+}
+
+.energy-benefit-card h3 {
+  font-family: 'Inter', sans-serif;
+  text-transform: none;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  max-width: 160px;
+}
+
+/* ============================================================
+   05. ENERGÍA PARA GRANDES ESCENARIOS
+   ============================================================ */
+
+.energy-scenarios {
+  min-height: 190px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--energy-black);
+  color: white;
+}
+
+.energy-scenarios__content {
+  display: flex;
+  align-items: center;
+  padding-block: 30px;
+}
+
+.energy-scenarios__text {
+  padding-left: max(
+    0px,
+    calc(var(--energy-content-left) - (100vw - min(1200px, 100vw - 56px)) / 2)
+  );
+  padding-right: 24px;
+}
+
+.energy-scenarios__text h2 {
+  font-size: clamp(25px, 3vw, 35px);
+  margin: 7px 0 10px;
+}
+
+.energy-scenarios__text p {
+  font-size: 11px;
+  color: #e0e0e0;
+  max-width: 400px;
+  margin-bottom: 13px;
+}
+
+.energy-scenarios__image {
+  min-height: 190px;
+  overflow: hidden;
+}
+
+.energy-scenarios__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
   object-fit: cover;
   object-position: center;
 }
 
-.energy-cta-media .energy-media-placeholder {
-  min-height: 220px;
+/* ============================================================
+   06. SOSTENIBILIDAD
+   ============================================================ */
 
-  background:
-    linear-gradient(
-      120deg,
-      #333,
-      #161616
-    );
-
-  color: #777;
-}
-
-
-/* =========================================================
-   NAVBAR — ENERGY
-========================================================= */
-
-.navbar-energy {
+.energy-sustainability {
+  min-height: 155px;
   position: relative;
-
-  background-color: #ffffff;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  color: white;
+  background: #101510;
 }
 
-.navbar-energy .nav-item {
-  color: #222222;
+.energy-sustainability__image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 15, 5, 0.88),
+      rgba(8, 15, 5, 0.45),
+      rgba(8, 15, 5, 0.12)
+    ),
+    url('/images/energy-sustainability.jpg');
+  background-position: center;
+  background-size: cover;
 }
 
-.navbar-energy .lang-selector button {
-  color: #222222;
+.energy-sustainability__content {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding-block: 23px;
 }
 
-.navbar-energy .lang-selector button.active {
-  color: #efbd00;
+.energy-sustainability__symbol {
+  flex-shrink: 0;
+  width: 75px;
+  height: 75px;
+  display: grid;
+  place-items: center;
+  color: var(--energy-green);
 }
 
-
-/* =========================================================
-   TABLET GRANDE
-   ≤ 1100px
-========================================================= */
-
-@media (max-width: 1100px) {
-
-  .energy-hero-content {
-    padding-left: 4vw;
-  }
-
-  .energy-hero h1 {
-    font-size: clamp(40px, 4.8vw, 58px);
-  }
-
-  .technology-card {
-    grid-template-columns: minmax(0, 1fr) 150px;
-
-    gap: 18px;
-
-    padding: 28px 3vw;
-  }
-
-  .technology-copy h3 {
-    font-size: 22px;
-  }
-
-  .energy-hybrid,
-  .energy-benefits {
-    grid-template-columns: 32% 68%;
-  }
-
-  .benefit {
-    padding: 0 16px;
-  }
+.energy-sustainability__symbol svg {
+  width: 68px;
+  height: 68px;
+  filter: drop-shadow(0 0 6px rgba(157, 196, 37, 0.7));
 }
 
-
-/* =========================================================
-   TABLET
-   ≤ 991px
-========================================================= */
-
-@media (max-width: 991px) {
-
-  .energy-hero {
-    flex-direction: column;
-
-    width: 100%;
-
-    min-height: auto;
-
-    padding: 20px;
-
-    gap: 40px;
-  }
-
-  .energy-hero-content,
-  .energy-hero-media {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .energy-hero-media {
-    min-height: 300px;
-  }
+.energy-sustainability__text h2 {
+  font-size: clamp(20px, 2.8vw, 30px);
+  margin-bottom: 7px;
 }
 
+.energy-sustainability__text p {
+  font-size: 11px;
+  color: #f0f0f0;
+  margin-bottom: 12px;
+}
 
-/* =========================================================
-   TABLET
-   ≤ 900px
-========================================================= */
+/* ============================================================
+   RESPONSIVE — TABLETS
+   ============================================================ */
 
 @media (max-width: 900px) {
-
-  /* -------------------------------------------------------
-     HERO
-  ------------------------------------------------------- */
+  .energy-container {
+    width: calc(100% - 44px);
+  }
 
   .energy-hero {
-    padding: 0;
-
-    gap: 0;
-
-    scroll-margin-top: var(--mobile-navbar-height, 98px);
+    height: 390px;
   }
 
-  .energy-hero-content {
-    width: 100%;
-    max-width: none;
-
-    padding: 45px 7%;
-
-    padding-left: 7%;
-    padding-right: 7%;
+  .energy-hero__leaf {
+    right: 1%;
+    width: 270px;
   }
 
-  .energy-hero h1 {
-    width: 100%;
-    max-width: 650px;
-
-    font-size: clamp(48px, 7vw, 70px);
+  .energy-worlds__inner {
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 18px;
   }
 
-  .energy-hero-content > p {
-    width: 100%;
-    max-width: 620px;
-
-    font-size: 13px;
+  .energy-worlds__image {
+    height: 210px;
   }
 
-  .energy-hero-media {
-    position: relative;
-
-    width: 100%;
-
-    min-height: 380px;
-
-    border-radius: 0;
-
-    overflow: hidden;
+  .energy-hybrid__items {
+    gap: 18px;
   }
 
-  .energy-hero-media > img {
-    position: absolute;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .energy-hero-media .energy-media-placeholder {
-    min-height: 380px;
-  }
-
-
-  /* -------------------------------------------------------
-     NAVBAR
-  ------------------------------------------------------- */
-
-  .navbar-energy {
-    z-index: 1000;
-  }
-
-
-  /* -------------------------------------------------------
-     TECHNOLOGIES
-  ------------------------------------------------------- */
-
-  .energy-technologies {
-    grid-template-columns: 1fr;
-  }
-
-  .technology-card {
-    grid-template-columns: minmax(0, 1fr) 260px;
-
-    padding: 35px 7%;
-  }
-
-  .technology-card + .technology-card {
-    border-left: none;
-
-    border-top: 1px solid var(--energy-border);
-  }
-
-  .technology-image {
-    width: 100%;
-    min-width: 0;
-  }
-
-
-  /* -------------------------------------------------------
-     HYBRID
-  ------------------------------------------------------- */
-
-  .energy-hybrid {
-    grid-template-columns: 1fr;
-
-    gap: 25px;
-
-    padding: 40px 7%;
-  }
-
-  .energy-hybrid-copy {
-    padding-right: 0;
-  }
-
-  .energy-hybrid-copy > p {
-    max-width: 650px;
-  }
-
-
-  /* -------------------------------------------------------
-     BENEFITS
-  ------------------------------------------------------- */
-
-  .energy-benefits {
-    grid-template-columns: 1fr;
-
-    gap: 30px;
-
-    padding: 35px 7%;
-  }
-
-  .benefits-title {
-    padding-right: 0;
-  }
-
-  .benefits-grid {
+  .energy-benefits__grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
   }
 
-  .benefit {
-    min-height: 120px;
-
-    padding: 15px 25px;
+  .energy-benefit-card {
+    min-height: 115px;
   }
 
-  .benefit:nth-child(3) {
-    border-left: none;
-
-    border-top: 1px solid #d0d0d0;
+  .energy-scenarios {
+    min-height: 220px;
   }
 
-  .benefit:nth-child(4) {
-    border-top: 1px solid #d0d0d0;
-  }
-
-
-  /* -------------------------------------------------------
-     CTA
-  ------------------------------------------------------- */
-
-  .energy-cta {
-    grid-template-columns: 1fr;
-  }
-
-  .energy-cta-content {
-    min-height: 260px;
-
-    padding: 45px 7%;
-  }
-
-  .energy-cta-media {
-    min-height: 280px;
-
-    width: 100%;
-  }
-
-  .energy-cta-media > img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
+  .energy-scenarios__image,
+  .energy-scenarios__image img {
+    min-height: 220px;
   }
 }
 
-
-/* =========================================================
-   MOBILE
-   ≤ 600px
-========================================================= */
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
 
 @media (max-width: 600px) {
-
-  .energy-page {
-    width: 100%;
+  .energy-container {
+    width: calc(100% - 36px);
   }
-
-
-  /* -------------------------------------------------------
-     HERO
-  ------------------------------------------------------- */
 
   .energy-hero {
-    padding: 0;
-
-    gap: 0;
+    min-height: 390px;
+    height: 78vh;
+    max-height: 560px;
   }
 
-  .energy-hero-content {
-    width: 100%;
-    max-width: none;
-
-    /*
-     * Espacio superior para evitar que el navbar
-     * cubra el contenido del hero.
-     */
-    padding: 112px 7% 45px;
+  .energy-hero__image {
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.78),
+        rgba(0, 0, 0, 0.25)
+      ),
+      url('/images/energy-hero.jpg');
+    background-position: 58% center;
   }
 
-  .energy-kicker {
-    margin-bottom: 12px;
-
-    font-size: 10px;
+  .energy-hero__content {
+    padding-left: 0;
   }
 
-  .energy-hero h1 {
-    font-size: clamp(40px, 12vw, 53px);
-
-    line-height: 0.95;
-    letter-spacing: -0.5px;
+  .energy-hero__content h1 {
+    font-size: clamp(37px, 10vw, 48px);
+    max-width: 300px;
   }
 
-  .energy-hero-content > p {
-    margin-top: 16px;
-
-    font-size: 12px;
-    line-height: 1.6;
-  }
-
-  .energy-hero-media {
-    width: 100%;
-    height: 260px;
-    min-height: 260px;
-  }
-
-  .energy-hero-media .energy-media-placeholder {
-    min-height: 260px;
-  }
-
-  .energy-hero-media > img {
-    min-height: 0;
-  }
-
-  .energy-hero-caption {
-    right: 7%;
-    bottom: 15px;
-
-    font-size: 8px;
-  }
-
-
-  /* -------------------------------------------------------
-     TECHNOLOGIES
-  ------------------------------------------------------- */
-
-  .technology-card {
-    grid-template-columns: minmax(0, 1fr);
-
-    gap: 20px;
-
-    padding: 35px 7%;
-  }
-
-  .technology-copy h3 {
-    font-size: 27px;
-  }
-
-  .technology-copy > p {
-    max-width: none;
-
-    font-size: 11.5px;
-  }
-
-  .technology-list li {
-    font-size: 10.5px;
-  }
-
-  .technology-image {
-    width: 100%;
-    height: 240px;
-    min-height: 240px;
-  }
-
-  .technology-image > .energy-media-placeholder {
-    min-height: 0;
-  }
-
-
-  /* -------------------------------------------------------
-     HYBRID
-  ------------------------------------------------------- */
-
-  .energy-hybrid {
-    padding: 38px 7%;
-  }
-
-  .energy-hybrid-copy h2 {
-    font-size: 31px;
-  }
-
-  .energy-hybrid-copy > p {
-    font-size: 11.5px;
-  }
-
-  .energy-system {
-    padding: 20px 10px;
-
-    overflow-x: auto;
-  }
-
-  .system-flow {
-    min-width: 540px;
-  }
-
-  .system-node > .energy-media-placeholder {
-    width: 110px;
-    height: 70px;
-
-    min-height: 70px;
-  }
-
-  .system-node > img {
-    width: 100%;
-    max-width: 110px;
-    height: 70px;
-  }
-
-
-  /* -------------------------------------------------------
-     BENEFITS
-  ------------------------------------------------------- */
-
-  .energy-benefits {
-    padding: 38px 7%;
-  }
-
-  .benefits-title h2 {
-    font-size: 29px;
-  }
-
-  .benefits-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .benefit {
-    min-height: auto;
-
-    padding: 20px 0;
-  }
-
-  .benefit + .benefit {
-    border-left: none;
-
-    border-top: 1px solid #d0d0d0;
-  }
-
-  .benefit:nth-child(3),
-  .benefit:nth-child(4) {
-    border-top: 1px solid #d0d0d0;
-  }
-
-  .benefit p {
+  .energy-hero__content p {
+    font-size: 11px;
     max-width: 260px;
-
-    font-size: 9.5px;
   }
 
-
-  /* -------------------------------------------------------
-     CTA
-  ------------------------------------------------------- */
-
-  .energy-cta-content {
-    min-height: 290px;
-
-    padding: 38px 7%;
+  .energy-hero__leaf {
+    width: 190px;
+    right: -25px;
+    top: 8%;
+    opacity: 0.7;
   }
 
-  .energy-cta-content h2 {
+  /* Dos mundos */
+
+  .energy-worlds__content {
+    min-height: auto;
+  }
+
+  .energy-worlds__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+  }
+
+  .energy-worlds__text {
+    width: calc(100% - 36px);
+    padding: 27px 0 20px;
+  }
+
+  .energy-worlds__text h2 {
     font-size: 30px;
   }
 
-  .energy-cta-content > p {
-    max-width: 290px;
+  .energy-worlds__text p {
+    font-size: 11px;
+  }
 
+  .energy-worlds__image {
+    width: 100%;
+    height: 205px;
+  }
+
+  /* Solución híbrida */
+
+  .energy-hybrid {
+    padding: 29px 0;
+  }
+
+  .energy-section-heading {
+    margin-bottom: 20px;
+  }
+
+  .energy-hybrid__items {
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .energy-hybrid__item {
+    width: 100%;
+    max-width: none;
+  }
+
+  .energy-hybrid__icon {
+    margin-bottom: 4px;
+  }
+
+  .energy-hybrid__item h3 {
+    font-size: 13px;
+  }
+
+  .energy-hybrid__item p {
     font-size: 10px;
   }
 
-  .energy-cta-media {
-    width: 100%;
-    height: 230px;
-    min-height: 230px;
+  .energy-hybrid__operator {
+    font-size: 22px;
+    line-height: 1;
   }
 
-  .energy-cta-media .energy-media-placeholder {
-    min-height: 230px;
+  /* Beneficios */
+
+  .energy-benefits {
+    padding: 30px 0;
   }
 
-  .energy-cta-media > img {
-    min-height: 0;
+  .energy-benefits__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .energy-benefit-card {
+    min-height: 125px;
+    padding: 15px 9px;
+    gap: 8px;
+  }
+
+  .energy-benefit-card h3 {
+    font-size: 10px;
+  }
+
+  /* Escenarios */
+
+  .energy-scenarios {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .energy-scenarios__content {
+    padding: 28px 0;
+  }
+
+  .energy-scenarios__text {
+    padding: 0;
+    width: calc(100% - 36px);
+    margin-inline: auto;
+  }
+
+  .energy-scenarios__text h2 {
+    font-size: 29px;
+  }
+
+  .energy-scenarios__text p {
+    font-size: 11px;
+  }
+
+  .energy-scenarios__image {
+    min-height: 190px;
+    height: 190px;
+  }
+
+  .energy-scenarios__image img {
+    min-height: 190px;
+  }
+
+  /* Sostenibilidad */
+
+  .energy-sustainability__content {
+    gap: 12px;
+    padding-block: 25px;
+  }
+
+  .energy-sustainability__symbol {
+    width: 47px;
+    height: 47px;
+  }
+
+  .energy-sustainability__symbol svg {
+    width: 45px;
+    height: 45px;
+  }
+
+  .energy-sustainability__text h2 {
+    font-size: 19px;
+  }
+
+  .energy-sustainability__text p {
+    font-size: 10px;
+  }
+
+  .energy-button {
+    font-size: 9px;
+    padding: 8px 13px;
+  }
+}
+
+/* ============================================================
+   ACCESSIBILITY — REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .energy-page *,
+  .energy-page *::before,
+  .energy-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
