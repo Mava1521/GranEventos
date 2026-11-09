@@ -38,7 +38,7 @@ function ServiceImage({ image, alt, number }) {
 export default function Services() {
   const { t } = useTranslation();
 
-  // Se reduce la lista a 4 tarjetas principales
+  // 4 tarjetas principales con su ruta de destino específica
   const services = [
     {
       number: '01',
@@ -47,6 +47,7 @@ export default function Services() {
       description: t('services.items.powerPlants.description'),
       image: plantas,
       alt: t('services.items.powerPlants.alt'),
+      link: '/PowerPlants',
     },
     {
       number: '02',
@@ -55,6 +56,7 @@ export default function Services() {
       description: t('services.items.sales.description'),
       image: ventas,
       alt: t('services.items.sales.alt'),
+      link: '/SaleGenerators',
     },
     {
       number: '03',
@@ -63,6 +65,7 @@ export default function Services() {
       description: t('services.items.design.description'),
       image: diseño,
       alt: t('services.items.design.alt'),
+      link: '/ProjectDesign',
     },
     {
       number: '04',
@@ -71,6 +74,7 @@ export default function Services() {
       description: t('services.items.transformers.description'),
       image: transformadores,
       alt: t('services.items.transformers.alt'),
+      link: '/Transformers', 
     },
   ];
 
@@ -101,19 +105,19 @@ export default function Services() {
           </p>
         </div>
 
-        {/* MENSAJE FLOTANTE ACTUALIZADO (SELLO DE MARCA) */}
+        {/* MENSAJE FLOTANTE (SELLO DE MARCA TRADUCIDO) */}
         <div className="services-hero__message">
           <span className="yellow-line" aria-hidden="true" />
           <p>
-            DEJAMOS
+            {t('home.story.extraMessage.line1', 'DEJAMOS')}
             <br />
-            HUELLA
+            {t('home.story.extraMessage.line2', 'HUELLA')}
             <br />
-            SIN
+            {t('home.story.extraMessage.line3', 'SIN')}
             <br />
-            DAÑAR EL
+            {t('home.story.extraMessage.line4', 'DAÑAR AL')}
             <br />
-            PLANETA
+            {t('home.story.extraMessage.line5', 'PLANETA')}
           </p>
         </div>
       </section>
@@ -137,14 +141,24 @@ export default function Services() {
                 <span className="service-card__number-line" aria-hidden="true" />
               </div>
 
-              <ServiceImage
-                image={service.image}
-                alt={service.alt}
-                number={service.number}
-              />
+              {/* Imagen clickeable para ampliar el rango de redireccionamiento */}
+              <Link
+                to={service.link}
+                className="service-card__media-link"
+                aria-label={`${t('services.seeMore')} ${service.title}`}
+              >
+                <ServiceImage
+                  image={service.image}
+                  alt={service.alt}
+                  number={service.number}
+                />
+              </Link>
 
               <div className="service-card__content">
-                <h3>{service.title}</h3>
+                {/* Título clickeable */}
+                <Link to={service.link} className="service-card__title-link">
+                  <h3>{service.title}</h3>
+                </Link>
 
                 <p className="service-card__subtitle">
                   {service.subtitle}
@@ -155,12 +169,11 @@ export default function Services() {
                 </p>
 
                 <Link
-                  to="/PowerPlants"
+                  to={service.link}
                   className="service-card__link"
                   aria-label={`${t('services.seeMore')} ${service.title}`}
                 >
                   <span>{t('services.seeMore')}</span>
-
                   <span className="service-card__arrow" aria-hidden="true">
                     →
                   </span>
@@ -194,7 +207,6 @@ export default function Services() {
 
           <Link to="/contacto#cuentanos-tu-proyecto" className="services-cta__button">
             <span>{t('services.cta.button')}</span>
-
             <span className="services-cta__button-arrow" aria-hidden="true">
               →
             </span>
