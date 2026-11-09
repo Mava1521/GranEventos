@@ -17,6 +17,11 @@ import Experiences from './pages/Experiences';
 import Energy from './pages/Energy';
 import Tecnology from './pages/Tecnology';
 import Jobs from './pages/Jobs';
+import PowerPlants from './pages/PowerPlants';
+import ProjectDesign from './pages/ProjectDesign';
+import SaleGenerators from './pages/SaleGenerators';
+import Transformers from './pages/Transformers';
+import { Rotate3D } from 'lucide-react';
 
 export default function App() {
   return (
@@ -44,6 +49,10 @@ export default function App() {
           <Route path='/energia' element={<Energy/>}/>
           <Route path='/tecnologia' element={<Tecnology/>}/>
           <Route path='/Jobs' element={<Jobs/>} />
+          <Route path='/PowerPlants' element={<PowerPlants/>} />
+          <Route path='/ProjectDesign' element={<ProjectDesign/>} />
+          <Route path='/SaleGenerators' element={<SaleGenerators/>} />
+          <Route path='/Transformers' element={<Transformers/>} />
         </Routes>
       </main>
 

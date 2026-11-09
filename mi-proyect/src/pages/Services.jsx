@@ -155,7 +155,7 @@ export default function Services() {
                 </p>
 
                 <Link
-                  to="/contacto#cuentanos-tu-proyecto"
+                  to="/PowerPlants"
                   className="service-card__link"
                   aria-label={`${t('services.seeMore')} ${service.title}`}
                 >
