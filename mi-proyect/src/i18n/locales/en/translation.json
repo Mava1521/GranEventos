@@ -30,7 +30,14 @@
       "titleYellow": "ONE",
       "titleSplit": "SAME",
       "titleGreen": "ENERGY",
-      "description": "Combining our passion for creating experiences with energy engineering allows us to go further, be more efficient, and create a positive impact in every project."
+      "description": "Combining our passion for creating experiences with energy engineering allows us to go further, be more efficient, and create a positive impact in every project.",
+      "extraMessage": {
+        "line1": "WE LEAVE",
+        "line2": "A FOOTPRINT",
+        "line3": "WITHOUT",
+        "line4": "HARMING THE",
+        "line5": "PLANET"
+      }
     },
     "strengths": {
       "label": "OUR STRENGTHS",
@@ -94,11 +101,11 @@
       "subtextPart3": "unforgettable experiences."
     },
     "topMessage": {
-      "line1": "LEFT OUR",
-      "line2": "MARK",
+      "line1": "WE LEAVE",
+      "line2": "A FOOTPRINT",
       "line3": "WITHOUT",
-      "line4": "HARMING",
-      "line5": "THE PLANET"
+      "line4": "HARMING THE",
+      "line5": "PLANET"
     },
     "collage": {
       "ariaLabel": "Moments of our history",
@@ -506,11 +513,12 @@
       "title2": "IDEAS REAL.",
       "description": "At Gran Eventos and SETIE we are ready to listen to your ideas and support you through every stage of your project.",
       "alt": "Event production and energy solutions",
-      "side": {
-        "events": "EVENTS",
-        "industry": "INDUSTRY",
-        "communities": "COMMUNITIES",
-        "future": "A REAL FUTURE"
+      "extraMessage": {
+        "line1": "WE LEAVE",
+        "line2": "A FOOTPRINT",
+        "line3": "WITHOUT",
+        "line4": "HARMING THE",
+        "line5": "PLANET"
       }
     },
     "form": {
@@ -704,68 +712,97 @@
       "description": "Tell us your idea and our team will get in touch with you.",
       "button": "CONTACT"
     }
-  },"experiences": {
+  },
+  "corporate": {
     "hero": {
-      "kicker": "EXPERIENCES",
-      "title_line1": "BEHIND",
-      "title_line2": "EVERY EVENT,",
-      "title_line3": "THERE IS A GREAT",
-      "title_line4": "PROCESS.",
-      "description": "Learn how we bring every project to life through planning, setup, and the teamwork that drives us.",
-      "video_placeholder": "EXPERIENCES",
-      "play_video": "WATCH VIDEO",
-      "pause_video": "PAUSE VIDEO",
-      "aria_play": "Play video",
-      "aria_pause": "Pause video"
+      "eyebrow": "Corporate",
+      "title": "Corporate events with energy that",
+      "highlight": "brings your ideas to life.",
+      "description": "We provide reliable and customized energy solutions for corporate events, from conferences and product launches to major brand gatherings.",
+      "button": "Explore our projects",
+      "imageAlt": "Corporate conference with stage and audience"
     },
-    "process": {
-      "kicker": "THE PROCESS",
-      "title_line1": "FROM IDEA",
-      "title_line2": "TO STAGE.",
-      "description": "Every event is the result of meticulous planning, a committed team, and logistics that leave nothing to chance.",
-      "steps": {
-        "step1": {
-          "title": "PLANNING",
-          "description": "We analyze every detail to create the best experience."
+    "benefits": {
+      "eyebrow": "Why choose us?",
+      "title": "Energy solutions for",
+      "highlight": "your corporate events.",
+      "description": "We combine technology, experience and a specialized team to ensure the success of your event, providing a safe and efficient energy supply.",
+      "items": {
+        "energy": "Reliable energy at all times",
+        "technology": "State-of-the-art equipment",
+        "support": "Specialized support",
+        "environment": "Commitment to the environment"
+      }
+    },
+    "projects": {
+      "eyebrow": "Our projects",
+      "title": "Corporate events",
+      "subtitle": "trusted by",
+      "highlight": "our clients.",
+      "more": "View more projects",
+      "previous": "View previous projects",
+      "next": "View next projects",
+      "items": {
+        "congress": {
+          "title": "Ibero-American Festival",
+          "client": "Client: Deloitte",
+          "imageAlt": "Business congress with illuminated stage"
         },
-        "step2": {
-          "title": "SETUP",
-          "description": "Our technical team brings the production to life with precision and safety."
+        "launch": {
+          "title": "Cirque du Soleil",
+          "client": "Client: Samsung",
+          "imageAlt": "Product launch at a corporate event"
         },
-        "step3": {
-          "title": "TESTING",
-          "description": "We check sound, lights, video, and all systems for a flawless result."
-        },
-        "step4": {
-          "title": "EVENT",
-          "description": "Everything comes alive with a dedicated team present every step of the way."
-        },
-        "step5": {
-          "title": "RESULTS",
-          "description": "The best reward is the smiles of those who experience it."
+        "outdoor": {
+          "title": "Corporate Event",
+          "client": "Client: Coca-Cola",
+          "imageAlt": "Outdoor corporate event"
         }
       }
     },
-    "gallery": {
-      "kicker": "OUR EXPERIENCES",
-      "title_line1": "TAKE A LOOK BEHIND",
-      "title_line2": "THE SCENES.",
-      "description": "Explore some of our setup and production processes across different types of events.",
-      "aria_prev": "Previous experience",
-      "aria_next": "Next experience",
-      "aria_view": "View {{title}}",
-      "items": {
-        "item1": "GENERAL SETUP",
-        "item2": "STRUCTURE INSTALLATION",
-        "item3": "SOUND CHECKS",
-        "item4": "LIVE SHOW"
-      }
+    "clients": {
+      "eyebrow": "Clients who have trusted us"
     },
     "cta": {
-      "kicker": "READY TO EXPERIENCE",
-      "title": "IT ALL?",
-      "description": "Tell us your idea and our team will get in touch with you.",
-      "button": "CONTACT US"
+      "title": "Planning a corporate event?",
+      "description": "Let's work together to take your brand to the next level with",
+      "highlight": "limitless energy.",
+      "button": "Contact us",
+      "imageAlt": "Large event with professional stage lighting"
+    }
+  },
+  "zeroEnergy": {
+    "hero": {
+      "title": "Sustainability that drives great events",
+      "description": "Innovative energy solutions for a cleaner world and a brighter future.",
+      "button": "Discover our commitment"
+    },
+    "vision": {
+      "label": "OUR VISION",
+      "title": "Events and projects with zero",
+      "highlight": "emissions",
+      "description": "At Gran Eventos, we believe in the power of technology to create positive change. That is why we integrate clean and efficient energy solutions into every project.",
+      "slogan": "A real commitment"
+    },
+    "innovation": {
+      "title": "ENERGY INNOVATION FOR A",
+      "highlight": "BETTER WORLD",
+      "description": "We combine next-generation generators with solar energy to reduce emissions, optimize resources and protect the planet.",
+      "button": "Discover our solutions"
+    },
+    "process": {
+      "title": "HOW DO WE DRIVE CHANGE?"
+    },
+    "steps": {
+      "01": "We reduce emissions",
+      "02": "We optimize consumption",
+      "03": "We promote responsible events",
+      "04": "We build a sustainable future"
+    },
+    "closing": {
+      "title": "Together for a greener planet",
+      "description": "We keep moving towards a cleaner future, with responsible energy and commitment at every event.",
+      "button": "Let's talk about your next project"
     }
   },
   "energy": {
@@ -820,97 +857,36 @@
         "button": "Contact us"
       }
     },
-  "technology": {
+  "energySolutions": {
     "hero": {
-      "eyebrow": "TECHNOLOGY",
-      "title_line1": "TECHNOLOGY THAT",
-      "title_line2": "DRIVES MAJOR",
-      "title_line3": "EVENTS.",
-      "description": "At Gran Eventos we combine state-of-the-art equipment with smart energy solutions to guarantee a reliable, safe, and efficient supply for every event.",
-      "benefit1_line1": "Reliable power",
-      "benefit1_line2": "at all times",
-      "benefit2_line1": "State-of-the-art",
-      "benefit2_line2": "equipment",
-      "benefit3_line1": "Specialized technical",
-      "benefit3_line2": "support",
-      "alt_hero_img": "Gran Eventos power generator powering an event stage",
-      "message_line1": "TECHNOLOGY",
-      "message_line2": "+ EXPERIENCE",
-      "message_line3": "= UNLIMITED EVENTS."
+      "label": "OUR FORMULA",
+      "title": "SOLUTIONS THAT ADAPT TO YOUR NEEDS",
+      "description": "We design, implement and manage tailored energy solutions to ensure your event or project never stops.",
+      "button": "Discover our formula"
     },
-    "generation": {
-      "eyebrow": "OUR TECHNOLOGIES",
-      "title_line1": "STATE-OF-THE-ART",
-      "title_line2": "PLANTS AND GENERATORS.",
-      "description": "We have high-capacity power plants and diesel generators designed to provide optimal performance, low fuel consumption, and maximum safety, even under high demand.",
-      "feature1_line1": "High power",
-      "feature1_line2": "and performance",
-      "feature2_line1": "Real-time monitoring",
-      "feature2_line2": "systems",
-      "feature3_line1": "Low fuel",
-      "feature3_line2": "consumption",
-      "button": "LEARN MORE",
-      "alt_gen_img": "Gran Eventos power generator installed next to the stage"
+    "services": {
+      "title": "YOUR EVENT, OUR ENERGY",
+      "description": "We combine power generation, solar energy, storage and distribution to provide you with an integrated, efficient and sustainable solution.",
+      "link": "Explore technology",
+      "generator": "Power generators",
+      "solar": "Solar panels",
+      "battery": "Battery storage",
+      "distribution": "Wiring and distribution"
     },
-    "clean_energy": {
-      "eyebrow": "CLEAN ENERGY",
-      "title_line1": "CLEAN AND EFFICIENT",
-      "title_line2": "ENERGY",
-      "description": "Our equipment is engineered to be more efficient and lower environmental impact without compromising power or safety.",
-      "feature1_line1": "Lower gas",
-      "feature1_line2": "emissions",
-      "feature2_line1": "Responsible fuel",
-      "feature2_line2": "usage",
-      "feature3_line1": "Proper waste",
-      "feature3_line2": "management"
+    "realSolutions": {
+      "title": "More than equipment, real solutions",
+      "description": "We support you at every stage, from site assessment to installation, operation and dismantling.",
+      "link": "Discover our process"
     },
-    "solar": {
-      "alt_solar_img": "Solar panels next to a stage at sunset",
-      "eyebrow": "SOLAR ENERGY",
-      "title_line1": "THE POWER OF THE SUN",
-      "title_line2": "IS ALSO PART OF",
-      "title_line3": "THE SHOW.",
-      "description": "We use solar panels to supplement the power supply at events, reducing fuel consumption and environmental impact.",
-      "feature1": "Renewable energy",
-      "feature2_line1": "Silent",
-      "feature2_line2": "operation",
-      "feature3_line1": "Ideal for outdoor",
-      "feature3_line2": "events",
-      "system": {
-        "eyebrow": "HOW DO THEY WORK TOGETHER?",
-        "description": "Solar energy and diesel generators work together to guarantee a continuous, stable, and efficient supply.",
-        "panels_title": "Solar panels",
-        "panels_sub": "Generation and charging",
-        "management_title": "Management system",
-        "management_sub": "Distributes energy automatically",
-        "diesel_title": "Diesel plants",
-        "diesel_sub": "Backup and continuity"
-      }
-    },
-    "infrastructure": {
-      "alt_cables_img": "Electrical wiring distributed at a live event",
-      "alt_conn_img": "Electrical connections of a generator plant",
-      "eyebrow": "SMART INFRASTRUCTURE",
-      "title_line1": "CONNECTIVITY AND POWER",
-      "title_line2": "DISTRIBUTION",
-      "description": "We install and manage the entire electrical cabling system, ensuring safe and efficient power distribution at every point of the event.",
-      "feature1_line1": "Operational",
-      "feature1_line2": "safety",
-      "feature2_line1": "Strategic",
-      "feature2_line2": "distribution",
-      "feature3_line1": "Fast and professional",
-      "feature3_line2": "assembly"
-    },
-    "cta": {
-      "eyebrow": "TECHNOLOGY THAT GIVES YOU PEACE OF MIND",
-      "title_line1": "YOUR EVENT,",
-      "title_line2": "OUR ENERGY.",
-      "description": "Technology is the engine that allows us to connect big ideas with the energy that makes them happen.",
-      "button": "CONTACT US",
-      "service1": "DIESEL PLANTS",
-      "service2": "SOLAR ENERGY",
-      "service3_line1": "WIRING AND",
-      "service3_line2": "DISTRIBUTION"
+    "solutions": {
+      "label": "Our solutions",
+      "title": "Technology that adapts to your needs",
+      "description": "We integrate different energy sources to provide efficient solutions that are responsible towards the environment.",
+      "button": "Explore our solutions",
+      "generator": "Power generators",
+      "solar": "Solar panels",
+      "battery": "Battery storage",
+      "hybrid": "Hybrid solutions"
     }
   },
   "jobs": {

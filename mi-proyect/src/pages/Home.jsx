@@ -134,11 +134,11 @@ export default function Home() {
           {/* MENSAJE ADICIONAL DUPLICADO (ALINEADO Y DEBAJO DEL PÁRRAFO) */}
           <div className="ge-home-story-extra-message">
             <div className="gold-line"></div>
-            <p>{t('home.story.extraMessage.line1', 'DEJAMOS')}</p>
-            <p>{t('home.story.extraMessage.line2', 'HUELLA')}</p>
-            <p>{t('home.story.extraMessage.line3', 'SIN')}</p>
-            <p>{t('home.story.extraMessage.line4', 'DAÑAR AL')}</p>
-            <p>{t('home.story.extraMessage.line5', 'PLANETA')}</p>
+            <p>{t('home.story.extraMessage.line1')}</p>
+            <p>{t('home.story.extraMessage.line2')}</p>
+            <p>{t('home.story.extraMessage.line3')}</p>
+            <p>{t('home.story.extraMessage.line4')}</p>
+            <p>{t('home.story.extraMessage.line5')}</p>
           </div>
         </div>
 
@@ -173,91 +173,113 @@ export default function Home() {
             {/* CARDS */}
             <div className="strengths-grid">
 
-              {/* CARD 01 (Energía) */}
-              <Link to="/energia" className="strength-card strengths-card-green" style={{ textDecoration: 'none' }}>
-                <div className="strength-card-media">
-                  <img src={Energia} alt="" width={500} height={300} />
+              {/* CARD 01 — CONEXIÓN */}
+              <Link
+                to="/energia"
+                className="strength-card strength-card--connection"
+                aria-label={`${t('home.strengths.cards.02.title')}: ${t('home.strengths.cards.02.cta')}`}
+              >
+                <div className="strength-card__image">
+                  <img
+                    src={Energia}
+                    alt="Generador de energía de Gran Eventos"
+                    width={500}
+                    height={300}
+                    loading="lazy"
+                  />
                 </div>
 
-                <div className="strength-card-gradient"></div>
+                <div className="strength-card__content">
+                  <h3>
+                    <span>{t('home.strengths.cards.02.title')}</span>
+                  </h3>
 
-                <div className="strength-card-content">
-                  <div className="strength-card-top"></div>
+                  <p>
+                    {t('home.strengths.cards.02.description')}
+                  </p>
 
-                  <div className="strength-card-bottom">
-                    <h3><span className="text-gold">{t('home.strengths.cards.02.title')}</span></h3>
+                  <span className="strength-card__link">
+                    <span>{t('home.strengths.cards.02.cta')}</span>
 
-                    <p>
-                      {t('home.strengths.cards.02.description')}
-                    </p>
-
-                    <span className="strength-card-link2">
-                      <span>{t('home.strengths.cards.02.cta')}</span>
-                      <span className="strength-arrow">
-                        <ArrowRight size={20} strokeWidth={1.8} />
-                      </span>
+                    <span className="strength-card__arrow" aria-hidden="true">
+                      <ArrowRight size={17} strokeWidth={1.6} />
                     </span>
-                  </div>
+                  </span>
                 </div>
               </Link>
 
-              {/* CARD 02 (Tecnología) */}
-              <Link to="/tecnologia" className="strength-card strengths-card-green" style={{ textDecoration: 'none' }}>
-                <div className="strength-card-media">
-                  <img src={Tecnologia} alt="" width={500} height={300} />
+              {/* CARD 02 — ZERO */}
+              <Link
+                to="/tecnologia"
+                className="strength-card strength-card--zero"
+                aria-label={`${t('home.strengths.cards.03.title')}: ${t('home.strengths.cards.03.cta')}`}
+              >
+                <div className="strength-card__image">
+                  <img
+                    src={Tecnologia}
+                    alt="Soluciones tecnológicas sostenibles en un entorno natural"
+                    width={500}
+                    height={300}
+                    loading="lazy"
+                  />
                 </div>
 
-                <div className="strength-card-gradient"></div>
+                <div className="strength-card__content">
+                  <h3>
+                    <span>{t('home.strengths.cards.03.title')}</span>
+                  </h3>
 
-                <div className="strength-card-content">
-                  <div className="strength-card-top"></div>
+                  <p>
+                    {t('home.strengths.cards.03.description')}
+                  </p>
 
-                  <div className="strength-card-bottom">
-                    <h3><span className="green-point">{t('home.strengths.cards.03.title')}</span></h3>
+                  <span className="strength-card__link">
+                    <span>{t('home.strengths.cards.03.cta')}</span>
 
-                    <p>
-                      {t('home.strengths.cards.03.description')}
-                    </p>
-
-                    <span className="strength-card-link">
-                      <span>{t('home.strengths.cards.03.cta')}</span>
-                      <span className="strength-arrow">
-                        <ArrowRight size={20} strokeWidth={1.8} />
-                      </span>
+                    <span className="strength-card__arrow" aria-hidden="true">
+                      <ArrowRight size={17} strokeWidth={1.6} />
                     </span>
-                  </div>
+                  </span>
                 </div>
               </Link>
 
-              {/* CARD 03 (Experiencias) */}
-              <Link to="/experiencias" className="strength-card strengths-card-gold" style={{ textDecoration: 'none' }}>
-                <div className="strength-card-media">
-                  <img src={Experiencias} alt="" width={500} height={300} />
+              {/* CARD 03 — FÓRMULA */}
+              <Link
+                to="/experiencias"
+                className="strength-card strength-card--formula"
+                aria-label={`${t('home.strengths.cards.01.title')}: ${t('home.strengths.cards.01.cta')}`}
+              >
+                <div className="strength-card__image">
+                  <img
+                    src={Experiencias}
+                    alt="Público disfrutando de un evento musical"
+                    width={500}
+                    height={300}
+                    loading="lazy"
+                  />
                 </div>
 
-                <div className="strength-card-gradient"></div>
+                <div className="strength-card__content">
+                  <h3>
+                    <span>{t('home.strengths.cards.01.title')}</span>
+                  </h3>
 
-                <div className="strength-card-content">
-                  <div className="strength-card-top"></div>
-                 
-                  <div className="strength-card-bottom">
-                    <h3><span className="text-blue">{t('home.strengths.cards.01.title')}</span></h3>
+                  <p>
+                    {t('home.strengths.cards.01.description')}
+                  </p>
 
-                    <p>
-                      {t('home.strengths.cards.01.description')}
-                    </p>
+                  <span className="strength-card__link">
+                    <span>{t('home.strengths.cards.01.cta')}</span>
 
-                    <span className="strength-card-link">
-                      <span>{t('home.strengths.cards.01.cta')}</span>
-                      <span className="strength-arrow">
-                        <ArrowRight size={20} strokeWidth={1.8} />
-                      </span>
+                    <span className="strength-card__arrow" aria-hidden="true">
+                      <ArrowRight size={17} strokeWidth={1.6} />
                     </span>
-                  </div>
+                  </span>
                 </div>
               </Link>
 
             </div>
+
           </div>
         </section>
       </div>

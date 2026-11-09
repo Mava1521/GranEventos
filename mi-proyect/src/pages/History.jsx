@@ -102,37 +102,42 @@ export default function History() {
             className="history-collage"
             aria-label={t('history.collage.ariaLabel')}
           >
-            {localizedTimelineData.map((item, index) => (
-              <button
-                type="button"
-                key={item.id}
-                className={[
-                  'collage-item',
-                  `collage-item-${index + 1}`,
-                  item.id === activeTimelineId ? 'collage-item--active' : '',
-                ].filter(Boolean).join(' ')}
-                onMouseEnter={() => handleActivateEvent(item)}
-                onFocus={() => handleActivateEvent(item)}
-                onClick={() => handleOpenModal(item)}
-                aria-label={t('history.collage.buttonAria', {
-                  year: item.year,
-                  title: item.title,
-                })}
-                aria-pressed={item.id === activeTimelineId}
-              >
-                <img 
-                  src={item.image} 
-                  alt={`${item.year} ${item.title}`} 
-                  className="collage-image" 
-                  loading={index < 3 ? 'eager' : 'lazy'}
-                />
+            {localizedTimelineData.map((item, index) => {
+              const isGreenYear = Number(item.year) >= 2023;
 
-                <span className="collage-overlay">
-                  <span className="collage-year">{item.year}</span>
-                  <span className="collage-title">{item.title}</span>
-                </span>
-              </button>
-            ))}
+              return (
+                <button
+                  type="button"
+                  key={item.id}
+                  className={[
+                    'collage-item',
+                    `collage-item-${index + 1}`,
+                    item.id === activeTimelineId ? 'collage-item--active' : '',
+                    isGreenYear ? 'collage-item--green' : '',
+                  ].filter(Boolean).join(' ')}
+                  onMouseEnter={() => handleActivateEvent(item)}
+                  onFocus={() => handleActivateEvent(item)}
+                  onClick={() => handleOpenModal(item)}
+                  aria-label={t('history.collage.buttonAria', {
+                    year: item.year,
+                    title: item.title,
+                  })}
+                  aria-pressed={item.id === activeTimelineId}
+                >
+                  <img 
+                    src={item.image} 
+                    alt={`${item.year} ${item.title}`} 
+                    className="collage-image" 
+                    loading={index < 3 ? 'eager' : 'lazy'}
+                  />
+
+                  <span className="collage-overlay">
+                    <span className="collage-year">{item.year}</span>
+                    <span className="collage-title">{item.title}</span>
+                  </span>
+                </button>
+              );
+            })}
           </section>
         </section>
 

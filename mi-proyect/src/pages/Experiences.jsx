@@ -12,6 +12,8 @@ import {
 
 import { useTranslation } from "react-i18next";
 import "../styles/Experiences.css";
+import PanelSol from '../assets/PanleSol.jpg';
+import FormulaHero from '../assets/FormulaHero.jpeg';
 
 const Formula = () => {
   const { t } = useTranslation();
@@ -35,24 +37,26 @@ const Formula = () => {
     }
   ];
 
+  
   const solutions = [
     {
       icon: <Factory />,
-      title: t("energySolutions.cards.generator")
+      title: t("energySolutions.solutions.generator")
     },
     {
       icon: <Sun />,
-      title: t("energySolutions.cards.solar")
+      title: t("energySolutions.solutions.solar")
     },
     {
       icon: <BatteryCharging />,
-      title: t("energySolutions.cards.battery")
+      title: t("energySolutions.solutions.battery")
     },
     {
       icon: <Leaf />,
-      title: t("energySolutions.cards.hybrid")
+      title: t("energySolutions.solutions.hybrid")
     }
   ];
+
 
   return (
     <main className="formula-page">
@@ -61,7 +65,12 @@ const Formula = () => {
           01. HERO
       ================================= */}
 
-      <section className="formula-hero">
+      <section
+        className="formula-hero"
+        style={{
+          "--formula-hero-image": `url("${FormulaHero}")`
+        }}
+      >
 
         <div className="formula-container formula-hero__inner">
 
@@ -154,8 +163,13 @@ const Formula = () => {
       ================================= */}
 
       <section className="formula-real-solutions">
-
-        <div className="formula-real-solutions__background" />
+        <div
+          className="formula-real-solutions__background"
+          style={{
+            "--formula-real-image": `url("${PanelSol}")`
+          }}
+          aria-hidden="true"
+        />
 
         <div className="formula-container formula-real-solutions__inner">
 

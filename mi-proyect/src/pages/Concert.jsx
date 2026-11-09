@@ -28,26 +28,50 @@ const serviceKeys = [
 const projects = [
   {
     id: 1,
-    title: 'ELECTRO FEST 2024',
+    title: 'BRUNO MARS',
     location: 'Bogotá, 2024',
     image: Card1,
   },
   {
     id: 2,
-    title: 'VIVE LATINO',
+    title: 'MADONNA',
     location: 'Bogotá, 2023',
     image: Concertt,
   },
   {
     id: 3,
-    title: 'COLOMBIA AL PARQUE',
+    title: 'BEYONCE',
     location: 'Bogotá, 2022',
     image: FOTO4,
   },
   {
     id: 4,
-    title: 'ROCK AL PARQUE',
+    title: 'THE WEEKEND',
     location: 'Bogotá, 2021',
+    image: FOTO5,
+  },
+  {
+    id: 5,
+    title: 'COLDPLAY',
+    location: 'Bogotá, 2021',
+    image: FOTO5,
+  },
+  {
+    id: 6,
+    title: 'KAROL G',
+    location: 'Bogotá, 2022',
+    image: FOTO4,
+  },
+  {
+    id: 7,
+    title: 'SHAKIRA',
+    location: 'Bogotá, 2021',
+    image: FOTO5,
+  },
+  {
+    id: 8,
+    title: 'BTS',
+    location: 'Bogotá, 2026',
     image: FOTO5,
   },
 ];
@@ -193,43 +217,6 @@ export default function Concert() {
               {t('concert.hero.discoverBtn')}
               <span aria-hidden="true">→</span>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ======================================================
-          SERVICIOS
-      ====================================================== */}
-      <section className="concert-services">
-        <div className="concert-container">
-          <header className="concert-section-header">
-            <div className="concert-section-header__title">
-              <div className="concert-label">
-                <span>/</span>
-                {t('concert.services.eyebrow')}
-              </div>
-              <h2>
-                {t('concert.services.title')}<span>.</span>
-              </h2>
-            </div>
-
-            <div className="concert-section-header__description">
-              <p>
-                {t('concert.services.description')}
-              </p>
-            </div>
-          </header>
-
-          <div className="concert-services-grid">
-            {serviceKeys.map((item) => (
-              <article className="concert-service-card" key={item.id}>
-                <div className="concert-service-card__icon">
-                  <ConcertIcon type={item.icon} />
-                </div>
-                <h3>{t(`concert.services.items.${item.key}.title`)}</h3>
-                <p>{t(`concert.services.items.${item.key}.description`)}</p>
-              </article>
-            ))}
           </div>
         </div>
       </section>

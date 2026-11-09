@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -9,6 +8,7 @@ export default function TimelineItem({
   onSelect,
 }) {
   const { t } = useTranslation();
+  const isGreenYear = Number(event.year) >= 2023;
 
   const handleClick = (e) => {
     e.stopPropagation();
@@ -24,6 +24,7 @@ export default function TimelineItem({
       className={[
         'timeline-item',
         isActive ? 'timeline-item--active' : '',
+        isGreenYear ? 'timeline-item--green' : '',
       ].filter(Boolean).join(' ')}
       onMouseEnter={handleActivate}
       onFocusCapture={handleActivate}

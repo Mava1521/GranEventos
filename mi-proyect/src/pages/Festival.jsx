@@ -14,12 +14,26 @@ const projects = [
     image: stereo,
   },
   {
-    title: 'VIVE LATINO',
+    title: 'CORDILLERA',
     location: 'Bogotá, 2023',
     image: vive,
   },
   {
-    title: 'COLOMBIA AL PARQUE',
+    title: 'RITUALES',
+    location: 'Bogotá, 2022',
+    image: colombia,
+  },{
+    title: 'EDC',
+    location: 'Bogotá, 2024',
+    image: stereo,
+  },
+  {
+    title: 'BAUM FESTIVAL',
+    location: 'Bogotá, 2023',
+    image: vive,
+  },
+  {
+    title: 'VASSAR',
     location: 'Bogotá, 2022',
     image: colombia,
   },

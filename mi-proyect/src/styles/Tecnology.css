@@ -14,7 +14,7 @@
   overflow: hidden;
   background: #fff;
   color: var(--tech-text);
-  font-family: inherit;
+  font-family: 'Inter', sans-serif;
 }
 
 .technology-container {
@@ -61,37 +61,56 @@
 /* =========================================
    02. HERO
 ========================================= */
-
 .technology-hero {
   position: relative;
   min-height: 440px;
   display: flex;
   align-items: center;
-  background:
+  overflow: hidden;
+
+  background-color: #10140d;
+  background-image:
     linear-gradient(
       90deg,
-      rgba(5, 8, 4, .94) 0%,
-      rgba(5, 8, 4, .80) 42%,
-      rgba(5, 8, 4, .20) 100%
+      rgba(5, 8, 4, .95) 0%,
+      rgba(5, 8, 4, .82) 38%,
+      rgba(5, 8, 4, .30) 68%,
+      rgba(5, 8, 4, .08) 100%
     ),
-    url("/images/technology/hero.jpg") center 48% / cover no-repeat,
-    #172015;
+    var(--technology-hero-image);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   color: white;
 }
 
 .technology-hero__content {
   position: relative;
+  z-index: 2;
+
+  /* Misma alineación horizontal del Navbar */
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  min-height: inherit;
-  padding-block: 65px;
+
+  min-height: 440px;
+
+  padding: 150px 64px;
+
+  box-sizing: border-box;
 }
 
 .technology-hero__text {
   position: relative;
   z-index: 2;
+
   width: min(48%, 490px);
+  margin: 0;
 }
 
 .technology-brand {
@@ -292,10 +311,21 @@
 .technology-innovation__image {
   position: absolute;
   inset: 0 0 0 48%;
-  background:
-    linear-gradient(90deg, #11150f 0%, transparent 45%),
-    url("/images/technology/energy.jpg") center / cover no-repeat,
-    #52652e;
+
+  background-color: #52652e;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(17, 21, 15, .55) 0%,
+      transparent 38%
+    ),
+    var(--technology-innovation-image);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  clip-path: polygon(23% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .technology-innovation__inner {
@@ -415,15 +445,22 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  background:
+
+  background-color: #172415;
+  background-image:
     linear-gradient(
       90deg,
-      rgba(8, 15, 6, .95) 0%,
-      rgba(8, 15, 6, .87) 48%,
-      rgba(8, 15, 6, .20) 100%
+      rgba(8, 15, 6, .96) 0%,
+      rgba(8, 15, 6, .86) 42%,
+      rgba(8, 15, 6, .30) 75%,
+      rgba(8, 15, 6, .10) 100%
     ),
-    url("/images/technology/closing.jpg") center / cover no-repeat,
-    #172415;
+    var(--technology-closing-image);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   color: white;
 }
 
@@ -436,9 +473,7 @@
 }
 
 .technology-closing__content {
-  position: relative;
-  z-index: 2;
-  width: 55%;
+  width: 100%;
 }
 
 .technology-closing__content h2 {
@@ -478,6 +513,15 @@
 ========================================= */
 
 @media (max-width: 900px) {
+
+  .technology-hero__content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .technology-hero__text {
+    width: 100%;
+  }
 
   .technology-container {
     width: 90%;

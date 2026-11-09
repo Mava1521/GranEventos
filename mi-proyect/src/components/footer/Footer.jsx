@@ -56,13 +56,13 @@ export default function Footer() {
         </div>
 
         {/* COLUMNA 2 - NAVEGACIÓN (Simétrica y tipografía unificada) */}
-        <nav className="footer-navigation" aria-label={t('footer.aria.navigation')}>
-          <Link to="/historia">{t('footer.nav.about')}</Link>
-          <Link to="/nuevas-tecnologias">{t('footer.nav.projects')}</Link>
-          <Link to="/servicios">{t('footer.nav.services')}</Link>
-          <Link to="/sostenibilidad">{t('footer.nav.sustainability')}</Link>
-          <Link to="/contacto">{t('footer.nav.contact')}</Link>
-          <Link to="/Jobs">
+       <nav className="footer-navigation" aria-label={t('footer.aria.navigation')}>
+          <Link to="/historia" className="footer-link-item">{t('footer.nav.about')}</Link>
+          <Link to="/nuevas-tecnologias" className="footer-link-item">{t('footer.nav.projects')}</Link>
+          <Link to="/servicios" className="footer-link-item">{t('footer.nav.services')}</Link>
+          <Link to="/sostenibilidad" className="footer-link-item footer-link-sostenibilidad">{t('footer.nav.sustainability')}</Link>
+          <Link to="/contacto" className="footer-link-item">{t('footer.nav.contact')}</Link>
+          <Link to="/Jobs" className="footer-link-item">
             {t('footer.nav.jobs', 'TRABAJA CON NOSOTROS')}
           </Link>
         </nav>
@@ -73,7 +73,7 @@ export default function Footer() {
 
           <div className="footer-social-links">
             <a
-              href="#instagram"
+              href="https://www.instagram.com/graneventos_col/"
               aria-label="Instagram"
               className="footer-social-link"
               target="_blank"

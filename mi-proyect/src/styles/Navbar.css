@@ -43,7 +43,7 @@
 .navbar-inner,
 .navbar-contact,
 .navbar-projects {
-  position: relative;
+  position: absolute;
  /* background-color: #0b0b0b;*/
 }
 
@@ -311,8 +311,7 @@
       EXPERIENCES NAVBAR
       ========================================================= */
       .navbar-experiences {
-        position: relative;
-        background-color: #ffffff; /* O el color de fondo de la cabecera */
+        position: absolute;
       }
 
       .navbar-experiences .nav-item {
@@ -331,16 +330,15 @@
         ENERGY NAVBAR
         ========================================================= */
         .navbar-energy {
-          position: relative;
-          background-color: #ffffff; 
+          position: absolute;
         }
 
         .navbar-energy .nav-item {
-          color: #222222;
+          color: #ffffff;
         }
 
         .navbar-energy .lang-selector button {
-          color: #222222;
+          color: #ffffff;
         }
 
         .navbar-energy .lang-selector button.active {
@@ -353,18 +351,16 @@
 
         .navbar.navbar-technology,
         .navbar.navbar-tecnology {
-          position: relative;
+          position: absolute;
           top: auto;
           left: auto;
           width: 100%;
-          background-color: #ffffff;
           z-index: 100;
-          border-bottom: 1px solid #e2e4e6;
         }
 
         .navbar.navbar-technology .nav-item,
         .navbar.navbar-tecnology .nav-item {
-          color: #222222;
+          color: #ffffff;
         }
 
         .navbar.navbar-technology .nav-item:hover,
@@ -374,7 +370,7 @@
 
         .navbar.navbar-technology .lang-selector button,
         .navbar.navbar-tecnology .lang-selector button {
-          color: #222222;
+          color: #ffffff;
         }
 
         .navbar.navbar-technology .lang-selector button.active,

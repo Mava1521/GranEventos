@@ -1747,35 +1747,27 @@
 
   .ge-modal-stat-value {
     color: #111111;
-
     font-size: 19px;
     font-weight: 800;
   }
 
   .ge-modal-stat-label {
     margin-top: 3px;
-
     color: #888888;
-
     font-size: 7px;
     line-height: 1.25;
   }
 
   .ge-modal-footer {
     margin-top: 22px;
-
     padding: 16px 0 0;
-
     border-top: 1px solid #ded9cb;
-
     color: #8a8a8a;
-
     font-size: 9px;
   }
 
   .ge-modal-footer-icon {
     color: #c4a300;
-
     font-size: 16px;
   }
 
@@ -1873,7 +1865,7 @@
   font-family: "Oswald", sans-serif;
   font-size: clamp(27px, 8vw, 38px);
   font-weight: 900;
-  line-height: 1;
+  line-height: 1.2;
   text-transform: uppercase;
   color: #fff;
 }
@@ -1973,6 +1965,64 @@
 .history-page .timeline-card:focus-visible {
   outline: 2px solid #f4c400;
   outline-offset: 4px;
+}
+
+/* =========================================================
+   ESTILOS ESPECÍFICOS A PARTIR DE 2023 (VERDE / SETIE)
+   ========================================================= */
+
+/* --- Collage: Hover y Estado Activo en Verde --- */
+.history-page .history-collage .collage-item.collage-item--green:hover {
+  outline: 2px solid var(--history-green);
+  box-shadow: 0 20px 40px rgba(157, 196, 37, 0.38);
+}
+
+.history-page .history-collage .collage-item.collage-item--green.collage-item--active {
+  outline: 2px solid var(--history-green);
+  box-shadow: 0 0 22px rgb(157 196 37 / 28%);
+}
+
+.history-page .history-collage .collage-item.collage-item--green.collage-item--active .collage-year {
+  color: var(--history-green);
+}
+
+.history-page .history-collage .collage-item.collage-item--green:focus-visible {
+  outline: 3px solid var(--history-green);
+  outline-offset: 4px;
+}
+
+
+/* --- Timeline / Línea de Tiempo: Elementos a partir de 2023 en Verde --- */
+.history-page .timeline-item.timeline-item--green .timeline-dot span {
+  background: var(--history-green);
+}
+
+.history-page .timeline-item.timeline-item--green.timeline-item--active .timeline-dot > span {
+  background-color: var(--history-green);
+  transform: scale(1.25);
+}
+
+.history-page .timeline-item.timeline-item--green.timeline-item--active .timeline-year {
+  color: var(--history-green);
+}
+
+.history-page .timeline-item.timeline-item--green.timeline-item--active .timeline-card {
+  border-color: var(--history-green);
+  box-shadow: 0 8px 26px rgb(157 196 37 / 18%);
+}
+
+.history-page .timeline-item.timeline-item--green .timeline-year-button:focus-visible,
+.history-page .timeline-item.timeline-item--green .timeline-card:focus-visible {
+  outline: 2px solid var(--history-green);
+  outline-offset: 4px;
+}
+
+/* Hover de tarjetas en la línea de tiempo para años >= 2023 */
+@media (hover: hover) and (pointer: fine) {
+  .history-page .timeline-item.timeline-item--green:not(.timeline-item--active)
+    .timeline-card:hover {
+    border-color: rgb(157 196 37 / 55%);
+  }
 }
 
 /* Hover únicamente en dispositivos que realmente lo admiten */

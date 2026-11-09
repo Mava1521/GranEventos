@@ -2,10 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap');
 
 /* =========================================================
-   1. VARIABLES GLOBALES Y RESETEO
+   01. VARIABLES Y CONFIGURACIÓN
    ========================================================= */
 
-:root {
+.wrapper {
   --bg-dark: #070707;
   --bg-light-section: #eef0f2;
   --text-dark-theme: #ffffff;
@@ -14,344 +14,379 @@
   --text-muted-light: #555555;
   --accent-gold: #fdd000;
   --accent-green: #9dc425;
+  --accent-blue: #303887;
   --font-condensed: 'Oswald', sans-serif;
-  --font-body: 'Inter', -apple-system, sans-serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: var(--bg-dark);
-  color: var(--text-dark-theme);
-  font-family: var(--font-body);
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* =========================================================
-   2. ESTRUCTURA GENERAL
-   ========================================================= */
-
-.wrapper {
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   width: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;
+  overflow-x: clip;
+  background-color: var(--bg-dark);
+  color: var(--text-dark-theme);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
-.container {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 40px;
+.wrapper *,
+.wrapper *::before,
+.wrapper *::after {
+  box-sizing: border-box;
+}
+
+.wrapper img,
+.wrapper video {
+  max-width: 100%;
 }
 
 /* =========================================================
-   3. NAVBAR
+   02. CONTENEDOR GENERAL
    ========================================================= */
 
-.navbar {
+.wrapper .container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 40px;
+}
+
+/* =========================================================
+   03. NAVEGACIÓN
+   Estos estilos solo afectan el navbar dentro de Home.
+   ========================================================= */
+
+.wrapper .navbar {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   z-index: 10;
-  padding: 32px 60px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  width: 100%;
+  padding: 32px 60px;
 }
 
-.brand-logos {
+.wrapper .brand-logos {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-.logo-placeholder {
-  border: 1px dashed rgba(255, 255, 255, 0.25);
+.wrapper .logo-placeholder {
   padding: 6px 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+
   color: #ffffff;
   letter-spacing: 0.8px;
 }
 
-.nav-links {
+.wrapper .nav-links {
   display: flex;
   align-items: center;
   gap: 40px;
   list-style: none;
 }
 
-.nav-item-wrapper {
+.wrapper .nav-item-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.nav-item {
+.wrapper .nav-item {
+  padding-bottom: 6px;
+
   color: #ffffff;
-  text-decoration: none;
   font-size: 0.75rem;
   letter-spacing: 1.5px;
+  text-decoration: none;
+
   transition: color 0.2s ease;
-  padding-bottom: 6px;
 }
 
-.nav-item:hover {
+.wrapper .nav-item:hover {
   color: var(--accent-gold);
 }
 
-.active-indicator {
+.wrapper .active-indicator {
   position: absolute;
   bottom: -4px;
+
   width: 100%;
   height: 2px;
+
   background-color: var(--accent-gold);
 }
 
-.lang-selector {
+.wrapper .lang-selector {
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 1px;
 }
 
-.lang-selector span.active {
+.wrapper .lang-selector span.active {
   color: var(--accent-gold);
 }
 
 /* =========================================================
-   4. HERO PRINCIPAL
+   04. HERO PRINCIPAL
    ========================================================= */
 
-.hero-section {
+.wrapper .hero-section {
   position: relative;
-  width: 100vw;
   left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  min-height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  width: 100vw;
+  min-height: 100vh;
+  margin-left: -50vw;
+  padding: 0;
+
   overflow: hidden;
   background-color: #000000;
-  padding: 0;
 }
 
-.hero-video-bg {
+.wrapper .hero-video-bg {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  z-index: 1;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
   object-position: center;
-  z-index: 1;
 }
 
-.hero-overlay {
+.wrapper .hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  z-index: 2;
+
   width: 100%;
   height: 100%;
+
   background: rgba(0, 0, 0, 0.55);
-  z-index: 2;
 }
 
-.hero-center-content {
+.wrapper .hero-center-content {
   position: relative;
   z-index: 5;
-  text-align: center;
+
   max-width: 900px;
-  padding: 0 20px;
   margin-top: 60px;
+  padding-inline: 20px;
+
+  text-align: center;
 }
 
-.hero-title-centered {
+.wrapper .hero-title-centered {
+  margin-bottom: 20px;
+
+  color: #ffffff;
   font-family: var(--font-body);
   font-size: 2.8rem;
   font-weight: 600;
   line-height: 1.25;
-  color: #ffffff;
   letter-spacing: -0.5px;
-  margin-bottom: 20px;
+
   text-transform: uppercase;
 }
 
-.hero-subtext-centered {
+.wrapper .hero-subtext-centered {
+  margin-bottom: 32px;
+
+  color: rgba(255, 255, 255, 0.85);
   font-family: var(--font-body);
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-  margin-bottom: 32px;
   font-weight: 400;
+  line-height: 1.6;
 }
 
-.btn-outlined {
-  display: inline-block;
-  padding: 12px 32px;
-  border: 1.5px solid #ffffff;
-  border-radius: 4px;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  background: transparent;
-}
-
-.btn-outlined:hover {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-.hero-content-left {
+.wrapper .hero-content-left {
   position: relative;
   z-index: 5;
-  text-align: left;
+
   max-width: 850px;
+  margin-left: 0;
   padding-top: 120px;
   padding-bottom: 40px;
-  margin-left: 0;
+
+  text-align: left;
 }
 
-.hero-title-oswald {
+.wrapper .hero-title-oswald {
+  margin-bottom: 20px;
+  padding-left: 0;
+
+  color: #ffffff;
   font-family: var(--font-condensed);
   font-size: 3.8rem;
   font-weight: 700;
   line-height: 1.05;
-  color: #ffffff;
   letter-spacing: 0.5px;
+
   text-transform: uppercase;
-  margin-bottom: 20px;
-  margin-left: 0;
-  padding-left: 0;
 }
 
-.hero-subtext-left {
+.wrapper .hero-subtext-left {
+  margin-bottom: 32px;
+
+  color: rgba(255, 255, 255, 0.85);
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-  margin-bottom: 32px;
   font-weight: 400;
+  line-height: 1.6;
 }
 
-.text-gold {
+.wrapper .text-gold {
   color: var(--accent-gold);
 }
 
-.text-blue {
-  color: #2e3182;
+.wrapper .text-blue {
+  color: var(--accent-blue);
 }
 
-.gold-line {
+.wrapper .gold-line {
   width: 44px;
   height: 4px;
-  background-color: var(--accent-gold);
-  border-radius: 1px;
   margin-bottom: 20px;
+
+  border-radius: 1px;
+  background-color: var(--accent-gold);
 }
 
-.btn-cta-gold {
+.wrapper .btn-outlined {
+  display: inline-block;
+
+  padding: 12px 32px;
+  border: 1.5px solid #ffffff;
+  border-radius: 4px;
+
+  background: transparent;
+  color: #ffffff;
+
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: all 0.3s ease;
+}
+
+.wrapper .btn-outlined:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.wrapper .btn-cta-gold {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background-color: var(--accent-gold);
-  color: #000000;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 0.85rem;
-  text-decoration: none;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+
+  min-height: 48px;
   padding: 14px 28px;
   border-radius: 50px;
+
+  background-color: var(--accent-gold);
+  color: #000000;
+
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+
   transition: all 0.3s ease;
-  min-height: 48px;
 }
 
-.btn-cta-gold:hover {
+.wrapper .btn-cta-gold:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(253, 208, 0, 0.3);
 }
 
 /* =========================================================
-   5. PLACEHOLDERS DE IMAGEN
+   05. PLACEHOLDERS DE IMAGEN
    ========================================================= */
 
-.image-placeholder {
-  width: 100%;
-  border-radius: 12px;
+.wrapper .image-placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
+
+  width: 100%;
+  border-radius: 12px;
+
   background-color: #1a1a1a;
   color: rgba(255, 255, 255, 0.5);
+
+  font-size: 0.85rem;
 }
 
-.hero-media {
+.wrapper .hero-media {
   background-color: #1a1a1a;
 }
 
 /* =========================================================
-   6. MÉTRICAS / IMPACTO
+   06. MÉTRICAS / IMPACTO
    ========================================================= */
 
-.metrics-section {
-  width: 100vw;
+.wrapper .metrics-section {
   position: relative;
   left: 50%;
-  right: 50%;
+
+  width: 100vw;
   margin-left: -50vw;
-  margin-right: -50vw;
-  background-color: var(--bg-dark);
-  padding: 70px 0;
+  padding-block: 70px;
+
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  background-color: var(--bg-dark);
 }
 
-.metrics-container {
+.wrapper .metrics-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+
   width: 100%;
   max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 40px;
+  margin-inline: auto;
+  padding-inline: 40px;
 }
 
-.metric-item {
-  flex: 1;
+.wrapper .metric-item {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
+
+  padding-inline: 15px;
+
   text-align: center;
-  padding: 0 15px;
 }
 
-.metric-content {
+.wrapper .metric-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
 
-.metric-number {
+.wrapper .metric-number {
   font-family: var(--font-condensed);
   font-size: clamp(3rem, 4.5vw, 4.8rem);
   font-weight: 700;
@@ -360,122 +395,133 @@ body {
   text-transform: uppercase;
 }
 
-.metric-number.text-gold {
+.wrapper .metric-number.text-gold {
   color: var(--accent-gold);
 }
 
-.metric-number.text-green {
+.wrapper .metric-number.text-green {
   color: var(--accent-green);
 }
 
-.metric-number.text-light {
+.wrapper .metric-number.text-light {
   color: var(--text-dark-theme);
 }
 
-.metric-label {
+.wrapper .metric-label {
+  max-width: 240px;
+
+  color: rgba(255, 255, 255, 0.7);
   font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 500;
   line-height: 1.4;
   letter-spacing: 1.2px;
+
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 240px;
 }
 
-.metric-divider {
+.wrapper .metric-divider {
+  flex-shrink: 0;
+
   width: 1px;
   height: 70px;
+
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0),
+    transparent,
     rgba(255, 255, 255, 0.2),
-    rgba(255, 255, 255, 0)
+    transparent
   );
-  flex-shrink: 0;
 }
 
 /* =========================================================
-   7. GRID DE TARJETAS PRINCIPAL
+   07. GRID DE TARJETAS PRINCIPAL
    ========================================================= */
 
-.cards-section-wrapper {
-  width: 100vw;
+.wrapper .cards-section-wrapper {
   position: relative;
   left: 50%;
-  right: 50%;
+
+  width: 100vw;
   margin-left: -50vw;
-  margin-right: -50vw;
-  background-color: var(--bg-dark);
   padding: 80px 0 120px;
+
+  background-color: var(--bg-dark);
 }
 
-.cards-grid {
+.wrapper .cards-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+
   width: 100%;
 }
 
-.card-item {
+.wrapper .card-item {
   position: relative;
+
   height: 320px;
-  border-radius: 12px;
   overflow: hidden;
+
+  border-radius: 12px;
   cursor: pointer;
 }
 
-.card-overlay {
+.wrapper .card-overlay {
   position: absolute;
   inset: 0;
+  z-index: 2;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 28px;
+
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0.95) 0%,
     rgba(0, 0, 0, 0.2) 100%
   );
-  padding: 28px;
-  display: flex;
-  align-items: flex-end;
-  z-index: 2;
 }
 
-.card-title-row {
+.wrapper .card-title-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   width: 100%;
 }
 
-.card-title {
-  font-family: var(--font-condensed);
-  font-weight: 700;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.wrapper .card-title {
   color: #ffffff;
+  font-family: var(--font-condensed);
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
 }
 
 /* =========================================================
-   8. NUESTRAS FORTALEZAS
+   08. NUESTRAS FORTALEZAS — ESTRUCTURA GENERAL
    ========================================================= */
 
-.strengths-section-wrapper {
-  width: 100vw;
+  .wrapper .strengths-section-wrapper {
   position: relative;
   left: 50%;
-  right: 50%;
+  width: 100vw;
   margin-left: -50vw;
-  margin-right: -50vw;
   background-color: #0b0b0b;
 }
 
-.strengths-section {
+.wrapper .strengths-section {
   width: 100%;
   padding: 92px 0 110px;
   background-color: #ffffff;
 }
 
-.strengths-header {
+/* Encabezado */
+.wrapper .strengths-header {
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.8fr);
   align-items: end;
@@ -483,7 +529,7 @@ body {
   margin-bottom: 58px;
 }
 
-.strengths-label {
+.wrapper .strengths-label {
   display: flex;
   align-items: center;
   gap: 18px;
@@ -496,304 +542,301 @@ body {
   text-transform: uppercase;
 }
 
-.green-point {
-  color: #9dc425;
+.wrapper .green-point {
+  color: var(--accent-green);
 }
 
-.strengths-label-line {
+.wrapper .strengths-label-line {
+  display: block;
   width: 68px;
   height: 5px;
-  display: block;
-  background-color: var(--accent-gold);
   border-radius: 2px;
+  background-color: var(--accent-gold);
 }
 
-.strengths-title {
+.wrapper .strengths-title {
   margin: 0;
+  color: #111111;
   font-family: var(--font-condensed);
   font-size: clamp(3.3rem, 5vw, 5.15rem);
   font-weight: 700;
   line-height: 0.98;
   letter-spacing: 0.2px;
-  color: #111111;
   text-transform: uppercase;
 }
 
-.strengths-title span {
+.wrapper .strengths-title span {
   color: var(--accent-gold);
 }
 
-.strengths-header-description {
+.wrapper .strengths-header-description {
   align-self: center;
   max-width: 470px;
   padding-top: 25px;
 }
 
-.strengths-header-description p {
+.wrapper .strengths-header-description p {
   margin: 0;
   color: #111111;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.65;
   text-align: start;
 }
 
-.strengths-grid {
+.wrapper .strengths-section .strength-card,
+.wrapper .strengths-section .strength-card *,
+.wrapper .strengths-section .strength-card:hover,
+.wrapper .strengths-section .strength-card:focus,
+.wrapper .strengths-section .strength-card:active {
+  text-decoration: none !important;
+}
+
+.wrapper .strengths-section .strength-card:focus-visible {
+  outline: 3px solid var(--accent-gold);
+  outline-offset: 4px;
+}
+
+/* GRID: tres tarjetas iguales y alineadas */
+/* GRID: 3 columnas para alinear las tarjetas rectangulares */
+.strengths-section .strengths-grid {
   display: grid;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
-  width: 100%;
+  align-items: stretch;
 }
 
-.strength-card {
-  position: relative;
+/* TARJETAS: Formato vertical rectangular (retrato), idénticas y simétricas */
+.strengths-section .strength-card {
   display: flex;
-  flex-direction: column;
-  isolation: isolate;
+  flex-direction: column; /* Imagen arriba, contenido abajo */
+  width: 100%;
+  height: 440px;          /* Altura fija uniforme para perfecta simetría */
+  min-height: 440px;
+  min-width: 0;
+
+  border: none;
+  border-radius: 10px;    /* Bordes sutilmente redondeados como en la referencia */
   overflow: hidden;
-  border-radius: 10px;
-  height: 100%;
-  min-height: 400px;
+
+  background: #666666;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transform: none;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.strength-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, 0.22);
+.strengths-section .strength-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.16);
 }
 
-.strength-card-media {
+/* IMAGEN: Parte superior (55% de la tarjeta) */
+.strengths-section .strength-card__image {
   position: relative;
-  flex: 0 0 57%;
-  height: 57%;
+  flex: 0 0 55%;
+  width: 100%;
+  height: 55%;
   min-height: 0;
   overflow: hidden;
-  z-index: 0;
 }
 
-.strength-card:nth-child(1) .strength-card-media,
-.strength-card:nth-child(2) .strength-card-media,
-.strength-card:nth-child(3) .strength-card-media {
-  background-image: linear-gradient(
-    rgba(10, 10, 10, 0.1),
-    rgba(10, 10, 10, 0.1)
-  );
+.strengths-section .strength-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s ease;
 }
 
-.strength-card-gradient {
-  display: none;
+.strengths-section .strength-card:hover .strength-card__image img {
+  transform: scale(1.05);
 }
 
-/* Mantener el mismo tratamiento al pasar el cursor */
-.strength-card:hover .strength-card-gradient {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.05) 0%,
-    rgba(0, 0, 0, 0.08) 35%,
-    rgba(35, 35, 35, 0.48) 55%,
-    rgba(190, 190, 190, 0.76) 100%
-  );
-}
-
-.strength-card-content {
+/* CONTENIDO: Parte inferior (45% de la tarjeta) */
+.strengths-section .strength-card__content {
   position: relative;
   z-index: 1;
-  flex: 1 0 43%;
-  min-height: 0;
-  width: 100%;
-  padding: 22px 26px 24px;
-  box-sizing: border-box;
-
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-start;
+
+  width: 100%;
+  min-height: 0;
+  padding: 22px 24px;
 
   background: linear-gradient(
-    to bottom,
-    #555555 100%,
-    #777777 30%,
-    #999999 65%,
-    #c4c4c4 100%
+    180deg,
+    #555555 0%,
+    #777777 55%,
+    #888888 100%
   );
-
-  box-shadow: none;
 }
 
-.strength-card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-}
-
-.strength-number {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #ffffff;
-  font-family: var(--font-body);
-  font-size: 1.55rem;
-  font-weight: 600;
-  line-height: 1;
-}
-
-.strength-number-line,
-.strength-number-line2 {
-  width: 32px;
-  height: 3px;
-  display: block;
-  border-radius: 1px;
-}
-
-.strength-number-line {
-  background-color: #2e3182;
-}
-
-.strength-number-line2 {
-  background-color: #fdd000;
-}
-
-.strengths-card-green .strength-number-line {
-  background-color: var(--accent-green);
-}
-
-.strength-card-tag {
-  text-align: right;
-  color: rgba(255, 255, 255, 0.78);
-  font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 500;
-  line-height: 1.35;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-}
-
-.strength-card-bottom {
-  width: 100%;
-}
-
-.strength-card-bottom h3 {
+/* TÍTULOS */
+.strengths-section .strength-card__content h3 {
   margin: 0 0 8px;
   font-family: var(--font-condensed);
-  color: #ffffff;
-  font-size: 2.55rem;
+  font-size: 40px;
   font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.5px;
+  line-height: 1.1;
+  letter-spacing: -0.3px;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
-.strength-card-bottom p {
-  max-width: 410px;
-  margin: 0 0 25px;
+.strengths-section .strength-card--connection h3 {
+  color: #ffdc27;
+}
+
+.strengths-section .strength-card--zero h3 {
+  color: #9bd323;
+}
+
+.strengths-section .strength-card--formula h3 {
+  color: #303887;
+}
+
+/* DESCRIPCIONES */
+.strengths-section .strength-card__content p {
+  max-width: 100%;
+  margin: 0;
   color: #ffffff;
   font-family: var(--font-body);
-  font-size: 0.91rem;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.5;
+  text-decoration: none;
 }
 
-.strength-card-link,
-.strength-card-link2 {
+/* ENLACES CONOCE MÁS */
+.strengths-section .strength-card__link {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+
   font-family: var(--font-body);
-  font-size: 0.83rem;
-  font-weight: 600;
-  letter-spacing: 1.1px;
-  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
-  transition: gap 0.25s ease;
+  text-decoration: none !important;
 }
 
-.strength-card-link {
-  color: #2e3182;
+.strengths-section .strength-card--connection .strength-card__link {
+  color: #ffdc27;
 }
 
-.strengths-card-green .strength-card-link {
-  color: var(--accent-green);
+.strengths-section .strength-card--zero .strength-card__link {
+  color: #9bd323;
 }
 
-.strength-card:nth-child(3):hover .strength-arrow {
-  background-color: #2e3182 !important; /* Rellena todo el fondo del círculo con el azul institucional */
-  border-color: #2e3182 !important;     /* Asegura que el borde coincida con el fondo */
-  color: #ffffff !important;            /* Cambia el color de la flecha a blanco */
+.strengths-section .strength-card--formula .strength-card__link {
+  color: #303887;
 }
 
-.strength-card:nth-child(3):hover .strength-arrow svg {
-  color: #ffffff !important;            /* Asegura que el icono SVG de la flecha sea blanco */
-}
-
-
-.strength-card-link2 {
-  color: #fdd000;
-}
-
-.strength-card-link:hover{
-  gap: 16px;
-
-}
-.strength-card-link2:hover {
-  gap: 16px;
-}
-
-.strength-arrow {
-  width: 43px;
-  height: 43px;
+/* FLECHAS / CÍRCULOS */
+.strengths-section .strength-card__arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid currentColor;
+  flex-shrink: 0;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1.8px solid currentColor;
   border-radius: 50%;
-  transition: background-color 0.25s ease, transform 0.25s ease;
+  background: transparent;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
-.strength-card-link:hover .strength-arrow,
-.strength-card-link2:hover .strength-arrow {
-  background-color: currentColor;
-  transform: translateX(2px);
+.strengths-section .strength-card__arrow svg {
+  color: inherit;
+  stroke: currentColor;
+  width: 15px;
+  height: 15px;
 }
 
-.strength-card-link:hover .strength-arrow svg,
-.strength-card-link2:hover .strength-arrow svg {
-  color: #0b0b0b;
+.strengths-section .strength-card--connection:hover .strength-card__arrow {
+  background-color: #ffdc27;
+  border-color: #ffdc27;
+  color: #111111;
 }
 
+.strengths-section .strength-card--zero:hover .strength-card__arrow {
+  background-color: #9bd323;
+  border-color: #9bd323;
+  color: #111111;
+}
+
+.strengths-section .strength-card--formula:hover .strength-card__arrow {
+  background-color: #303887;
+  border-color: #303887;
+  color: #ffffff;
+}
+
+.strengths-section .strength-card:hover .strength-card__arrow {
+  transform: translateX(3px);
+}
 /* =========================================================
-   9. HOME — STORY / GRAN EVENTOS + SETIE
+   10. HOME — STORY GRAN EVENTOS + SETIE
    ========================================================= */
 
-.ge-home-story {
+.wrapper .ge-home-story {
   position: relative;
-  width: 100%;
-  height: 100dvh;;
-  min-height: 100svh;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  isolation: isolate;
+
   display: flex;
   align-items: center;
+
+  width: 100%;
+  height: 100dvh;
+  min-height: 100svh;
+
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+  isolation: isolate;
+
   background: #050607;
 }
 
-.ge-home-story-image {
+.wrapper .ge-home-story-image {
   position: absolute;
   inset: 0;
+  z-index: -3;
+
+  display: block;
+
   width: 100%;
   height: 100%;
-  display: block;
+
   object-fit: cover;
   object-position: center center;
-  z-index: -3;
 }
 
-.ge-home-story-overlay {
+.wrapper .ge-home-story-overlay {
   position: absolute;
   inset: 0;
   z-index: -2;
+
   pointer-events: none;
+
   background: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0.78) 0%,
@@ -803,63 +846,76 @@ body {
   );
 }
 
-.ge-home-story-content {
+.wrapper .ge-home-story-content {
   position: relative;
   z-index: 2;
+
   width: min(620px, 48vw);
   margin-left: clamp(36px, 5vw, 80px);
-  padding: 60px 0;
+  padding-block: 60px;
 }
 
-.ge-home-story-kicker {
+.wrapper .ge-home-story-kicker {
   margin: 0 0 28px;
-  font-family: "Montserrat", "Arial", sans-serif;
+
+  color: rgba(255, 255, 255, 0.82);
+  font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(10px, 0.75vw, 14px);
   font-weight: 500;
-  letter-spacing: 0.32em;
   line-height: 1.2;
-  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 0.32em;
+
   text-transform: uppercase;
 }
 
-.ge-home-story-kicker span {
+.wrapper .ge-home-story-kicker span {
   display: inline-block;
-  margin: 0 10px;
+
+  margin-inline: 10px;
+
   color: #f4c400;
   font-weight: 700;
 }
 
-.ge-home-story-title {
+.wrapper .ge-home-story-title {
   display: flex;
   flex-direction: column;
+
   margin: 0;
-  font-family: "Oswald", "Arial Narrow", Arial, sans-serif;
+
+  font-family: var(--font-condensed);
   font-size: clamp(48px, 5.2vw, 88px);
   font-weight: 700;
   line-height: 0.98;
   letter-spacing: -0.025em;
+
   text-transform: uppercase;
 }
 
-.ge-home-story-title-gradient {
+.wrapper .ge-home-story-title-gradient {
   --ge-gradient-yellow: var(--accent-gold);
   --ge-gradient-green: var(--accent-green);
 
   display: block;
   align-self: flex-start;
+
   width: fit-content;
   padding: 0.12em 0.04em 0.04em 0;
   margin: -0.12em 0 -0.04em;
+
   color: var(--ge-gradient-yellow);
 }
 
-.ge-home-story-title-line {
+.wrapper .ge-home-story-title-line {
   display: block;
   white-space: nowrap;
 }
 
-@supports ((-webkit-background-clip: text) or (background-clip: text)) {
-  .ge-home-story-title-gradient {
+@supports (
+  (-webkit-background-clip: text) or
+  (background-clip: text)
+) {
+  .wrapper .ge-home-story-title-gradient {
     background-image: linear-gradient(
       135deg,
       var(--ge-gradient-yellow) 0%,
@@ -867,7 +923,9 @@ body {
       var(--ge-gradient-green) 75%,
       var(--ge-gradient-green) 100%
     );
+
     background-repeat: no-repeat;
+
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -875,81 +933,95 @@ body {
   }
 }
 
-.ge-home-story-title-light {
+.wrapper .ge-home-story-title-light {
   color: #f4f4f4;
 }
 
-.ge-home-story-title-yellow {
+.wrapper .ge-home-story-title-yellow {
   color: #f4c400;
   font-weight: 600;
 }
 
-.ge-home-story-title-last {
+.wrapper .ge-home-story-title-last {
   margin-top: 12px;
+
+  color: rgba(255, 255, 255, 0.78);
   font-size: 0.42em;
   font-weight: 300;
   line-height: 1.2;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.78);
 }
 
-.ge-home-story-line {
+.wrapper .ge-home-story-line {
   display: block;
+
   width: 48px;
   height: 3px;
+
   margin-top: 30px;
   margin-bottom: 24px;
+
   background: #f4c400;
 }
 
-.ge-home-story-description {
+.wrapper .ge-home-story-description {
   max-width: 390px;
   margin: 0;
+
+  color: rgba(255, 255, 255, 0.78);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(14px, 1vw, 18px);
   font-weight: 400;
   line-height: 1.55;
   letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.78);
 }
 
-.ge-home-story-side {
+/* Contenido lateral */
+
+.wrapper .ge-home-story-side {
   position: absolute;
   top: 0;
   right: clamp(28px, 4vw, 70px);
-  width: 100px;
-  height: 100%;
   z-index: 3;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 40px 0;
+
+  width: 100px;
+  height: 100%;
+  padding-block: 40px;
 }
 
-.ge-home-story-side-list {
+.wrapper .ge-home-story-side-list {
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  color: rgba(255, 255, 255, 0.82);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(8px, 0.62vw, 12px);
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: 0.2em;
-  color: rgba(255, 255, 255, 0.82);
+
   text-transform: uppercase;
 }
 
-.ge-home-story-side-list span:nth-child(even) {
+.wrapper .ge-home-story-side-list span:nth-child(even) {
   color: #f4c400;
   opacity: 0.9;
 }
 
-.ge-home-story-side-line {
+.wrapper .ge-home-story-side-line {
   display: block;
+
   width: 1px;
   height: 58px;
-  margin: 26px 0;
+
+  margin-block: 26px;
+
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.9),
@@ -957,82 +1029,167 @@ body {
   );
 }
 
-.ge-home-story-side-message {
+.wrapper .ge-home-story-side-message {
   margin: 0;
+
+  color: rgba(255, 255, 255, 0.65);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(7px, 0.58vw, 11px);
   font-weight: 500;
   line-height: 1.65;
   letter-spacing: 0.16em;
-  color: rgba(255, 255, 255, 0.65);
+
   text-transform: uppercase;
 }
 
+/* Mensaje adicional */
+
+.wrapper .ge-home-story-extra-message {
+  margin-top: 100px;
+
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 8px;
+  line-height: 1.35;
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+}
+
+.wrapper .ge-home-story-extra-message .gold-line {
+  width: 34px;
+  height: 3px;
+  margin: 0 0 14px;
+
+  background-color: var(--accent-gold);
+}
+
+.wrapper .ge-home-story-extra-message p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+}
+
 /* =========================================================
-   ESTILOS PARA EL MENSAJE ADICIONAL EN LA SECCIÓN 3 (HOME)
+   11. RESPONSIVE — PANTALLAS MEDIANAS
    ========================================================= */
 
-    .ge-home-story-extra-message {
-      margin-top: 100px; 
-      color: #fff;
-      font-family: var(--font-body);
-      font-size: 8px;
-      line-height: 1.35;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    .ge-home-story-extra-message .gold-line {
-      width: 34px;
-      height: 3px;
-      margin: 0 0 14px 0;
-      background-color: var(--accent-gold);
-    }
-
-    .ge-home-story-extra-message p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.85);
-      font-weight: 500;
-    }
-
-/* =========================================================
-   10. RESPONSIVE
-   Se mantienen las reglas específicas por componente.
-   ========================================================= */
-
-/* TABLET Y PANTALLAS MEDIANAS */
 @media (max-width: 1200px) {
-  .section-title-light {
-    font-size: 2.6rem;
-  }
-
-  .strengths-header {
+  .wrapper .strengths-header {
     gap: 45px;
   }
 
-  .strengths-title {
+  .wrapper .strengths-title {
     font-size: 4rem;
   }
 
-  .strength-card {
-    height: 510px;
-  }
-
-  .strength-card-content {
-    padding: 26px;
-  }
-
-  .strength-card-bottom h3 {
-    font-size: 2.25rem;
+  .wrapper .strengths-section .strengths-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 1024px) {
-  .ge-home-story {
+/* =========================================================
+   12. RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .wrapper .navbar {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .wrapper .container {
+    padding-inline: 24px;
+  }
+
+  .wrapper .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .wrapper .hero-center-content {
+    margin-top: 100px;
+  }
+
+  .wrapper .hero-title-centered {
+    font-size: 2rem;
+  }
+
+  .wrapper .hero-subtext-centered {
+    font-size: 0.9rem;
+  }
+
+  .wrapper .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Encabezado de fortalezas */
+
+  .wrapper .strengths-section {
+    padding: 75px 0 90px;
+  }
+
+  .wrapper .strengths-header {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-bottom: 45px;
+  }
+
+  .wrapper .strengths-header-description {
+    max-width: 600px;
+    padding-top: 0;
+  }
+
+  /* Tarjetas: dos columnas */
+
+   .strengths-section .strengths-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .strengths-section .strength-card {
+    height: 330px;
+    min-height: 330px;
+  }
+
+  /* Métricas */
+
+  .wrapper .metrics-section {
+    padding-block: 45px;
+  }
+
+  .wrapper .metrics-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .wrapper .metric-divider {
+    width: 60px;
+    height: 1px;
+
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+  }
+
+  .wrapper .metric-item {
+    width: 100%;
+    padding: 0;
+  }
+
+  /* Story */
+
+  .wrapper .ge-home-story {
     min-height: 100svh;
   }
 
-  .ge-home-story-overlay {
+  .wrapper .ge-home-story-overlay {
     background: linear-gradient(
       90deg,
       rgba(0, 0, 0, 0.78) 0%,
@@ -1041,311 +1198,133 @@ body {
     );
   }
 
-  .ge-home-story-content {
+  .wrapper .ge-home-story-content {
     width: min(560px, 60vw);
     margin-left: 6vw;
   }
 
-  .ge-home-story-side {
+  .wrapper .ge-home-story-side {
     right: 3vw;
   }
-}
 
-/* TABLET */
-@media (max-width: 900px) {
-  .navbar {
-    position: absolute;
-    flex-direction: column;
-    gap: 16px;
-    padding: 20px;
+  .strengths-section .strength-card__content h3 {
+    font-size: 26px;
   }
 
-  .container {
-    padding: 0 24px;
-  }
-
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .hero-center-content {
-    margin-top: 100px;
-  }
-
-  .hero-title-centered {
-    font-size: 2rem;
-  }
-
-  .hero-subtext-centered {
-    font-size: 0.9rem;
-  }
-
-  .middle-section {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .cards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .middle-media {
-    height: 300px;
-  }
-
-  .strengths-section {
-    padding: 75px 0 90px;
-  }
-
-  .strengths-header {
-    grid-template-columns: 1fr;
-    gap: 30px;
-    margin-bottom: 45px;
-  }
-
-  .strengths-header-description {
-    padding-top: 0;
-    max-width: 600px;
-  }
-
-  .strengths-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .strength-card {
-    height: 500px;
-  }
-
-  .metrics-section {
-    padding: 45px 0;
-  }
-
-  .metrics-container {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .metric-divider {
-    width: 60px;
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0.2),
-      rgba(255, 255, 255, 0)
-    );
-  }
-
-  .metric-item {
-    width: 100%;
-    padding: 0;
+  .strengths-section .strength-card__content p {
+    font-size: 11px;
   }
 }
 
-/* MÓVIL Y TABLET PEQUEÑA */
+/* =========================================================
+   13. RESPONSIVE — MÓVIL Y TABLET PEQUEÑA
+   ========================================================= */
+
 @media (max-width: 768px) {
-  .container {
-    padding: 0 20px;
+  .wrapper .container {
+    padding-inline: 20px;
   }
 
-  /* Hero principal */
-  .hero-section {
+  /* Hero */
+
+  .wrapper .hero-section {
     min-height: 100dvh;
     padding: 60px 20px 0;
   }
 
-  .hero-content-left {
-    padding: 40px 0;
+  .wrapper .hero-content-left {
+    padding-block: 40px;
   }
 
-  .hero-title-oswald {
+  .wrapper .hero-title-oswald {
+    margin-bottom: 16px;
     font-size: clamp(2.4rem, 9vw, 3.2rem);
     line-height: 1.05;
-    margin-bottom: 16px;
   }
 
-  .gold-line {
+  .wrapper .gold-line {
     width: 40px;
     height: 3px;
     margin-bottom: 16px;
   }
 
-  .hero-subtext-left {
+  .wrapper .hero-subtext-left {
+    margin-bottom: 28px;
+
+    color: rgba(255, 255, 255, 0.9);
     font-size: 0.9rem;
     line-height: 1.5;
-    margin-bottom: 28px;
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  /* Sección intermedia */
-  .middle-section-wrapper {
-    padding: 60px 0;
-  }
-
-  .middle-section {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .section-title-light {
-    font-size: 2.1rem;
-    line-height: 1.1;
-  }
-
-  .middle-media {
-    height: auto;
-    aspect-ratio: 16 / 10;
-  }
-
-  .middle-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 
   /* Fortalezas */
-  .strengths-section {
+
+  .wrapper .strengths-section {
     padding: 60px 0;
   }
 
-  .strengths-header {
+  .wrapper .strengths-header {
     grid-template-columns: 1fr;
     gap: 20px;
     margin-bottom: 36px;
   }
 
-  .strengths-title {
+  .wrapper .strengths-title {
     font-size: clamp(2.2rem, 8vw, 3rem);
     line-height: 1.02;
   }
 
-  .strengths-grid {
+  .wrapper .strengths-grid {
     grid-template-columns: 1fr;
-    gap: 24px;
   }
 
-  .strength-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    background-color: #e6e6e6;
-    border-radius: 16px;
-    overflow: hidden;
+  .wrapper .strengths-section .strengths-grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  
+  .wrapper .strengths-section .strength-card {
+    height: 420px;
+    min-height: 420px;
   }
 
-  .strength-card-media {
-    position: relative;
-    z-index: 5;
-    width: 100%;
-    height: 220px;
-    overflow: hidden;
+  .wrapper .strengths-section .strength-card__image {
+    flex-basis: 175px;
+    height: 175px;
   }
 
- .strength-card-media img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  .wrapper .strengths-section .strength-card__content {
+    padding: 15px 18px 13px;
   }
 
-  .strength-card-gradient {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.65) 0%,
-      transparent 60%
-    );
-    pointer-events: none;
+  .wrapper .strengths-section .strength-card__content h3 {
+    font-size: 25px;
   }
 
-  .strength-card-content {
-    position: static;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    padding: 0;
+  .wrapper .strengths-section .strength-card__content p {
+    font-size: 11px;
   }
 
-  .strength-card-top {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    right: 16px;
-    z-index: 3;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
+  /* Story */
 
-  .strength-card-top .strength-num {
-    color: #ffffff;
-    font-size: 1.8rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-
-  .strength-card-top .strength-tag {
-    text-align: right;
-    max-width: 60%;
-    word-wrap: break-word;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    line-height: 1.2;
-  }
-
-  .strength-card-top .strength-tag span:first-child,
-  .strength-card-top .strength-tag {
-    color: #ffffff;
-  }
-
-  .strength-card-bottom {
-    position: relative;
-    z-index: 4;
-    padding: 24px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .strength-card-bottom h3 {
-    margin: 0 0 10px;
-    font-size: 1.9rem;
-  }
-
-  .strength-card-bottom p {
-    color: white;
-    font-size: 0.88rem;
-    line-height: 1.45;
-    margin: 0 0 20px;
-  }
-
-  /* -------------------------------------------------------
-     Story de Gran Eventos + SETIE (Móvil con Estructura Vertical Original)
-     ------------------------------------------------------- */
-  .ge-home-story {
+  .wrapper .ge-home-story {
     height: 100dvh;
     min-height: 100dvh;
+
     padding: 0;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
   }
 
-  .ge-home-story-image {
+  .wrapper .ge-home-story-image {
     object-position: 63% center;
     object-fit: cover;
   }
 
-  .ge-home-story-overlay {
+  .wrapper .ge-home-story-overlay {
     background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.82) 0%,
@@ -1354,81 +1333,76 @@ body {
     );
   }
 
-  .ge-home-story-content {
+  .wrapper .ge-home-story-content {
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
     margin: 0;
     padding: 0 24px;
-    display: flex;
-    flex-direction: column;
   }
 
-  .ge-home-story-kicker {
+  .wrapper .ge-home-story-kicker {
     margin-bottom: 18px;
     font-size: 9px;
     letter-spacing: 0.25em;
   }
 
-  .ge-home-story-kicker span {
-    margin-left: 7px;
-    margin-right: 7px;
+  .wrapper .ge-home-story-kicker span {
+    margin-inline: 7px;
   }
 
-  .ge-home-story-title {
+  .wrapper .ge-home-story-title {
     font-size: clamp(38px, 11vw, 58px);
     line-height: 0.95;
     letter-spacing: -0.025em;
   }
 
-  .ge-home-story-line {
+  .wrapper .ge-home-story-line {
     width: 42px;
     height: 3px;
     margin-top: 20px;
     margin-bottom: 16px;
   }
 
-  .ge-home-story-description {
+  .wrapper .ge-home-story-description {
     max-width: 100%;
+    margin-bottom: 30px;
+
     font-size: 13px;
     line-height: 1.55;
-    margin-bottom: 30px; /* Margen elegante antes del bloque inferior */
   }
 
-  /* -------------------------------------------------------
-     BLOQUE LATERAL / INFERIOR: Alineado perfectamente al eje del texto
-     ------------------------------------------------------- */
- /* -------------------------------------------------------
-     BLOQUE LATERAL / INFERIOR: Alineado perfectamente al eje del texto
-     ------------------------------------------------------- */
-  section.ge-home-story .ge-home-story-side {
-    position: relative !important;
-    top: unset !important;
-    right: unset !important;
-    bottom: unset !important;
-    left: unset !important;
-    width: 100% !important;
-    height: auto !important;
-    
-    /* Le aplicamos el mismo padding izquierdo exacto (24px) que tiene el contenido de arriba 
-       para que la línea y las palabras inicien exactamente en el mismo margen vertical */
-    padding: 0 0 0 24px !important; 
-    margin: 25px 0 0 2px !important; /* Espacio superior separado de la descripción */
-    
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
+  /* Bloque lateral convertido en bloque inferior */
+
+  .wrapper section.ge-home-story .ge-home-story-side {
+    position: relative;
+
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: auto;
+
+    margin: 25px 0 0 2px;
+    padding: 0 0 0 24px;
   }
 
-  .ge-home-story-side-list span:nth-child(even) {
-    color: #f4c400;
-    opacity: 0.9;
-  }
-
-  .ge-home-story-side-line {
+  .wrapper .ge-home-story-side-line {
     display: block;
+
     width: 1px;
-    height: 45px; /* Línea vertical característica del diseño original */
+    height: 45px;
+
     margin: 16px 0;
+
     background: linear-gradient(
       to bottom,
       rgba(255, 255, 255, 0.9),
@@ -1436,92 +1410,93 @@ body {
     );
   }
 
-  .ge-home-story-side-message {
+  .wrapper .ge-home-story-side-message {
     margin: 0;
+
+    color: rgba(255, 255, 255, 0.7);
     font-size: 7.5px;
     line-height: 1.6;
     letter-spacing: 0.14em;
-    color: rgba(255, 255, 255, 0.7);
+
     text-transform: uppercase;
   }
 
   /* Métricas */
-  .metric-number {
+
+  .wrapper .metric-number {
     font-size: 3.2rem;
   }
 
-  .metric-label {
+  .wrapper .metric-label {
     font-size: 0.75rem;
   }
 }
 
-/* MÓVILES PEQUEÑOS */
+/* =========================================================
+   14. RESPONSIVE — MÓVILES PEQUEÑOS
+   ========================================================= */
+
 @media (max-width: 600px) {
-  .strengths-section {
+  .wrapper .strengths-section {
     padding: 60px 0 70px;
   }
 
-  .strengths-header {
+  .wrapper .strengths-header {
     margin-bottom: 35px;
   }
 
-  .strengths-label {
+  .wrapper .strengths-label {
     gap: 12px;
     font-size: 0.7rem;
   }
 
-  .strengths-label-line {
+  .wrapper .strengths-label-line {
     width: 45px;
     height: 4px;
   }
 
-  .strengths-title {
+  .wrapper .strengths-title {
     font-size: 3rem;
     line-height: 0.98;
   }
 
-  .strengths-header-description p {
+  .wrapper .strengths-header-description p {
     font-size: 0.88rem;
   }
 
-  .strengths-grid {
+  .wrapper .strengths-section .strengths-grid {
+    max-width: 420px;
     gap: 18px;
   }
 
-  .strength-card {
-    height: 470px;
+  .wrapper .strengths-section .strength-card {
+    height: 310px;
+    min-height: 310px;
   }
 
-  .strength-card-content {
-    padding: 23px;
+  .wrapper .strengths-section .strength-card__content {
+    padding: 15px 18px 13px;
   }
 
-  .strength-number {
-    font-size: 1.3rem;
+  .wrapper .strengths-section .strength-card__content h3 {
+    font-size: 25px;
   }
 
-  .strength-number-line {
-    width: 27px;
+  .wrapper .strengths-section .strength-card__content p {
+    font-size: 11px;
   }
 
-  .strength-card-tag {
-    font-size: 0.66rem;
-  }
-
-  .strength-card-bottom h3 {
-    font-size: 2.15rem;
-  }
-
-  .strength-card-bottom p {
-    font-size: 0.84rem;
-    margin-bottom: 20px;
-    color: white;
+  .wrapper .metric-number {
+    font-size: 3.2rem;
   }
 }
 
-/* ALINEACIÓN DEL HERO CON EL NAVBAR: SOLO ESCRITORIO */
+/* =========================================================
+   15. ALINEACIÓN DEL HERO CON EL NAVBAR — ESCRITORIO
+   ========================================================= */
+
 @media (min-width: 769px) {
-  .hero-section .hero-container {
+  .wrapper .hero-section .hero-container {
     width: 100%;
     max-width: none;
     margin: 0;
@@ -1529,52 +1504,90 @@ body {
     padding-right: 40px;
   }
 
-  .hero-section .hero-content-left {
+  .wrapper .hero-section .hero-content-left {
     margin-left: 0;
     padding-left: 0;
   }
 }
 
-/* MÓVILES PEQUEÑOS: STORY */
+/* =========================================================
+   16. MÓVILES MUY PEQUEÑOS — STORY
+   ========================================================= */
+
 @media (max-width: 390px) {
-  .ge-home-story-content {
+  .wrapper .ge-home-story-content {
     padding: 90px 20px 40px;
   }
 
-  .ge-home-story-title {
+  .wrapper .ge-home-story-title {
     font-size: 39px;
   }
 
-  .ge-home-story-description {
+  .wrapper .ge-home-story-description {
     max-width: 250px;
     font-size: 12px;
   }
 
-  .ge-home-story-side {
+  .wrapper .ge-home-story-side {
     right: 14px;
     bottom: 24px;
   }
 
-  .ge-home-story-side-list {
+  .wrapper .ge-home-story-side-list {
     font-size: 6px;
   }
 
-  .ge-home-story-side-message {
+  .wrapper .ge-home-story-side-message {
     font-size: 5.5px;
   }
 }
 
+@media (max-width: 560px) {
+  .wrapper .strengths-section .strengths-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .wrapper .strengths-section .strength-card {
+    height: 330px;
+    min-height: 330px;
+  }
+
+  .wrapper .strengths-section .strength-card__image {
+    flex-basis: 55%;
+    height: 55%;
+  }
+
+  .wrapper .strengths-section .strength-card__content {
+    padding: 15px 18px 13px;
+  }
+
+  .wrapper .strengths-section .strength-card__content h3 {
+    font-size: 25px;
+  }
+
+  .wrapper .strengths-section .strength-card__content p {
+    font-size: 11px;
+  }
+
+  .wrapper .strengths-section .strength-card__link {
+    font-size: 9px;
+  }
+}
+
+
 /* =========================================================
-   11. ACCESIBILIDAD
+   17. ACCESIBILIDAD — MOVIMIENTO REDUCIDO
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .ge-home-story *,
-  .ge-home-story *::before,
-  .ge-home-story *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  .strengths-section .strength-card,
+  .strengths-section .strength-card__image img,
+  .strengths-section .strength-card__arrow {
+    transition: none;
+  }
+
+  .strengths-section .strength-card:hover {
+    transform: none;
   }
 }

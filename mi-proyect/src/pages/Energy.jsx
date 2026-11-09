@@ -1,8 +1,11 @@
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import '../styles/Energy.css';
+import EnergyHero from '../assets/EnergyHero.jpg';
+import ConectionHero from '../assets/ConetionHero.jpeg';
+import EnergyFooter from '../assets/EnergyFooter.jpg';
+import Lush from '../assets/Lush.png';
 
 const EnergyIcon = ({ type }) => {
   const common = {
@@ -81,7 +84,14 @@ const Energy = () => {
 
       {/* 01. HERO */}
       <section className="energy-hero">
-        <div className="energy-hero__image" />
+        <div className="energy-hero__image">
+          <img
+            src={ConectionHero}
+            alt={t('energy.hero.imageAlt')}
+            fetchPriority="high"
+          />
+        </div>
+        
 
         <div className="energy-hero__overlay">
           <div className="energy-container energy-hero__content">
@@ -102,21 +112,6 @@ const Energy = () => {
             </Link>
           </div>
         </div>
-
-        <div className="energy-hero__leaf" aria-hidden="true">
-          <svg viewBox="0 0 300 220" fill="none">
-            <path
-              d="M15 190C65 60 180 10 280 8C270 110 205 200 15 190Z"
-              stroke="currentColor"
-              strokeWidth="2"
-            />
-            <path
-              d="M15 190C115 145 190 85 280 8"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-          </svg>
-        </div>
       </section>
 
       {/* 02. DOS MUNDOS */}
@@ -135,7 +130,7 @@ const Energy = () => {
 
             <div className="energy-worlds__image">
               <img
-                src="/images/energy-generators-solar.jpg"
+                src={EnergyHero}
                 alt={t('energy.worlds.imageAlt')}
                 loading="lazy"
               />
@@ -241,7 +236,7 @@ const Energy = () => {
 
         <div className="energy-scenarios__image">
           <img
-            src="/images/energy-festival.jpg"
+            src={EnergyFooter}
             alt={t('energy.scenarios.imageAlt')}
             loading="lazy"
           />
@@ -250,7 +245,13 @@ const Energy = () => {
 
       {/* 06. SOSTENIBILIDAD */}
       <section className="energy-sustainability">
-        <div className="energy-sustainability__image" />
+        <div className="energy-sustainability__image">
+          <img
+            src={Lush}
+            alt={t('energy.sustainability.imageAlt')}
+            loading="lazy"
+          />
+        </div>
 
         <div className="energy-container energy-sustainability__content">
           <div className="energy-sustainability__symbol" aria-hidden="true">

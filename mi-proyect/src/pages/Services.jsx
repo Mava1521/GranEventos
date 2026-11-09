@@ -5,7 +5,7 @@ import '../styles/Services.css';
 
 import ServiceHero from '../assets/ServiceHero.jpg';
 import plantas from '../assets/Plantas.jpg';
-import diseño from '../assets/Diseño.jpg';
+import diseño from '../assets/Diseno.jpg';
 import transformadores from '../assets/Transformadores.jpg';
 import ventas from '../assets/Ventas.jpg';
 import ServiceSeccion3 from '../assets/ServicesSeccion3.jpg';

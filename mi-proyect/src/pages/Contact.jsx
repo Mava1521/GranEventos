@@ -107,15 +107,15 @@ export default function Contact() {
         {/* LADO DERECHO DEL HERO CON LA FRASE / SELLO DE MARCA */}
         <div className="contact-hero-side">
           <p style={{ margin: 0, lineHeight: '1.4'}}>
-            DEJAMOS
+            {t('contact.hero.extraMessage.line1')}
             <br />
-            HUELLA
+            {t('contact.hero.extraMessage.line2')}
             <br />
-            SIN
+            {t('contact.hero.extraMessage.line3')}
             <br />
-            DAÑAR AL
+            {t('contact.hero.extraMessage.line4')}
             <br />
-            PLANETA
+            {t('contact.hero.extraMessage.line5')}
           </p>
           <div />
         </div>

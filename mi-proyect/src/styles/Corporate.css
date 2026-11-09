@@ -1,0 +1,1168 @@
+
+/* ============================================================
+   GRAN EVENTOS — CORPORATE PAGE
+   Full width | Responsive | UX/UI | Clean CSS Architecture
+   ============================================================ */
+
+.corporate-page {
+  --corporate-yellow: #ffcf00;
+  --corporate-green: #9dc425;
+  --corporate-dark: #101114;
+  --corporate-text: #101b36;
+  --corporate-muted: #50576a;
+  --corporate-background: #ffffff;
+  --corporate-light: #f5f6f8;
+
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
+  overflow: clip;
+  background: var(--corporate-background);
+  color: var(--corporate-text);
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+.corporate-page *,
+.corporate-page *::before,
+.corporate-page *::after {
+  box-sizing: border-box;
+}
+
+.corporate-container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding-inline: clamp(24px, 2.8vw, 48px);
+}
+
+.corporate-page h1,
+.corporate-page h2,
+.corporate-page h3,
+.corporate-page p {
+  margin-top: 0;
+}
+
+.corporate-page h1,
+.corporate-page h2,
+.corporate-page h3 {
+  margin-bottom: 0;
+}
+
+.corporate-page img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ============================================================
+   01. SHARED COMPONENTS
+   ============================================================ */
+
+.corporate-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--corporate-text);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+}
+
+.corporate-eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 14px;
+  flex-shrink: 0;
+  background: var(--corporate-yellow);
+  transform: skew(-25deg);
+}
+
+.corporate-eyebrow--light {
+  color: white;
+}
+
+.corporate-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 45px;
+  padding: 0 19px;
+  border: none;
+  border-radius: 9px;
+  background: var(--corporate-yellow);
+  color: #111;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.corporate-button span {
+  font-size: 21px;
+  line-height: 1;
+}
+
+.corporate-button:hover {
+  background: #e9bd00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 207, 0, 0.2);
+}
+
+.corporate-button:focus-visible,
+.corporate-projects__more:focus-visible,
+.corporate-carousel-button:focus-visible {
+  outline: 3px solid var(--corporate-green);
+  outline-offset: 4px;
+}
+
+/* ============================================================
+   02. HERO
+   ============================================================ */
+
+.corporate-hero {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  min-height: 560px;
+  height: clamp(560px, 46vw, 700px);
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  background: var(--corporate-dark);
+  color: white;
+}
+
+.corporate-hero__image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.corporate-hero__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.corporate-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(5, 7, 10, 0.96) 0%,
+    rgba(5, 7, 10, 0.88) 23%,
+    rgba(5, 7, 10, 0.57) 42%,
+    rgba(5, 7, 10, 0.06) 75%
+  );
+}
+
+.corporate-hero__content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  padding-block: 100px 45px;
+}
+
+.corporate-hero__content h1 {
+  max-width: 600px;
+
+  margin: 12px 0 20px;
+
+  font-size: clamp(42px, 4.2vw, 64px);
+  font-weight: 850;
+  line-height: 0.99;
+  letter-spacing: -1.8px;
+  text-transform: uppercase;
+}
+
+.corporate-hero__content h1 span {
+  display: block;
+  color: var(--corporate-yellow);
+}
+
+.corporate-hero__content p {
+  max-width: 440px;
+
+  margin-bottom: 22px;
+
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Hero decoration */
+
+.corporate-hero__decoration {
+  position: absolute;
+  right: -25px;
+  bottom: -50px;
+
+  width: 150px;
+  height: 300px;
+
+  z-index: 1;
+
+  background: linear-gradient(
+    135deg,
+    var(--corporate-yellow) 0 48%,
+    var(--corporate-green) 49% 100%
+  );
+
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  opacity: 0.95;
+
+  pointer-events: none;
+}
+
+/* ============================================================
+   03. BENEFITS / WHY CHOOSE US
+   ============================================================ */
+
+.corporate-benefits {
+  position: relative;
+
+  padding: 65px 0 60px;
+
+  background: linear-gradient(
+    130deg,
+    #ffffff 0%,
+    #f8f9fb 75%,
+    #f1f3f5 100%
+  );
+}
+
+.corporate-benefits__layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(300px, 0.95fr)
+    minmax(0, 1.65fr);
+
+  align-items: center;
+  gap: clamp(30px, 4vw, 65px);
+}
+
+.corporate-benefits__intro {
+  min-width: 0;
+}
+
+.corporate-benefits__intro h2 {
+  max-width: 520px;
+
+  margin: 13px 0;
+
+  font-size: clamp(28px, 2.5vw, 38px);
+  line-height: 1.13;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+}
+
+.corporate-benefits__intro h2 span,
+.corporate-projects__heading h2 span {
+  color: #88b51b;
+}
+
+.corporate-benefits__intro p {
+  max-width: 490px;
+
+  margin-bottom: 0;
+
+  color: var(--corporate-text);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.corporate-benefits__grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  align-items: stretch;
+  gap: 14px;
+}
+
+.corporate-benefit-card {
+  min-width: 0;
+  min-height: 160px;
+
+  padding: 24px 14px;
+
+  border: 1px solid rgba(17, 27, 54, 0.035);
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  box-shadow: 0 5px 22px rgba(20, 35, 60, 0.045);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  gap: 17px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.corporate-benefit-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 12px 28px rgba(20, 35, 60, 0.09);
+}
+
+.corporate-benefit-card__icon {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--corporate-yellow);
+
+  filter: drop-shadow(1px 1px 0 #111);
+}
+
+.corporate-benefit-card__icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.corporate-benefit-card h3 {
+  max-width: 170px;
+
+  color: var(--corporate-text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+/* ============================================================
+   04. PROJECTS
+   ============================================================ */
+
+.corporate-projects {
+  padding: 55px 0 50px;
+
+  background: linear-gradient(
+    125deg,
+    #ffffff 0%,
+    #ffffff 72%,
+    #f7f8fa 100%
+  );
+}
+
+.corporate-projects__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 25px;
+
+  margin-bottom: 28px;
+}
+
+.corporate-projects__heading h2 {
+  margin-top: 12px;
+
+  color: var(--corporate-text);
+
+  font-size: clamp(29px, 2.7vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  line-height: 1.12;
+}
+
+.corporate-projects__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  padding-bottom: 7px;
+
+  color: var(--corporate-text);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.corporate-projects__more span {
+  color: var(--corporate-green);
+  font-size: 27px;
+
+  transition: transform 0.25s ease;
+}
+
+.corporate-projects__more:hover span {
+  transform: translateX(5px);
+}
+
+.corporate-projects__grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: clamp(16px, 1.5vw, 24px);
+}
+
+.corporate-project-card {
+  position: relative;
+  isolation: isolate;
+
+  min-width: 0;
+  height: clamp(220px, 20vw, 290px);
+
+  overflow: hidden;
+
+  border-radius: 13px;
+
+  background: #161a20;
+  color: white;
+
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.09);
+}
+
+.corporate-project-card > img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.5s ease;
+}
+
+.corporate-project-card:hover > img {
+  transform: scale(1.06);
+}
+
+.corporate-project-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.02) 15%,
+    rgba(0, 0, 0, 0.23) 45%,
+    rgba(0, 0, 0, 0.92) 100%
+  );
+}
+
+.corporate-project-card__content {
+  position: absolute;
+
+  left: 20px;
+  right: 45px;
+  bottom: 20px;
+}
+
+.corporate-project-card__year {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-bottom: 9px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.corporate-project-card__year span {
+  color: var(--corporate-yellow);
+}
+
+.corporate-project-card h3 {
+  margin-bottom: 6px;
+
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.corporate-project-card p {
+  margin-bottom: 0;
+
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.corporate-project-card__arrow {
+  position: absolute;
+  right: 17px;
+  bottom: 17px;
+
+  color: var(--corporate-yellow);
+  font-size: 28px;
+
+  transition: transform 0.25s ease;
+}
+
+.corporate-project-card:hover .corporate-project-card__arrow {
+  transform: translateX(5px);
+}
+
+/* Carousel controls */
+
+.corporate-projects__controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 13px;
+
+  margin-top: 22px;
+}
+
+.corporate-carousel-button {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #d2d6df;
+  border-radius: 50%;
+
+  background: white;
+  color: var(--corporate-green);
+
+  font-size: 23px;
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.corporate-carousel-button:hover {
+  background: var(--corporate-yellow);
+  border-color: var(--corporate-yellow);
+  color: #111;
+
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   05. CLIENTS
+   ============================================================ */
+
+.corporate-clients {
+  padding: 45px 0 60px;
+  background: #fff;
+}
+
+.corporate-clients__grid {
+  display: grid;
+
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  align-items: center;
+
+  margin-top: 27px;
+}
+
+.corporate-client {
+  min-width: 0;
+  min-height: 65px;
+
+  padding: 8px 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-right: 1px solid #cfd3dc;
+
+  text-align: center;
+}
+
+.corporate-client:last-child {
+  border-right: none;
+}
+
+.corporate-client span {
+  color: #293044;
+
+  font-size: clamp(15px, 1.8vw, 27px);
+  font-weight: 800;
+  letter-spacing: -0.6px;
+
+  white-space: nowrap;
+}
+
+/* Brand typography */
+
+.corporate-client:nth-child(2) span {
+  letter-spacing: 1.1px;
+  font-weight: 900;
+}
+
+.corporate-client:nth-child(3) span {
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+.corporate-client:nth-child(4) span {
+  font-weight: 700;
+}
+
+.corporate-client:nth-child(5) span {
+  font-size: clamp(12px, 1.5vw, 21px);
+  letter-spacing: -0.9px;
+}
+
+.corporate-client:nth-child(6) span {
+  font-weight: 600;
+  font-size: clamp(19px, 2.1vw, 30px);
+}
+
+/* ============================================================
+   06. CTA BANNER
+   ============================================================ */
+
+.corporate-cta {
+  position: relative;
+  isolation: isolate;
+
+  width: calc(100% - 64px);
+  min-height: 220px;
+
+  margin: 0 auto 55px;
+  padding: 38px 45px;
+
+  overflow: hidden;
+
+  border-radius: 19px;
+
+  display: flex;
+  align-items: center;
+
+  background: var(--corporate-dark);
+  color: white;
+}
+
+.corporate-cta__image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.corporate-cta__image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 50%;
+}
+
+.corporate-cta__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background: linear-gradient(
+    90deg,
+    rgba(5, 8, 12, 0.96) 0%,
+    rgba(5, 8, 12, 0.78) 40%,
+    rgba(5, 8, 12, 0.22) 78%,
+    rgba(5, 8, 12, 0.08) 100%
+  );
+}
+
+.corporate-cta__content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 620px;
+}
+
+.corporate-cta__content h2 {
+  margin-bottom: 12px;
+
+  font-size: clamp(25px, 2.5vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.9px;
+  line-height: 1.15;
+}
+
+.corporate-cta__content p {
+  max-width: 520px;
+
+  margin-bottom: 19px;
+
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.corporate-cta__content strong {
+  color: var(--corporate-yellow);
+}
+
+/* ============================================================
+   07. RESPONSIVE — LARGE TABLETS / SMALL LAPTOPS
+   ============================================================ */
+
+@media (max-width: 1100px) {
+
+  .corporate-container {
+    padding-inline: 32px;
+  }
+
+  .corporate-hero {
+    min-height: 540px;
+    height: 570px;
+  }
+
+  .corporate-benefits__layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .corporate-benefits__intro {
+    max-width: 680px;
+  }
+
+  .corporate-benefits__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .corporate-project-card {
+    height: 215px;
+  }
+
+  .corporate-cta__decoration {
+    right: 20px;
+    opacity: 0.6;
+  }
+}
+
+/* ============================================================
+   08. RESPONSIVE — TABLETS
+   ============================================================ */
+
+@media (max-width: 850px) {
+
+  .corporate-container {
+    padding-inline: 28px;
+  }
+
+  /* Hero */
+
+  .corporate-hero {
+    min-height: 540px;
+    height: 65vw;
+    max-height: 650px;
+  }
+
+  .corporate-hero__content h1 {
+    max-width: 540px;
+    font-size: clamp(42px, 6vw, 54px);
+  }
+
+  .corporate-hero__content p {
+    max-width: 390px;
+    font-size: 14px;
+  }
+
+  /* Benefits */
+
+  .corporate-benefits {
+    padding: 55px 0;
+  }
+
+  .corporate-benefits__intro h2 {
+    font-size: 32px;
+  }
+
+  .corporate-benefits__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .corporate-benefit-card {
+    min-height: 150px;
+  }
+
+  /* Projects */
+
+  .corporate-projects {
+    padding: 45px 0;
+  }
+
+  .corporate-projects__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .corporate-project-card {
+    height: 230px;
+  }
+
+  /* Clients */
+
+  .corporate-clients {
+    padding: 40px 0 50px;
+  }
+
+  .corporate-clients__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 20px;
+  }
+
+  .corporate-client:nth-child(3) {
+    border-right: none;
+  }
+
+  .corporate-client {
+    min-height: 65px;
+  }
+
+  /* CTA */
+
+  .corporate-cta {
+    width: calc(100% - 48px);
+    min-height: 210px;
+    padding: 30px;
+  }
+
+  .corporate-cta__decoration {
+    font-size: 85px;
+    opacity: 0.35;
+  }
+}
+
+/* ============================================================
+   09. RESPONSIVE — MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+  .corporate-container {
+    padding-inline: 20px;
+  }
+
+  /* Hero */
+
+  .corporate-hero {
+    min-height: 590px;
+    height: 88svh;
+    max-height: 760px;
+    align-items: center;
+  }
+
+  .corporate-hero__image img {
+    object-position: 65% center;
+  }
+
+  .corporate-hero__overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(5, 7, 10, 0.94) 0%,
+      rgba(5, 7, 10, 0.79) 55%,
+      rgba(5, 7, 10, 0.4) 100%
+    );
+  }
+
+  .corporate-hero__content {
+    padding-block: 100px 35px;
+  }
+
+  .corporate-hero__content h1 {
+    max-width: 430px;
+
+    margin: 12px 0 18px;
+
+    font-size: clamp(36px, 9vw, 48px);
+    letter-spacing: -1.1px;
+    line-height: 1.02;
+  }
+
+  .corporate-hero__content p {
+    max-width: 340px;
+
+    margin-bottom: 22px;
+
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .corporate-hero__decoration {
+    width: 75px;
+    height: 170px;
+  }
+
+  /* Benefits */
+
+  .corporate-benefits {
+    padding: 45px 0;
+  }
+
+  .corporate-benefits__layout {
+    gap: 28px;
+  }
+
+  .corporate-benefits__intro h2 {
+    font-size: 29px;
+    line-height: 1.15;
+  }
+
+  .corporate-benefits__intro p {
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .corporate-benefits__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .corporate-benefit-card {
+    min-height: 135px;
+    padding: 17px 10px;
+    border-radius: 15px;
+    gap: 12px;
+  }
+
+  .corporate-benefit-card__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .corporate-benefit-card__icon svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .corporate-benefit-card h3 {
+    font-size: 12px;
+  }
+
+  /* Projects */
+
+  .corporate-projects {
+    padding: 40px 0;
+  }
+
+  .corporate-projects__heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+
+    margin-bottom: 22px;
+  }
+
+  .corporate-projects__heading h2 {
+    font-size: 29px;
+  }
+
+  .corporate-projects__more {
+    font-size: 12px;
+  }
+
+  .corporate-projects__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .corporate-project-card {
+    height: 245px;
+    border-radius: 12px;
+  }
+
+  .corporate-project-card__content {
+    left: 17px;
+    right: 42px;
+    bottom: 17px;
+  }
+
+  .corporate-project-card h3 {
+    font-size: 16px;
+  }
+
+  .corporate-project-card p {
+    font-size: 12px;
+  }
+
+  .corporate-projects__controls {
+    margin-top: 20px;
+  }
+
+  .corporate-carousel-button {
+    width: 39px;
+    height: 39px;
+  }
+
+  /* Clients */
+
+  .corporate-clients {
+    padding: 35px 0 45px;
+  }
+
+  .corporate-clients__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 15px;
+    margin-top: 22px;
+  }
+
+  .corporate-client {
+    min-height: 60px;
+    padding: 8px;
+    border-right: 1px solid #d2d6df;
+  }
+
+  .corporate-client:nth-child(2n) {
+    border-right: none;
+  }
+
+  .corporate-client:nth-child(3) {
+    border-right: 1px solid #d2d6df;
+  }
+
+  .corporate-client span {
+    font-size: 17px;
+  }
+
+  /* CTA */
+
+  .corporate-cta {
+    width: calc(100% - 32px);
+
+    min-height: 245px;
+
+    padding: 28px 22px;
+    margin-bottom: 35px;
+
+    border-radius: 15px;
+  }
+
+  .corporate-cta__image img {
+    object-position: 65% center;
+  }
+
+  .corporate-cta__overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(5, 8, 12, 0.95),
+      rgba(5, 8, 12, 0.75)
+    );
+  }
+
+  .corporate-cta__content {
+    max-width: 100%;
+  }
+
+  .corporate-cta__content h2 {
+    max-width: 300px;
+    font-size: 25px;
+  }
+
+  .corporate-cta__content p {
+    max-width: 300px;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .corporate-cta__decoration {
+    right: 8px;
+    bottom: 5px;
+    top: auto;
+
+    transform: none;
+
+    font-size: 65px;
+    opacity: 0.2;
+  }
+}
+
+/* ============================================================
+   10. RESPONSIVE — SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 380px) {
+
+  .corporate-container {
+    padding-inline: 16px;
+  }
+
+  .corporate-hero__content h1 {
+    font-size: 34px;
+  }
+
+  .corporate-benefits__intro h2 {
+    font-size: 26px;
+  }
+
+  .corporate-benefits__grid {
+    gap: 9px;
+  }
+
+  .corporate-benefit-card {
+    min-height: 125px;
+    padding: 12px 7px;
+  }
+
+  .corporate-benefit-card h3 {
+    font-size: 11px;
+  }
+
+  .corporate-projects__heading h2 {
+    font-size: 26px;
+  }
+
+  .corporate-project-card {
+    height: 220px;
+  }
+
+  .corporate-client span {
+    font-size: 14px;
+  }
+
+  .corporate-cta {
+    width: calc(100% - 24px);
+    padding-inline: 18px;
+  }
+}
+
+/* ============================================================
+   11. ACCESSIBILITY
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .corporate-page *,
+  .corporate-page *::before,
+  .corporate-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

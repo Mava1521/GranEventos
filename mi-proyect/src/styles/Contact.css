@@ -142,18 +142,13 @@ body {
 
 .contact-hero {
   position: relative;
-
   display: flex;
   align-items: center;
-
   width: 100%;
   min-height: 560px;
-
-  margin-top: -95px;
-  padding: 250px var(--page-gutter) 100px;
-
+  margin-top: 0; /* <--- Elimina el margen negativo */
+  padding: 180px var(--page-gutter) 100px; /* Ajusta el espacio superior de forma limpia */
   overflow: hidden;
-
   background: #111;
   color: #fff;
 }
@@ -562,9 +557,9 @@ body {
 .contact-channel.interactive-channel:hover {
   transform: translateX(4px);
 
-  background: #f8f9fa;
+  background: #fdcf0062;
 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .04);
+  box-shadow: 0 4px 12px rgba(253, 207, 0, 0.518);
 }
 
 .contact-channel.interactive-channel:focus-visible {

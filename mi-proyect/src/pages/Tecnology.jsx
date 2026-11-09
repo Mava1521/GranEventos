@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -13,6 +12,9 @@ import {
 
 import { useTranslation } from "react-i18next";
 import "../styles/Tecnology.css";
+import PanelSol from '../assets/PanleSol.jpg';
+import ZeroHero from '../assets/ZeroHero.jpeg';
+import Sostenibilidad from '../assets/Sostenibilidad.png';
 
 const Tecnology = () => {
   const { t } = useTranslation();
@@ -20,19 +22,19 @@ const Tecnology = () => {
   const steps = [
     {
       icon: <Leaf />,
-      title: t("sustainability.steps.01")
+      title: t("zeroEnergy.steps.01")
     },
     {
       icon: <BatteryCharging />,
-      title: t("sustainability.steps.02")
+      title: t("zeroEnergy.steps.02")
     },
     {
       icon: <Globe2 />,
-      title: t("sustainability.steps.03")
+      title: t("zeroEnergy.steps.03")
     },
     {
       icon: <Recycle />,
-      title: t("sustainability.steps.04")
+      title: t("zeroEnergy.steps.04")
     }
   ];
 
@@ -40,7 +42,12 @@ const Tecnology = () => {
     <main className="technology-page">
 
       {/* 01. HERO */}
-      <section className="technology-hero">
+      <section
+        className="technology-hero"
+        style={{
+          "--technology-hero-image": `url("${ZeroHero}")`
+        }}
+      >
 
         <div className="technology-container technology-hero__content">
 
@@ -51,44 +58,20 @@ const Tecnology = () => {
               <Leaf aria-hidden="true" />
             </div>
 
-            <h1>{t("sustainability.hero.title")}</h1>
+            <h1>{t("zeroEnergy.hero.title")}</h1>
 
             <p className="technology-hero__description">
-              {t("sustainability.hero.description")}
+              {t("zeroEnergy.hero.description")}
             </p>
 
             <Link
-              to="/contacto"
+              to="/sostenibilidad"
               className="technology-button"
             >
-              {t("sustainability.hero.button")}
+              {t("zeroEnergy.hero.button")}
               <ArrowRight size={14} aria-hidden="true" />
             </Link>
-
           </div>
-
-          <div className="technology-hero__visual">
-            <div className="technology-orbit technology-orbit--one">
-              <Recycle />
-            </div>
-
-            <div className="technology-orbit technology-orbit--two">
-              <Sun />
-            </div>
-
-            <div className="technology-orbit technology-orbit--three">
-              <Smartphone />
-            </div>
-
-            <div className="technology-orbit technology-orbit--four">
-              <BatteryCharging />
-            </div>
-
-            <div className="technology-hero__leaf">
-              <Leaf />
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -101,18 +84,18 @@ const Tecnology = () => {
           <div className="technology-vision__content">
 
             <span className="technology-eyebrow">
-              {t("sustainability.vision.label")}
+              {t("zeroEnergy.vision.label")}
             </span>
 
             <h2>
-              {t("sustainability.vision.title")}{" "}
+              {t("zeroEnergy.vision.title")}{" "}
               <span>
-                {t("sustainability.vision.highlight")}
+                {t("zeroEnergy.vision.highlight")}
               </span>
             </h2>
 
             <p>
-              {t("sustainability.vision.description")}
+              {t("zeroEnergy.vision.description")}
             </p>
 
           </div>
@@ -124,7 +107,7 @@ const Tecnology = () => {
               <Leaf aria-hidden="true" />
             </div>
 
-            <p>{t("sustainability.vision.slogan")}</p>
+            <p>{t("zeroEnergy.vision.slogan")}</p>
 
           </div>
 
@@ -135,28 +118,34 @@ const Tecnology = () => {
       {/* 03. INNOVACIÓN ENERGÉTICA */}
       <section className="technology-innovation">
 
-        <div className="technology-innovation__image" aria-hidden="true" />
+        <div
+          className="technology-innovation__image"
+          style={{
+            "--technology-innovation-image": `url("${PanelSol}")`
+          }}
+          aria-hidden="true"
+        />
 
         <div className="technology-container technology-innovation__inner">
 
           <div className="technology-innovation__content">
 
             <h2>
-              {t("sustainability.innovation.title")}
+              {t("zeroEnergy.innovation.title")}
               <span>
-                {t("sustainability.innovation.highlight")}
+                {t("zeroEnergy.innovation.highlight")}
               </span>
             </h2>
 
             <p>
-              {t("sustainability.innovation.description")}
+              {t("zeroEnergy.innovation.description")}
             </p>
 
             <Link
               to="/nuevas-tecnologias"
               className="technology-button"
             >
-              {t("sustainability.innovation.button")}
+              {t("zeroEnergy.innovation.button")}
               <ArrowRight size={14} aria-hidden="true" />
             </Link>
 
@@ -172,7 +161,7 @@ const Tecnology = () => {
         <div className="technology-container">
 
           <h2 className="technology-section-title">
-            {t("sustainability.process.title")}
+            {t("zeroEnergy.process.title")}
           </h2>
 
           <div className="technology-process__steps">
@@ -209,25 +198,30 @@ const Tecnology = () => {
 
 
       {/* 05. CIERRE */}
-      <section className="technology-closing">
+      <section
+        className="technology-closing"
+        style={{
+          "--technology-closing-image": `url("${Sostenibilidad}")`
+        }}
+      >
 
         <div className="technology-container technology-closing__inner">
 
           <div className="technology-closing__content">
 
             <h2>
-              {t("sustainability.closing.title")}
+              {t("zeroEnergy.closing.title")}
             </h2>
 
             <p>
-              {t("sustainability.closing.description")}
+              {t("zeroEnergy.closing.description")}
             </p>
 
             <Link
-              to="/contacto"
+              to="/sostenibilidad"
               className="technology-button"
             >
-              {t("sustainability.closing.button")}
+              {t("zeroEnergy.closing.button")}
               <ArrowRight size={14} aria-hidden="true" />
             </Link>
 
