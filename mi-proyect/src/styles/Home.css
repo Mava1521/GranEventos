@@ -1302,7 +1302,7 @@
   }
 
   .wrapper .strengths-section .strength-card__content p {
-    font-size: 11px;
+    font-size: 14px;
   }
 
   /* Story */
@@ -1479,7 +1479,7 @@
   }
 
   .wrapper .strengths-section .strength-card__content h3 {
-    font-size: 25px;
+    font-size: 30px;
   }
 
   .wrapper .strengths-section .strength-card__content p {
@@ -1550,7 +1550,7 @@
 
   .wrapper .strengths-section .strength-card {
     height: 330px;
-    min-height: 330px;
+    min-height: 360px;
   }
 
   .wrapper .strengths-section .strength-card__image {
@@ -1563,15 +1563,15 @@
   }
 
   .wrapper .strengths-section .strength-card__content h3 {
-    font-size: 25px;
+    font-size: 30px;
   }
 
   .wrapper .strengths-section .strength-card__content p {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .wrapper .strengths-section .strength-card__link {
-    font-size: 9px;
+    font-size: 12px;
   }
 }
 

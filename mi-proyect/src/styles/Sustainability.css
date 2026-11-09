@@ -474,6 +474,7 @@
   --news-dark: #30383e;
   --news-muted: #7b848c;
   --news-light: #f5f6f5;
+  font-family: 'Inter', sans-serif;;
 }
 
 .sust-news-wrapper {
