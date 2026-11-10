@@ -716,9 +716,9 @@
   "corporate": {
     "hero": {
       "eyebrow": "Corporate",
-      "title": "Corporate events with energy that",
-      "highlight": "brings your ideas to life.",
-      "description": "We provide reliable and customized energy solutions for corporate events, from conferences and product launches to major brand gatherings.",
+      "title": "Corporate events with energy that ",
+      "highlight": "drives your ideas.",
+      "description": "We provide reliable and customized energy solutions for corporate events, from conferences and product launches to large-scale brand gatherings.",
       "button": "Explore our projects",
       "imageAlt": "Corporate conference with stage and audience"
     },
@@ -726,37 +726,62 @@
       "eyebrow": "Why choose us?",
       "title": "Energy solutions for",
       "highlight": "your corporate events.",
-      "description": "We combine technology, experience and a specialized team to ensure the success of your event, providing a safe and efficient energy supply.",
+      "description": "We combine technology, experience, and a specialized team to ensure your event's success, providing safe and efficient power supply.",
       "items": {
-        "energy": "Reliable energy at all times",
+        "energy": "Reliable power at all times",
         "technology": "State-of-the-art equipment",
-        "support": "Specialized support",
+        "support": "Specialized support and guidance",
         "environment": "Commitment to the environment"
       }
     },
     "projects": {
       "eyebrow": "Our projects",
       "title": "Corporate events",
-      "subtitle": "trusted by",
-      "highlight": "our clients.",
+      "subtitle": "that already trusted",
+      "highlight": "in us.",
       "more": "View more projects",
       "previous": "View previous projects",
       "next": "View next projects",
       "items": {
-        "congress": {
+        "ibero": {
           "title": "Ibero-American Festival",
           "client": "Client: Deloitte",
-          "imageAlt": "Business congress with illuminated stage"
+          "imageAlt": "Ibero-American Festival with professional lighting"
         },
-        "launch": {
+        "circus": {
           "title": "Cirque du Soleil",
           "client": "Client: Samsung",
-          "imageAlt": "Product launch at a corporate event"
+          "imageAlt": "Cirque du Soleil performance"
         },
-        "outdoor": {
-          "title": "Corporate Event",
+        "cumbre": {
+          "title": "Summit of the Americas",
           "client": "Client: Coca-Cola",
-          "imageAlt": "Outdoor corporate event"
+          "imageAlt": "Summit of the Americas infrastructure"
+        },
+        "exma": {
+          "title": "EXMA",
+          "client": "Client: Bancolombia",
+          "imageAlt": "EXMA marketing conference"
+        },
+        "bid": {
+          "title": "IDB (BID)",
+          "client": "Client: Google",
+          "imageAlt": "Inter-American Development Bank event"
+        },
+        "teleton": {
+          "title": "Teleton",
+          "client": "Client: Solidarity Partners",
+          "imageAlt": "Teleton main stage setup"
+        },
+        "posiciones": {
+          "title": "Presidential Inaugurations",
+          "client": "Client: National Protocol",
+          "imageAlt": "Presidential Inauguration ceremony"
+        },
+        "corporativo": {
+          "title": "Special Corporate Event",
+          "client": "Global Client",
+          "imageAlt": "Technical staging for corporate event"
         }
       }
     },
@@ -766,9 +791,9 @@
     "cta": {
       "title": "Planning a corporate event?",
       "description": "Let's work together to take your brand to the next level with",
-      "highlight": "limitless energy.",
+      "highlight": "unlimited energy.",
       "button": "Contact us",
-      "imageAlt": "Large event with professional stage lighting"
+      "imageAlt": "Large event with stage and professional lighting"
     }
   },
   "zeroEnergy": {

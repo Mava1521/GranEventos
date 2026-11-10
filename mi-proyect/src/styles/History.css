@@ -830,7 +830,7 @@
 
 .ge-modal-close:hover {
   background: var(--history-black);
-  color: #fff;
+  color: black;
 
   transform: rotate(90deg);
 }

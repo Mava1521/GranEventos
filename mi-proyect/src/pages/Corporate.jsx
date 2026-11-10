@@ -6,7 +6,13 @@ import '../styles/Corporate.css';
 import CorporativeHero from '../assets/CorporativeHero.jpg';
 import ibero from '../assets/ibero.avif';
 import circus from '../assets/Circus.jpeg';
-import evento from '../assets/evento.webp'
+import evento from '../assets/evento.webp';
+import CumbreAmericas from '../assets/cumbre.jpg';
+import EXMA from '../assets/exma.webp';
+import BID from '../assets/BID.jpg';
+import Teleton from '../assets/teleton.jpg';
+import PosicionesPresidenciales from '../assets/posiones.jpg';
+
 
 /* ============================================================
    IMAGES
@@ -19,6 +25,11 @@ const CORPORATE_IMAGES = {
     ibero,
     circus,
     evento,
+    CumbreAmericas,
+    EXMA,
+    BID,
+    Teleton,
+    PosicionesPresidenciales,
   ],
   cta: CorporativeHero,
 };
@@ -72,24 +83,52 @@ const CorporateIcon = ({ type }) => {
 /* ============================================================
    PROJECT DATA
    ============================================================ */
+/* ============================================================
+   PROJECT DATA
+   ============================================================ */
 
-const PROJECTS = [
-  {
-    id: 'congress',
-    image: CORPORATE_IMAGES.projects[0],
-    year: '2025',
-  },
-  {
-    id: 'launch',
-    image: CORPORATE_IMAGES.projects[1],
-    year: '2024',
-  },
-  {
-    id: 'outdoor',
-    image: CORPORATE_IMAGES.projects[2],
-    year: '2024',
-  },
-];
+    const PROJECTS = [
+      {
+        id: 'ibero',
+        image: CORPORATE_IMAGES.projects[0],
+        year: '2025',
+      },
+      {
+        id: 'circus',
+        image: CORPORATE_IMAGES.projects[1],
+        year: '2024',
+      },
+      {
+        id: 'cumbre',
+        image: CORPORATE_IMAGES.projects[2],
+        year: '2024',
+      },
+      {
+        id: 'exma',
+        image: CORPORATE_IMAGES.projects[3],
+        year: '2025',
+      },
+      {
+        id: 'bid',
+        image: CORPORATE_IMAGES.projects[4],
+        year: '2024',
+      },
+      {
+        id: 'teleton',
+        image: CORPORATE_IMAGES.projects[5],
+        year: '2024',
+      },
+      {
+        id: 'posiciones',
+        image: CORPORATE_IMAGES.projects[6],
+        year: '2024',
+      },
+      {
+        id: 'corporativo',
+        image: CORPORATE_IMAGES.projects[7],
+        year: '2024',
+      },
+    ];
 
 /* ============================================================
    CORPORATE PAGE
@@ -247,15 +286,6 @@ export default function Corporate() {
                 <span>{t('corporate.projects.highlight')}</span>
               </h2>
             </div>
-
-            <Link
-              to="/proyectos"
-              className="corporate-projects__more"
-            >
-              {t('corporate.projects.more')}
-              <span aria-hidden="true">→</span>
-            </Link>
-
           </div>
 
 
@@ -292,38 +322,8 @@ export default function Corporate() {
 
                 </div>
 
-                <span
-                  className="corporate-project-card__arrow"
-                  aria-hidden="true"
-                >
-                  →
-                </span>
-
               </article>
             ))}
-
-          </div>
-
-
-          <div className="corporate-projects__controls">
-
-            <button
-              type="button"
-              className="corporate-carousel-button"
-              onClick={() => changeProject(-1)}
-              aria-label={t('corporate.projects.previous')}
-            >
-              ←
-            </button>
-
-            <button
-              type="button"
-              className="corporate-carousel-button"
-              onClick={() => changeProject(1)}
-              aria-label={t('corporate.projects.next')}
-            >
-              →
-            </button>
 
           </div>
 

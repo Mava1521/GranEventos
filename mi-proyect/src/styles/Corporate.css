@@ -21,6 +21,7 @@
   color: var(--corporate-text);
   font-family: 'Inter', sans-serif;
   box-sizing: border-box;
+  padding: 2px;
 }
 
 .corporate-page *,
@@ -118,7 +119,6 @@
 }
 
 .corporate-button:focus-visible,
-.corporate-projects__more:focus-visible,
 .corporate-carousel-button:focus-visible {
   outline: 3px solid var(--corporate-green);
   outline-offset: 4px;
@@ -393,31 +393,6 @@
   line-height: 1.12;
 }
 
-.corporate-projects__more {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-
-  padding-bottom: 7px;
-
-  color: var(--corporate-text);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.corporate-projects__more span {
-  color: var(--corporate-green);
-  font-size: 27px;
-
-  transition: transform 0.25s ease;
-}
-
-.corporate-projects__more:hover span {
-  transform: translateX(5px);
-}
-
 .corporate-projects__grid {
   display: grid;
 
@@ -512,30 +487,11 @@
   line-height: 1.4;
 }
 
-.corporate-project-card__arrow {
-  position: absolute;
-  right: 17px;
-  bottom: 17px;
-
-  color: var(--corporate-yellow);
-  font-size: 28px;
-
-  transition: transform 0.25s ease;
-}
 
 .corporate-project-card:hover .corporate-project-card__arrow {
   transform: translateX(5px);
 }
 
-/* Carousel controls */
-
-.corporate-projects__controls {
-  display: flex;
-  justify-content: flex-end;
-  gap: 13px;
-
-  margin-top: 22px;
-}
 
 .corporate-carousel-button {
   width: 42px;
@@ -983,10 +939,6 @@
     font-size: 29px;
   }
 
-  .corporate-projects__more {
-    font-size: 12px;
-  }
-
   .corporate-projects__grid {
     grid-template-columns: 1fr;
     gap: 18px;
@@ -1009,10 +961,6 @@
 
   .corporate-project-card p {
     font-size: 12px;
-  }
-
-  .corporate-projects__controls {
-    margin-top: 20px;
   }
 
   .corporate-carousel-button {

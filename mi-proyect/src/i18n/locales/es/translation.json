@@ -716,7 +716,7 @@
   "corporate": {
     "hero": {
       "eyebrow": "Corporativos",
-      "title": "Eventos corporativos con energía que",
+      "title": "Eventos corporativos con energía que ",
       "highlight": "impulsa tus ideas.",
       "description": "Brindamos soluciones energéticas confiables y personalizadas para eventos corporativos, desde conferencias y lanzamientos hasta grandes encuentros de marca.",
       "button": "Conoce nuestros proyectos",
@@ -743,20 +743,45 @@
       "previous": "Ver proyectos anteriores",
       "next": "Ver siguientes proyectos",
       "items": {
-        "congress": {
+        "ibero": {
           "title": "Festival Iberoamericano",
           "client": "Cliente: Deloitte",
-          "imageAlt": "Congreso empresarial con escenario iluminado"
+          "imageAlt": "Festival Iberoamericano con iluminación profesional"
         },
-        "launch": {
+        "circus": {
           "title": "Cirque du Soleil",
           "client": "Cliente: Samsung",
-          "imageAlt": "Lanzamiento de producto en evento corporativo"
+          "imageAlt": "Espectáculo de Cirque du Soleil"
         },
-        "outdoor": {
-          "title": "Evento Corporativo",
+        "cumbre": {
+          "title": "Cumbre de las Américas",
           "client": "Cliente: Coca-Cola",
-          "imageAlt": "Evento corporativo al aire libre"
+          "imageAlt": "Cumbre de las Américas e infraestructura"
+        },
+        "exma": {
+          "title": "EXMA",
+          "client": "Cliente: Bancolombia",
+          "imageAlt": "Conferencia de marketing EXMA"
+        },
+        "bid": {
+          "title": "BID",
+          "client": "Cliente: Google",
+          "imageAlt": "Reunión y evento del Banco Interamericano de Desarrollo"
+        },
+        "teleton": {
+          "title": "Teletón",
+          "client": "Cliente: Aliados Solidarios",
+          "imageAlt": "Escenario principal de la Teletón"
+        },
+        "posiciones": {
+          "title": "Posiciones Presidenciales",
+          "client": "Cliente: Protocolo Nacional",
+          "imageAlt": "Ceremonia de Posiciones Presidenciales"
+        },
+        "corporativo": {
+          "title": "Evento Corporativo Especial",
+          "client": "Cliente Global",
+          "imageAlt": "Montaje técnico para evento corporativo"
         }
       }
     },
