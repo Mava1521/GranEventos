@@ -41,11 +41,13 @@ export default function Footer() {
 
             <div className="footer-logo-divider" aria-hidden="true" />
 
-            <img
-              src={LogoSETIE}
-              alt={t('footer.alt.setieLogo')}
-              className="footer-logo footer-logo-setie"
-            />
+            <Link to="/sostenibilidad" >
+              <img
+                src={LogoSETIE}
+                alt={t('footer.alt.setieLogo')}
+                className="footer-logo footer-logo-setie"
+              />
+            </Link>
           </div>
 
           <p className="footer-description">

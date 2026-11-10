@@ -52,6 +52,15 @@
   color: white;
 }
 
+.energy-eyebrow2 {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: black;
+}
+
 /* ============================================================
    BUTTONS
    ============================================================ */
@@ -69,6 +78,7 @@
   font-size: 10px;
   font-weight: 800;
   text-decoration: none;
+  margin-top: 30px;
   transition:
     background 0.25s ease,
     transform 0.25s ease;
@@ -505,25 +515,6 @@
       align-items: center;
       gap: 25px;
       padding-block: 23px;
-    }
-
-    /* Símbolo */
-
-    .energy-sustainability__symbol {
-      position: relative;
-      z-index: 2;
-      flex-shrink: 0;
-      width: 75px;
-      height: 75px;
-      display: grid;
-      place-items: center;
-      color: var(--energy-green);
-    }
-
-    .energy-sustainability__symbol svg {
-      width: 68px;
-      height: 68px;
-      filter: drop-shadow(0 0 6px rgba(157, 196, 37, 0.7));
     }
 
     /* Textos */

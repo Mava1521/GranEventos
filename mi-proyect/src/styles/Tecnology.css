@@ -491,22 +491,6 @@
   line-height: 1.55;
 }
 
-.technology-closing__decoration {
-  position: absolute;
-  right: 5%;
-  width: 210px;
-  height: 210px;
-  color: rgba(181, 222, 58, .75);
-  transform: rotate(-30deg);
-  filter: drop-shadow(0 0 15px rgba(130, 190, 35, .3));
-}
-
-.technology-closing__decoration svg {
-  width: 100%;
-  height: 100%;
-  stroke-width: .8;
-}
-
 
 /* =========================================
    07. RESPONSIVE TABLET
@@ -722,16 +706,7 @@
   .technology-closing__content p {
     max-width: 300px;
   }
-
-  .technology-closing__decoration {
-    width: 110px;
-    height: 110px;
-    right: -15px;
-    bottom: 5px;
-    opacity: .45;
-  }
 }
-
 
 /* =========================================
    09. ACCESIBILIDAD

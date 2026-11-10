@@ -6,36 +6,42 @@ import festival from '../assets/festival.jpg';
 import stereo from '../assets/stereo.jpg';
 import vive from '../assets/vive.jpg';
 import colombia from '../assets/colombia.png';
+import estereop from '../assets/estereop.png';
+import Cordillera from '../assets/Cordillera.png';
+import Rituales from '../assets/rituales.jpg';
+import EDC from '../assets/EDC.avif';
+import BAUM from '../assets/baum.avif';
+import VASSAR from '../assets/vassar.jpg';
 
 const projects = [
   {
     title: 'ESTÉREO PICNIC',
     location: 'Bogotá, 2024',
-    image: stereo,
+    image: estereop,
   },
   {
     title: 'CORDILLERA',
     location: 'Bogotá, 2023',
-    image: vive,
+    image: Cordillera,
   },
   {
     title: 'RITUALES',
     location: 'Bogotá, 2022',
-    image: colombia,
+    image: Rituales,
   },{
     title: 'EDC',
     location: 'Bogotá, 2024',
-    image: stereo,
+    image: EDC,
   },
   {
     title: 'BAUM FESTIVAL',
     location: 'Bogotá, 2023',
-    image: vive,
+    image: BAUM,
   },
   {
     title: 'VASSAR',
     location: 'Bogotá, 2022',
-    image: colombia,
+    image: VASSAR,
   },
 ];
 

@@ -119,7 +119,7 @@ const Energy = () => {
         <div className="energy-worlds__content">
           <div className="energy-container energy-worlds__inner">
             <div className="energy-worlds__text">
-              <span className="energy-eyebrow">
+              <span className="energy-eyebrow2">
                 {t('energy.worlds.eyebrow')}
               </span>
 
@@ -226,7 +226,7 @@ const Energy = () => {
 
               <p>{t('energy.scenarios.description')}</p>
 
-              <Link to="/proyectos" className="energy-button">
+              <Link to="/nuevas-tecnologias" className="energy-button">
                 {t('energy.scenarios.button')}
                 <span aria-hidden="true">→</span>
               </Link>
@@ -254,9 +254,6 @@ const Energy = () => {
         </div>
 
         <div className="energy-container energy-sustainability__content">
-          <div className="energy-sustainability__symbol" aria-hidden="true">
-            <EnergyIcon type="leaf" />
-          </div>
 
           <div className="energy-sustainability__text">
             <h2>{t('energy.sustainability.title')}</h2>

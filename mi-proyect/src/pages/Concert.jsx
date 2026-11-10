@@ -10,6 +10,14 @@ import Card1 from '../assets/Card1.jpg';
 import Concertt from '../assets/Concert.png';
 import FOTO4 from '../assets/FOTO4.jpg';
 import FOTO5 from '../assets/FOTO5.jpg';
+import BrunoMars from '../assets/bruno.webp';
+import Madonna from '../assets/madonna.webp';
+import Beyonce from '../assets/beyonce.webp';
+import TheWeekend from '../assets/weekend.jpg';
+import Coldplay from '../assets/coldplay.jpg';
+import KarolG from '../assets/karolg.jpg';
+import Shakira from '../assets/shakira.webp';
+import BTS from '../assets/BTS.jpg';
 
 /*
  * ============================================================
@@ -30,49 +38,49 @@ const projects = [
     id: 1,
     title: 'BRUNO MARS',
     location: 'Bogotá, 2024',
-    image: Card1,
+    image: BrunoMars,
   },
   {
     id: 2,
     title: 'MADONNA',
     location: 'Bogotá, 2023',
-    image: Concertt,
+    image: Madonna,
   },
   {
     id: 3,
     title: 'BEYONCE',
     location: 'Bogotá, 2022',
-    image: FOTO4,
+    image: Beyonce,
   },
   {
     id: 4,
     title: 'THE WEEKEND',
     location: 'Bogotá, 2021',
-    image: FOTO5,
+    image: TheWeekend,
   },
   {
     id: 5,
     title: 'COLDPLAY',
     location: 'Bogotá, 2021',
-    image: FOTO5,
+    image: Coldplay,
   },
   {
     id: 6,
     title: 'KAROL G',
     location: 'Bogotá, 2022',
-    image: FOTO4,
+    image: KarolG,
   },
   {
     id: 7,
     title: 'SHAKIRA',
     location: 'Bogotá, 2021',
-    image: FOTO5,
+    image: Shakira,
   },
   {
     id: 8,
     title: 'BTS',
     location: 'Bogotá, 2026',
-    image: FOTO5,
+    image: BTS,
   },
 ];
 

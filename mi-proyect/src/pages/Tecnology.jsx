@@ -226,11 +226,6 @@ const Tecnology = () => {
             </Link>
 
           </div>
-
-          <div className="technology-closing__decoration" aria-hidden="true">
-            <Leaf />
-          </div>
-
         </div>
       </section>
 
