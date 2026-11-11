@@ -582,9 +582,10 @@
 .concert-cta__content p {
   max-width: 240px;
   margin: 0 0 12px;
-  color: #ddd;
+  color: white;
   font-size: 8px;
   line-height: 1.5;
+  font-weight: 600;
 }
 
 .concert-cta__button {
