@@ -140,100 +140,89 @@ body {
    3. HERO
    ========================================================= */
 
-.contact-hero {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  min-height: 560px;
-  margin-top: 0; /* <--- Elimina el margen negativo */
-  padding: 180px var(--page-gutter) 100px; /* Ajusta el espacio superior de forma limpia */
-  overflow: hidden;
-  background: #111;
-  color: #fff;
-}
+    .contact-hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      min-height: 560px;
+      margin-top: 0;
+      padding: 190px var(--page-gutter) 90px; /* Espacio superior seguro para no tocar el Navbar */
+      overflow: hidden;
+      background: #111;
+      color: #fff;
+      box-sizing: border-box;
+    }
 
-.contact-hero-bg-wrapper {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
+    .contact-hero-bg-wrapper {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-  width: 100%;
-  height: 100%;
-}
+    .contact-hero-bg-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(.9);
+    }
 
-.contact-hero-bg-image {
-  display: block;
+    .contact-hero-overlay {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(17, 17, 17, .95) 0%,
+        rgba(17, 17, 17, .78) 45%,
+        rgba(17, 17, 17, .4) 100%
+      );
+    }
 
-  width: 100%;
-  height: 100%;
+    .contact-hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 520px;
+      padding-left: 0;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+    }
 
-  object-fit: cover;
-  object-position: center;
+    .contact-hero h1 {
+      max-width: 470px;
+      margin: 0;
+      color: #fff;
+      font-family: 'Oswald', Impact, sans-serif;
+      font-size: clamp(44px, 4.5vw, 68px);
+      font-weight: 300;
+      line-height: .98;
+      letter-spacing: -1.5px;
+    }
 
-  filter: saturate(.9);
-}
+    .contact-hero h1 strong {
+      display: block;
+      font-weight: 700;
+    }
 
-.contact-hero-overlay {
-  position: absolute;
-  z-index: 2;
-  inset: 0;
+    .contact-yellow-line {
+      width: 42px;
+      height: 3px;
+      margin: 28px 0;
+      background: var(--contact-yellow);
+    }
 
-  background: linear-gradient(
-    90deg,
-    rgba(17, 17, 17, .95) 0%,
-    rgba(17, 17, 17, .78) 45%,
-    rgba(17, 17, 17, .4) 100%
-  );
-}
-
-.contact-hero-content {
-  position: relative;
-  z-index: 3;
-
-  max-width: 520px;
-  padding-left: 0;
-
-  background: transparent;
-}
-
-.contact-hero h1 {
-  max-width: 470px;
-  margin: 0;
-
-  color: #fff;
-
-  font-family: 'Oswald', Impact, sans-serif;
-  font-size: clamp(44px, 4.5vw, 68px);
-  font-weight: 300;
-
-  line-height: .98;
-  letter-spacing: -1.5px;
-}
-
-.contact-hero h1 strong {
-  display: block;
-  font-weight: 700;
-}
-
-.contact-yellow-line {
-  width: 42px;
-  height: 3px;
-
-  margin: 28px 0;
-
-  background: var(--contact-yellow);
-}
-
-.contact-hero-content > p {
-  max-width: 420px;
-  margin: 0;
-
-  color: #fff;
-
-  font-size: 15px;
-  line-height: 1.5;
-}
+    .contact-hero-content > p {
+      max-width: 420px;
+      margin: 0;
+      color: #fff;
+      font-size: 15px;
+      line-height: 1.5;
+    }
 
 
 /* Imagen del hero */
@@ -289,31 +278,25 @@ body {
 /* Texto lateral del hero */
 
 .contact-hero-side {
-  position: absolute;
+  position: relative;
   z-index: 5;
-
-  right: var(--page-gutter);
-  bottom: 30px;
-
   display: flex;
   flex-direction: column;
-
+  align-items: flex-start; /* Alineación perfecta a la izquierda */
+  text-align: left;
   color: #fff;
-
   font-size: 11px;
   line-height: 1.6;
   letter-spacing: .5px;
+  margin-top: 35px; /* Margen superior limpio que separa del párrafo descriptivo */
 }
 
 .contact-hero-side div {
   width: 30px;
   height: 3px;
-
   margin-top: 12px;
-
   background: var(--contact-yellow);
 }
-
 
 /* =========================================================
    4. CONTACTO PRINCIPAL
@@ -983,112 +966,102 @@ body {
    11. UBICACIÓN — CABECERA Y MAPA
    ========================================================= */
 
-.contact-location-section {
-  position: relative;
+    .contact-location-section {
+      position: relative;
+      display: grid;
+      grid-template-columns: 45% 55%;
+      gap: 40px 0; /* Control limpio de separación por filas y columnas */
+      padding: 65px var(--page-gutter) 55px;
+      overflow: visible; /* Evita recortes no deseados en elementos gráficos */
+      background: #f4f5f6;
+      box-sizing: border-box;
+    }
 
-  display: grid;
-  grid-template-columns: 45% 55%;
+    /* Cabecera */
+    .location-header {
+      position: relative;
+      z-index: 2;
+      padding-right: 50px;
+    }
 
-  column-gap: 0;
+    .location-header .contact-kicker {
+      margin-bottom: 25px;
+    }
 
-  padding: 65px var(--page-gutter) 55px;
+    .location-header h2 {
+      margin: 0 0 30px;
+      color: #111;
+      font-family: 'Oswald', Impact, sans-serif;
+      font-size: clamp(48px, 4.8vw, 76px);
+      font-weight: 700;
+      line-height: .91;
+      letter-spacing: -1px;
+    }
 
-  overflow: hidden;
+    .location-header h2 strong {
+      display: block;
+      color: var(--contact-green);
+    }
 
-  background: #f4f5f6;
-}
+    .location-yellow-line {
+      width: 48px;
+      height: 3px;
+      margin: 25px 0;
+      background: var(--contact-yellow);
+    }
 
+    .location-header > p {
+      max-width: 520px;
+      margin: 0;
+      color: #555;
+      font-size: 15px;
+      line-height: 1.55;
+    }
 
-/* Cabecera */
+    /* Área del mapa */
+    .location-map-area {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 390px;
+    }
 
-.location-header {
-  position: relative;
-  z-index: 2;
+    .location-map-placeholder {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 520px;
+      height: 100%;
+      min-height: 360px;
+      color: #111;
+      text-align: center;
+    }
 
-  padding-right: 50px;
-}
+    .location-map-placeholder img {
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
+      display: block;
+    }
 
-.location-header .contact-kicker {
-  margin-bottom: 25px;
-}
+    .location-map-placeholder span {
+      margin-bottom: 8px;
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 3px;
+    }
 
-.location-header h2 {
-  margin: 0 0 30px;
-
-  color: #111;
-
-  font-family: 'Oswald', Impact, sans-serif;
-  font-size: clamp(48px, 4.8vw, 76px);
-  font-weight: 700;
-
-  line-height: .91;
-  letter-spacing: -1px;
-}
-
-.location-header h2 strong {
-  display: block;
-  color: var(--contact-green);
-}
-
-.location-yellow-line {
-  width: 48px;
-  height: 3px;
-
-  margin: 25px 0;
-
-  background: var(--contact-yellow);
-}
-
-.location-header > p {
-  max-width: 520px;
-  margin: 0;
-
-  color: #555;
-
-  font-size: 15px;
-  line-height: 1.55;
-}
-
-
-/* Área del mapa */
-
-.location-map-area {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 390px;
-}
-
-.location-map-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  width: min(520px, 100%);
-  height: 360px;
-
-  color: #111;
-  text-align: center;
-}
-
-.location-map-placeholder span {
-  margin-bottom: 8px;
-
-  color: #777;
-
-  font-size: 11px;
-  letter-spacing: 3px;
-}
-
-.location-map-placeholder strong {
-  font-family: 'Oswald', Impact, sans-serif;
-  font-size: 18px;
-  letter-spacing: 1.5px;
-}
+    .location-map-placeholder strong {
+      font-family: 'Oswald', Impact, sans-serif;
+      font-size: 18px;
+      letter-spacing: 1.5px;
+    }
 
 
 /* =========================================================
@@ -2112,11 +2085,9 @@ body {
 
   .contact-hero {
     min-height: auto;
-
-    padding:
-      calc(var(--mobile-navbar-height) + 110px)
-      var(--page-gutter)
-      65px;
+    padding: calc(var(--mobile-navbar-height) + 40px) var(--page-gutter) 65px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .contact-hero-content {
@@ -2140,8 +2111,12 @@ body {
   }
 
   .contact-hero-side {
-    right: var(--page-gutter);
-    bottom: 25px;
+    position: relative; 
+    right: auto;
+    bottom: auto;
+    margin-top: 35px;
+    align-items: flex-start;
+    text-align: left;
   }
 
 
@@ -2276,8 +2251,9 @@ body {
 
   .contact-location-section {
     grid-template-columns: 1fr;
-
+    row-gap: 35px; /* Separa perfectamente el texto del mapa */
     padding: 50px var(--page-gutter) 40px;
+    overflow: visible;
   }
 
   .location-header {
@@ -2289,8 +2265,22 @@ body {
   }
 
   .location-map-area {
-    min-height: 300px;
-    margin-top: 20px;
+    min-height: auto;
+    margin-top: 0;
+    width: 100%;
+  }
+
+  .location-map-placeholder {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+  }
+
+  .location-map-placeholder img {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: contain;
   }
 
   .location-details {

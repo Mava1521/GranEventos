@@ -54,8 +54,8 @@ html, body {
   justify-content: space-between;
   margin-top: -95px; /* Pasa por detrás del Navbar */
   padding: 230px var(--page-padding) 80px;
-  background: #ffffff;
-  color: var(--black);
+  background: #111111;
+  color: #ffffff; /* Texto blanco base para garantizar contraste */
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -74,17 +74,18 @@ html, body {
   object-fit: cover;
   object-position: center;
   display: block;
+  filter: grayscale(100%) contrast(1.1); /* Estilo industrial inmersivo coherente con la marca */
 }
 
 .services-hero__overlay {
   position: absolute;
   inset: 0;
+  /* Gradiente oscuro profesional que garantiza legibilidad absoluta en cualquier punto de la pantalla */
   background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 255, 255, 0.82) 38%,
-    rgba(255, 255, 255, 0.45) 65%,
-    rgba(0, 0, 0, 0.2) 100%
+    180deg,
+    rgba(17, 17, 17, 0.88) 0%,
+    rgba(17, 17, 17, 0.65) 40%,
+    rgba(17, 17, 17, 0.85) 100%
   );
   z-index: 2;
 }
@@ -98,6 +99,7 @@ html, body {
   padding: 0;
   max-width: 760px;
   padding-top: 40px;
+  color: #ffffff;
 }
 
 .services-eyebrow {
@@ -115,6 +117,7 @@ html, body {
   flex-direction: column;
   max-width: 760px;
   margin: 0;
+  color: #ffffff;
   font-size: clamp(48px, 4.25vw, 76px);
   line-height: 0.91;
   font-weight: 800;
@@ -124,6 +127,7 @@ html, body {
 
 .services-hero__title-light {
   margin-top: 8px;
+  color: #ffffff;
   font-weight: 300;
   letter-spacing: -0.04em;
 }
@@ -136,11 +140,12 @@ html, body {
 .services-hero__description {
   max-width: 650px;
   margin: 30px 0 0;
-  color: var(--black);
+  color: rgba(255, 255, 255, 0.9); /* Blanco suave para una lectura cómoda y sin fatiga visual */
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
 }
+
 
 /* MENSAJE DEL HERO */
 .services-hero__message {
@@ -457,48 +462,52 @@ html, body {
    RESPONSIVE: TABLET & MOBILE
    ========================================================= */
 
-@media (max-width: 1024px) {
-  .services-page {
-    --page-padding: 30px;
-  }
+    @media (max-width: 1024px) {
+      .services-page {
+        --page-padding: 30px;
+      }
 
-  .services-hero {
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: 180px;
-  }
+      .services-hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 190px; /* Espacio superior seguro para separar del Navbar */
+      }
 
-  .services-hero__message {
-    margin-left: 0;
-    margin-top: 30px;
-  }
-}
+      .services-hero__message {
+        margin-left: 0;
+        margin-top: 30px;
+      }
+    }
 
-@media (max-width: 768px) {
-  .services-page {
-    --page-padding: 20px;
-  }
+    @media (max-width: 768px) {
+      .services-page {
+        --page-padding: 20px;
+      }
 
-  /* Las 4 cards pasan a una sola columna para evitar recortes y mejorar la legibilidad en móviles */
-  .services-grid {
-    grid-template-columns: 1fr;
-    row-gap: 40px;
-  }
+      .services-hero {
+        padding-top: 190px;
+        padding-bottom: 60px;
+      }
 
-  .service-card:nth-child(even)::before {
-    display: none;
-  }
+      .services-grid {
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+      }
 
-  .services-hero__title {
-    font-size: clamp(36px, 9vw, 52px);
-  }
+      .service-card:nth-child(even)::before {
+        display: none;
+      }
 
-  .services-cta__side-text {
-    display: none; /* Oculta texto lateral decorativo en pantallas pequeñas para evitar solapamientos */
-  }
+      .services-hero__title {
+        font-size: clamp(36px, 9vw, 52px);
+      }
 
-  .services-hero__message p {
-    white-space: normal;
-    color: black;
-  }
-}
+      .services-cta__side-text {
+        display: none;
+      }
+
+      .services-hero__message p {
+        white-space: normal;
+        color: white; /* Asegura visibilidad del sello de marca inferior en móviles */
+      }
+    }

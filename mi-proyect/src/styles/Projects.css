@@ -731,24 +731,29 @@
   .projects-hero {
     display: flex;
     flex-direction: column;
-
+    justify-content: flex-start;
     min-height: auto;
-
-    /* Aumentamos el padding vertical en móviles para darle más espacio */
-    padding: 160px var(--page-gutter) 70px;
+    /* Espacio superior generoso para que comience debajo del Navbar y respire */
+    padding: 190px var(--page-gutter) 60px;
   }
 
   .projects-hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
     padding-left: 0;
-    padding-top: 80px;
+    padding-top: 0; /* Eliminamos el top forzado anterior para evitar choques */
   }
 
   .projects-hero-content h1 {
-    font-size: 48px;
+    font-size: clamp(38px, 10vw, 48px);
+    line-height: 1.05;
   }
 
   .projects-hero-content p {
     font-size: 13px;
+    margin-top: 18px;
+    line-height: 1.5;
   }
 
   .desktop-only {
@@ -760,35 +765,58 @@
      KEYWORDS
      ----------------------------------------- */
 
-  .hero-keywords {
-    margin-top: 35px;
-    padding-top: 0;
-  }
+      .hero-keywords {
+          position: relative; /* Cambiamos de absolute a relative para que fluya de manera natural debajo del texto */
+          top: auto;
+          right: auto;
+          z-index: 3;
+          width: 100%;
+          margin-top: 25px;
+          display: flex;
+          flex-wrap: wrap; /* Permite que las palabras se acomoden en filas si es necesario */
+          align-items: flex-start;
+          gap: 6px 12px; /* Espaciado simétrico */
+          font-size: 10px;
+          letter-spacing: 2px;
+          text-align: left; /* Alineado a la izquierda para mejor lectura móvil */
+          color: rgba(255, 255, 255, 0.85);
+        }
+
+        .hero-small-line {
+          width: 25px;
+          height: 2px;
+          margin-top: 8px;
+          background: var(--gold);
+          display: block;
+          clear: both;
+        }
 
 
   /* -----------------------------------------
      HERO IMAGE
      ----------------------------------------- */
 
-  .projects-hero-image {
-    position: relative;
+      .projects-hero-image {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: calc(100% + (var(--page-gutter) * 2));
+        height: 240px;
+        margin-top: 30px;
+        margin-left: calc(var(--page-gutter) * -1);
+        clip-path: none;
+      }
 
-    top: auto;
-    right: auto;
-
-    width: calc(100% + (var(--page-gutter) * 2));
-    height: 260px;
-
-    margin-top: 35px;
-    margin-left: calc(var(--page-gutter) * -1);
-
-    clip-path: none;
-  }
-
-  .hero-image-overlay {
-    right: 20px;
-    bottom: -30px;
-  }
+      .hero-image-overlay {
+        position: relative; /* Fluye de forma ordenada debajo de la imagen o del bloque */
+        right: auto;
+        bottom: auto;
+        margin-top: 20px;
+        align-items: flex-start;
+        text-align: left;
+        font-size: 9px;
+        letter-spacing: 1.5px;
+      }
 
 
   /* -----------------------------------------

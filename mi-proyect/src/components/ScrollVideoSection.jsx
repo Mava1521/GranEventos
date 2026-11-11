@@ -25,25 +25,47 @@ ScrollTrigger.config({ ignoreMobileResize: true });
  * =========================================================
  * Valores en % de la altura de pantalla (vh) de scroll.
  * Toda la escena queda fija mientras se recorre la suma.
+ * La misma línea de tiempo se recorre al revés al subir,
+ * así que cada fase funciona igual en ambos sentidos.
  *
  *   text    → letras translúcidas → rellenas (barra 0 → 100%)
- *   hold    → pausa breve con el texto completo legible
- *   swap    → las letras desaparecen y entra el video
- *   preview → el video queda en pantalla (el "preview")
+ *   hold    → pausa breve: letras completas, aún sin video
+ *   reveal  → el video aparece DETRÁS de las letras
+ *   overlap → letras y video conviven (el momento "mixto")
+ *   textOut → las letras se retiran y queda solo el video
+ *   preview → el video solo, en pantalla completa
+ *
+ * Son distancias de scroll, no segundos: el tiempo real
+ * depende de qué tan rápido scrollee la persona.
  */
 const PHASE_VH = {
   text: 120,
-  hold: 12,
-  swap: 30,
-  preview: 50,
+  hold: 10,
+  reveal: 25,
+  overlap: 35,
+  textOut: 25,
+  preview: 45,
 };
 
-const TOTAL_VH =
-  PHASE_VH.text + PHASE_VH.hold + PHASE_VH.swap + PHASE_VH.preview;
+/* Instante de inicio de cada fase (se derivan, no se repiten) */
+const START_VH = {
+  reveal: PHASE_VH.text + PHASE_VH.hold,
+  overlap: PHASE_VH.text + PHASE_VH.hold + PHASE_VH.reveal,
+  textOut:
+    PHASE_VH.text + PHASE_VH.hold + PHASE_VH.reveal + PHASE_VH.overlap,
+  preview:
+    PHASE_VH.text +
+    PHASE_VH.hold +
+    PHASE_VH.reveal +
+    PHASE_VH.overlap +
+    PHASE_VH.textOut,
+};
 
-/* El video empieza a reproducirse cuando ya se asoma (35% del swap) */
+const TOTAL_VH = START_VH.preview + PHASE_VH.preview;
+
+/* El video empieza a reproducirse en cuanto se asoma detrás del texto */
 const VIDEO_START_PROGRESS =
-  (PHASE_VH.text + PHASE_VH.hold + PHASE_VH.swap * 0.35) / TOTAL_VH;
+  (START_VH.reveal + PHASE_VH.reveal * 0.1) / TOTAL_VH;
 
 /* El video se revela como una "card" que crece hasta pantalla completa */
 const CLIP_HIDDEN = 'inset(22% 14% 22% 14% round 28px)';
@@ -67,6 +89,7 @@ export default function ScrollVideoSection({ videoSrc }) {
   const progressFillRef = useRef(null);
   const wordRefs = useRef([]);
   const videoLayerRef = useRef(null);
+  const scrimRef = useRef(null);
   const videoRef = useRef(null);
 
   const [isMuted, setIsMuted] = useState(true);
@@ -195,9 +218,6 @@ export default function ScrollVideoSection({ videoSrc }) {
         clipPath: CLIP_HIDDEN,
       });
 
-      const swapStart = PHASE_VH.text + PHASE_VH.hold;
-      const swapEnd = swapStart + PHASE_VH.swap;
-
       /*
        * Línea de tiempo maestra. Sus duraciones están en "vh":
        * ScrollTrigger las reparte linealmente sobre la distancia
@@ -277,33 +297,54 @@ export default function ScrollVideoSection({ videoSrc }) {
         );
       }
 
-      /* 3) Las letras desaparecen... */
-      tl.to(
-        textRef.current,
-        {
-          opacity: 0,
-          scale: 0.94,
-          duration: PHASE_VH.swap * 0.75,
-          ease: 'power2.in',
-        },
-        swapStart
-      );
-
-      /* 4) ...y el video crece desde una card hasta pantalla completa */
+      /*
+       * 3) El video aparece DETRÁS de las letras (que siguen
+       *    completas y opacas), creciendo desde una card hasta
+       *    pantalla completa.
+       */
       tl.to(
         videoLayerRef.current,
         {
           autoAlpha: 1,
           scale: 1,
           clipPath: CLIP_FULL,
-          duration: PHASE_VH.swap,
+          duration: PHASE_VH.reveal,
           ease: 'power2.out',
         },
-        swapStart
+        START_VH.reveal
       );
 
-      /* 5) Tramo final: el video permanece (preview) */
-      tl.to({}, { duration: PHASE_VH.preview }, swapEnd);
+      /*
+       * 4) Tramo "mixto": letras y video conviven (overlap).
+       *    No hay tween: es solo distancia de scroll en la que
+       *    ambos permanecen visibles. Al subir, es el tramo
+       *    donde las letras se ven encima del video.
+       */
+
+      /*
+       * 5) Las letras se retiran y queda solo el video. El
+       *    velo oscuro (que garantiza la legibilidad de las
+       *    letras sobre el video) se disipa a la vez.
+       */
+      tl.to(
+        textRef.current,
+        {
+          opacity: 0,
+          scale: 0.96,
+          duration: PHASE_VH.textOut,
+          ease: 'power2.in',
+        },
+        START_VH.textOut
+      );
+
+      tl.to(
+        scrimRef.current,
+        { opacity: 0, duration: PHASE_VH.textOut },
+        START_VH.textOut
+      );
+
+      /* 6) Tramo final: el video solo, en pantalla completa */
+      tl.to({}, { duration: PHASE_VH.preview }, START_VH.preview);
     });
 
     return () => {
@@ -315,35 +356,35 @@ export default function ScrollVideoSection({ videoSrc }) {
   /* ---------------------------------------------------------
      CONTROLES DEL VIDEO
      --------------------------------------------------------- */
-      const toggleSound = () => {
-        const video = videoRef.current;
-        if (!video) return;
+  const toggleSound = () => {
+    const video = videoRef.current;
+    if (!video) return;
 
-        const nextMuted = !video.muted;
-        video.muted = nextMuted;
-        setIsMuted(nextMuted);
-      };
+    const nextMuted = !video.muted;
+    video.muted = nextMuted;
+    setIsMuted(nextMuted);
+  };
 
-      const togglePlayback = () => {
-        const video = videoRef.current;
-        if (!video) return;
+  const togglePlayback = () => {
+    const video = videoRef.current;
+    if (!video) return;
 
-        if (video.paused) {
-          playbackRef.current.userPaused = false;
-          video.play().catch(() => {});
-        } else {
-          playbackRef.current.userPaused = true;
-          video.pause();
-        }
-      };
+    if (video.paused) {
+      playbackRef.current.userPaused = false;
+      video.play().catch(() => {});
+    } else {
+      playbackRef.current.userPaused = true;
+      video.pause();
+    }
+  };
 
-      return (
-        <section
-          ref={stageRef}
-          className={`scroll-reveal-section${
-            reducedMotion ? ' is-reduced' : ''
-          }`}
-        >
+  return (
+    <section
+      ref={stageRef}
+      className={`scroll-reveal-section${
+        reducedMotion ? ' is-reduced' : ''
+      }`}
+    >
       {/* =========================================
           BARRA DE PROGRESO (fase de letras)
       ========================================== */}
@@ -414,6 +455,9 @@ export default function ScrollVideoSection({ videoSrc }) {
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
         />
+
+        {/* Velo: mantiene las letras legibles sobre el video */}
+        <div ref={scrimRef} className="scroll-video-scrim" />
 
         <div className="scroll-video-overlay" />
 

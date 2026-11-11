@@ -23,7 +23,7 @@ export default function Navbar() {
   const isEnergy = location.pathname === '/energia';
   const isTechnology = location.pathname === '/tecnologia';
 
-  const currentLogo = ( isServices || isExperiences ) ? LogoHistory : LogoGE;
+  const currentLogo = (  isExperiences ) ? LogoHistory : LogoGE;
 
   let navbarVariant = 'navbar-inner';
   if (isHome || isSustainability) {

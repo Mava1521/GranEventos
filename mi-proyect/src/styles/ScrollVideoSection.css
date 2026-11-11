@@ -63,6 +63,8 @@ body {
 
 .scroll-text-content {
   position: relative;
+
+  /* Por encima de la capa de video (z-index: 1) */
   z-index: 2;
 
   width: 100%;
@@ -73,7 +75,18 @@ body {
 
   text-align: center;
 
+  /*
+   * El contenedor deja pasar los clics a los botones del video
+   * que quedan debajo; solo el texto en sí (h2) los recibe, así
+   * se sigue pudiendo seleccionar.
+   */
+  pointer-events: none;
+
   will-change: transform, opacity;
+}
+
+.scroll-text-content .scroll-reveal-text {
+  pointer-events: auto;
 }
 
 .scroll-eyebrow {
@@ -143,18 +156,21 @@ body {
 
 
 /* =========================================================
-   VIDEO — capa que aparece sobre las letras
+   VIDEO — capa que aparece DETRÁS de las letras
    =========================================================
    Empieza oculta (opacity/visibility). GSAP la revela con un
    recorte (clip-path) que crece desde una card hasta cubrir
    toda la escena. `visibility: hidden` mientras está oculta
    evita que sus botones reciban foco con el teclado.
+
+   Orden de apilado dentro de la escena:
+     video (1)  <  letras (2)  <  barra de progreso (6)
    ========================================================= */
 
 .scroll-video-layer {
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 1;
 
   overflow: hidden;
 
@@ -164,6 +180,21 @@ body {
   visibility: hidden;
 
   will-change: transform, clip-path, opacity;
+}
+
+/*
+ * Velo oscuro uniforme sobre el video: garantiza contraste
+ * suficiente para las letras mientras conviven (WCAG 1.4.3).
+ * GSAP lo desvanece cuando las letras se retiran, dejando el
+ * video limpio.
+ */
+.scroll-video-scrim {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(8, 8, 8, 0.55);
+
+  pointer-events: none;
 }
 
 .scroll-video {
@@ -320,6 +351,10 @@ body {
 
 .is-reduced .scroll-reveal-text .word {
   opacity: 1;
+}
+
+.is-reduced .scroll-video-scrim {
+  display: none;
 }
 
 .is-reduced .scroll-video-layer {

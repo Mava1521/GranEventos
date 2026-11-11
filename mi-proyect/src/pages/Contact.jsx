@@ -87,7 +87,6 @@ export default function Contact() {
           />
           <div className="contact-hero-overlay" />
         </div>
-
         <div className="contact-hero-content">
           <div className="contact-kicker">
             <span />
@@ -102,22 +101,22 @@ export default function Contact() {
           <div className="contact-yellow-line" />
 
           <p>{t('contact.hero.description')}</p>
-        </div>
 
-        {/* LADO DERECHO DEL HERO CON LA FRASE / SELLO DE MARCA */}
-        <div className="contact-hero-side">
-          <p style={{ margin: 0, lineHeight: '1.4'}}>
-            {t('contact.hero.extraMessage.line1')}
-            <br />
-            {t('contact.hero.extraMessage.line2')}
-            <br />
-            {t('contact.hero.extraMessage.line3')}
-            <br />
-            {t('contact.hero.extraMessage.line4')}
-            <br />
-            {t('contact.hero.extraMessage.line5')}
-          </p>
-          <div />
+          {/* SELLO DE MARCA REUBICADO DEBAJO DEL TEXTO IZQUIERDO */}
+          <div className="contact-hero-side">
+            <p style={{ margin: 0, lineHeight: '1.4'}}>
+              {t('contact.hero.extraMessage.line1')}
+              <br />
+              {t('contact.hero.extraMessage.line2')}
+              <br />
+              {t('contact.hero.extraMessage.line3')}
+              <br />
+              {t('contact.hero.extraMessage.line4')}
+              <br />
+              {t('contact.hero.extraMessage.line5')}
+            </p>
+            <div />
+          </div>
         </div>
       </section>
 
