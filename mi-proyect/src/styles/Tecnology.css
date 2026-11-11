@@ -100,7 +100,7 @@
 
   min-height: 440px;
 
-  padding: 150px 64px;
+  padding: 150px 42px;
 
   box-sizing: border-box;
 }
@@ -298,72 +298,71 @@
    04. INNOVACIÓN ENERGÉTICA
 ========================================= */
 
-.technology-innovation {
-  position: relative;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  background: #11150f;
-  color: white;
-}
+    .technology-innovation {
+      position: relative;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #11150f;
+      color: white;
+    }
 
-.technology-innovation__image {
-  position: absolute;
-  inset: 0 0 0 48%;
+    .technology-innovation__image {
+      position: absolute;
+      inset: 0 0 0 48%;
 
-  background-color: #52652e;
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(17, 21, 15, .55) 0%,
-      transparent 38%
-    ),
-    var(--technology-innovation-image);
+      background-color: #52652e;
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(17, 21, 15, .85) 0%,
+          transparent 28%
+        ),
+        var(--technology-innovation-image);
 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
 
-  clip-path: polygon(23% 0, 100% 0, 100% 100%, 0 100%);
-}
+      clip-path: polygon(23% 0, 100% 0, 100% 100%, 0 100%);
+    }
 
-.technology-innovation__inner {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  min-height: 300px;
-  padding-block: 45px;
-}
+    .technology-innovation__inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      min-height: 380px;
+      padding-block: 45px;
+    }
 
-.technology-innovation__content {
-  width: 48%;
-}
+    .technology-innovation__content {
+      width: 48%;
+    }
 
-.technology-innovation__content h2 {
-  max-width: 440px;
-  margin-bottom: 14px;
-  font-size: clamp(26px, 3.5vw, 40px);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -.8px;
-  text-transform: uppercase;
-}
+    .technology-innovation__content h2 {
+      max-width: 440px;
+      margin-bottom: 14px;
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -.8px;
+      text-transform: uppercase;
+    }
 
-.technology-innovation__content h2 span {
-  display: block;
-  color: var(--tech-yellow);
-}
+    .technology-innovation__content h2 span {
+      display: block;
+      color: var(--tech-yellow);
+    }
 
-.technology-innovation__content p {
-  max-width: 420px;
-  margin-bottom: 20px;
-  color: rgba(255, 255, 255, .85);
-  font-size: 13px;
-  line-height: 1.6;
-}
-
+    .technology-innovation__content p {
+      max-width: 420px;
+      margin-bottom: 20px;
+      color: rgba(255, 255, 255, .85);
+      font-size: 13px;
+      line-height: 1.6;
+    }
 
 /* =========================================
    05. PROCESO
@@ -634,21 +633,29 @@
   }
 
   .technology-innovation {
-    min-height: 440px;
+    min-height: 520px;
     align-items: flex-start;
   }
 
   .technology-innovation__image {
-    inset: auto 0 0;
-    height: 48%;
-    background:
-      linear-gradient(180deg, #11150f 0%, transparent 35%),
-      url("/images/technology/energy.jpg") center / cover no-repeat,
-      #52652e;
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 55%;
+    clip-path: none; /* Elimina el corte sesgado en móvil para aprovechar mejor el espacio */
+    background-image:
+      linear-gradient(
+        180deg,
+        #11150f 0%,
+        rgba(17, 21, 15, 0.4) 25%,
+        transparent 100%
+      ),
+      var(--technology-innovation-image);
+    background-size: cover;
+    background-position: center;
   }
 
   .technology-innovation__inner {
-    min-height: 440px;
+    min-height: 520px;
     align-items: flex-start;
     padding-top: 35px;
   }

@@ -99,7 +99,7 @@
   align-items: center;
   min-height: 510px;
   /* Igual al padding horizontal del Navbar */
-  padding: 150px 70px;
+  padding: 150px 40px;
   box-sizing: border-box;
 }
 
@@ -478,18 +478,20 @@
     align-items: flex-start;
     background:
       linear-gradient(
-        90deg,
-        rgba(255, 255, 255, .94) 0%,
-        rgba(255, 255, 255, .77) 60%,
-        rgba(255, 255, 255, .24) 100%
+        180deg,
+        rgba(255, 255, 255, 0.96) 0%,
+        rgba(255, 255, 255, 0.88) 45%,
+        rgba(255, 255, 255, 0.5) 100%
       ),
-      url("/images/formula/hero.jpg") 58% center / cover no-repeat,
-      #e9ece7;
+      var(--formula-hero-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   .formula-hero__inner {
     align-items: flex-start;
-    padding-top: 70px;
+    padding: 140px 0 50px;
   }
 
   .formula-hero__content {
