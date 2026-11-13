@@ -11,7 +11,8 @@
   --contact-gray: #666;
   --contact-light: #f5f5f3;
 
-  --page-gutter: clamp(28px, 5vw, 78px);
+  /* Sincronizado exactamente con los 40px laterales del Navbar en PC y Tablet */
+  --page-gutter: 40px;
   --mobile-navbar-height: 98px;
 
   width: 100%;
@@ -2078,7 +2079,7 @@ body {
 @media (max-width: 650px) {
 
   .contact-page {
-    --page-gutter: 22px;
+    --page-gutter: 20px;
   }
 
   /* Hero */

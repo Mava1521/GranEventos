@@ -8,33 +8,26 @@
    01. SISTEMA VISUAL Y BASE
    ========================================================== */
 
-.history-page {
-  --history-gold: #f4c400;
-  --history-black: #151515;
-  --history-gray: #686868;
-  --history-light: #f8f7f3;
-  --history-border: #dedbd3;
-  --history-green: #9dc425;
+    .history-page {
+      --history-gold: #f4c400;
+      --history-black: #151515;
+      --history-gray: #686868;
+      --history-light: #f8f7f3;
+      --history-border: #dedbd3;
+      --history-green: #9dc425;
 
-  /*
-   * Eje visual del contenido del hero.
-   *
-   * El logo del Navbar tiene espacio transparente dentro
-   * de la imagen, por eso su parte visible comienza aprox.
-   * en 72px. Usamos ese mismo eje para el hero.
-   */
-  --history-desktop-left: 72px;
-  --history-desktop-right: 40px;
+      /* Sincronización exacta con el grid y padding del Navbar (40px) */
+      --history-desktop-left: 40px;
+      --history-desktop-right: 40px;
 
-  --history-mobile-gutter: 24px;
+      /* Sincronización exacta con el padding móvil del Navbar (20px) */
+      --history-mobile-gutter: 20px;
 
-  min-height: 100vh;
-
-  background: var(--history-light);
-  color: var(--history-black);
-
-  font-family: 'Montserrat', sans-serif;
-}
+      min-height: 100vh;
+      background: var(--history-light);
+      color: var(--history-black);
+      font-family: 'Montserrat', sans-serif;
+    }
 
 
 /* ----------------------------------------------------------
@@ -1086,24 +1079,29 @@
 @media (max-width: 1100px) {
 
   .history-hero {
-    padding-right: 35px;
-    padding-left: 35px;
+    padding-right: 40px;
+    padding-left: 40px; /* Alineado con el Navbar en tablet */
   }
 
   .history-top-message {
-    right: 35px;
+    right: 40px;
+  }
+
+  .history-center-logo {
+    top: -140px;
+    width: 540px;
+    max-width: 82%;
   }
 
   .history-collage {
     gap: 6px;
-
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: 40px;
+    padding-left: 40px;
   }
 
   .timeline-section {
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: 40px;
+    padding-left: 40px;
   }
 
   .timeline-card p {
@@ -1128,6 +1126,7 @@
   .collage-item-8 {
     height: 160px;
   }
+  
 }
 
 
@@ -1155,22 +1154,17 @@
      HERO
      ======================================================== */
 
-  .history-hero {
-    position: relative;
-
-    display: block;
-
-    width: 100%;
-    min-height: 455px;
-
-    padding: 118px 35px 35px;
-
-    overflow: hidden;
-
-    background: black;
-
-    box-sizing: border-box;
-  }
+      .history-hero {
+        position: relative;
+        display: block;
+        width: 100%;
+        min-height: 455px;
+        /* Sincronizado exactamente a 20px para alinearse con el logo móvil */
+        padding: 118px var(--history-mobile-gutter) 35px var(--history-mobile-gutter);
+        overflow: hidden;
+        background: black;
+        box-sizing: border-box;
+      }
 
 
   /* --------------------------------------------------------
