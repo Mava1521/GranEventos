@@ -1150,6 +1150,125 @@
     color: #111111;
   }
 
+  .history-page .timeline-line {
+    top: 24px;
+    bottom: 24px;
+    left: 20px;
+    transform: translateX(-50%);
+    width: 2px;
+    height: auto;
+    background: #f5c400;
+  }
+
+  /* Cada fila centra verticalmente el punto y la tarjeta */
+  .history-page .timeline-item {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    align-items: center;
+    column-gap: 10px;
+    padding: 0 0 24px;
+  }
+
+  /* Botón del punto centrado en su columna */
+  .history-page .timeline-year-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    min-height: 72px;
+    padding: 0;
+  }
+
+  /* Punto limpio y centrado */
+  .history-page .timeline-dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    margin-top: 0;
+    border: 2px solid #f5c400;
+    border-radius: 50%;
+    background: #000000;
+  }
+
+  .history-page .timeline-dot::before {
+    display: none;
+  }
+
+  .history-page .timeline-dot span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: transparent;
+  }
+
+  .history-page .timeline-item--active .timeline-dot span {
+    background: #f5c400;
+  }
+
+  /* Tarjeta: imagen a la izquierda y texto centrado verticalmente a la derecha */
+  .history-page .timeline-card {
+    display: grid;
+    grid-template-columns: 105px minmax(0, 1fr);
+    align-items: center;
+    gap: 13px;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    text-align: left;
+  }
+
+  .history-page .timeline-card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  /* Año visible en blanco/amarillo sobre el fondo oscuro */
+  .history-page .timeline-card__year {
+    display: block;
+    margin: 0 0 4px;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .history-page .timeline-item--active .timeline-card__year {
+    color: #f5c400;
+  }
+
+  .history-page .timeline-item.timeline-item--green .timeline-card__year,
+  .history-page .timeline-item.timeline-item--green.timeline-item--active .timeline-card__year {
+    color: var(--history-green);
+  }
+
+  /* Título y descripción legibles sobre fondo oscuro */
+  .history-page .timeline-card h3 {
+    min-height: 0;
+    margin: 0 0 4px;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  .history-page .timeline-card p {
+    margin: 0;
+    color: #e5e5e5;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+
+
   /* ========================================================
      HERO
      ======================================================== */
@@ -2189,6 +2308,61 @@
 
   .timeline-heading{
     display: block;
+  }
+}
+
+/* ==========================================================
+   VERDE SOLO EN HOVER / FOCUS EN TABLET Y MÓVIL
+   ========================================================== */
+@media (max-width: 1024px) {
+  /* Estado normal: sin verde fijo en los ítems >= 2023 */
+  .history-page .timeline-item.timeline-item--green .timeline-dot span,
+  .history-page .timeline-item.timeline-item--green.timeline-item--active .timeline-dot > span {
+    background: transparent;
+    transform: none;
+  }
+
+  .history-page .timeline-item.timeline-item--green .timeline-year,
+  .history-page .timeline-item.timeline-item--green.timeline-item--active .timeline-year,
+  .history-page .timeline-item.timeline-item--green .timeline-card__year,
+  .history-page .timeline-item.timeline-item--green.timeline-item--active .timeline-card__year {
+    color: #ffffff;
+  }
+
+  .history-page .timeline-item.timeline-item--green.timeline-item--active .timeline-card {
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  /* Hover / focus-visible: aplica el verde solo al interactuar */
+  .history-page .timeline-item.timeline-item--green:hover .timeline-dot span,
+  .history-page .timeline-item.timeline-item--green:focus-within .timeline-dot span,
+  .history-page .timeline-item.timeline-item--green .timeline-year-button:hover .timeline-dot span,
+  .history-page .timeline-item.timeline-item--green .timeline-year-button:focus-visible .timeline-dot span,
+  .history-page .timeline-item.timeline-item--green .timeline-card:hover ~ .timeline-year-button .timeline-dot span {
+    background-color: var(--history-green);
+    transform: scale(1.25);
+  }
+
+  .history-page .timeline-item.timeline-item--green:hover .timeline-year,
+  .history-page .timeline-item.timeline-item--green:hover .timeline-card__year,
+  .history-page .timeline-item.timeline-item--green .timeline-year-button:hover .timeline-year,
+  .history-page .timeline-item.timeline-item--green .timeline-year-button:focus-visible .timeline-year,
+  .history-page .timeline-item.timeline-item--green .timeline-card:hover .timeline-card__year,
+  .history-page .timeline-item.timeline-item--green .timeline-card:focus-visible .timeline-card__year {
+    color: var(--history-green);
+  }
+
+  .history-page .timeline-item.timeline-item--green .timeline-card:hover,
+  .history-page .timeline-item.timeline-item--green .timeline-card:focus-visible {
+    border-color: var(--history-green);
+    box-shadow: 0 8px 26px rgb(157 196 37 / 18%);
+  }
+
+  .history-page .timeline-item.timeline-item--green .timeline-year-button:focus-visible,
+  .history-page .timeline-item.timeline-item--green .timeline-card:focus-visible {
+    outline: 2px solid var(--history-green);
+    outline-offset: 4px;
   }
 }
 

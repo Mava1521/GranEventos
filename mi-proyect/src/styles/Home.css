@@ -861,10 +861,10 @@
   color: rgba(255, 255, 255, 0.82);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(10px, 0.75vw, 14px);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.2;
   letter-spacing: 0.32em;
-
+  font-size: medium;
   text-transform: uppercase;
 }
 

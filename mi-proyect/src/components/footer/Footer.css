@@ -387,7 +387,28 @@
   }
 
   .footer-logos {
+    flex-wrap: nowrap;
     justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .footer-logo-ge {
+    width: auto;
+    max-width: 135px;
+    max-height: 44px;
+  }
+
+  .footer-logo-setie {
+    width: auto;
+    max-width: 115px;
+    max-height: 42px;
+  }
+
+  .footer-logo-divider {
+    flex-shrink: 0;
+    height: 28px;
   }
 
   .footer-legal {

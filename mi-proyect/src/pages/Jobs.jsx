@@ -126,7 +126,7 @@ export default function Jobs() {
             }
           >
             {t("jobs.hero.cta")}
-            <span aria-hidden="true">→</span>
+            <span aria-hidden="true">↓</span>
           </button>
 
         </div>
