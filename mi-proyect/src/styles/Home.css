@@ -954,20 +954,16 @@
 
 .wrapper .ge-home-story-line {
   display: block;
-
   width: 48px;
   height: 3px;
-
   margin-top: 30px;
   margin-bottom: 24px;
-
   background: #f4c400;
 }
 
 .wrapper .ge-home-story-description {
   max-width: 390px;
   margin: 0;
-
   color: rgba(255, 255, 255, 0.78);
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(14px, 1vw, 18px);
@@ -983,7 +979,6 @@
   top: 0;
   right: clamp(28px, 4vw, 70px);
   z-index: 3;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1069,6 +1064,41 @@
 
   color: rgba(255, 255, 255, 0.85);
   font-weight: 500;
+}
+
+.wrapper .ge-home-story-title-gradient .ge-story-part-yellow {
+  color: var(--accent-gold);
+  -webkit-text-fill-color: var(--accent-gold);
+  background: none;
+}
+
+.wrapper .ge-home-story-title-gradient .ge-story-part-blend {
+  display: inline-block;
+  color: var(--accent-green);
+}
+
+@supports (
+  (-webkit-background-clip: text) or
+  (background-clip: text)
+) {
+  .wrapper .ge-home-story-title-gradient .ge-story-part-blend {
+    background-image: linear-gradient(
+      90deg,
+      var(--accent-gold) 0%,
+      var(--accent-green) 42%,
+      var(--accent-green) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+.wrapper .ge-home-story-title-gradient .ge-story-part-green {
+  color: var(--accent-green);
+  -webkit-text-fill-color: var(--accent-green);
+  background: none;
 }
 
 /* =========================================================

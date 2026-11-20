@@ -111,10 +111,11 @@ export default function Home() {
 
             <span className="ge-home-story-title-gradient">
               <span className="ge-home-story-title-line">
-                {t('home.story.titleYellow')} {t('home.story.titleSplit')}
+                <span className="ge-story-part-yellow">UNA MIS</span>
+                <span className="ge-story-part-blend">MA</span>
               </span>
 
-              <span className="ge-home-story-title-line">
+              <span className="ge-home-story-title-line ge-story-part-green">
                 {t('home.story.titleGreen')}
               </span>
             </span>
